@@ -10,6 +10,7 @@ import { HOME_FAQS } from '../data/faqs'
 import { HOME_HEADINGS, SITE_HOST, SITE_NAME, SITE_PURPOSE } from '../data/site'
 import { BLOGS, blogPath } from '../data/blogs'
 import { WARZONE_HOME_VIDEO } from '../data/media'
+import { WarzonePreview } from '../components/WarzonePreview'
 
 const FEATURES = [
   {
@@ -114,20 +115,7 @@ export function HomePage() {
             <h2 className="mb-5 text-xl font-semibold tracking-tight text-white sm:text-2xl">
               Warzone Cheats preview
             </h2>
-            <div className="video-brand-mask border border-z-soft/20 shadow-glow">
-              <div className="relative aspect-video w-full">
-                <iframe
-                  className="absolute inset-0 h-full w-full"
-                  src={WARZONE_HOME_VIDEO.embedUrl}
-                  title={WARZONE_HOME_VIDEO.title}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                  loading="eager"
-                />
-                <div className="video-brand-blur" aria-hidden />
-              </div>
-            </div>
+            <WarzonePreview className="shadow-glow" />
             <p className="mt-3 text-sm text-white/45">{WARZONE_HOME_VIDEO.caption}</p>
           </div>
         </section>

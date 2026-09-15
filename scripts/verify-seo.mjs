@@ -116,16 +116,15 @@ for (const file of files) {
   if (html.includes('content="noindex')) fail(`${page}: content page must not be noindex`)
 }
 for (const html of importantPages) {
-  if (
-    !html.includes('/media/warzone-') &&
-    !html.includes('iframe.mediadelivery.net/embed/') &&
-    !html.includes('youtube-nocookie.com/embed/')
-  ) {
+  if (!html.includes('/media/warzone-')) {
     fail('An important indexed page is missing visible Warzone media')
   }
 }
-if (!home.includes('iframe.mediadelivery.net/embed/426993')) {
-  fail('Homepage is missing the Warzone preview video')
+if (!home.includes('/media/warzone-delta-gameplay.gif') || !home.includes('/media/warzone-esp-gameplay.gif')) {
+  fail('Homepage is missing the Warzone preview media strip')
+}
+if (home.includes('iframe.mediadelivery.net') || product.includes('iframe.mediadelivery.net')) {
+  fail('Pages still embed blocked mediadelivery video (403 off-domain)')
 }
 
 const sitemap = readFileSync(join(dist, 'sitemap.xml'), 'utf8')

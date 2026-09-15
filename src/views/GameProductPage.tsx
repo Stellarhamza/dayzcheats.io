@@ -16,6 +16,7 @@ import { CheckoutLink } from '../components/CheckoutLink'
 import { NotFoundPage } from './NotFoundPage'
 import { blogPath } from '../data/blogs'
 import { WARZONE_HOME_VIDEO } from '../data/media'
+import { WarzonePreview } from '../components/WarzonePreview'
 
 function ProductPurchaseCard({ game }: { game: Game }) {
   return (
@@ -86,20 +87,8 @@ export function GameProductPage({ guideSlug }: GameProductPageProps) {
               <span className="min-w-0 text-white/70">Product details</span>
             </nav>
 
-            <div className="video-brand-mask mt-5 border border-z-soft/20 sm:mt-8">
-              <div className="relative aspect-video w-full lg:aspect-[21/9]">
-                <iframe
-                  className="absolute inset-0 h-full w-full"
-                  src={WARZONE_HOME_VIDEO.embedUrl}
-                  title={WARZONE_HOME_VIDEO.title}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                  loading="lazy"
-                />
-                <div className="video-brand-blur" aria-hidden />
-              </div>
-            </div>
+            <WarzonePreview wide className="mt-5 sm:mt-8" />
+            <p className="mt-3 text-sm text-white/45">{WARZONE_HOME_VIDEO.caption}</p>
 
             <div className="mt-5 sm:mt-6">
               <span className="inline-flex items-center gap-1.5 text-xs text-z-soft">

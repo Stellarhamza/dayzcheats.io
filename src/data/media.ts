@@ -19,13 +19,11 @@ export const WARZONE_CONTROL = '/media/warzone-control-art.jpg'
 export const WARZONE_HOME_ART = '/media/warzone-home-art.jpg'
 export const WARZONE_TACTICAL = '/media/warzone-tactical-art.jpg'
 
-/** Homepage / product preview embed — Battlelog UI blurred via CSS overlay. */
+/** Preview copy — media is self-hosted GIFs (Bunny Stream embeds 403 off battlelog). */
 export const WARZONE_HOME_VIDEO = {
-  id: 'ac46bcfe-5656-4c03-a714-f5a58b236c47',
-  embedUrl:
-    'https://iframe.mediadelivery.net/embed/426993/ac46bcfe-5656-4c03-a714-f5a58b236c47?autoplay=true&muted=true&preload=true&responsive=true&controls=true',
+  id: 'local-warzone-preview',
   title: 'Warzone Cheats Aimbot and ESP preview',
-  caption: 'Preview of Warzone Aimbot, ESP and radar features on PC.',
+  caption: 'Preview of Warzone Aimbot, ESP menu and radar features on PC.',
 } as const
 
 export const PAGE_MEDIA = {
