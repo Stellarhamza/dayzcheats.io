@@ -1,8 +1,7 @@
 /**
- * Cloudflare Pages middleware — runs before static HTML for matched routes.
- * 301 www/.cc/http → https://theislecheats.net (canonical apex).
- * /sitemap.xml and /robots.txt are excluded in public/_routes.json so Google
- * fetches them as pure static files (avoids Functions/522 timeouts).
+ * Host redirects for legacy Pages Functions (if invoked).
+ * Primary redirects live in workers/site.js for `npx wrangler deploy`.
+ * /sitemap.xml is excluded in public/_routes.json so crawlers get a static file.
  */
 const CANONICAL_HOST = 'theislecheats.net'
 const LEGACY_HOSTS = new Set([

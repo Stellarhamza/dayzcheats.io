@@ -1,9 +1,7 @@
 /**
- * Unused while the project deploys as Cloudflare Pages
- * (see wrangler.toml pages_build_output_dir + npm run deploy).
- * Kept as a fallback Worker entry if the project is moved to Workers+assets again.
- * If re-enabled, always fetch via https://assets.local/... — never the request host —
- * to avoid Cloudflare HTTP 522 on custom domains.
+ * Worker entry for Astro static output in ./dist.
+ * IMPORTANT: Always fetch assets via https://assets.local — never the request
+ * hostname — or Cloudflare returns HTTP 522 on custom domains.
  */
 const CANONICAL_HOST = 'theislecheats.net'
 const LEGACY_HOSTS = new Set([
@@ -17,8 +15,33 @@ function needsCanonicalRedirect(url) {
   return url.protocol === 'http:' || LEGACY_HOSTS.has(host)
 }
 
-function assetRequest(request, pathname) {
-  return new Request(new URL(pathname, 'https://assets.local'), request)
+function assetsFetch(env, request, pathname) {
+  return env.ASSETS.fetch(new Request(new URL(pathname, 'https://assets.local'), request))
+}
+
+function withHtmlCharset(response) {
+  const contentType = response.headers.get('content-type') || ''
+  const primary = contentType.split(',')[0].trim()
+  if (!primary.toLowerCase().startsWith('text/html')) return response
+  if (/charset=/i.test(primary)) {
+    if (contentType.includes(',')) {
+      const headers = new Headers(response.headers)
+      headers.set('content-type', primary)
+      return new Response(response.body, {
+        status: response.status,
+        statusText: response.statusText,
+        headers,
+      })
+    }
+    return response
+  }
+  const headers = new Headers(response.headers)
+  headers.set('content-type', 'text/html; charset=utf-8')
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  })
 }
 
 export default {
@@ -31,6 +54,7 @@ export default {
       return Response.redirect(url.toString(), 301)
     }
 
-    return env.ASSETS.fetch(assetRequest(request, url.pathname + url.search))
+    const assetResponse = await assetsFetch(env, request, url.pathname + url.search)
+    return withHtmlCharset(assetResponse)
   },
 }

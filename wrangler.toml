@@ -1,6 +1,33 @@
-# Cloudflare Pages project — deploy with: wrangler pages deploy
-# (npm run deploy). Do not use Workers `main`/`[assets]` here; that
-# detaches custom domains and produces HTTP 522 for Googlebot.
+# Cloudflare Workers + static assets — required so CI `npx wrangler deploy` succeeds.
+# (Dashboard is locked to that command; `wrangler pages deploy` is not used.)
 name = "theisleqrhe"
+main = "workers/site.js"
 compatibility_date = "2026-09-12"
-pages_build_output_dir = "./dist"
+
+# Recreate DNS/SSL for apex + www (fixes NXDOMAIN / Google HTTP 522).
+[[routes]]
+pattern = "theislecheats.net"
+custom_domain = true
+
+[[routes]]
+pattern = "www.theislecheats.net"
+custom_domain = true
+
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+not_found_handling = "404-page"
+html_handling = "drop-trailing-slash"
+# Host redirects need the Worker, but sitemap/robots must stay asset-first
+# so Google never hits a Worker/origin timeout (HTTP 522).
+run_worker_first = [
+  "/*",
+  "!/sitemap.xml",
+  "!/robots.txt",
+  "!/sitemap.css",
+  "!/favicon.svg",
+  "!/_astro/*",
+  "!/media/*",
+  "!/videos/*",
+  "!/og/*",
+]
