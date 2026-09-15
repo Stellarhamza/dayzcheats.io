@@ -83,8 +83,8 @@ export function getGameImage(_slug: string): string {
   return WARZONE_PRODUCT_COVER
 }
 
-export function getProductHeroImage(slug: string): string {
-  return slug === 'warzone' ? WARZONE_PRODUCT_HERO : getGameImage(slug)
+export function getProductHeroImage(_slug: string): string {
+  return WARZONE_PRODUCT_COVER
 }
 
 export function getOgImage(path?: string): string {

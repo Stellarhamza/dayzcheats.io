@@ -22,7 +22,13 @@ function ProductPurchaseCard({ game }: { game: Game }) {
   return (
     <div className="page-card overflow-hidden rounded-2xl sm:rounded-3xl">
       <CheckoutLink className="block" aria-label="Buy Warzone Cheats">
-        <GameCover slug={game.slug} name={game.name} aspect="square" className="rounded-none" />
+        <GameCover
+          slug={game.slug}
+          name={game.name}
+          aspect="square"
+          variant="product"
+          className="rounded-none"
+        />
       </CheckoutLink>
       <div className="p-5 sm:p-8">
         <div className="flex items-center gap-3">

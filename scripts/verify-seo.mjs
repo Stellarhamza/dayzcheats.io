@@ -144,7 +144,7 @@ const requiredImages = [
   '/media/warzone-esp-gameplay.gif',
   '/media/warzone-menu.gif',
   '/media/warzone-delta-hero.webp',
-  '/media/warzone-auron-cover.webp',
+  '/media/warzone-auron-box.webp',
   '/og/warzone-cheats.jpg',
 ]
 
@@ -214,7 +214,7 @@ if (!routes.exclude?.includes('/sitemap.xml') || !routes.exclude?.includes('/rob
 for (const asset of [
   'public/og/warzone-cheats.jpg',
   'public/media/warzone-delta-hero.webp',
-  'public/media/warzone-auron-cover.webp',
+  'public/media/warzone-auron-box.webp',
   'public/media/warzone-delta-hero.webp',
   'public/media/warzone-esp-gameplay.gif',
   'public/media/warzone-menu.gif',
