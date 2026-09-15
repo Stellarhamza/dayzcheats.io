@@ -1,5 +1,6 @@
 import {
   WARZONE_HERO,
+  WARZONE_SOLDIER,
   WARZONE_COVER,
   WARZONE_GAMEPLAY,
   WARZONE_MENU,
@@ -41,14 +42,14 @@ export const PAGE_IMAGES: Record<
   PageImage
 > = {
   home: {
-    src: WARZONE_HERO,
+    src: WARZONE_SOLDIER,
     alt: 'Warzone cheats Aimbot and ESP artwork for PC',
-    title: 'Warzone Cheats UK',
+    title: 'Warzone Cheats',
     caption: 'Warzone Aimbot, ESP, wallhack and radar overview.',
   },
   forums: {
-    src: WARZONE_MENU,
-    alt: 'Warzone cheats setup and status guide artwork',
+    src: WARZONE_HERO,
+    alt: 'Warzone Delta cheats product artwork',
     title: 'Warzone Cheats Guides',
     caption: 'Setup, Aimbot and ESP guides for Warzone.',
   },

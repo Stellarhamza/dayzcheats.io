@@ -46,7 +46,7 @@ export type PageSeo = {
 
 export const SEO = {
   home: {
-    title: 'Warzone Cheats UK | Aimbot, ESP, Wallhack & Radar',
+    title: 'Warzone Cheats | Aimbot, ESP, Wallhack & Radar',
     description:
       'Buy undetected Warzone cheats for PC in the UK and worldwide — Aimbot, ESP, wallhack, radar hack and live Ricochet status for Call of Duty Warzone.',
     path: '/',
@@ -73,7 +73,7 @@ export const SEO = {
     robots: 'index, follow, max-image-preview:large, max-snippet:-1',
   },
   faq: {
-    title: 'Warzone Cheats FAQ | UK PC, Ricochet & Setup',
+    title: 'Warzone Cheats FAQ | PC, Ricochet & Setup',
     description:
       'Answers about Warzone cheats on Windows PC, UK delivery, Aimbot/ESP features, Ricochet updates and loader status.',
     path: '/faq',

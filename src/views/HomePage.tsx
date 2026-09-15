@@ -39,7 +39,7 @@ export function HomePage() {
     <div className="min-h-screen overflow-x-hidden text-white">
       <section id="home" className="relative flex min-h-screen flex-col overflow-x-clip">
         <VideoBg
-          image="/media/warzone-delta-hero.webp"
+          image="/media/warzone-soldier-hero.webp"
           imageAlt="Warzone cheats Aimbot and ESP product artwork"
         />
 
@@ -123,7 +123,7 @@ export function HomePage() {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   referrerPolicy="strict-origin-when-cross-origin"
                   allowFullScreen
-                  loading="lazy"
+                  loading="eager"
                 />
                 <div className="video-brand-blur" aria-hidden />
               </div>

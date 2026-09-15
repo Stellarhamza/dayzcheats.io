@@ -9,6 +9,7 @@ export type SeoMediaItem = {
 }
 
 export const WARZONE_HERO = '/media/warzone-delta-hero.webp'
+export const WARZONE_SOLDIER = '/media/warzone-soldier-hero.webp'
 export const WARZONE_GAMEPLAY = '/media/warzone-delta-gameplay.gif'
 export const WARZONE_MENU = '/media/warzone-menu.gif'
 export const WARZONE_ESP = '/media/warzone-esp-gameplay.gif'
@@ -22,14 +23,14 @@ export const WARZONE_TACTICAL = '/media/warzone-tactical-art.jpg'
 export const WARZONE_HOME_VIDEO = {
   id: 'ac46bcfe-5656-4c03-a714-f5a58b236c47',
   embedUrl:
-    'https://iframe.mediadelivery.net/embed/426993/ac46bcfe-5656-4c03-a714-f5a58b236c47?autoplay=false&controls=true',
+    'https://iframe.mediadelivery.net/embed/426993/ac46bcfe-5656-4c03-a714-f5a58b236c47?autoplay=true&muted=true&preload=true&responsive=true&controls=true',
   title: 'Warzone Cheats Aimbot and ESP preview',
   caption: 'Preview of Warzone Aimbot, ESP and radar features on PC.',
 } as const
 
 export const PAGE_MEDIA = {
   home: {
-    image: WARZONE_HERO,
+    image: WARZONE_SOLDIER,
     alt: 'Warzone cheats Aimbot and ESP product artwork for PC',
     title: 'Warzone Cheats for PC',
     caption: 'Feature overview for Warzone Aimbot, ESP, wallhack and radar.',
@@ -41,8 +42,8 @@ export const PAGE_MEDIA = {
     caption: 'Product overview for Warzone on Windows PC.',
   },
   forums: {
-    image: WARZONE_MENU,
-    alt: 'Warzone cheats menu and setup guide artwork',
+    image: WARZONE_HERO,
+    alt: 'Warzone Delta cheats product artwork',
     title: 'Warzone Cheats Guides',
     caption: 'Reference for setup, Aimbot, ESP, radar and status articles.',
   },

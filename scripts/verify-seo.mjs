@@ -80,7 +80,7 @@ const importantPages = [
   readFileSync(join(dist, 'forums', 'index.html'), 'utf8'),
 ]
 
-if (!home.includes('<title>Warzone Cheats UK | Aimbot, ESP, Wallhack &amp; Radar</title>')) {
+if (!home.includes('<title>Warzone Cheats | Aimbot, ESP, Wallhack &amp; Radar</title>')) {
   fail('Homepage does not own the exact transactional title')
 }
 if (product.includes('<title>Buy Warzone Cheats')) fail('Product details page competes with homepage')
