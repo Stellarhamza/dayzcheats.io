@@ -3,11 +3,9 @@
  * IMPORTANT: Always fetch assets via https://assets.local — never the request
  * hostname — or Cloudflare returns HTTP 522 on custom domains.
  *
- * Canonical host is www — apex may lack IPv4 A records.
+ * Serve both apex and www. Do not bounce between them — some resolvers still
+ * hold negative NXDOMAIN caches for one hostname while the other works.
  */
-const CANONICAL_HOST = 'www.warzonecheats.uk'
-const LEGACY_HOSTS = new Set(['warzonecheats.uk'])
-
 function assetsFetch(env, request, pathname) {
   return env.ASSETS.fetch(new Request(new URL(pathname, 'https://assets.local'), request))
 }
@@ -40,11 +38,9 @@ function withHtmlCharset(response) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url)
-    const host = url.hostname.toLowerCase()
 
-    if (url.protocol === 'http:' || LEGACY_HOSTS.has(host)) {
+    if (url.protocol === 'http:') {
       url.protocol = 'https:'
-      url.hostname = CANONICAL_HOST
       return Response.redirect(url.toString(), 301)
     }
 

@@ -1,17 +1,17 @@
-export type FaqItem = {
+﻿export type FaqItem = {
   q: string
   a: string
 }
 
-/** Master FAQ — visible on /faq and reused in sections. */
+/** Master FAQ â€” visible on /faq and reused in sections. */
 export const SITE_FAQS: FaqItem[] = [
   {
     q: 'What are Warzone Cheats?',
-    a: 'Warzone Cheats are tools for Call of Duty: Warzone on www.warzonecheats.uk — Aimbot, player ESP, wallhack and 2D radar — with live Undetected or Updating status after Ricochet patches.',
+    a: 'Warzone Cheats are tools for Call of Duty: Warzone on warzonecheats.uk â€” Aimbot, player ESP, wallhack and 2D radar â€” with live Undetected or Updating status after Ricochet patches.',
   },
   {
     q: 'Do you cover other games?',
-    a: 'No. www.warzonecheats.uk sells Warzone Cheats only — no Apex, Fortnite or filler catalog titles.',
+    a: 'No. warzonecheats.uk sells Warzone Cheats only â€” no Apex, Fortnite or filler catalog titles.',
   },
   {
     q: 'Is Aimbot the main feature?',
@@ -19,11 +19,11 @@ export const SITE_FAQS: FaqItem[] = [
   },
   {
     q: 'Are Warzone Cheats undetected against Ricochet?',
-    a: 'We mark live Undetected or Updating status after Warzone / Ricochet updates. Always check status on www.warzonecheats.uk before you load.',
+    a: 'We mark live Undetected or Updating status after Warzone / Ricochet updates. Always check status on warzonecheats.uk before you load.',
   },
   {
     q: 'What features are included?',
-    a: 'Warzone Aimbot, player ESP / wallhack, loot ESP when supported, 2D radar and stream-proof options — Warzone on Windows PC only. See the Features List guide for the full checklist.',
+    a: 'Warzone Aimbot, player ESP / wallhack, loot ESP when supported, 2D radar and stream-proof options â€” Warzone on Windows PC only. See the Features List guide for the full checklist.',
   },
   {
     q: 'Does it work on Windows PC Warzone?',
@@ -47,7 +47,7 @@ export const SITE_FAQS: FaqItem[] = [
   },
   {
     q: 'What is your refund policy?',
-    a: 'Digital licenses follow the Refunds page — delivery failures and extended Updating windows can qualify; change of mind after a working key does not.',
+    a: 'Digital licenses follow the Refunds page â€” delivery failures and extended Updating windows can qualify; change of mind after a working key does not.',
   },
   {
     q: 'Is this the official Warzone game site?',

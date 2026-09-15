@@ -3,7 +3,7 @@ import { join, relative } from 'node:path'
 
 const root = join(import.meta.dirname, '..')
 const dist = join(root, 'dist')
-const site = 'https://www.warzonecheats.uk'
+const site = 'https://warzonecheats.uk'
 const failures = []
 
 function fail(message) {
@@ -98,7 +98,7 @@ for (const [name, html] of [
   ['product', product],
   ['reviews', reviews],
 ]) {
-  if (!html.includes('"@id":"https://www.warzonecheats.uk/#product"')) {
+  if (!html.includes('"@id":"https://warzonecheats.uk/#product"')) {
     fail(`${name}: missing shared Product ID`)
   }
 }
@@ -197,7 +197,7 @@ if (!existsSync(join(dist, 'robots.txt'))) fail('dist/robots.txt is missing')
 if (!existsSync(join(dist, '_routes.json'))) fail('dist/_routes.json is missing')
 
 const robots = readFileSync(join(dist, 'robots.txt'), 'utf8')
-if (!robots.includes('Sitemap: https://www.warzonecheats.uk/sitemap.xml')) {
+if (!robots.includes('Sitemap: https://warzonecheats.uk/sitemap.xml')) {
   fail('robots.txt must point at the canonical HTTPS sitemap')
 }
 if (!robots.includes('Allow: /sitemap.xml')) {

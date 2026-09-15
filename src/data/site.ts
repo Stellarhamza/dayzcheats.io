@@ -1,8 +1,8 @@
 import { WARZONE_OG, PAGE_IMAGES } from './images'
 
-export const SITE_URL = 'https://www.warzonecheats.uk'
+export const SITE_URL = 'https://warzonecheats.uk'
 export const SITE_NAME = 'Warzone Cheats'
-export const SITE_HOST = 'www.warzonecheats.uk'
+export const SITE_HOST = 'warzonecheats.uk'
 
 /**
  * Sole purpose — used in schema + about copy.

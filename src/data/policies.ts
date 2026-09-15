@@ -1,4 +1,4 @@
-export type PolicySection = {
+﻿export type PolicySection = {
   heading: string
   body: string[]
 }
@@ -23,7 +23,7 @@ export const POLICY_PAGES: PolicyPageContent[] = [
       'How warzonecheats.uk handles order details, delivery email, support messages and basic site analytics for Warzone Cheats.',
     h1: 'Privacy Policy',
     intro:
-      'This page explains what we collect when you browse warzonecheats.uk, buy a Warzone Cheats license, or contact support — and what we do not collect.',
+      'This page explains what we collect when you browse warzonecheats.uk, buy a Warzone Cheats license, or contact support â€” and what we do not collect.',
     sections: [
       {
         heading: 'What we collect',
@@ -37,7 +37,7 @@ export const POLICY_PAGES: PolicyPageContent[] = [
         heading: 'How we use it',
         body: [
           'Order email is used for license delivery, renewals, and reply-to support.',
-          'Support details are used only to resolve your ticket — loader errors, exclusions, status questions, or refund requests that fall under our refunds policy.',
+          'Support details are used only to resolve your ticket â€” loader errors, exclusions, status questions, or refund requests that fall under our refunds policy.',
           'Aggregate traffic data helps us keep pages fast and catch abuse. It is not used to profile you for ads.',
         ],
       },
@@ -46,7 +46,7 @@ export const POLICY_PAGES: PolicyPageContent[] = [
         body: [
           'Essential cookies may be set by checkout or CDN providers so payment and delivery work.',
           'Preview media is hosted on warzonecheats.uk. Third-party embeds are not used for the main product preview.',
-          'Official Call of Duty / Warzone links are external. Their privacy policies apply once you leave www.warzonecheats.uk.',
+          'Official Call of Duty / Warzone links are external. Their privacy policies apply once you leave warzonecheats.uk.',
         ],
       },
       {
@@ -71,7 +71,7 @@ export const POLICY_PAGES: PolicyPageContent[] = [
       'License rules, age limits, anti-cheat risk, and liability limits for Warzone Cheats on warzonecheats.uk.',
     h1: 'Terms of Use',
     intro:
-      'Buying or running Warzone Cheats means you accept these terms. A license covers personal use of Aimbot, ESP, wallhack and radar tools for Warzone on Windows PC — nothing beyond that.',
+      'Buying or running Warzone Cheats means you accept these terms. A license covers personal use of Aimbot, ESP, wallhack and radar tools for Warzone on Windows PC â€” nothing beyond that.',
     sections: [
       {
         heading: 'Acceptance and what a license covers',
@@ -83,7 +83,7 @@ export const POLICY_PAGES: PolicyPageContent[] = [
       {
         heading: 'Risk and anti-cheat disclaimer',
         body: [
-          'Warzone uses Ricochet. Using third-party software can violate the game’s terms and lead to account penalties.',
+          'Warzone uses Ricochet. Using third-party software can violate the gameâ€™s terms and lead to account penalties.',
           'We push rebuilds after Ricochet and game updates when needed, but nothing here guarantees a build stays undetected forever or that an account stays safe.',
           'All risk sits with you. We accept no liability for bans, lost progress, or other damage tied to using the product. Check live status before you load.',
         ],
@@ -98,8 +98,8 @@ export const POLICY_PAGES: PolicyPageContent[] = [
       {
         heading: 'Limitation of liability and disputes',
         body: [
-          'The product is provided “as is.” If anything goes wrong, our total liability is capped at what you paid for the affected license in the previous 30 days.',
-          'Open a ticket on Support first. Governing law follows our payment processor’s jurisdiction unless local law requires otherwise.',
+          'The product is provided â€œas is.â€ If anything goes wrong, our total liability is capped at what you paid for the affected license in the previous 30 days.',
+          'Open a ticket on Support first. Governing law follows our payment processorâ€™s jurisdiction unless local law requires otherwise.',
           'We may update these terms on this page. Continued use after a change means the new version applies.',
         ],
       },
@@ -132,7 +132,7 @@ export const POLICY_PAGES: PolicyPageContent[] = [
         heading: 'When refunds are not available',
         body: [
           'Change of mind after a working key has been delivered and activated.',
-          'Bans, reports, or gameplay outcomes — status is never a permanent guarantee.',
+          'Bans, reports, or gameplay outcomes â€” status is never a permanent guarantee.',
           'Issues caused by skipping antivirus exclusions, running conflicting overlays, or loading while status is Updating.',
           'Shared, resold, or otherwise invalidated keys under the Terms of Use.',
         ],
