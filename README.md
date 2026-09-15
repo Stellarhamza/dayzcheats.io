@@ -1,4 +1,4 @@
-# The Isle Cheats (theislecheats.cc)
+# The Isle Cheats (theislecheats.net)
 
 Static Astro site for The Isle (Evrima) cheats — Cloudflare Pages ready.
 
