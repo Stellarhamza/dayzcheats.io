@@ -158,8 +158,8 @@ if (!sitemap.includes('/media/theisle-cheats-esp-river.jpg')) {
 if (!sitemap.trimStart().startsWith('<?xml version="1.0" encoding="UTF-8"?>')) {
   fail('sitemap.xml must start with an XML declaration')
 }
-if (!sitemap.includes('<?xml-stylesheet type="text/css" href="/sitemap.css"?>')) {
-  fail('sitemap.xml must reference the browser presentation stylesheet')
+if (sitemap.includes('xml-stylesheet')) {
+  fail('sitemap.xml must not embed xml-stylesheet (Worker injects it for browsers only)')
 }
 for (const stale of [
   'sitemap-pages.xml',
@@ -184,6 +184,9 @@ if (!robots.includes('Sitemap: https://theislecheats.net/sitemap.xml')) {
 }
 if (!robots.includes('Allow: /sitemap.xml')) {
   fail('robots.txt must explicitly allow /sitemap.xml')
+}
+if (!robots.includes('User-agent: Googlebot')) {
+  fail('robots.txt must explicitly allow Googlebot')
 }
 
 const routes = JSON.parse(readFileSync(join(dist, '_routes.json'), 'utf8'))

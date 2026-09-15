@@ -157,8 +157,9 @@ function buildSitemap(games, forums) {
     }),
   ]
 
+  // No xml-stylesheet PI here — Googlebot/GSC treat it as a fetch risk.
+  // workers/site.js injects the stylesheet for human browsers only.
   return `<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/css" href="/sitemap.css"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
@@ -216,6 +217,16 @@ function main() {
   writeFileSync(
     join(publicDir, 'robots.txt'),
     [
+      'User-agent: Googlebot',
+      'Allow: /',
+      'Allow: /sitemap.xml',
+      'Allow: /robots.txt',
+      '',
+      'User-agent: Google-InspectionTool',
+      'Allow: /',
+      'Allow: /sitemap.xml',
+      'Allow: /robots.txt',
+      '',
       'User-agent: *',
       'Allow: /',
       'Allow: /sitemap.xml',
