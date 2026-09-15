@@ -142,13 +142,6 @@ export function HomePage() {
           </div>
         </section>
 
-        <section
-          aria-hidden
-          className="relative border-y border-z-soft/20 bg-z-band"
-        >
-          <LocalVideoStrip src="/videos/home-wave.webm" startAt={2} eager />
-        </section>
-
         <section id="picks" className="page-x py-16 sm:py-20">
           <div className="mx-auto max-w-6xl">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
@@ -300,6 +293,13 @@ export function HomePage() {
             </a>
           </div>
         </div>
+
+        <section
+          aria-hidden
+          className="relative border-y border-z-soft/20 bg-z-band"
+        >
+          <LocalVideoStrip src="/videos/home-wave" startAt={0} eager />
+        </section>
 
         <SiteFooter currentPath="/" />
       </div>

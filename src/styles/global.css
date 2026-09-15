@@ -255,32 +255,32 @@ body {
   outline: none;
   pointer-events: none;
   /* Keep motion readable under purple overlays */
-  filter: grayscale(0.55) contrast(1.1) brightness(0.88);
+  filter: grayscale(0.25) contrast(1.08) brightness(0.95);
 }
 
 .video-strip-tint {
   background:
     linear-gradient(
       90deg,
-      rgba(176, 64, 251, 0.55),
-      rgba(124, 58, 237, 0.42) 40%,
-      rgba(167, 139, 250, 0.36) 70%,
-      rgba(176, 64, 251, 0.5)
+      rgba(176, 64, 251, 0.32),
+      rgba(124, 58, 237, 0.22) 40%,
+      rgba(167, 139, 250, 0.2) 70%,
+      rgba(176, 64, 251, 0.28)
     ),
-    linear-gradient(180deg, rgba(8, 6, 15, 0.18), transparent 40%, rgba(8, 6, 15, 0.28));
+    linear-gradient(180deg, rgba(8, 6, 15, 0.12), transparent 40%, rgba(8, 6, 15, 0.18));
   mix-blend-mode: color;
-  opacity: 0.82;
+  opacity: 0.55;
 }
 
 .video-strip-tint-glow {
   background: linear-gradient(
     90deg,
-    rgba(176, 64, 251, 0.28),
-    rgba(192, 132, 252, 0.16) 50%,
-    rgba(124, 58, 237, 0.24)
+    rgba(176, 64, 251, 0.16),
+    rgba(192, 132, 252, 0.1) 50%,
+    rgba(124, 58, 237, 0.14)
   );
   mix-blend-mode: soft-light;
-  opacity: 0.75;
+  opacity: 0.5;
 }
 
 .video-strip-local::-webkit-media-controls,

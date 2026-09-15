@@ -83,9 +83,10 @@ export function ReviewsPage() {
           className="relative mt-10 border-y border-z-soft/20 bg-z-band sm:mt-12"
         >
           <LocalVideoStrip
-            src="/videos/reviews-neon.webm"
-            startAt={2}
+            src="/videos/reviews-neon"
+            startAt={0}
             eager
+            poster="/media/theisle-cheats-esp-river.jpg"
             className="video-strip--reviews"
           />
         </section>

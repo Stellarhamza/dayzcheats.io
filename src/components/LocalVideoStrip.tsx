@@ -1,14 +1,16 @@
 import { useEffect, useRef, useState } from 'react'
 
-const REVIEWS_VIDEO = '/videos/reviews-neon.webm'
-const START_AT = 5
+const REVIEWS_VIDEO = '/videos/reviews-neon'
 
 type LocalVideoStripProps = {
   className?: string
+  /** Path without extension, e.g. `/videos/home-wave` — serves .webm + .mp4 */
   src?: string
+  /** Optional soft seek after playback starts (seconds). Prefer 0 for reliability. */
   startAt?: number
   /** Start loading immediately (home / reviews strips) */
   eager?: boolean
+  poster?: string
 }
 
 function prefersReducedMotion() {
@@ -18,17 +20,23 @@ function prefersReducedMotion() {
   )
 }
 
+function stripBase(src: string) {
+  return src.replace(/\.(webm|mp4)$/i, '')
+}
+
 export function LocalVideoStrip({
   className = '',
   src = REVIEWS_VIDEO,
-  startAt = START_AT,
+  startAt = 0,
   eager = false,
+  poster = '/media/theisle-cheats-esp-forest.jpg',
 }: LocalVideoStripProps) {
   const wrapRef = useRef<HTMLDivElement>(null)
   const ref = useRef<HTMLVideoElement>(null)
   const [visible, setVisible] = useState(false)
   const [active, setActive] = useState(eager)
   const [failed, setFailed] = useState(false)
+  const base = stripBase(src)
 
   useEffect(() => {
     if (eager) return
@@ -43,7 +51,7 @@ export function LocalVideoStrip({
           io.disconnect()
         }
       },
-      { rootMargin: '500px 0px', threshold: 0 },
+      { rootMargin: '600px 0px', threshold: 0 },
     )
     io.observe(root)
     return () => io.disconnect()
@@ -57,7 +65,7 @@ export function LocalVideoStrip({
     let cancelled = false
     let showTimer: ReturnType<typeof setTimeout> | undefined
     let retryTimer: ReturnType<typeof setTimeout> | undefined
-
+    let seekTimer: ReturnType<typeof setTimeout> | undefined
     const reduced = prefersReducedMotion()
 
     video.muted = true
@@ -73,63 +81,51 @@ export function LocalVideoStrip({
       if (!cancelled) setVisible(true)
     }
 
-    const jumpStart = () => {
-      const mark = Number.isFinite(video.duration) ? Math.min(startAt, Math.max(0, video.duration - 0.5)) : startAt
-      if (!video.duration || video.duration <= mark) return
+    const softSeek = () => {
+      if (!startAt || reduced) return
+      if (!Number.isFinite(video.duration) || video.duration <= startAt + 0.5) return
       try {
-        if (video.currentTime < mark - 0.2) {
-          video.currentTime = mark
+        if (Math.abs(video.currentTime - startAt) > 0.35) {
+          video.currentTime = startAt
         }
       } catch {
-        /* ignore seek failures */
+        /* ignore seek failures — keep playing from current frame */
       }
     }
 
     const play = () => {
-      if (cancelled || reduced) {
+      if (cancelled) return
+      if (reduced) {
         show()
         return
       }
-      jumpStart()
       void video
         .play()
-        .then(show)
+        .then(() => {
+          show()
+          // Seek only after playback has started so autoplay is not aborted.
+          seekTimer = setTimeout(softSeek, 250)
+        })
         .catch(() => {
           if (video.readyState >= 2) show()
           retryTimer = setTimeout(() => {
             if (cancelled) return
             void video.play().then(show).catch(() => show())
-          }, 400)
+          }, 350)
         })
     }
 
-    const onLoadedData = () => {
-      jumpStart()
-      play()
-    }
+    const onLoadedData = () => play()
     const onCanPlay = () => play()
     const onPlaying = () => show()
-    const onSeeked = () => {
-      if (reduced) {
-        show()
-        return
-      }
-      void video.play().then(show).catch(() => show())
-    }
     const onEnded = () => {
-      const mark = Number.isFinite(video.duration) ? Math.min(startAt, Math.max(0, video.duration - 0.5)) : 0
-      try {
-        video.currentTime = mark
-      } catch {
-        /* ignore */
-      }
+      softSeek()
       void video.play().catch(() => {})
     }
     const onError = () => {
       setFailed(true)
       show()
     }
-
     const onVisibility = () => {
       if (document.hidden || reduced || cancelled) return
       if (video.paused) void video.play().catch(() => {})
@@ -138,29 +134,28 @@ export function LocalVideoStrip({
     video.addEventListener('loadeddata', onLoadedData)
     video.addEventListener('canplay', onCanPlay)
     video.addEventListener('playing', onPlaying)
-    video.addEventListener('seeked', onSeeked)
     video.addEventListener('ended', onEnded)
     video.addEventListener('error', onError)
     document.addEventListener('visibilitychange', onVisibility)
 
-    showTimer = setTimeout(show, 1200)
+    showTimer = setTimeout(show, 900)
 
-    if (video.readyState >= 2) onLoadedData()
+    if (video.readyState >= 2) play()
     else video.load()
 
     return () => {
       cancelled = true
       if (showTimer) clearTimeout(showTimer)
       if (retryTimer) clearTimeout(retryTimer)
+      if (seekTimer) clearTimeout(seekTimer)
       video.removeEventListener('loadeddata', onLoadedData)
       video.removeEventListener('canplay', onCanPlay)
       video.removeEventListener('playing', onPlaying)
-      video.removeEventListener('seeked', onSeeked)
       video.removeEventListener('ended', onEnded)
       video.removeEventListener('error', onError)
       document.removeEventListener('visibilitychange', onVisibility)
     }
-  }, [active, src, startAt])
+  }, [active, base, startAt])
 
   return (
     <div
@@ -168,24 +163,36 @@ export function LocalVideoStrip({
       className={`video-strip relative w-full overflow-hidden pointer-events-none select-none ${className}`.trim()}
     >
       <div className="absolute inset-0 z-0 bg-z-band" aria-hidden />
+      {poster ? (
+        <img
+          src={poster}
+          alt=""
+          aria-hidden
+          decoding="async"
+          className="absolute inset-0 z-0 h-full w-full object-cover opacity-70"
+        />
+      ) : null}
       {active && !failed ? (
         <video
           ref={ref}
           className={`video-strip-local absolute inset-0 z-[1] h-full w-full object-cover transition-opacity duration-700 ${
             visible ? 'opacity-100' : 'opacity-0'
           }`}
-          src={src}
           muted
           autoPlay
           playsInline
           loop
           preload="auto"
+          poster={poster}
           controls={false}
           disablePictureInPicture
           disableRemotePlayback
           aria-hidden
           tabIndex={-1}
-        />
+        >
+          <source src={`${base}.webm`} type="video/webm" />
+          <source src={`${base}.mp4`} type="video/mp4" />
+        </video>
       ) : null}
       <div className="video-strip-tint pointer-events-none absolute inset-0 z-[2]" aria-hidden />
       <div className="video-strip-tint-glow pointer-events-none absolute inset-0 z-[2]" aria-hidden />

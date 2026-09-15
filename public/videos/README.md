@@ -1,5 +1,5 @@
 # Hero / strip videos
 
-- `black-angel.webm` — home hero background (The Isle Evrima clip)
-- `home-wave.webm` — home feature strip
-- `reviews-neon.webm` — reviews page strip
+- `black-angel.webm` — forums / other hero backgrounds
+- `home-wave.webm` + `home-wave.mp4` — home footer strip (webm + h264)
+- `reviews-neon.webm` + `reviews-neon.mp4` — reviews page strip
