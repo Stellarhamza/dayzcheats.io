@@ -20,6 +20,19 @@ function absoluteAsset(src: string) {
   return src.startsWith('http') ? src : `${SITE_URL}${src.startsWith('/') ? src : `/${src}`}`
 }
 
+function baseOffer(url: string, availability: string) {
+  return {
+    '@type': 'Offer',
+    url,
+    availability,
+    price: PRODUCT_PRICE_USD,
+    priceCurrency: 'USD',
+    priceValidUntil: '2027-12-31',
+    itemCondition: 'https://schema.org/NewCondition',
+    seller: { '@id': `${SITE_URL}/#organization` },
+  }
+}
+
 /** Stable Organization + WebSite identity for every page. */
 export function siteIdentityGraph() {
   return [
@@ -27,13 +40,7 @@ export function siteIdentityGraph() {
       '@type': 'Organization',
       '@id': `${SITE_URL}/#organization`,
       name: SITE_NAME,
-      alternateName: [
-        'Warzone Cheats',
-        'Warzone Cheats',
-        'the Warzone Cheats',
-        'Warzonehacks',
-        SITE_URL.replace('https://', ''),
-      ],
+      alternateName: ['Warzone Cheats UK', 'warzonecheats.uk', 'Warzone Aimbot ESP'],
       url: SITE_URL,
       description: SITE_PURPOSE,
       knowsAbout: [...SITE_ABOUT],
@@ -45,6 +52,7 @@ export function siteIdentityGraph() {
         height: 46,
       },
       image: absoluteAsset(OG_IMAGE),
+      areaServed: ['GB', 'Worldwide'],
     },
     {
       '@type': 'WebSite',
@@ -52,12 +60,12 @@ export function siteIdentityGraph() {
       name: SITE_NAME,
       url: SITE_URL,
       description: SITE_PURPOSE,
-      inLanguage: 'en',
+      inLanguage: 'en-GB',
       about: {
         '@type': 'Thing',
-        name: 'Warzone Cheats',
+        name: 'Warzone cheats',
         description:
-          'Hacks for Warzone only — ESP, soft aim, radar and live Ricochet status.',
+          'Commercial Warzone cheats for PC — Aimbot, ESP, wallhack, radar and Ricochet status.',
       },
       publisher: { '@id': `${SITE_URL}/#organization` },
     },
@@ -74,7 +82,7 @@ export function webPageNode(seo: PageSeo) {
     description: seo.description,
     isPartOf: { '@id': `${SITE_URL}/#website` },
     about: { '@id': `${SITE_URL}/#organization` },
-    inLanguage: 'en',
+    inLanguage: 'en-GB',
   } as Record<string, unknown>
   const hasVisibleImage =
     ['/', '/warzone-cheats', '/forums', '/reviews', '/faq', '/support'].includes(seo.path) ||
@@ -83,8 +91,8 @@ export function webPageNode(seo: PageSeo) {
     page.primaryImageOfPage = {
       '@type': 'ImageObject',
       url: absoluteAsset(img),
-      width: 800,
-      height: 450,
+      width: 1200,
+      height: 630,
       caption: seo.title,
     }
   }
@@ -95,13 +103,18 @@ export function productCoreJsonLd() {
   return {
     '@type': 'Product',
     '@id': PRODUCT_ID,
-    name: SITE_NAME,
+    name: 'Warzone Cheats',
+    alternateName: ['Warzone Aimbot', 'Warzone ESP', 'Warzone wallhack', 'Warzone radar hack'],
     description: SITE_PURPOSE,
     url: `${SITE_URL}/`,
-    image: absoluteAsset(PAGE_MEDIA.home.image),
+    image: [
+      absoluteAsset(PAGE_MEDIA.home.image),
+      absoluteAsset(PAGE_MEDIA.product.image),
+    ],
     brand: { '@type': 'Brand', name: SITE_NAME },
     manufacturer: { '@id': `${SITE_URL}/#organization` },
-    category: 'Warzone software',
+    category: 'PC game software',
+    offers: baseOffer(`${SITE_URL}/`, 'https://schema.org/InStock'),
   }
 }
 
@@ -110,29 +123,20 @@ export function productDetailJsonLd(status: GameStatus) {
     status === 'Undetected' ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock'
   return {
     ...productCoreJsonLd(),
+    url: `${SITE_URL}/warzone-cheats`,
     image: absoluteAsset(PAGE_MEDIA.product.image),
     about: {
       '@type': 'VideoGame',
-      name: 'Warzone',
-      alternateName: 'Warzone Early Access',
+      name: 'Call of Duty: Warzone',
+      alternateName: ['Warzone', 'COD Warzone'],
     },
     additionalProperty: [
-      {
-        '@type': 'PropertyValue',
-        name: 'Supported branch',
-        value: 'Warzone',
-      },
+      { '@type': 'PropertyValue', name: 'Platform', value: 'Windows PC' },
+      { '@type': 'PropertyValue', name: 'Features', value: 'Aimbot, ESP, wallhack, radar' },
+      { '@type': 'PropertyValue', name: 'Anti-cheat', value: 'Ricochet' },
+      { '@type': 'PropertyValue', name: 'Status', value: status },
     ],
-    offers: {
-      '@type': 'Offer',
-      url: `${SITE_URL}/warzone-cheats`,
-      availability,
-      price: PRODUCT_PRICE_USD,
-      priceCurrency: 'USD',
-      priceValidUntil: '2027-12-31',
-      itemCondition: 'https://schema.org/NewCondition',
-      seller: { '@id': `${SITE_URL}/#organization` },
-    },
+    offers: baseOffer(`${SITE_URL}/warzone-cheats`, availability),
   }
 }
 
@@ -152,7 +156,7 @@ export function productReviewsJsonLd() {
       author: { '@type': 'Person', name: review.author },
       datePublished: review.datePublished,
       reviewBody: review.body,
-      name: `${review.author} verified buyer review`,
+      name: `${review.author} Warzone Cheats review`,
       reviewRating: {
         '@type': 'Rating',
         ratingValue: String(review.rating),

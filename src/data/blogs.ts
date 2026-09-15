@@ -25,7 +25,7 @@ export const BLOGS: BlogPost[] = [
     title: 'Warzone Cheats Features List',
     excerpt:
       'Full Warzone cheats features before you buy — Aimbot, ESP, wallhack, radar hack, stream-proof and Ricochet status.',
-    metaTitle: 'Warzone Aimbot, ESP & Radar Feature List | PC',
+    metaTitle: 'Warzone Cheats Features | Aimbot, ESP & Radar List',
     metaDescription:
       'Compare Warzone Aimbot, ESP, wallhack, radar hack and stream-proof features for PC players in the UK and worldwide.',
     searchTerms: 'warzone cheats features aimbot esp wallhack radar uk',
@@ -213,7 +213,7 @@ export const BLOGS: BlogPost[] = [
     title: 'Complete Warzone Cheats Setup',
     excerpt:
       'Complete Warzone cheats setup: buy, exclusions, load order, enable ESP/Aimbot, save config, re-check Ricochet status.',
-    metaTitle: 'Complete Warzone Loader Setup | PC Guide',
+    metaTitle: 'Buy Warzone Cheats Setup Guide | Complete Loader Steps',
     metaDescription:
       'Complete Warzone cheats setup for Windows PC: delivery checklist, antivirus exclusions, load order and first-run Aimbot/ESP config.',
     searchTerms: 'warzone cheats setup load order windows uk',
@@ -390,7 +390,7 @@ export const BLOGS: BlogPost[] = [
     title: 'Check Undetected Before You Buy or Load',
     excerpt:
       'Quick Undetected checklist for Warzone Cheats before checkout and before every post-patch load.',
-    metaTitle: 'Warzone Cheats Undetected Checklist',
+    metaTitle: 'Warzone Cheats Undetected Status | Check Before Buy',
     metaDescription:
       'Check Warzone cheats Undetected status before buying or loading after Ricochet updates on warzonecheats.uk.',
     searchTerms: 'warzone cheats undetected checklist status',

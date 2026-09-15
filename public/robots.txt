@@ -2,8 +2,17 @@ User-agent: Googlebot
 Allow: /
 Allow: /sitemap.xml
 Allow: /robots.txt
+Allow: /media/
+Allow: /og/
 
 User-agent: Google-InspectionTool
+Allow: /
+Allow: /sitemap.xml
+Allow: /robots.txt
+Allow: /media/
+Allow: /og/
+
+User-agent: Bingbot
 Allow: /
 Allow: /sitemap.xml
 Allow: /robots.txt
@@ -12,5 +21,9 @@ User-agent: *
 Allow: /
 Allow: /sitemap.xml
 Allow: /robots.txt
+Allow: /media/
+Allow: /og/
+Disallow: /404
+Disallow: /404.html
 
 Sitemap: https://warzonecheats.uk/sitemap.xml

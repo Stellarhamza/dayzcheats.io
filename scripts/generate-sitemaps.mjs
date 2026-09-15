@@ -14,7 +14,8 @@ const SITE = (process.env.SITE_URL || 'https://warzonecheats.uk').replace(/\/$/,
 const TODAY = new Date().toLocaleDateString('en-CA')
 const HREFLANG = ['en-GB', 'en', 'x-default']
 
-const SOLDIER = '/media/warzone-delta-hero.webp'
+const SOLDIER = '/media/warzone-soldier-hero.webp'
+const DELTA = '/media/warzone-delta-hero.webp'
 const TACTICAL = '/media/warzone-esp-gameplay.gif'
 const OBJECTIVE = '/media/warzone-menu.gif'
 const PRODUCT_HERO = '/media/warzone-delta-hero.webp'
@@ -29,6 +30,7 @@ const OG_DEFAULT = '/og/warzone-cheats.jpg'
 /** All indexable still images that must appear in the sitemap at least once. */
 const ALL_SITE_IMAGES = [
   SOLDIER,
+  DELTA,
   TACTICAL,
   OBJECTIVE,
   PRODUCT_HERO,
@@ -135,7 +137,12 @@ function buildSitemap(games, forums) {
         {
           src: SOLDIER,
           title: 'Warzone Cheats Hero',
-          caption: 'Warzone Aimbot and ESP hero for Warzone Cheats on PC.',
+          caption: 'Buy Warzone cheats — Aimbot and ESP hero artwork for PC.',
+        },
+        {
+          src: DELTA,
+          title: 'Warzone Delta Product Box',
+          caption: 'Warzone Delta cheats product packaging for commercial listings.',
         },
         {
           src: GAMEPLAY,
@@ -143,9 +150,9 @@ function buildSitemap(games, forums) {
           caption: 'Warzone Aimbot and ESP gameplay GIF for homepage previews.',
         },
         {
-          src: HOME_ART,
-          title: 'Warzone Cheats Homepage Artwork',
-          caption: 'Homepage atmosphere art for Warzone Cheats UK.',
+          src: PRODUCT_COVER,
+          title: 'Warzone Auron Product Cover',
+          caption: 'Warzone cheats product cover for checkout and social previews.',
         },
         {
           src: OG_DEFAULT,
@@ -382,8 +389,17 @@ function main() {
       'Allow: /',
       'Allow: /sitemap.xml',
       'Allow: /robots.txt',
+      'Allow: /media/',
+      'Allow: /og/',
       '',
       'User-agent: Google-InspectionTool',
+      'Allow: /',
+      'Allow: /sitemap.xml',
+      'Allow: /robots.txt',
+      'Allow: /media/',
+      'Allow: /og/',
+      '',
+      'User-agent: Bingbot',
       'Allow: /',
       'Allow: /sitemap.xml',
       'Allow: /robots.txt',
@@ -392,6 +408,10 @@ function main() {
       'Allow: /',
       'Allow: /sitemap.xml',
       'Allow: /robots.txt',
+      'Allow: /media/',
+      'Allow: /og/',
+      'Disallow: /404',
+      'Disallow: /404.html',
       '',
       `Sitemap: ${siteUrl('/sitemap.xml')}`,
       '',

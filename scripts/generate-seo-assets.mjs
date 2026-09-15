@@ -63,6 +63,7 @@ async function writeIfMissing(path, factory) {
 }
 
 const requiredBattlelog = [
+  join(mediaDir, 'warzone-soldier-hero.webp'),
   join(mediaDir, 'warzone-delta-hero.webp'),
   join(mediaDir, 'warzone-auron-box.webp'),
   join(mediaDir, 'warzone-delta-gameplay.gif'),

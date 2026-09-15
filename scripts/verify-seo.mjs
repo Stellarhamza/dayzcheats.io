@@ -140,11 +140,12 @@ const pageLocs = urlBlocks.map((block) => block.match(/<loc>([^<]+)<\/loc>/)?.[1
 const uniqueSitemapUrls = new Set(pageLocs)
 const imageLocs = [...sitemap.matchAll(/<image:loc>([^<]+)<\/image:loc>/g)].map((match) => match[1])
 const requiredImages = [
+  '/media/warzone-soldier-hero.webp',
   '/media/warzone-delta-hero.webp',
   '/media/warzone-esp-gameplay.gif',
   '/media/warzone-menu.gif',
-  '/media/warzone-delta-hero.webp',
   '/media/warzone-auron-box.webp',
+  '/media/warzone-delta-gameplay.gif',
   '/og/warzone-cheats.jpg',
 ]
 

@@ -2,14 +2,13 @@
  * Worker entry for Astro static output in ./dist.
  * IMPORTANT: Always fetch assets via https://assets.local — never the request
  * hostname — or Cloudflare returns HTTP 522 on custom domains.
+ *
+ * Apex currently has AAAA-only DNS in some setups; www has IPv4 A records.
+ * Do NOT 301 www → apex or IPv4 users get NXDOMAIN / unreachable after redirect.
+ * Prefer apex when present; keep www serving the same site until A records exist.
  */
-const CANONICAL_HOST = 'warzonecheats.uk'
-const LEGACY_HOSTS = new Set(['www.warzonecheats.uk'])
-
-function needsCanonicalRedirect(url) {
-  const host = url.hostname.toLowerCase()
-  return url.protocol === 'http:' || LEGACY_HOSTS.has(host)
-}
+const APEX_HOST = 'warzonecheats.uk'
+const WWW_HOST = 'www.warzonecheats.uk'
 
 function assetsFetch(env, request, pathname) {
   return env.ASSETS.fetch(new Request(new URL(pathname, 'https://assets.local'), request))
@@ -43,10 +42,14 @@ function withHtmlCharset(response) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url)
+    const host = url.hostname.toLowerCase()
 
-    if (needsCanonicalRedirect(url)) {
+    // HTTPS only — do not bounce www ↔ apex (breaks IPv4 when apex lacks A records)
+    if (url.protocol === 'http:') {
       url.protocol = 'https:'
-      url.hostname = CANONICAL_HOST
+      if (host !== APEX_HOST && host !== WWW_HOST) {
+        url.hostname = APEX_HOST
+      }
       return Response.redirect(url.toString(), 301)
     }
 

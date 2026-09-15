@@ -9,19 +9,19 @@ export const SITE_HOST = 'warzonecheats.uk'
  * Single-product site: Warzone cheats for PC (UK + worldwide).
  */
 export const SITE_PURPOSE =
-  'Warzone Cheats covers undetected Aimbot, ESP, wallhack, radar and live Ricochet status for Call of Duty: Warzone on Windows PC — built for UK and worldwide players.'
+  'Buy undetected Warzone cheats for Call of Duty: Warzone on Windows PC — Aimbot, ESP, wallhack, radar hack and live Ricochet status with instant digital delivery.'
 
 export const SITE_ABOUT = [
-  'Warzone Cheats',
-  'Warzone cheats UK',
+  'Warzone cheats',
+  'buy Warzone cheats',
   'Warzone aimbot',
   'Warzone ESP',
   'Warzone wallhack',
   'Warzone radar hack',
   'undetected Warzone cheats',
   'Warzone PC cheats',
-  'BO7 Warzone cheats',
-  'Ricochet Warzone',
+  'Warzone cheats UK',
+  'Ricochet Warzone cheats',
 ] as const
 
 /** Offer price shown on product schema + purchase UI. */
@@ -48,52 +48,52 @@ export const SEO = {
   home: {
     title: 'Warzone Cheats | Aimbot, ESP, Wallhack & Radar',
     description:
-      'Buy undetected Warzone cheats for PC in the UK and worldwide — Aimbot, ESP, wallhack, radar hack and live Ricochet status for Call of Duty Warzone.',
+      'Buy Warzone cheats for PC — undetected Aimbot, ESP, wallhack and radar from $6.90. Check Ricochet status, then checkout for UK and worldwide delivery.',
     path: '/',
     ogType: 'website',
     image: PAGE_IMAGES.home.src,
     robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
   },
   forums: {
-    title: 'Warzone Cheats Guides | Setup, Aimbot, ESP & Status',
+    title: 'Warzone Cheats Guides | Aimbot, ESP Setup & Status',
     description:
-      'Warzone cheats guides covering Aimbot settings, ESP, radar, stream-proof setup, antivirus exclusions and Ricochet status for UK PC players.',
+      'Commercial Warzone cheats guides — Aimbot settings, ESP/wallhack, radar, antivirus exclusions, loader setup and Ricochet Undetected checks before you buy.',
     path: '/forums',
     ogType: 'website',
     image: PAGE_IMAGES.forums.src,
     robots: 'index, follow, max-image-preview:large, max-snippet:-1',
   },
   reviews: {
-    title: 'Warzone Cheats Reviews | Before You Buy',
+    title: 'Warzone Cheats Reviews | Verified Buyer Feedback',
     description:
-      'Player feedback on Warzone Aimbot, ESP, wallhack and Ricochet rebuilds before you choose a UK or worldwide licence.',
+      'Read Warzone cheats reviews on Aimbot, ESP, wallhack and Ricochet rebuilds before you buy a licence for PC.',
     path: '/reviews',
     ogType: 'website',
     image: PAGE_IMAGES.reviews.src,
     robots: 'index, follow, max-image-preview:large, max-snippet:-1',
   },
   faq: {
-    title: 'Warzone Cheats FAQ | PC, Ricochet & Setup',
+    title: 'Warzone Cheats FAQ | Price, Ricochet & Setup',
     description:
-      'Answers about Warzone cheats on Windows PC, UK delivery, Aimbot/ESP features, Ricochet updates and loader status.',
+      'FAQ for buying Warzone cheats on Windows PC — price, Aimbot/ESP features, Ricochet status, loader setup and delivery.',
     path: '/faq',
     ogType: 'website',
     image: PAGE_IMAGES.faq.src,
     robots: 'index, follow, max-image-preview:large, max-snippet:-1',
   },
   support: {
-    title: 'Warzone Cheats Support | Loader & Setup Help',
+    title: 'Warzone Cheats Support | Loader, Delivery & Setup',
     description:
-      'Support for Warzone cheats delivery, Windows setup, loader errors, Ricochet updates and order questions on warzonecheats.uk.',
+      'Get help buying and loading Warzone cheats — delivery email, Windows setup, antivirus exclusions, loader errors and Ricochet updates.',
     path: '/support',
     ogType: 'website',
     image: PAGE_IMAGES.support.src,
     robots: 'index, follow, max-image-preview:large, max-snippet:-1',
   },
   product: {
-    title: 'Warzone Cheats Features | Aimbot, ESP & Radar Hack',
+    title: 'Warzone Cheats Features & Price | Aimbot, ESP, Radar',
     description:
-      'Compare Warzone Aimbot, ESP, wallhack, radar hack, stream-proof options and current Ricochet compatibility for PC.',
+      'Compare Warzone cheats features and price — Aimbot, ESP, wallhack, radar hack, stream-proof mode and current Ricochet compatibility before checkout.',
     path: '/warzone-cheats',
     ogType: 'product',
     image: PAGE_IMAGES.product.src,
@@ -105,8 +105,8 @@ export const HOME_HEADINGS = {
   h1: 'Warzone Cheats for PC',
   h2Features: 'Aimbot, ESP, wallhack & radar',
   h2Featured: 'Warzone ESP and Aimbot',
-  h2About: 'Built for Warzone players in the UK and worldwide',
-  h2Access: 'Get Warzone Cheats',
+  h2About: 'Built for Warzone players who want clear status before checkout',
+  h2Access: 'Buy Warzone Cheats',
   h2Faq: 'Warzone Cheats FAQ',
 } as const
 
