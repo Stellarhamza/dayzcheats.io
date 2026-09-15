@@ -6,43 +6,43 @@ export type FaqItem = {
 /** Master FAQ — visible on /faq and reused in sections. */
 export const SITE_FAQS: FaqItem[] = [
   {
-    q: 'What are WARDOGS Hacks?',
-    a: 'WARDOGS Hacks are tools for WARDOGS on wardogshacks.net — mainly player ESP, vehicle ESP, soft aim and 2D radar — with live Undetected or Updating status after EAC patches.',
+    q: 'What are Warzone Cheats?',
+    a: 'Warzone Cheats are tools for Warzone on warzonecheats.uk — mainly player ESP, vehicle ESP, soft aim and 2D radar — with live Undetected or Updating status after Ricochet patches.',
   },
   {
     q: 'Do you cover other games?',
-    a: 'No. wardogshacks.net sells WARDOGS Hacks only. No filler catalog of unrelated titles.',
+    a: 'No. warzonecheats.uk sells Warzone Cheats only. No filler catalog of unrelated titles.',
   },
   {
     q: 'Is aimbot the main feature?',
-    a: 'No. Soft aim is optional. Most buyers come for WARDOGS ESP, vehicle tags and radar awareness.',
+    a: 'No. Soft aim is optional. Most buyers come for Warzone ESP, vehicle tags and radar awareness.',
   },
   {
-    q: 'Are WARDOGS Hacks undetected against EAC?',
-    a: 'We mark live Undetected or Updating status after WARDOGS / Easy Anti-Cheat updates. Always check status on wardogshacks.net before you load.',
+    q: 'Are Warzone Cheats undetected against Ricochet?',
+    a: 'We mark live Undetected or Updating status after Warzone / Ricochet updates. Always check status on warzonecheats.uk before you load.',
   },
   {
     q: 'What features are included?',
-    a: 'Player ESP / wallhack, vehicle ESP, 2D radar, stream-proof options and configurable soft aim — focused on WARDOGS only. See the Features List guide for the full checklist.',
+    a: 'Player ESP / wallhack, vehicle ESP, 2D radar, stream-proof options and configurable soft aim — focused on Warzone only. See the Features List guide for the full checklist.',
   },
   {
     q: 'Does it work on Steam Early Access?',
-    a: 'Yes. Compatibility tracks the Windows Early Access build (Steam app 1867240). Confirm Undetected after each patch before loading.',
+    a: 'Yes. Compatibility tracks the Windows Early Access build (Steam app 1867240). Confirm Undetected after Ricocheth patch before loading.',
   },
   {
-    q: 'How do I buy WARDOGS Hacks?',
+    q: 'How do I buy Warzone Cheats?',
     a: 'Start on the homepage, confirm Undetected status and review the price. Open Product details for compatibility and features, then continue to checkout for digital delivery.',
   },
   {
-    q: 'How do I load WARDOGS Hacks?',
+    q: 'How do I load Warzone Cheats?',
     a: 'After checkout, follow the Complete Setup forum thread for the current load order. If status is Updating, wait rather than forcing an outdated build.',
   },
   {
-    q: 'Where do I get WARDOGS Hacks support?',
+    q: 'Where do I get Warzone Cheats support?',
     a: 'Use the Support page and your checkout order channel. Include Undetected/Updating status and whether you need load, menu or delivery help.',
   },
   {
-    q: 'Where can I read WARDOGS Hacks reviews?',
+    q: 'Where can I read Warzone Cheats reviews?',
     a: 'Player reviews with ratings are on the Reviews page. They cover ESP usefulness, Undetected honesty and patch survival before you buy.',
   },
   {
@@ -50,8 +50,8 @@ export const SITE_FAQS: FaqItem[] = [
     a: 'Digital licenses follow the Refunds page — delivery failures and extended Updating windows can qualify; change of mind after a working key does not.',
   },
   {
-    q: 'Is this the official WARDOGS game site?',
-    a: 'No. We sell WARDOGS Hacks only. Play the game from wardogs.com or WARDOGS on Steam. We are not affiliated with BULKHEAD or Team17.',
+    q: 'Is this the official Warzone game site?',
+    a: 'No. We sell Warzone Cheats only. Play the game from Warzone.com or Warzone on Steam. We are not affiliated with Activision or Call of Duty.',
   },
 ]
 

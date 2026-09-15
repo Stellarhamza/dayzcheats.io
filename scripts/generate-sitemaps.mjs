@@ -10,16 +10,16 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const publicDir = join(root, 'public')
 const dataDir = join(root, 'src', 'data')
 const pagesDir = join(root, 'src', 'pages')
-const SITE = (process.env.SITE_URL || 'https://wardogshacks.net').replace(/\/$/, '')
+const SITE = (process.env.SITE_URL || 'https://warzonecheats.uk').replace(/\/$/, '')
 const TODAY = new Date().toLocaleDateString('en-CA')
-const HREFLANG = ['en', 'x-default']
+const HREFLANG = ['en-GB', 'en', 'x-default']
 
-const SOLDIER = '/media/wardogs-soldier-hero.jpg'
-const TACTICAL = '/media/wardogs-tactical-fps.jpg'
-const OBJECTIVE = '/media/wardogs-control-zone.jpg'
-const PRODUCT_HERO = '/media/wardogs-product-hero.webp'
-const PRODUCT_COVER = '/media/wardogs-product-cover.webp'
-const OG_DEFAULT = '/og/wardogs-hacks.jpg'
+const SOLDIER = '/media/warzone-delta-hero.webp'
+const TACTICAL = '/media/warzone-esp-gameplay.gif'
+const OBJECTIVE = '/media/warzone-menu.gif'
+const PRODUCT_HERO = '/media/warzone-delta-hero.webp'
+const PRODUCT_COVER = '/media/warzone-auron-cover.webp'
+const OG_DEFAULT = '/og/warzone-cheats.jpg'
 
 /** All indexable still images that must appear in the sitemap at least once. */
 const ALL_SITE_IMAGES = [SOLDIER, TACTICAL, OBJECTIVE, PRODUCT_HERO, PRODUCT_COVER, OG_DEFAULT]
@@ -30,6 +30,14 @@ const FORUM_IMAGES = {
   'complete-setup': OBJECTIVE,
   'disable-antivirus': TACTICAL,
   'undetected-status': OBJECTIVE,
+  'aimbot-settings': SOLDIER,
+  'esp-wallhack-guide': TACTICAL,
+  'radar-hack-guide': OBJECTIVE,
+  'stream-proof-setup': PRODUCT_HERO,
+  'ricochet-status': PRODUCT_COVER,
+  'windows-setup': SOLDIER,
+  'ranked-play-guide': TACTICAL,
+  'loader-errors': OBJECTIVE,
 }
 
 function escapeXml(value) {
@@ -109,30 +117,30 @@ function buildSitemap(games, forums) {
       images: [
         {
           src: SOLDIER,
-          title: 'WARDOGS Hacks Hero',
-          caption: 'Tactical soldier hero for WARDOGS Hacks on PC.',
+          title: 'Warzone Cheats Hero',
+          caption: 'Warzone Aimbot and ESP hero for Warzone Cheats on PC.',
         },
         {
           src: TACTICAL,
-          title: 'WARDOGS Hacks Tactical Artwork',
-          caption: 'Homepage artwork for WARDOGS ESP, radar and soft aim.',
+          title: 'Warzone Cheats Tactical Artwork',
+          caption: 'Homepage artwork for Warzone ESP, radar and soft aim.',
         },
         {
           src: OG_DEFAULT,
-          title: 'WARDOGS Hacks Social Preview',
-          caption: 'Default Open Graph image for WARDOGS Hacks.',
+          title: 'Warzone Cheats Social Preview',
+          caption: 'Default Open Graph image for Warzone Cheats.',
         },
       ],
     }),
     ...games.map((game) =>
       urlEntry({
-        path: `/${game.slug}-hacks`,
+        path: `/${game.slug}-cheats`,
         priority: '0.9',
         changefreq: 'weekly',
         images: [
           {
             src: OBJECTIVE,
-            title: 'WARDOGS ESP Product Artwork',
+            title: 'Warzone ESP Product Artwork',
             caption: 'Product features, compatibility, status and price before checkout.',
           },
           {
@@ -155,7 +163,7 @@ function buildSitemap(games, forums) {
       images: [
         {
           src: OBJECTIVE,
-          title: 'WARDOGS Hacks Forum Artwork',
+          title: 'Warzone Cheats Forum Artwork',
           caption: 'Artwork reference for setup and feature threads.',
         },
       ],
@@ -170,7 +178,7 @@ function buildSitemap(games, forums) {
           {
             src: FORUM_IMAGES[forum.slug] || OBJECTIVE,
             title: `${forum.title} Artwork`,
-            caption: `Visible WARDOGS reference for ${forum.title}.`,
+            caption: `Visible Warzone reference for ${forum.title}.`,
           },
         ],
       }),
@@ -182,7 +190,7 @@ function buildSitemap(games, forums) {
       images: [
         {
           src: TACTICAL,
-          title: 'WARDOGS Hacks Review Artwork',
+          title: 'Warzone Cheats Review Artwork',
           caption: 'Artwork accompanying verified buyer reviews.',
         },
       ],
@@ -194,7 +202,7 @@ function buildSitemap(games, forums) {
       images: [
         {
           src: OBJECTIVE,
-          title: 'WARDOGS Hacks FAQ Artwork',
+          title: 'Warzone Cheats FAQ Artwork',
           caption: 'Product artwork accompanying pre-purchase answers.',
         },
       ],
@@ -206,7 +214,7 @@ function buildSitemap(games, forums) {
       images: [
         {
           src: TACTICAL,
-          title: 'WARDOGS Hacks Support Artwork',
+          title: 'Warzone Cheats Support Artwork',
           caption: 'Artwork accompanying load and delivery support.',
         },
       ],
@@ -218,8 +226,8 @@ function buildSitemap(games, forums) {
       images: [
         {
           src: OG_DEFAULT,
-          title: 'WARDOGS Hacks Privacy Policy',
-          caption: 'Privacy policy for wardogshacks.net orders and support.',
+          title: 'Warzone Cheats Privacy Policy',
+          caption: 'Privacy policy for warzonecheats.uk orders and support.',
         },
       ],
     }),
@@ -230,8 +238,8 @@ function buildSitemap(games, forums) {
       images: [
         {
           src: OG_DEFAULT,
-          title: 'WARDOGS Hacks Terms of Use',
-          caption: 'License terms and risk disclaimer for WARDOGS Hacks.',
+          title: 'Warzone Cheats Terms of Use',
+          caption: 'License terms and risk disclaimer for Warzone Cheats.',
         },
       ],
     }),
@@ -242,8 +250,8 @@ function buildSitemap(games, forums) {
       images: [
         {
           src: OG_DEFAULT,
-          title: 'WARDOGS Hacks Refund Policy',
-          caption: 'Refund rules for digital WARDOGS Hacks licenses.',
+          title: 'Warzone Cheats Refund Policy',
+          caption: 'Refund rules for digital Warzone Cheats licenses.',
         },
       ],
     }),
@@ -265,8 +273,8 @@ function validate(games, forums, staticRoutes, sitemap) {
   }
 
   for (const game of games) {
-    const page = join(pagesDir, `${game.slug}-hacks.astro`)
-    if (!existsSync(page)) errors.push(`Product route has no page file: /${game.slug}-hacks`)
+    const page = join(pagesDir, `${game.slug}-cheats.astro`)
+    if (!existsSync(page)) errors.push(`Product route has no page file: /${game.slug}-cheats`)
   }
   if (forums.length && !existsSync(join(pagesDir, 'forums', '[slug].astro'))) {
     errors.push('Forum routes have no dynamic page file: src/pages/forums/[slug].astro')
@@ -279,7 +287,7 @@ function validate(games, forums, staticRoutes, sitemap) {
 
   const expectedRoutes = new Set([
     ...staticRoutes,
-    ...games.map((game) => `/${game.slug}-hacks`),
+    ...games.map((game) => `/${game.slug}-cheats`),
     ...forums.map((forum) => `/forums/${forum.slug}`),
   ])
   const expectedUrls = new Set([...expectedRoutes].map(siteUrl))

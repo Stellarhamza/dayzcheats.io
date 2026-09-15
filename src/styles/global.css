@@ -122,6 +122,38 @@ body {
   background: #08060f;
 }
 
+/* Hide third-party watermarks on embedded Warzone preview videos */
+.video-brand-mask {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  background: #000;
+}
+
+.video-brand-blur {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4.25rem;
+  z-index: 3;
+  pointer-events: none;
+  backdrop-filter: blur(14px) saturate(1.1);
+  -webkit-backdrop-filter: blur(14px) saturate(1.1);
+  background: linear-gradient(
+    180deg,
+    rgba(8, 6, 15, 0) 0%,
+    rgba(8, 6, 15, 0.55) 35%,
+    rgba(20, 16, 36, 0.92) 100%
+  );
+}
+
+@media (min-width: 640px) {
+  .video-brand-blur {
+    height: 5rem;
+  }
+}
+
 .hero-video-bg {
   border: 0;
   outline: none;

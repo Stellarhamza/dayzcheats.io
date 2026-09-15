@@ -38,12 +38,12 @@ export function ReviewsPage() {
               {SITE_NAME} · Community reviews
             </p>
             <h1 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-5xl">
-              WARDOGS Hacks Reviews
+              Warzone Cheats Reviews
             </h1>
             <p className="mt-4 max-w-3xl text-base leading-relaxed text-white/55">
-              Reviews from WARDOGS players who bought WARDOGS Hacks — ESP accuracy,
+              Reviews from Warzone players who bought Warzone Cheats — ESP accuracy,
               Undetected honesty, and whether the build held after the last patch. Read the{' '}
-              <a href="/wardogs-hacks" className="text-white/80 underline-offset-2 hover:underline">
+              <a href="/Warzone-hacks" className="text-white/80 underline-offset-2 hover:underline">
                 product page
               </a>
               ,{' '}
@@ -54,9 +54,9 @@ export function ReviewsPage() {
               <a href="/forums" className="text-white/80 underline-offset-2 hover:underline">
                 forums
               </a>
-              . Play WARDOGS via{' '}
+              . Play Warzone via{' '}
               <a
-                href="https://store.steampowered.com/app/1867240/WARDOGS/"
+                href="https://store.steampowered.com/app/1867240/Warzone/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white/80 underline-offset-2 hover:underline"
@@ -66,7 +66,7 @@ export function ReviewsPage() {
               .
             </p>
             <p className="mt-3 text-sm text-white/45" aria-label="Aggregate rating">
-              Average {aggregate.ratingValue} / 5 from {aggregate.reviewCount} WARDOGS Hacks
+              Average {aggregate.ratingValue} / 5 from {aggregate.reviewCount} Warzone Cheats
               reviews
             </p>
           </div>
@@ -86,7 +86,7 @@ export function ReviewsPage() {
             src="/videos/reviews-neon"
             startAt={0}
             eager
-            poster="/media/thewardogs-hacks-esp-river.jpg"
+            poster="/media/theWarzone-hacks-esp-river.jpg"
             className="video-strip--reviews"
           />
         </section>
@@ -94,7 +94,7 @@ export function ReviewsPage() {
         <section className="page-x py-14 sm:py-16">
           <div className="mx-auto max-w-6xl">
             <h2 className="mb-6 text-xl font-semibold tracking-tight text-white">
-              Latest WARDOGS Hacks feedback
+              Latest Warzone Cheats feedback
             </h2>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {REVIEWS.map((review) => (
@@ -143,19 +143,19 @@ export function ReviewsPage() {
                 Next step
               </p>
               <h2 className="mt-3 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-                Ready to buy WARDOGS Hacks?
+                Ready to buy Warzone Cheats?
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-white/55">
                 Open the guide, confirm Undetected status, then checkout — or visit{' '}
                 <a href="/support" className="text-white underline-offset-2 hover:underline">
-                  WARDOGS Hacks support
+                  Warzone Cheats support
                 </a>{' '}
                 for load and inject help.
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end">
               <a
-                href="/wardogs-hacks"
+                href="/Warzone-hacks"
                 className="inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-white/5"
               >
                 Product details

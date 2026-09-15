@@ -1,6 +1,6 @@
 # Cloudflare Workers + static assets — required so CI `npx wrangler deploy` succeeds.
 # (Dashboard is locked to that command; `wrangler pages deploy` is not used.)
-name = "thewardogsqrhe"
+name = "warzoneqrh"
 main = "workers/site.js"
 compatibility_date = "2026-09-12"
 
@@ -9,13 +9,12 @@ compatibility_date = "2026-09-12"
 [build]
 command = "npm run build"
 
-# Recreate DNS/SSL for apex + www (fixes NXDOMAIN / Google HTTP 522).
 [[routes]]
-pattern = "wardogshacks.net"
+pattern = "warzonecheats.uk"
 custom_domain = true
 
 [[routes]]
-pattern = "www.wardogshacks.net"
+pattern = "www.warzonecheats.uk"
 custom_domain = true
 
 [assets]
@@ -23,8 +22,6 @@ directory = "./dist"
 binding = "ASSETS"
 not_found_handling = "404-page"
 html_handling = "drop-trailing-slash"
-# Host redirects need the Worker, but sitemap/robots must stay asset-first
-# so Google never hits a Worker/origin timeout (HTTP 522).
 run_worker_first = [
   "/*",
   "!/sitemap.xml",

@@ -2,7 +2,7 @@
 # Host www/HTTP → HTTPS apex is handled by workers/site.js (not_found_handling serves 404.html).
 
 # Trailing-slash canonicalization
-/wardogs-hacks/   /wardogs-hacks   301
+/warzone-cheats/   /warzone-cheats   301
 /forums/        /forums        301
 /reviews/       /reviews       301
 /faq/           /faq           301
@@ -21,12 +21,15 @@
 /terms-of-service/ /terms      301
 
 # Transactional keyword variants consolidate on the homepage
-/thewardogs-hacks   /   301
-/thewardogs-hacks/  /   301
-/the-wardogs-hacks  /   301
-/the-wardogs-hacks/ /   301
-/buy-wardogs-hacks  /   301
-/buy-wardogs-hacks/ /   301
+/warzone-hacks   /warzone-cheats   301
+/warzone-hacks/  /warzone-cheats   301
+/wardogs-hacks   /warzone-cheats   301
+/wardogs-hacks/  /warzone-cheats   301
+/buy-warzone-cheats  /   301
+/buy-warzone-cheats/ /   301
+/warzone-aimbot  /warzone-cheats   301
+/warzone-esp     /warzone-cheats   301
+/warzone-wallhack /warzone-cheats  301
 
 # Legacy slugs → forums
 /articles       /forums        301

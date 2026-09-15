@@ -18,12 +18,12 @@ export const POLICY_PAGES: PolicyPageContent[] = [
   {
     slug: 'privacy',
     path: '/privacy',
-    title: 'Privacy Policy | WARDOGS Hacks',
+    title: 'Privacy Policy | Warzone Cheats',
     description:
-      'How wardogshacks.net handles order details, delivery email, support messages and basic site analytics for WARDOGS Hacks.',
+      'How warzonecheats.uk handles order details, delivery email, support messages and basic site analytics for Warzone Cheats.',
     h1: 'Privacy Policy',
     intro:
-      'This page explains what we collect when you browse wardogshacks.net, buy a WARDOGS Hacks license, or contact support — and what we do not collect.',
+      'This page explains what we collect when you browse warzonecheats.uk, buy a Warzone Cheats license, or contact support — and what we do not collect.',
     sections: [
       {
         heading: 'What we collect',
@@ -46,7 +46,7 @@ export const POLICY_PAGES: PolicyPageContent[] = [
         body: [
           'Essential cookies may be set by checkout or CDN providers so payment and delivery work.',
           'Embedded media (for example YouTube on the homepage) is governed by that provider’s privacy terms when you play it.',
-          'Official WARDOGS / Steam / Team17 links are external. Their privacy policies apply once you leave wardogshacks.net.',
+          'Official Warzone / Steam / Call of Duty links are external. Their privacy policies apply once you leave warzonecheats.uk.',
         ],
       },
       {
@@ -66,25 +66,25 @@ export const POLICY_PAGES: PolicyPageContent[] = [
   {
     slug: 'terms',
     path: '/terms',
-    title: 'Terms of Use | WARDOGS Hacks',
+    title: 'Terms of Use | Warzone Cheats',
     description:
-      'License rules, age limits, anti-cheat risk, and liability limits for WARDOGS Hacks on wardogshacks.net.',
+      'License rules, age limits, anti-cheat risk, and liability limits for Warzone Cheats on warzonecheats.uk.',
     h1: 'Terms of Use',
     intro:
-      'Buying or running WARDOGS Hacks means you accept these terms. A license covers personal use of ESP, radar, and soft-aim tools for WARDOGS on Windows PC — nothing beyond that.',
+      'Buying or running Warzone Cheats means you accept these terms. A license covers personal use of ESP, radar, and soft-aim tools for Warzone on Windows PC — nothing beyond that.',
     sections: [
       {
         heading: 'Acceptance and what a license covers',
         body: [
-          'A key unlocks the current WARDOGS Hacks build for the duration you purchased (day, week, or month plans where offered).',
+          'A key unlocks the current Warzone Cheats build for the duration you purchased (day, week, or month plans where offered).',
           'Handing the package to someone else, reselling it, sharing accounts, or reverse-engineering the loader breaks these terms and can end your access without a refund.',
         ],
       },
       {
         heading: 'Risk and anti-cheat disclaimer',
         body: [
-          'WARDOGS uses Easy Anti-Cheat. Using third-party software can violate the game’s terms and lead to account penalties.',
-          'We push rebuilds after EAC and game updates when needed, but nothing here guarantees a build stays undetected forever or that an account stays safe.',
+          'Warzone uses Ricochet. Using third-party software can violate the game’s terms and lead to account penalties.',
+          'We push rebuilds after Ricochet and game updates when needed, but nothing here guarantees a build stays undetected forever or that an account stays safe.',
           'All risk sits with you. We accept no liability for bans, lost progress, or other damage tied to using the product. Check live status before you load.',
         ],
       },
@@ -113,12 +113,12 @@ export const POLICY_PAGES: PolicyPageContent[] = [
   {
     slug: 'refunds',
     path: '/refunds',
-    title: 'Refund Policy | WARDOGS Hacks',
+    title: 'Refund Policy | Warzone Cheats',
     description:
-      'When WARDOGS Hacks refunds apply for digital licenses, delivery failures, and Updating status windows on wardogshacks.net.',
+      'When Warzone Cheats refunds apply for digital licenses, delivery failures, and Updating status windows on warzonecheats.uk.',
     h1: 'Refund Policy',
     intro:
-      'WARDOGS Hacks licenses are digital goods. This page covers when we can refund, when we cannot, and how to open a request with your order ID.',
+      'Warzone Cheats licenses are digital goods. This page covers when we can refund, when we cannot, and how to open a request with your order ID.',
     sections: [
       {
         heading: 'When refunds are available',

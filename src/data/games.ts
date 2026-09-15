@@ -7,9 +7,9 @@ export type Game = {
   popular?: boolean
 }
 
-/** Site is WARDOGS Hacks only — no other titles in the catalog. */
+/** Site is Warzone Cheats only — no other titles in the catalog. */
 export const GAMES: Game[] = [
-  { slug: 'wardogs', name: 'WARDOGS', status: 'Updating', popular: true },
+  { slug: 'warzone', name: 'Warzone', status: 'Undetected', popular: true },
 ]
 
 export function getGame(slug: string) {
@@ -17,49 +17,45 @@ export function getGame(slug: string) {
 }
 
 export function guidePath(slug: string) {
-  return `/${slug}-hacks`
+  return `/${slug}-cheats`
 }
 
 export function parseGuideSlug(param: string) {
-  return param.endsWith('-hacks') ? param.slice(0, -6) : param
+  return param.endsWith('-cheats') ? param.slice(0, -7) : param
 }
 
-/**
- * Feature list tuned to what ranks for WARDOGS Hacks
- * Feature bullets for the product page — ESP & awareness first.
- */
 export const GUIDE_FEATURES = [
   {
-    name: 'Player ESP',
-    text: 'Highlight enemy and friendly players with distance, team and health information when supported by the current build.',
+    name: 'Warzone Aimbot',
+    text: 'Smooth, humanized Aimbot with FOV, smoothing and hitbox controls so shots look natural in Warzone lobbies.',
   },
   {
-    name: 'Vehicle ESP',
-    text: 'Track combat and logistics vehicles across WARDOGS’ large combined-arms battlefield.',
+    name: 'Player ESP / Wallhack',
+    text: 'See enemies through buildings and terrain with distance, health and team information when supported.',
   },
   {
-    name: '2D Radar',
-    text: 'Map-style awareness for nearby players and vehicles while teams contest the moving Control Zone.',
+    name: 'Loot & World ESP',
+    text: 'Highlight high-value loot, contracts and world items so you rotate with better information.',
   },
   {
-    name: 'Aim assistance',
-    text: 'Configurable aim support with field-of-view and smoothing controls where the current release supports them.',
+    name: 'Radar Hack',
+    text: '2D radar awareness for off-screen threats across Verdansk-style and current Warzone maps.',
   },
   {
     name: 'Stream-proof mode',
-    text: 'Keep supported overlays out of common capture software when recording or streaming.',
+    text: 'Keep supported overlays out of common capture software when you stream or clip.',
   },
   {
-    name: 'Configurable hotkeys',
-    text: 'Toggle visual and aim features quickly without leaving a 100-player match.',
+    name: 'Triggerbot (optional)',
+    text: 'Optional trigger assistance where the current build supports it — leave off for a lower footprint.',
   },
   {
-    name: 'Steam Early Access support',
-    text: 'Compatibility is tracked against the Windows Early Access build released on September 10, 2026.',
+    name: 'Windows PC support',
+    text: 'Built for Windows 10 and 11 on Intel and AMD CPUs with straightforward loader setup.',
   },
   {
-    name: 'Patch status + support',
-    text: 'Updating or Undetected status is reviewed after WARDOGS client patches before access is recommended.',
+    name: 'Ricochet status + support',
+    text: 'Undetected or Updating status is reviewed after Ricochet and Warzone patches before you load.',
   },
 ] as const
 

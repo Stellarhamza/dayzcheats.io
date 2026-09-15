@@ -25,7 +25,7 @@ export function SiteFooter({ currentPath }: SiteFooterProps) {
               <span className="font-semibold text-z-ink">{SITE_NAME}</span>
             </div>
             <p className="mt-3 text-sm leading-relaxed text-white/55">
-              WARDOGS hacks for PC — ESP, soft aim, radar and live EAC status. Built for Early
+              Warzone Cheats for PC — ESP, soft aim, radar and live Ricochet status. Built for Early
               Access players only.
             </p>
           </div>
@@ -49,8 +49,8 @@ export function SiteFooter({ currentPath }: SiteFooterProps) {
           </ul>
         </div>
         <p className="mx-auto mt-10 max-w-6xl text-xs text-white/35">
-          © {new Date().getFullYear()} {SITE_NAME}. Not affiliated with BULKHEAD and Team17 or
-          the official WARDOGS game.
+          © {new Date().getFullYear()} {SITE_NAME}. Not affiliated with Activision and Call of Duty or
+          the official Warzone game.
         </p>
       </footer>
     </>

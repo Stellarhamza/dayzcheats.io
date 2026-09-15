@@ -16,7 +16,7 @@ function escapeXml(value) {
   return value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
 }
 
-function artwork(width, height, eyebrow, title, subtitle, footer = 'wardogshacks.net') {
+function artwork(width, height, eyebrow, title, subtitle, footer = 'warzonecheats.uk') {
   const titleSize = Math.round(width * 0.066)
   const subtitleSize = Math.round(width * 0.026)
   return Buffer.from(`
@@ -52,67 +52,67 @@ await Promise.all([
       1200,
       630,
       'PC EARLY ACCESS · LIVE STATUS',
-      'WARDOGS Hacks',
+      'Warzone Cheats',
       'Player ESP · Radar · Aim Assistance',
     ),
   )
     .jpeg({ quality: 90, chromaSubsampling: '4:4:4' })
-    .toFile(join(ogDir, 'wardogs-hacks.jpg')),
+    .toFile(join(ogDir, 'warzone-cheats.jpg')),
   sharp(
     artwork(
       1440,
       810,
       'PRODUCT DETAILS · WINDOWS PC',
-      'WARDOGS ESP & Radar',
+      'Warzone ESP & Radar',
       'Features · Compatibility · Current Status',
     ),
   )
     .webp({ quality: 88 })
-    .toFile(join(mediaDir, 'wardogs-product-hero.webp')),
+    .toFile(join(mediaDir, 'warzone-delta-hero.webp')),
   sharp(
     artwork(
       1000,
       1000,
-      'WARDOGS PRODUCT',
+      'Warzone PRODUCT',
       'ESP · Radar · Aim',
       'Check compatibility before access',
     ),
   )
     .webp({ quality: 88 })
-    .toFile(join(mediaDir, 'wardogs-product-cover.webp')),
+    .toFile(join(mediaDir, 'warzone-auron-cover.webp')),
   sharp(
     artwork(
       1200,
       675,
-      '100-PLAYER TACTICAL FPS',
-      'WARDOGS Hacks',
+      'CALL OF DUTY WARZONE',
+      'Warzone Cheats',
       'Player intelligence · Vehicles · Control Zone',
     ),
   )
     .jpeg({ quality: 90, chromaSubsampling: '4:4:4' })
-    .toFile(join(mediaDir, 'wardogs-tactical-fps.jpg')),
+    .toFile(join(mediaDir, 'warzone-tactical-art.jpg')),
   sharp(
     artwork(
       1200,
       675,
       'CONTROL ZONE · COMBINED ARMS',
-      'WARDOGS ESP & Radar',
+      'Warzone ESP & Radar',
       'Built for the Windows Early Access release',
     ),
   )
     .jpeg({ quality: 90, chromaSubsampling: '4:4:4' })
-    .toFile(join(mediaDir, 'wardogs-control-zone.jpg')),
+    .toFile(join(mediaDir, 'warzone-control-art.jpg')),
   sharp(
     artwork(
       1920,
       1080,
-      'BULKHEAD · TEAM17 · PC EARLY ACCESS',
-      'WARDOGS Hacks',
+      'Activision · Call of Duty · PC EARLY ACCESS',
+      'Warzone Cheats',
       'Tactical awareness for all-out warfare',
     ),
   )
     .jpeg({ quality: 90, chromaSubsampling: '4:4:4' })
-    .toFile(join(mediaDir, 'wardogs-home-hero.jpg')),
+    .toFile(join(mediaDir, 'warzone-home-art.jpg')),
 ])
 
 console.log('Generated first-party SEO and product artwork')

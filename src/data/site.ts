@@ -1,39 +1,39 @@
-import { WARDOGS_OG, PAGE_IMAGES } from './images'
+import { WARZONE_OG, PAGE_IMAGES } from './images'
 
-export const SITE_URL = 'https://wardogshacks.net'
-export const SITE_NAME = 'WARDOGS Hacks'
-export const SITE_HOST = 'wardogshacks.net'
+export const SITE_URL = 'https://warzonecheats.uk'
+export const SITE_NAME = 'Warzone Cheats'
+export const SITE_HOST = 'warzonecheats.uk'
 
 /**
  * Sole purpose — used in schema + about copy.
- * Single-product site: WARDOGS hacks for the PC Early Access release.
+ * Single-product site: Warzone cheats for PC (UK + worldwide).
  */
 export const SITE_PURPOSE =
-  'WARDOGS Hacks covers ESP, player information, radar, aim assistance and loader status for the 100-player tactical FPS by BULKHEAD and Team17.'
+  'Warzone Cheats covers undetected Aimbot, ESP, wallhack, radar and live Ricochet status for Call of Duty: Warzone on Windows PC — built for UK and worldwide players.'
 
 export const SITE_ABOUT = [
-  'WARDOGS Hacks',
-  'wardogs hacks',
-  'WARDOGS ESP',
-  'WARDOGS aimbot',
-  'WARDOGS radar',
-  'WARDOGS Early Access',
-  'WARDOGS PC',
-  'WARDOGS tactical FPS',
-  'BULKHEAD WARDOGS',
-  'Team17 WARDOGS',
+  'Warzone Cheats',
+  'Warzone cheats UK',
+  'Warzone aimbot',
+  'Warzone ESP',
+  'Warzone wallhack',
+  'Warzone radar hack',
+  'undetected Warzone cheats',
+  'Warzone PC cheats',
+  'BO7 Warzone cheats',
+  'Ricochet Warzone',
 ] as const
 
 /** Offer price shown on product schema + purchase UI. */
-export const PRODUCT_PRICE_USD = '29.99'
+export const PRODUCT_PRICE_USD = '6.90'
 
 export const SEO_REGIONS = [
+  { hreflang: 'en-GB', label: 'United Kingdom' },
   { hreflang: 'en', label: 'English' },
   { hreflang: 'x-default', label: 'Default' },
 ] as const
 
-/** First-party branded social image. */
-export const OG_IMAGE = WARDOGS_OG
+export const OG_IMAGE = WARZONE_OG
 
 export type PageSeo = {
   title: string
@@ -44,58 +44,57 @@ export type PageSeo = {
   robots?: string
 }
 
-/** Unique SEO per route — commercial / transactional intent. */
 export const SEO = {
   home: {
-    title: 'WARDOGS Hacks | ESP, Aimbot & Radar for PC',
+    title: 'Warzone Cheats UK | Aimbot, ESP, Wallhack & Radar',
     description:
-      'WARDOGS hacks for Windows PC with player ESP, soft aim, 2D radar and live loader status for BULKHEAD’s 100-player Early Access FPS.',
+      'Buy undetected Warzone cheats for PC in the UK and worldwide — Aimbot, ESP, wallhack, radar hack and live Ricochet status for Call of Duty Warzone.',
     path: '/',
     ogType: 'website',
     image: PAGE_IMAGES.home.src,
     robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
   },
   forums: {
-    title: 'WARDOGS Hacks Guides | Setup, Hotkeys & Status',
+    title: 'Warzone Cheats Guides | Setup, Aimbot, ESP & Status',
     description:
-      'WARDOGS hacks guides covering features, hotkeys, setup, antivirus exclusions and loader status for the Steam Early Access build.',
+      'Warzone cheats guides covering Aimbot settings, ESP, radar, stream-proof setup, antivirus exclusions and Ricochet status for UK PC players.',
     path: '/forums',
     ogType: 'website',
     image: PAGE_IMAGES.forums.src,
     robots: 'index, follow, max-image-preview:large, max-snippet:-1',
   },
   reviews: {
-    title: 'WARDOGS Hacks Reviews | Before You Buy',
+    title: 'Warzone Cheats Reviews | Before You Buy',
     description:
-      'Early Access player feedback on WARDOGS ESP, soft aim, radar and post-patch rebuilds before you choose a license.',
+      'Player feedback on Warzone Aimbot, ESP, wallhack and Ricochet rebuilds before you choose a UK or worldwide licence.',
     path: '/reviews',
     ogType: 'website',
     image: PAGE_IMAGES.reviews.src,
     robots: 'index, follow, max-image-preview:large, max-snippet:-1',
   },
   faq: {
-    title: 'WARDOGS Hacks FAQ | Compatibility, Setup & Status',
+    title: 'Warzone Cheats FAQ | UK PC, Ricochet & Setup',
     description:
-      'Answers about WARDOGS PC compatibility, Early Access updates, ESP features, setup, delivery and loader status.',
+      'Answers about Warzone cheats on Windows PC, UK delivery, Aimbot/ESP features, Ricochet updates and loader status.',
     path: '/faq',
     ogType: 'website',
     image: PAGE_IMAGES.faq.src,
     robots: 'index, follow, max-image-preview:large, max-snippet:-1',
   },
   support: {
-    title: 'WARDOGS Hacks Support | Loader & Setup Help',
+    title: 'Warzone Cheats Support | Loader & Setup Help',
     description:
-      'Support for WARDOGS hacks delivery, Windows setup, loader errors, updates and account-specific order questions.',
+      'Support for Warzone cheats delivery, Windows setup, loader errors, Ricochet updates and order questions on warzonecheats.uk.',
     path: '/support',
     ogType: 'website',
     image: PAGE_IMAGES.support.src,
     robots: 'index, follow, max-image-preview:large, max-snippet:-1',
   },
   product: {
-    title: 'WARDOGS Hack Features | ESP, Aimbot & Radar',
+    title: 'Warzone Cheats Features | Aimbot, ESP & Radar Hack',
     description:
-      'Compare WARDOGS player ESP, vehicle ESP, soft aim, 2D radar, stream-proof options and current PC Early Access compatibility.',
-    path: '/wardogs-hacks',
+      'Compare Warzone Aimbot, ESP, wallhack, radar hack, stream-proof options and current Ricochet compatibility for PC.',
+    path: '/warzone-cheats',
     ogType: 'product',
     image: PAGE_IMAGES.product.src,
     robots: 'index, follow, max-image-preview:large, max-snippet:-1',
@@ -103,12 +102,12 @@ export const SEO = {
 } as const satisfies Record<string, PageSeo>
 
 export const HOME_HEADINGS = {
-  h1: 'WARDOGS Hack for PC',
-  h2Features: 'ESP, soft aim and radar',
-  h2Featured: 'WARDOGS ESP and Radar',
-  h2About: 'Built for the new WARDOGS release',
-  h2Access: 'Get WARDOGS Hacks',
-  h2Faq: 'WARDOGS Hacks FAQ',
+  h1: 'Warzone Cheats for PC',
+  h2Features: 'Aimbot, ESP, wallhack & radar',
+  h2Featured: 'Warzone ESP and Aimbot',
+  h2About: 'Built for Warzone players in the UK and worldwide',
+  h2Access: 'Get Warzone Cheats',
+  h2Faq: 'Warzone Cheats FAQ',
 } as const
 
 export function absoluteUrl(path: string) {

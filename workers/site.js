@@ -3,12 +3,11 @@
  * IMPORTANT: Always fetch assets via https://assets.local — never the request
  * hostname — or Cloudflare returns HTTP 522 on custom domains.
  */
-const CANONICAL_HOST = 'wardogshacks.net'
-const LEGACY_HOSTS = new Set(['www.wardogshacks.net'])
+const CANONICAL_HOST = 'warzonecheats.uk'
+const LEGACY_HOSTS = new Set(['www.warzonecheats.uk'])
 
 function needsCanonicalRedirect(url) {
   const host = url.hostname.toLowerCase()
-  // Only force HTTPS on the apex, or move www → apex. Never redirect apex→apex.
   return url.protocol === 'http:' || LEGACY_HOSTS.has(host)
 }
 
