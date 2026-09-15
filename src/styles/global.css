@@ -128,29 +128,29 @@ body {
   outline: none;
   pointer-events: none;
   -webkit-appearance: none;
-  /* B&W base, then purple overlays colorize */
-  filter: grayscale(1) contrast(1.12) brightness(0.82);
+  /* Keep footage readable; light violet grade only */
+  filter: saturate(0.85) contrast(1.06) brightness(0.88);
 }
 
 .hero-video-tint {
   background:
     linear-gradient(
       180deg,
-      rgba(176, 64, 251, 0.5) 0%,
-      rgba(124, 58, 237, 0.32) 40%,
-      rgba(8, 6, 15, 0.6) 100%
+      rgba(176, 64, 251, 0.18) 0%,
+      rgba(124, 58, 237, 0.1) 45%,
+      rgba(8, 6, 15, 0.45) 100%
     ),
-    radial-gradient(ellipse 90% 70% at 50% 20%, rgba(167, 139, 250, 0.4), transparent 65%);
-  mix-blend-mode: color;
-  opacity: 0.92;
+    radial-gradient(ellipse 90% 70% at 50% 20%, rgba(167, 139, 250, 0.16), transparent 65%);
+  mix-blend-mode: soft-light;
+  opacity: 0.7;
 }
 
 .hero-video-tint-glow {
   background:
-    radial-gradient(ellipse 80% 50% at 20% 30%, rgba(176, 64, 251, 0.28), transparent 55%),
-    radial-gradient(ellipse 60% 45% at 85% 60%, rgba(0, 175, 244, 0.12), transparent 50%);
+    radial-gradient(ellipse 80% 50% at 20% 30%, rgba(176, 64, 251, 0.14), transparent 55%),
+    radial-gradient(ellipse 60% 45% at 85% 60%, rgba(0, 175, 244, 0.08), transparent 50%);
   mix-blend-mode: soft-light;
-  opacity: 0.85;
+  opacity: 0.55;
 }
 
 .hero-video-bg::-webkit-media-controls,
@@ -254,32 +254,33 @@ body {
   border: 0;
   outline: none;
   pointer-events: none;
-  /* B&W base, then purple overlays colorize */
-  filter: grayscale(1) contrast(1.12) brightness(0.8);
+  /* Keep motion readable under purple overlays */
+  filter: grayscale(0.55) contrast(1.1) brightness(0.88);
 }
 
 .video-strip-tint {
   background:
     linear-gradient(
       90deg,
-      rgba(176, 64, 251, 0.6),
-      rgba(124, 58, 237, 0.45) 40%,
-      rgba(167, 139, 250, 0.4) 70%,
-      rgba(176, 64, 251, 0.55)
+      rgba(176, 64, 251, 0.55),
+      rgba(124, 58, 237, 0.42) 40%,
+      rgba(167, 139, 250, 0.36) 70%,
+      rgba(176, 64, 251, 0.5)
     ),
-    linear-gradient(180deg, rgba(8, 6, 15, 0.3), transparent 40%, rgba(8, 6, 15, 0.5));
+    linear-gradient(180deg, rgba(8, 6, 15, 0.18), transparent 40%, rgba(8, 6, 15, 0.28));
   mix-blend-mode: color;
-  opacity: 0.95;
+  opacity: 0.82;
 }
 
 .video-strip-tint-glow {
   background: linear-gradient(
     90deg,
-    rgba(176, 64, 251, 0.25),
-    rgba(0, 175, 244, 0.1) 50%,
-    rgba(124, 58, 237, 0.22)
+    rgba(176, 64, 251, 0.28),
+    rgba(192, 132, 252, 0.16) 50%,
+    rgba(124, 58, 237, 0.24)
   );
   mix-blend-mode: soft-light;
+  opacity: 0.75;
 }
 
 .video-strip-local::-webkit-media-controls,

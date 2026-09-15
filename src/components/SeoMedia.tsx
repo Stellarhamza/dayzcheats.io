@@ -32,6 +32,7 @@ export function SeoMedia({
           <video
             controls
             muted
+            autoPlay
             loop
             playsInline
             preload="metadata"

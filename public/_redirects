@@ -1,4 +1,7 @@
-# Cloudflare Pages: Astro trailingSlash never + custom 404
+# Cloudflare Pages redirects (static files always win over these rules).
+# Host www/HTTP → HTTPS apex is handled by functions/_middleware.js
+
+# Trailing-slash canonicalization
 /isle-cheats/   /isle-cheats   301
 /forums/        /forums        301
 /reviews/       /reviews       301
@@ -27,11 +30,16 @@
 /blog/:slug     /forums/:slug  301
 /forums/:slug/  /forums/:slug  301
 
-# Legacy split sitemaps → single sitemap
+# Legacy / alternate sitemap URLs → single canonical sitemap
 /sitemap-pages.xml     /sitemap.xml  301
 /sitemap-products.xml  /sitemap.xml  301
 /sitemap-forums.xml    /sitemap.xml  301
 /sitemap-images.xml    /sitemap.xml  301
 /sitemap-blogs.xml     /sitemap.xml  301
+/sitemap-regions.xml   /sitemap.xml  301
+/sitemap-index.xml     /sitemap.xml  301
+/sitemap_index.xml     /sitemap.xml  301
+/sitemap.xml/          /sitemap.xml  301
 
+# Unknown paths
 /*              /404.html      404

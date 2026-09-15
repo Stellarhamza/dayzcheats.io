@@ -126,24 +126,20 @@ export function SiteLinkHub({ currentPath, variant = 'section' }: SiteLinkHubPro
                 const current = isCurrent(l.to, path)
                 return (
                   <li key={l.to}>
-                    <a
-                      href={l.to}
-                      aria-current={current ? 'page' : undefined}
-                      className="group block text-sm text-white/70 transition-colors hover:text-z-soft"
-                    >
-                      <span
-                        className={`font-medium underline-offset-2 group-hover:underline ${
+                    <div className="group block text-sm text-white/70">
+                      <a
+                        href={l.to}
+                        aria-current={current ? 'page' : undefined}
+                        className={`font-medium underline-offset-2 transition-colors hover:text-z-soft hover:underline ${
                           current ? 'text-white' : ''
                         }`}
                       >
                         {l.label}
-                      </span>
+                      </a>
                       {l.description ? (
-                        <span className="mt-0.5 block text-xs text-white/40">
-                          {l.description}
-                        </span>
+                        <p className="mt-0.5 text-xs text-white/40">{l.description}</p>
                       ) : null}
-                    </a>
+                    </div>
                   </li>
                 )
               })}
@@ -185,19 +181,17 @@ export function SiteLinkHub({ currentPath, variant = 'section' }: SiteLinkHubPro
             <ul className="mt-3 space-y-2.5">
               {OFFICIAL_ISLE_LINKS.map((l) => (
                 <li key={l.href}>
-                  <a
-                    href={l.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group block text-sm text-white/70 transition-colors hover:text-z-soft"
-                  >
-                    <span className="font-medium underline-offset-2 group-hover:underline">
+                  <div className="group block text-sm text-white/70">
+                    <a
+                      href={l.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-medium underline-offset-2 transition-colors hover:text-z-soft hover:underline"
+                    >
                       {l.label}
-                    </span>
-                    <span className="mt-0.5 block text-xs text-white/40">
-                      {l.description}
-                    </span>
-                  </a>
+                    </a>
+                    <p className="mt-0.5 text-xs text-white/40">{l.description}</p>
+                  </div>
                 </li>
               ))}
             </ul>

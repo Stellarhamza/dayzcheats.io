@@ -1,14 +1,15 @@
 /**
  * Single sitemap at /sitemap.xml — every indexed URL in one urlset.
- * Support stays out (noindex). Images are attached on the same entries.
+ * Support is indexable. Images are attached on the same entries.
  */
-import { existsSync, readFileSync, unlinkSync, writeFileSync } from 'node:fs'
+import { existsSync, readFileSync, readdirSync, unlinkSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const publicDir = join(root, 'public')
 const dataDir = join(root, 'src', 'data')
+const pagesDir = join(root, 'src', 'pages')
 const SITE = (process.env.SITE_URL || 'https://theislecheats.cc').replace(/\/$/, '')
 const TODAY = new Date().toLocaleDateString('en-CA')
 const HREFLANG = ['en', 'x-default']
@@ -45,6 +46,12 @@ function loadForums() {
     title: match[2],
     date: match[3],
   }))
+}
+
+function loadStaticRoutes() {
+  return readdirSync(pagesDir, { withFileTypes: true })
+    .filter((entry) => entry.isFile() && entry.name.endsWith('.astro') && entry.name !== '404.astro')
+    .map((entry) => (entry.name === 'index.astro' ? '/' : `/${entry.name.slice(0, -6)}`))
 }
 
 function alternateLinks(url) {
@@ -151,6 +158,7 @@ function buildSitemap(games, forums) {
   ]
 
   return `<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="/sitemap.css"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
@@ -159,29 +167,40 @@ ${entries.join('\n')}
 `
 }
 
-function validate(games, forums, sitemap) {
+function validate(games, forums, staticRoutes, sitemap) {
   const errors = []
-  if (games.length !== 1 || games[0]?.slug !== 'isle') errors.push('Expected one isle product')
-  if (forums.length !== 5) errors.push(`Expected 5 forum threads, found ${forums.length}`)
   if (forums.some((forum) => ['instructions', 'how-to-load'].includes(forum.slug))) {
     errors.push('Retired forum slug remains indexed')
   }
 
-  const required = [
-    `${SITE}/`,
-    `${SITE}/isle-cheats`,
-    `${SITE}/forums`,
-    `${SITE}/reviews`,
-    `${SITE}/faq`,
-    `${SITE}/support`,
-    ...forums.map((forum) => `${SITE}/forums/${forum.slug}`),
-  ]
-  for (const url of required) {
-    if (!sitemap.includes(`<loc>${url}</loc>`)) errors.push(`Missing URL: ${url}`)
+  for (const game of games) {
+    const page = join(pagesDir, `${game.slug}-cheats.astro`)
+    if (!existsSync(page)) errors.push(`Product route has no page file: /${game.slug}-cheats`)
+  }
+  if (forums.length && !existsSync(join(pagesDir, 'forums', '[slug].astro'))) {
+    errors.push('Forum routes have no dynamic page file: src/pages/forums/[slug].astro')
+  }
+
+  const expectedRoutes = new Set([
+    ...staticRoutes,
+    ...games.map((game) => `/${game.slug}-cheats`),
+    ...forums.map((forum) => `/forums/${forum.slug}`),
+  ])
+  const expectedUrls = new Set([...expectedRoutes].map(siteUrl))
+  const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1])
+
+  for (const url of expectedUrls) {
+    if (!sitemapUrls.includes(url)) errors.push(`Missing URL: ${url}`)
+  }
+  for (const url of sitemapUrls) {
+    if (!expectedUrls.has(url)) errors.push(`Unexpected URL: ${url}`)
+  }
+  if (new Set(sitemapUrls).size !== sitemapUrls.length) {
+    errors.push('sitemap.xml contains duplicate URLs')
   }
   if (sitemap.includes('<sitemapindex')) errors.push('sitemap.xml must be a single urlset, not an index')
-  if ((sitemap.match(/<url>/g) || []).length !== required.length) {
-    errors.push(`Expected ${required.length} URLs in sitemap.xml`)
+  if ((sitemap.match(/<url>/g) || []).length !== expectedUrls.size) {
+    errors.push(`Expected ${expectedUrls.size} URLs in sitemap.xml`)
   }
   if (errors.length) throw new Error(`Sitemap validation failed:\n- ${errors.join('\n- ')}`)
 }
@@ -189,13 +208,23 @@ function validate(games, forums, sitemap) {
 function main() {
   const games = loadGames()
   const forums = loadForums()
+  const staticRoutes = loadStaticRoutes()
   const sitemap = buildSitemap(games, forums)
-  validate(games, forums, sitemap)
+  validate(games, forums, staticRoutes, sitemap)
 
-  writeFileSync(join(publicDir, 'sitemap.xml'), sitemap)
+  writeFileSync(join(publicDir, 'sitemap.xml'), sitemap, 'utf8')
   writeFileSync(
     join(publicDir, 'robots.txt'),
-    `User-agent: *\nAllow: /\n\nSitemap: ${siteUrl('/sitemap.xml')}\n`,
+    [
+      'User-agent: *',
+      'Allow: /',
+      'Allow: /sitemap.xml',
+      'Allow: /robots.txt',
+      '',
+      `Sitemap: ${siteUrl('/sitemap.xml')}`,
+      '',
+    ].join('\n'),
+    'utf8',
   )
 
   const stale = [
@@ -205,10 +234,14 @@ function main() {
     'sitemap-images.xml',
     'sitemap-blogs.xml',
     'sitemap-regions.xml',
+    'sitemap-index.xml',
+    'sitemap_index.xml',
   ]
   for (const name of stale) {
-    const path = join(publicDir, name)
-    if (existsSync(path)) unlinkSync(path)
+    for (const dir of [publicDir, join(root, 'dist')]) {
+      const path = join(dir, name)
+      if (existsSync(path)) unlinkSync(path)
+    }
   }
 
   const urlCount = (sitemap.match(/<url>/g) || []).length

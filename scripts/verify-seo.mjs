@@ -3,6 +3,7 @@ import { join, relative } from 'node:path'
 
 const root = join(import.meta.dirname, '..')
 const dist = join(root, 'dist')
+const site = 'https://theislecheats.cc'
 const failures = []
 
 function fail(message) {
@@ -16,6 +17,13 @@ function htmlFiles(directory) {
   })
 }
 
+function pageUrl(file) {
+  const page = relative(dist, file).replaceAll('\\', '/')
+  if (page === 'index.html') return `${site}/`
+  if (page.endsWith('/index.html')) return `${site}/${page.slice(0, -11)}`
+  return `${site}/${page.slice(0, -5)}`
+}
+
 const files = htmlFiles(dist)
 const titles = new Map()
 const descriptions = new Map()
@@ -26,6 +34,7 @@ for (const file of files) {
   const h1Count = (html.match(/<h1(?:\s|>)/g) || []).length
   const title = html.match(/<title>(.*?)<\/title>/)?.[1]
   const description = html.match(/<meta name="description" content="([^"]+)"/)?.[1]
+  const canonicalUrl = pageUrl(file)
 
   if (h1Count !== 1) fail(`${page}: expected one H1, found ${h1Count}`)
   if (!title) fail(`${page}: missing title`)
@@ -35,6 +44,18 @@ for (const file of files) {
   else if (descriptions.has(description)) {
     fail(`${page}: duplicate description also used by ${descriptions.get(description)}`)
   } else descriptions.set(description, page)
+
+  if (page !== '404.html') {
+    if (!html.includes(`rel="canonical" href="${canonicalUrl}"`)) {
+      fail(`${page}: missing self-referencing canonical ${canonicalUrl}`)
+    }
+    if (!html.includes(`hreflang="en" href="${canonicalUrl}"`)) {
+      fail(`${page}: missing self-referencing hreflang=en`)
+    }
+    if (!html.includes(`hreflang="x-default" href="${canonicalUrl}"`)) {
+      fail(`${page}: missing self-referencing hreflang=x-default`)
+    }
+  }
 
   if (html.includes('assets-prd.ignimgs.com')) fail(`${page}: contains third-party IGN image`)
   if (html.includes('cdn.cosmocheats.com')) fail(`${page}: contains third-party media hotlink`)
@@ -107,26 +128,25 @@ if (forumVideoObjects !== 5) fail(`Expected 5 forum VideoObject nodes, found ${f
 const sitemap = readFileSync(join(dist, 'sitemap.xml'), 'utf8')
 if (sitemap.includes('<sitemapindex')) fail('sitemap.xml must be a single urlset, not an index')
 if (/forums\/(instructions|how-to-load)/.test(sitemap)) fail('Retired forum remains in sitemap.xml')
-const requiredUrls = [
-  'https://theislecheats.cc/',
-  'https://theislecheats.cc/isle-cheats',
-  'https://theislecheats.cc/forums',
-  'https://theislecheats.cc/forums/features-list',
-  'https://theislecheats.cc/forums/hotkeys',
-  'https://theislecheats.cc/forums/complete-setup',
-  'https://theislecheats.cc/forums/disable-antivirus',
-  'https://theislecheats.cc/forums/undetected-status',
-  'https://theislecheats.cc/reviews',
-  'https://theislecheats.cc/faq',
-  'https://theislecheats.cc/support',
-]
-for (const url of requiredUrls) {
-  if (!sitemap.includes(`<loc>${url}</loc>`)) fail(`sitemap.xml missing ${url}`)
+const expectedUrls = new Set(
+  files
+    .filter((file) => relative(dist, file).replaceAll('\\', '/') !== '404.html')
+    .map(pageUrl),
+)
+const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1])
+const uniqueSitemapUrls = new Set(sitemapUrls)
+
+for (const url of expectedUrls) {
+  if (!uniqueSitemapUrls.has(url)) fail(`sitemap.xml missing built page ${url}`)
 }
-if ((sitemap.match(/<url>/g) || []).length !== requiredUrls.length) {
-  fail(`sitemap.xml must contain exactly ${requiredUrls.length} URLs`)
+for (const url of uniqueSitemapUrls) {
+  if (!expectedUrls.has(url)) fail(`sitemap.xml contains URL without a built page: ${url}`)
 }
-if ((sitemap.match(/<image:image>/g) || []).length !== requiredUrls.length) {
+if (uniqueSitemapUrls.size !== sitemapUrls.length) fail('sitemap.xml contains duplicate URLs')
+if ((sitemap.match(/<url>/g) || []).length !== expectedUrls.size) {
+  fail(`sitemap.xml must contain exactly ${expectedUrls.size} built page URLs`)
+}
+if ((sitemap.match(/<image:image>/g) || []).length !== expectedUrls.size) {
   fail('Every sitemap URL must include an image entry')
 }
 if (!sitemap.includes('/media/theisle-cheats-esp-forest.jpg')) {
@@ -135,26 +155,72 @@ if (!sitemap.includes('/media/theisle-cheats-esp-forest.jpg')) {
 if (!sitemap.includes('/media/theisle-cheats-esp-river.jpg')) {
   fail('sitemap.xml lacks river gameplay image')
 }
+if (!sitemap.trimStart().startsWith('<?xml version="1.0" encoding="UTF-8"?>')) {
+  fail('sitemap.xml must start with an XML declaration')
+}
+if (!sitemap.includes('<?xml-stylesheet type="text/css" href="/sitemap.css"?>')) {
+  fail('sitemap.xml must reference the browser presentation stylesheet')
+}
 for (const stale of [
   'sitemap-pages.xml',
   'sitemap-products.xml',
   'sitemap-forums.xml',
   'sitemap-images.xml',
   'sitemap-blogs.xml',
+  'sitemap-regions.xml',
+  'sitemap-index.xml',
+  'sitemap_index.xml',
 ]) {
   if (existsSync(join(dist, stale))) fail(`Stale split sitemap still published: ${stale}`)
+}
+
+if (!existsSync(join(dist, 'sitemap.xml'))) fail('dist/sitemap.xml is missing')
+if (!existsSync(join(dist, 'robots.txt'))) fail('dist/robots.txt is missing')
+if (!existsSync(join(dist, '_routes.json'))) fail('dist/_routes.json is missing')
+
+const robots = readFileSync(join(dist, 'robots.txt'), 'utf8')
+if (!robots.includes('Sitemap: https://theislecheats.cc/sitemap.xml')) {
+  fail('robots.txt must point at the canonical HTTPS sitemap')
+}
+if (!robots.includes('Allow: /sitemap.xml')) {
+  fail('robots.txt must explicitly allow /sitemap.xml')
+}
+
+const routes = JSON.parse(readFileSync(join(dist, '_routes.json'), 'utf8'))
+if (!routes.exclude?.includes('/sitemap.xml') || !routes.exclude?.includes('/robots.txt')) {
+  fail('_routes.json must exclude /sitemap.xml and /robots.txt from Functions')
 }
 
 for (const asset of [
   'public/og/default.jpg',
   'public/media/product-hero.webp',
   'public/media/product-cover.webp',
+  'public/media/home-hero-dino.jpg',
   'public/media/theisle-cheats-esp-forest.jpg',
   'public/media/theisle-cheats-esp-river.jpg',
   'public/media/theisle-cheats-esp-gameplay.mp4',
   'public/media/theisle-cheats-misc-features.mp4',
+  'public/sitemap.css',
+  'public/_routes.json',
+  'functions/_middleware.js',
 ]) {
   if (!existsSync(join(root, asset))) fail(`Missing first-party asset: ${asset}`)
+}
+
+const redirects = readFileSync(join(root, 'public', '_redirects'), 'utf8')
+if (!redirects.includes('/sitemap-pages.xml')) {
+  fail('_redirects missing legacy sitemap → /sitemap.xml redirects')
+}
+if (!redirects.includes('/sitemap-index.xml')) {
+  fail('_redirects missing sitemap-index.xml → /sitemap.xml redirect')
+}
+
+const headers = readFileSync(join(root, 'public', '_headers'), 'utf8')
+if (!headers.includes('Content-Type: text/html; charset=utf-8')) {
+  fail('_headers missing HTML charset Content-Type')
+}
+if (!headers.includes('/sitemap.xml')) {
+  fail('_headers missing /sitemap.xml Content-Type')
 }
 
 if (failures.length) {

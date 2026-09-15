@@ -102,7 +102,7 @@ export const SEO = {
 } as const satisfies Record<string, PageSeo>
 
 export const HOME_HEADINGS = {
-  h1: 'TheIsle Cheats for Evrima',
+  h1: 'Buy TheIsle Cheats for Evrima',
   h2Features: 'What you get with The Isle Cheats',
   h2Featured: 'The Isle Cheats for Evrima',
   h2About: 'Why buy The Isle Cheats here',

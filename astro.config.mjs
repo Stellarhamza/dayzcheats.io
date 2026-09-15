@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config'
 import react from '@astrojs/react'
 import tailwind from '@astrojs/tailwind'
+import { sitemapBrowserViewPlugin } from './scripts/sitemap-browser-view.mjs'
 
 export default defineConfig({
   site: 'https://theislecheats.cc',
@@ -18,8 +19,13 @@ export default defineConfig({
     }),
   ],
   vite: {
+    plugins: [sitemapBrowserViewPlugin()],
     server: {
       port: 5174,
+      strictPort: true,
+    },
+    preview: {
+      port: 5175,
       strictPort: true,
     },
     build: {

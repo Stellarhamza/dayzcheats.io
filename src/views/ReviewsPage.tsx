@@ -84,7 +84,7 @@ export function ReviewsPage() {
         >
           <LocalVideoStrip
             src="/videos/reviews-neon.webm"
-            startAt={5}
+            startAt={2}
             eager
             className="video-strip--reviews"
           />

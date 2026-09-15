@@ -2,7 +2,6 @@
 import '../styles/global.css'
 import {
   OG_IMAGE,
-  SEO_REGIONS,
   SITE_NAME,
   absoluteUrl,
   type PageSeo,
@@ -46,9 +45,10 @@ const isHome = seo.path === '/' || seo.path === ''
     {isHome ? (
       <link
         rel="preload"
-        as="video"
-        href="/videos/black-angel.webm"
-        type="video/webm"
+        as="image"
+        href="/media/home-hero-dino.jpg"
+        type="image/jpeg"
+        fetchpriority="high"
       />
     ) : null}
 
@@ -59,12 +59,9 @@ const isHome = seo.path === '/' || seo.path === ''
     <meta name="author" content={SITE_NAME} />
     <link rel="canonical" href={url} />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-
-    {
-      SEO_REGIONS.map((region) => (
-        <link rel="alternate" hreflang={region.hreflang} href={url} />
-      ))
-    }
+    {/* Self-referencing hreflang for the page language + x-default fallback */}
+    <link rel="alternate" hreflang="en" href={url} />
+    <link rel="alternate" hreflang="x-default" href={url} />
 
     <meta property="og:type" content={seo.ogType || 'website'} />
     <meta property="og:site_name" content={SITE_NAME} />

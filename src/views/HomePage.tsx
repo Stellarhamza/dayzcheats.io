@@ -40,7 +40,10 @@ export function HomePage() {
   return (
     <div className="min-h-screen overflow-x-hidden text-white">
       <section id="home" className="relative flex min-h-screen flex-col overflow-x-clip">
-        <VideoBg />
+        <VideoBg
+          image="/media/home-hero-dino.jpg"
+          imageAlt="The Isle Cheats — cinematic Carnotaurus hero"
+        />
 
         <div className="relative z-20 flex min-h-screen flex-col">
           <Navbar onVideo />
@@ -143,7 +146,7 @@ export function HomePage() {
           aria-hidden
           className="relative border-y border-z-soft/20 bg-z-band"
         >
-          <LocalVideoStrip src="/videos/home-wave.webm" startAt={5} eager />
+          <LocalVideoStrip src="/videos/home-wave.webm" startAt={2} eager />
         </section>
 
         <section id="picks" className="page-x py-16 sm:py-20">
