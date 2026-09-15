@@ -4,6 +4,11 @@ name = "thewardogsqrhe"
 main = "workers/site.js"
 compatibility_date = "2026-09-12"
 
+# Cloudflare CI invokes `npx wrangler deploy` directly. Build Astro first so
+# the static-assets directory exists before Wrangler validates it.
+[build]
+command = "npm run build"
+
 # Recreate DNS/SSL for apex + www (fixes NXDOMAIN / Google HTTP 522).
 [[routes]]
 pattern = "wardogshacks.net"

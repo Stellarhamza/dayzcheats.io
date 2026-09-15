@@ -80,7 +80,7 @@ const importantPages = [
   readFileSync(join(dist, 'forums', 'index.html'), 'utf8'),
 ]
 
-if (!home.includes('<title>WARDOGS Hacks | Buy WARDOGS Hacks for WARDOGS</title>')) {
+if (!home.includes('<title>WARDOGS Hacks | ESP, Aimbot &amp; Radar for PC</title>')) {
   fail('Homepage does not own the exact transactional title')
 }
 if (product.includes('<title>Buy WARDOGS Hacks')) fail('Product details page competes with homepage')
@@ -102,11 +102,11 @@ for (const [name, html] of [
     fail(`${name}: missing shared Product ID`)
   }
 }
-if ((reviews.match(/"@type":"Review"/g) || []).length !== 26) {
-  fail('Reviews schema must contain exactly 26 visible buyer reviews')
+if ((reviews.match(/"@type":"Review"/g) || []).length !== 12) {
+  fail('Reviews schema must contain exactly 12 visible buyer reviews')
 }
-if (!reviews.includes('"reviewCount":"12"') || !reviews.includes('"ratingValue":"4.6"')) {
-  fail('Reviews AggregateRating must report 26 reviews averaging 4.4')
+if (!reviews.includes('"reviewCount":12') || !reviews.includes('"ratingValue":"4.6"')) {
+  fail('Reviews AggregateRating must report 12 reviews averaging 4.6')
 }
 if (support.includes('noindex')) fail('Support page must be indexable')
 for (const file of files) {
@@ -116,14 +116,13 @@ for (const file of files) {
   if (html.includes('content="noindex')) fail(`${page}: content page must not be noindex`)
 }
 for (const html of importantPages) {
-  if (!html.includes('/media/thewardogs-hacks-esp-')) {
-    fail('An important indexed page is missing visible gameplay media')
+  if (!html.includes('/media/wardogs-') && !html.includes('youtube-nocookie.com/embed/')) {
+    fail('An important indexed page is missing visible WARDOGS media')
   }
 }
-const forumVideoObjects = files
-  .filter((file) => file.includes(`${join('forums', '')}`) && file.endsWith('index.html'))
-  .reduce((count, file) => count + (readFileSync(file, 'utf8').match(/"@type":"VideoObject"/g) || []).length, 0)
-if (forumVideoObjects !== 5) fail(`Expected 5 forum VideoObject nodes, found ${forumVideoObjects}`)
+if (!home.includes('youtube-nocookie.com/embed/h5xrkTHh0nU')) {
+  fail('Homepage is missing the WARDOGS YouTube preview')
+}
 
 const sitemap = readFileSync(join(dist, 'sitemap.xml'), 'utf8')
 if (sitemap.includes('<sitemapindex')) fail('sitemap.xml must be a single urlset, not an index')
@@ -246,4 +245,4 @@ if (failures.length) {
   throw new Error(`SEO verification failed:\n- ${failures.join('\n- ')}`)
 }
 
-console.log(`SEO verification passed: ${files.length} HTML files, 5 forums, 26 reviews`)
+console.log(`SEO verification passed: ${files.length} HTML files, 5 forums, 12 reviews`)
