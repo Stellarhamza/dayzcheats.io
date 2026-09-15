@@ -7,27 +7,27 @@ export type FaqItem = {
 export const SITE_FAQS: FaqItem[] = [
   {
     q: 'What are Warzone Cheats?',
-    a: 'Warzone Cheats are tools for Warzone on warzonecheats.uk — mainly player ESP, vehicle ESP, soft aim and 2D radar — with live Undetected or Updating status after Ricochet patches.',
+    a: 'Warzone Cheats are tools for Call of Duty: Warzone on www.warzonecheats.uk — Aimbot, player ESP, wallhack and 2D radar — with live Undetected or Updating status after Ricochet patches.',
   },
   {
     q: 'Do you cover other games?',
-    a: 'No. warzonecheats.uk sells Warzone Cheats only. No filler catalog of unrelated titles.',
+    a: 'No. www.warzonecheats.uk sells Warzone Cheats only — no Apex, Fortnite or filler catalog titles.',
   },
   {
-    q: 'Is aimbot the main feature?',
-    a: 'No. Soft aim is optional. Most buyers come for Warzone ESP, vehicle tags and radar awareness.',
+    q: 'Is Aimbot the main feature?',
+    a: 'Aimbot is optional. Many buyers lead with Warzone ESP, wallhack and radar awareness, then enable Aimbot only if they want it.',
   },
   {
     q: 'Are Warzone Cheats undetected against Ricochet?',
-    a: 'We mark live Undetected or Updating status after Warzone / Ricochet updates. Always check status on warzonecheats.uk before you load.',
+    a: 'We mark live Undetected or Updating status after Warzone / Ricochet updates. Always check status on www.warzonecheats.uk before you load.',
   },
   {
     q: 'What features are included?',
-    a: 'Player ESP / wallhack, vehicle ESP, 2D radar, stream-proof options and configurable soft aim — focused on Warzone only. See the Features List guide for the full checklist.',
+    a: 'Warzone Aimbot, player ESP / wallhack, loot ESP when supported, 2D radar and stream-proof options — Warzone on Windows PC only. See the Features List guide for the full checklist.',
   },
   {
-    q: 'Does it work on Steam Early Access?',
-    a: 'Yes. Compatibility tracks the Windows Early Access build (Steam app 1867240). Confirm Undetected after Ricocheth patch before loading.',
+    q: 'Does it work on Windows PC Warzone?',
+    a: 'Yes. Warzone Cheats target Call of Duty: Warzone on Windows 10/11 (Battle.net / official PC client). Confirm Undetected after each Ricochet patch before loading.',
   },
   {
     q: 'How do I buy Warzone Cheats?',
@@ -51,7 +51,7 @@ export const SITE_FAQS: FaqItem[] = [
   },
   {
     q: 'Is this the official Warzone game site?',
-    a: 'No. We sell Warzone Cheats only. Play the game from Warzone.com or Warzone on Steam. We are not affiliated with Activision or Call of Duty.',
+    a: 'No. We sell Warzone Cheats only. Play the game from callofduty.com/warzone. We are not affiliated with Activision or Call of Duty.',
   },
 ]
 

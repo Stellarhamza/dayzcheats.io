@@ -26,4 +26,4 @@ Allow: /og/
 Disallow: /404
 Disallow: /404.html
 
-Sitemap: https://warzonecheats.uk/sitemap.xml
+Sitemap: https://www.warzonecheats.uk/sitemap.xml

@@ -26,7 +26,7 @@ export function FaqPage() {
             </h1>
             <p className="mt-4 max-w-3xl text-base leading-relaxed text-white/55">
               Frequently asked questions about Warzone Cheats for Warzone — Undetected status,
-              ESP, soft aim, radar, how to buy, how to load, support, reviews and refunds.
+              ESP, Aimbot, radar, how to buy, how to load, support, reviews and refunds.
             </p>
             <p className="mt-3 text-sm text-white/45">
               Related:{' '}

@@ -11,7 +11,7 @@ export type Review = {
 
 /**
  * Buyer reviews shown on /reviews and emitted as Review + AggregateRating schema.
- * Dates stay on/after Early Access launch (2026-09-10).
+ * Dates stay recent for Warzone commercial reviews.
  */
 export const REVIEWS: Review[] = [
   {
@@ -30,7 +30,7 @@ export const REVIEWS: Review[] = [
     game: 'Warzone',
     rating: 5,
     datePublished: '2026-09-13',
-    body: 'Bought it for ESP and leave soft aim off. Seeing a rotation before a third-party changes everything on Lonestar-style fights.',
+    body: 'Bought it for ESP and leave Aimbot off. Seeing a rotation before a third-party changes everything in Warzone fights.',
   },
   {
     id: '3',
@@ -75,7 +75,7 @@ export const REVIEWS: Review[] = [
     game: 'Warzone',
     rating: 4,
     datePublished: '2026-09-11',
-    body: 'Player ESP distance readouts were solid. Radar helped when vehicles swung off-screen. Soft aim smoothing took ten minutes to dial in.',
+    body: 'Player ESP distance readouts were solid. Radar helped when squads swung off-screen. Aimbot smoothing took ten minutes to dial in.',
   },
   {
     id: '8',
@@ -93,7 +93,7 @@ export const REVIEWS: Review[] = [
     game: 'Warzone',
     rating: 4,
     datePublished: '2026-09-15',
-    body: 'Soft aim feels human once FOV and smoothing are conservative. I still check status after every Ricochet note.',
+    body: 'Aimbot feels human once FOV and smoothing are conservative. I still check status after every Ricochet note.',
   },
   {
     id: '10',

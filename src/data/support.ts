@@ -9,13 +9,13 @@ export type SupportTopic = {
 }
 
 export const SUPPORT_INTRO =
-  'Support for Warzone Cheats buyers on warzonecheats.uk — loader setup, Undetected status, menu config and delivery help after you purchase.'
+  'Support for Warzone Cheats buyers on www.warzonecheats.uk — loader setup, Undetected status, menu config and delivery help after you purchase.'
 
 export const SUPPORT_TOPICS: SupportTopic[] = [
   {
     heading: 'Before you open a support request',
     body: [
-      'Confirm you bought Warzone Cheats from warzonecheats.uk. We only support this product — not random downloads from elsewhere.',
+      'Confirm you bought Warzone Cheats from www.warzonecheats.uk. We only support this product — not random downloads from elsewhere.',
       'Check live status on the product page. If it says Updating, do not load. Wait for Undetected.',
       'Have your order email and license length ready. That speeds up help after Ricochet patches.',
     ],
@@ -30,15 +30,15 @@ export const SUPPORT_TOPICS: SupportTopic[] = [
   {
     heading: 'Status windows and refunds',
     body: [
-      'Do not load while status is Updating — that is the biggest avoidable risk after an Ricochet patch.',
+      'Do not load while status is Updating — that is the biggest avoidable risk after a Ricochet patch.',
       'Delivery failures and extended Updating windows are covered on the Refunds page. Include your order ID when you write in.',
     ],
   },
   {
     heading: 'What we support',
     body: [
-      'Supported: Warzone Windows Early Access builds we sell — ESP, radar, soft aim, menu, setup and status questions.',
-      'Not supported: other games, cracked loaders or third-party mirrors.',
+      'Supported: Call of Duty: Warzone on Windows PC — Aimbot, ESP, wallhack, radar, menu, setup and status questions.',
+      'Not supported: other games (including Apex), cracked loaders or third-party mirrors.',
       'Policy pages: Privacy, Terms and Refunds are linked in the footer.',
     ],
   },
@@ -47,7 +47,7 @@ export const SUPPORT_TOPICS: SupportTopic[] = [
 export const SUPPORT_FAQS: SupportFaq[] = [
   {
     q: 'How do I contact Warzone Cheats support?',
-    a: 'Open your order on warzonecheats.uk and use the checkout support channel tied to your purchase. Include a status screenshot (Undetected / Updating) and whether you need load, menu or delivery help.',
+    a: 'Open your order on www.warzonecheats.uk and use the checkout support channel tied to your purchase. Include a status screenshot (Undetected / Updating) and whether you need load, menu or delivery help.',
   },
   {
     q: 'How do I load Warzone Cheats after a patch?',
@@ -62,11 +62,11 @@ export const SUPPORT_FAQS: SupportFaq[] = [
     a: 'Yes. Use the Complete Setup forum thread first, then contact support with your order ID if a current Undetected build still fails.',
   },
   {
-    q: 'Is aimbot required?',
-    a: 'No. Warzone Cheats lead with ESP and radar. Soft aim is optional. Support focuses on awareness features and safe load steps.',
+    q: 'Is Aimbot required?',
+    a: 'No. Warzone Cheats lead with ESP and radar. Aimbot is optional. Support focuses on awareness features and safe load steps.',
   },
   {
     q: 'Where is the Warzone Cheats download?',
-    a: 'Delivery is digital after checkout on warzonecheats.uk. Use only that loader link. Third-party mirrors are unsupported and unsafe.',
+    a: 'Delivery is digital after checkout on www.warzonecheats.uk. Use only that loader link. Third-party mirrors are unsupported and unsafe.',
   },
 ]

@@ -46,7 +46,7 @@ export const POLICY_PAGES: PolicyPageContent[] = [
         body: [
           'Essential cookies may be set by checkout or CDN providers so payment and delivery work.',
           'Preview media is hosted on warzonecheats.uk. Third-party embeds are not used for the main product preview.',
-          'Official Warzone / Steam / Call of Duty links are external. Their privacy policies apply once you leave warzonecheats.uk.',
+          'Official Call of Duty / Warzone links are external. Their privacy policies apply once you leave www.warzonecheats.uk.',
         ],
       },
       {
@@ -71,7 +71,7 @@ export const POLICY_PAGES: PolicyPageContent[] = [
       'License rules, age limits, anti-cheat risk, and liability limits for Warzone Cheats on warzonecheats.uk.',
     h1: 'Terms of Use',
     intro:
-      'Buying or running Warzone Cheats means you accept these terms. A license covers personal use of ESP, radar, and soft-aim tools for Warzone on Windows PC — nothing beyond that.',
+      'Buying or running Warzone Cheats means you accept these terms. A license covers personal use of Aimbot, ESP, wallhack and radar tools for Warzone on Windows PC — nothing beyond that.',
     sections: [
       {
         heading: 'Acceptance and what a license covers',

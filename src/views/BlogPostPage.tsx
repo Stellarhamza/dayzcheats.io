@@ -95,7 +95,7 @@ export function BlogPostPage({ slug }: BlogPostPageProps) {
                 </a>
                 . Own the game via{' '}
                 <a
-                  href="https://store.steampowered.com/app/1867240/Warzone/"
+                  href="https://www.callofduty.com/warzone"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white/80 underline-offset-2 hover:underline"
