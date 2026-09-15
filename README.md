@@ -1,6 +1,6 @@
-# The Isle Cheats (theislecheats.net)
+# WARDOGS Hacks (wardogshacks.net)
 
-Static Astro site for The Isle (Evrima) cheats — Cloudflare Pages ready.
+Static Astro site for WARDOGS (WARDOGS) cheats — Cloudflare Pages ready.
 
 ## Stack
 

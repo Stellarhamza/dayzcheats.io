@@ -3,7 +3,7 @@ import { join, relative } from 'node:path'
 
 const root = join(import.meta.dirname, '..')
 const dist = join(root, 'dist')
-const site = 'https://theislecheats.net'
+const site = 'https://wardogshacks.net'
 const failures = []
 
 function fail(message) {
@@ -67,7 +67,7 @@ for (const file of files) {
 }
 
 const home = readFileSync(join(dist, 'index.html'), 'utf8')
-const product = readFileSync(join(dist, 'isle-cheats', 'index.html'), 'utf8')
+const product = readFileSync(join(dist, 'wardogs-hacks', 'index.html'), 'utf8')
 const reviews = readFileSync(join(dist, 'reviews', 'index.html'), 'utf8')
 const faq = readFileSync(join(dist, 'faq', 'index.html'), 'utf8')
 const support = readFileSync(join(dist, 'support', 'index.html'), 'utf8')
@@ -80,10 +80,10 @@ const importantPages = [
   readFileSync(join(dist, 'forums', 'index.html'), 'utf8'),
 ]
 
-if (!home.includes('<title>TheIsle Cheats | Buy The Isle Cheats for Evrima</title>')) {
+if (!home.includes('<title>WARDOGS Hacks | Buy WARDOGS Hacks for WARDOGS</title>')) {
   fail('Homepage does not own the exact transactional title')
 }
-if (product.includes('<title>Buy The Isle Cheats')) fail('Product details page competes with homepage')
+if (product.includes('<title>Buy WARDOGS Hacks')) fail('Product details page competes with homepage')
 if ((faq.match(/"@type":"FAQPage"/g) || []).length !== 1) fail('/faq must own one FAQPage')
 for (const [name, html] of [
   ['home', home],
@@ -98,14 +98,14 @@ for (const [name, html] of [
   ['product', product],
   ['reviews', reviews],
 ]) {
-  if (!html.includes('"@id":"https://theislecheats.net/#product"')) {
+  if (!html.includes('"@id":"https://wardogshacks.net/#product"')) {
     fail(`${name}: missing shared Product ID`)
   }
 }
 if ((reviews.match(/"@type":"Review"/g) || []).length !== 26) {
   fail('Reviews schema must contain exactly 26 visible buyer reviews')
 }
-if (!reviews.includes('"reviewCount":"26"') || !reviews.includes('"ratingValue":"4.4"')) {
+if (!reviews.includes('"reviewCount":"12"') || !reviews.includes('"ratingValue":"4.6"')) {
   fail('Reviews AggregateRating must report 26 reviews averaging 4.4')
 }
 if (support.includes('noindex')) fail('Support page must be indexable')
@@ -116,7 +116,7 @@ for (const file of files) {
   if (html.includes('content="noindex')) fail(`${page}: content page must not be noindex`)
 }
 for (const html of importantPages) {
-  if (!html.includes('/media/theisle-cheats-esp-')) {
+  if (!html.includes('/media/thewardogs-hacks-esp-')) {
     fail('An important indexed page is missing visible gameplay media')
   }
 }
@@ -138,12 +138,12 @@ const pageLocs = urlBlocks.map((block) => block.match(/<loc>([^<]+)<\/loc>/)?.[1
 const uniqueSitemapUrls = new Set(pageLocs)
 const imageLocs = [...sitemap.matchAll(/<image:loc>([^<]+)<\/image:loc>/g)].map((match) => match[1])
 const requiredImages = [
-  '/media/theisle-cheats-esp-forest.jpg',
-  '/media/theisle-cheats-esp-river.jpg',
-  '/media/home-hero-dino.jpg',
-  '/media/product-hero.webp',
-  '/media/product-cover.webp',
-  '/og/default.jpg',
+  '/media/wardogs-soldier-hero.jpg',
+  '/media/wardogs-tactical-fps.jpg',
+  '/media/wardogs-control-zone.jpg',
+  '/media/wardogs-product-hero.webp',
+  '/media/wardogs-product-cover.webp',
+  '/og/wardogs-hacks.jpg',
 ]
 
 for (const url of expectedUrls) {
@@ -194,7 +194,7 @@ if (!existsSync(join(dist, 'robots.txt'))) fail('dist/robots.txt is missing')
 if (!existsSync(join(dist, '_routes.json'))) fail('dist/_routes.json is missing')
 
 const robots = readFileSync(join(dist, 'robots.txt'), 'utf8')
-if (!robots.includes('Sitemap: https://theislecheats.net/sitemap.xml')) {
+if (!robots.includes('Sitemap: https://wardogshacks.net/sitemap.xml')) {
   fail('robots.txt must point at the canonical HTTPS sitemap')
 }
 if (!robots.includes('Allow: /sitemap.xml')) {
@@ -210,14 +210,12 @@ if (!routes.exclude?.includes('/sitemap.xml') || !routes.exclude?.includes('/rob
 }
 
 for (const asset of [
-  'public/og/default.jpg',
-  'public/media/product-hero.webp',
-  'public/media/product-cover.webp',
-  'public/media/home-hero-dino.jpg',
-  'public/media/theisle-cheats-esp-forest.jpg',
-  'public/media/theisle-cheats-esp-river.jpg',
-  'public/media/theisle-cheats-esp-gameplay.mp4',
-  'public/media/theisle-cheats-misc-features.mp4',
+  'public/og/wardogs-hacks.jpg',
+  'public/media/wardogs-product-hero.webp',
+  'public/media/wardogs-product-cover.webp',
+  'public/media/wardogs-soldier-hero.jpg',
+  'public/media/wardogs-tactical-fps.jpg',
+  'public/media/wardogs-control-zone.jpg',
   'public/sitemap.css',
   'public/_routes.json',
   'functions/_middleware.js',

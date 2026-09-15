@@ -1,16 +1,16 @@
 # Cloudflare Workers + static assets — required so CI `npx wrangler deploy` succeeds.
 # (Dashboard is locked to that command; `wrangler pages deploy` is not used.)
-name = "theisleqrhe"
+name = "thewardogsqrhe"
 main = "workers/site.js"
 compatibility_date = "2026-09-12"
 
 # Recreate DNS/SSL for apex + www (fixes NXDOMAIN / Google HTTP 522).
 [[routes]]
-pattern = "theislecheats.net"
+pattern = "wardogshacks.net"
 custom_domain = true
 
 [[routes]]
-pattern = "www.theislecheats.net"
+pattern = "www.wardogshacks.net"
 custom_domain = true
 
 [assets]

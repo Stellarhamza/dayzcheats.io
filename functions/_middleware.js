@@ -3,11 +3,11 @@
  * Primary redirects live in workers/site.js for `npx wrangler deploy`.
  * /sitemap.xml is excluded in public/_routes.json so crawlers get a static file.
  */
-const CANONICAL_HOST = 'theislecheats.net'
+const CANONICAL_HOST = 'wardogshacks.net'
 const LEGACY_HOSTS = new Set([
-  'theislecheats.cc',
-  'www.theislecheats.cc',
-  'www.theislecheats.net',
+  'wardogshacks.net',
+  'www.wardogshacks.net',
+  'www.wardogshacks.net',
 ])
 
 export async function onRequest(context) {

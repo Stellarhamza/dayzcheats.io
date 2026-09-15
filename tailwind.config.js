@@ -14,8 +14,7 @@ export default {
           accent: '#b040fb',
           soft: '#a78bfa',
           deep: '#7c3aed',
-          cyan: '#00aff4',
-          success: '#00e676',
+          success: '#c084fc',
         },
       },
       fontFamily: {

@@ -21,12 +21,12 @@ export function SupportPage() {
               {SITE_NAME} · Help · {SITE_HOST}
             </p>
             <h1 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-5xl">
-              The Isle Cheats Support
+              WARDOGS Hacks Support
             </h1>
             <p className="mt-4 max-w-3xl text-base leading-relaxed text-white/55">
-              {SUPPORT_INTRO} Play The Isle from the{' '}
+              {SUPPORT_INTRO} Play WARDOGS from the{' '}
               <a
-                href="https://www.survivetheisle.com/"
+                href="https://wardogs.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white/80 underline-offset-2 hover:underline"
@@ -35,7 +35,7 @@ export function SupportPage() {
               </a>{' '}
               or{' '}
               <a
-                href="https://store.steampowered.com/app/376210/The_Isle/"
+                href="https://store.steampowered.com/app/1867240/WARDOGS/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white/80 underline-offset-2 hover:underline"
@@ -43,7 +43,7 @@ export function SupportPage() {
                 Steam
               </a>
               . Product help stays on{' '}
-              <a href="/isle-cheats" className="text-white/80 underline-offset-2 hover:underline">
+              <a href="/wardogs-hacks" className="text-white/80 underline-offset-2 hover:underline">
                 product details
               </a>
               ,{' '}
@@ -88,8 +88,8 @@ export function SupportPage() {
 
         <FaqSection
           id="faq"
-          heading="The Isle Cheats support FAQ"
-          intro="Load, inject, download, menu, setup, config, spoofer, and EAC answers for Evrima buyers."
+          heading="WARDOGS Hacks support FAQ"
+          intro="Load, delivery, menu, setup, config and EAC answers for WARDOGS buyers."
           items={SUPPORT_FAQS}
         />
 
@@ -100,7 +100,7 @@ export function SupportPage() {
                 Need help now
               </p>
               <h2 className="mt-3 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-                Open The Isle Cheats or checkout support
+                Open WARDOGS Hacks or checkout support
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-white/55">
                 Confirm Undetected status on the product page, then buy or reopen your order for
@@ -109,13 +109,13 @@ export function SupportPage() {
             </div>
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end">
               <a
-                href="/isle-cheats"
+                href="/wardogs-hacks"
                 className="inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-white/5"
               >
                 Product details
               </a>
               <CheckoutLink className="cta-gradient inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium text-white">
-                Buy The Isle Cheats
+                Buy WARDOGS Hacks
               </CheckoutLink>
             </div>
           </div>

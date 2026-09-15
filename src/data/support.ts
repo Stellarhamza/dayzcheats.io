@@ -9,53 +9,53 @@ export type SupportTopic = {
 }
 
 export const SUPPORT_INTRO =
-  'Support for The Isle Cheats buyers on theislecheats.net — load, inject, Undetected status, HWID spoofer, menu setup, and delivery help after you purchase.'
+  'Support for WARDOGS Hacks buyers on wardogshacks.net — loader setup, Undetected status, menu config and delivery help after you purchase.'
 
 export const SUPPORT_TOPICS: SupportTopic[] = [
   {
     heading: 'Before you open a support request',
     body: [
-      'Confirm you bought The Isle Cheats from theislecheats.net. We only support this product — not random downloads from elsewhere.',
-      'Check live status on the product page. If it says Updating, do not inject. Wait for Undetected.',
-      'Have your order email and build name ready. That speeds up help after EAC patches.',
+      'Confirm you bought WARDOGS Hacks from wardogshacks.net. We only support this product — not random downloads from elsewhere.',
+      'Check live status on the product page. If it says Updating, do not load. Wait for Undetected.',
+      'Have your order email and license length ready. That speeds up help after EAC patches.',
     ],
   },
   {
     heading: 'Setup and load order',
     body: [
-      'Follow the Complete Setup forum thread for the current load order, antivirus exclusions, menu configuration, and first clean inject.',
-      'If the product is Updating, wait. If an Undetected build still fails after one clean retry, open a support request with your order ID and build name.',
+      'Follow the Complete Setup forum thread for the current load order, antivirus exclusions, menu configuration and first clean launch.',
+      'If the product is Updating, wait. If an Undetected build still fails after one clean retry, open a support request with your order ID.',
     ],
   },
   {
-    heading: 'HWID spoofer & ban recovery',
+    heading: 'Status windows and refunds',
     body: [
-      'Use the HWID spoofer only after a hardware ban, and only when Undetected status is live.',
-      'Order: spoof → launch Evrima → inject The Isle Cheats → verify ESP. Spoofing into a detected build will not help.',
+      'Do not load while status is Updating — that is the biggest avoidable risk after an EAC patch.',
+      'Delivery failures and extended Updating windows are covered on the Refunds page. Include your order ID when you write in.',
     ],
   },
   {
     heading: 'What we support',
     body: [
-      'Supported: The Isle Evrima builds we sell — ESP, wallhack, radar, spoofer, menu, setup, and status questions.',
-      'Horde help applies only when the current build lists Horde.',
-      'Not supported: other games, cracked loaders, or third-party mirrors.',
+      'Supported: WARDOGS Windows Early Access builds we sell — ESP, radar, soft aim, menu, setup and status questions.',
+      'Not supported: other games, cracked loaders or third-party mirrors.',
+      'Policy pages: Privacy, Terms and Refunds are linked in the footer.',
     ],
   },
 ]
 
 export const SUPPORT_FAQS: SupportFaq[] = [
   {
-    q: 'How do I contact The Isle Cheats support?',
-    a: 'Open your order on theislecheats.net and use the checkout support channel tied to your purchase. Include a status screenshot (Undetected / Updating) and whether you need load, inject, or HWID spoofer help.',
+    q: 'How do I contact WARDOGS Hacks support?',
+    a: 'Open your order on wardogshacks.net and use the checkout support channel tied to your purchase. Include a status screenshot (Undetected / Updating) and whether you need load, menu or delivery help.',
   },
   {
-    q: 'How to load The Isle Cheats after an Evrima patch?',
-    a: 'Follow the Complete Setup forum thread for the current load order. If status is Updating, wait; if an Undetected build fails, include your order ID and build name in a support request.',
+    q: 'How do I load WARDOGS Hacks after a patch?',
+    a: 'Follow the Complete Setup forum thread for the current load order. If status is Updating, wait; if an Undetected build fails, include your order ID in a support request.',
   },
   {
-    q: 'Inject failed — what should I do?',
-    a: 'Do not spam inject. Restart the game, confirm antivirus exclusions, re-check status, then try one clean inject. If it still fails, contact support with your build ID.',
+    q: 'Loader failed — what should I do?',
+    a: 'Do not spam launch. Restart the game, confirm antivirus exclusions, re-check status, then try one clean load. If it still fails, contact support with your order ID.',
   },
   {
     q: 'Do you help with setup and config?',
@@ -63,10 +63,10 @@ export const SUPPORT_FAQS: SupportFaq[] = [
   },
   {
     q: 'Is aimbot required?',
-    a: 'No. The Isle Cheats lead with ESP and wallhack. Aim assist is optional. Support focuses on awareness features and safe load steps.',
+    a: 'No. WARDOGS Hacks lead with ESP and radar. Soft aim is optional. Support focuses on awareness features and safe load steps.',
   },
   {
-    q: 'Where is the The Isle Cheats download?',
-    a: 'Delivery is instant after checkout on theislecheats.net. Use only that loader link. Third-party mirrors are unsupported and unsafe.',
+    q: 'Where is the WARDOGS Hacks download?',
+    a: 'Delivery is digital after checkout on wardogshacks.net. Use only that loader link. Third-party mirrors are unsupported and unsafe.',
   },
 ]

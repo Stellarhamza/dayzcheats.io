@@ -7,9 +7,9 @@ export type Game = {
   popular?: boolean
 }
 
-/** Site is The Isle Cheats only — no other titles in the catalog. */
+/** Site is WARDOGS Hacks only — no other titles in the catalog. */
 export const GAMES: Game[] = [
-  { slug: 'isle', name: 'The Isle', status: 'Undetected', popular: true },
+  { slug: 'wardogs', name: 'WARDOGS', status: 'Updating', popular: true },
 ]
 
 export function getGame(slug: string) {
@@ -17,49 +17,49 @@ export function getGame(slug: string) {
 }
 
 export function guidePath(slug: string) {
-  return `/${slug}-cheats`
+  return `/${slug}-hacks`
 }
 
 export function parseGuideSlug(param: string) {
-  return param.endsWith('-cheats') ? param.slice(0, -7) : param
+  return param.endsWith('-hacks') ? param.slice(0, -6) : param
 }
 
 /**
- * Feature list tuned to what ranks for The Isle Cheats
+ * Feature list tuned to what ranks for WARDOGS Hacks
  * Feature bullets for the product page — ESP & awareness first.
  */
 export const GUIDE_FEATURES = [
   {
-    name: 'Entity ESP / Wallhack',
-    text: 'Players and dinos through fog — growth, distance, class, and health when the build supports it.',
+    name: 'Player ESP',
+    text: 'Highlight enemy and friendly players with distance, team and health information when supported by the current build.',
   },
   {
-    name: 'World ESP',
-    text: 'Food, water, corpses, and survival props so you stop guessing the next meal on Evrima.',
+    name: 'Vehicle ESP',
+    text: 'Track combat and logistics vehicles across WARDOGS’ large combined-arms battlefield.',
   },
   {
     name: '2D Radar',
-    text: 'Map-style awareness for dinos and players nearby — pair with ESP for clean rotates.',
+    text: 'Map-style awareness for nearby players and vehicles while teams contest the moving Control Zone.',
   },
   {
-    name: 'HWID Spoofer',
-    text: 'Hardware reset path after an EAC ban. Pair with Undetected status before you inject.',
+    name: 'Aim assistance',
+    text: 'Configurable aim support with field-of-view and smoothing controls where the current release supports them.',
   },
   {
     name: 'Stream-proof mode',
-    text: 'Hide The Isle Cheats overlays from capture software when you clip or go live.',
+    text: 'Keep supported overlays out of common capture software when recording or streaming.',
   },
   {
-    name: 'Optional aim assist',
-    text: 'Available if you want it — most buyers want ESP / radar first, not sticky aim.',
+    name: 'Configurable hotkeys',
+    text: 'Toggle visual and aim features quickly without leaving a 100-player match.',
   },
   {
-    name: 'Evrima + Horde ready',
-    text: 'Built for modern The Isle branches players actually search — Evrima first, Horde when supported.',
+    name: 'Steam Early Access support',
+    text: 'Compatibility is tracked against the Windows Early Access build released on September 10, 2026.',
   },
   {
     name: 'Patch status + support',
-    text: 'Undetected / Updating marked after EAC and Isle patches. Instant delivery on supported builds.',
+    text: 'Updating or Undetected status is reviewed after WARDOGS client patches before access is recommended.',
   },
 ] as const
 

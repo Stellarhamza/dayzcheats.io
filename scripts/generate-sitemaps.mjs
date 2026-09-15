@@ -10,26 +10,26 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const publicDir = join(root, 'public')
 const dataDir = join(root, 'src', 'data')
 const pagesDir = join(root, 'src', 'pages')
-const SITE = (process.env.SITE_URL || 'https://theislecheats.net').replace(/\/$/, '')
+const SITE = (process.env.SITE_URL || 'https://wardogshacks.net').replace(/\/$/, '')
 const TODAY = new Date().toLocaleDateString('en-CA')
 const HREFLANG = ['en', 'x-default']
 
-const FOREST = '/media/theisle-cheats-esp-forest.jpg'
-const RIVER = '/media/theisle-cheats-esp-river.jpg'
-const HOME_HERO = '/media/home-hero-dino.jpg'
-const PRODUCT_HERO = '/media/product-hero.webp'
-const PRODUCT_COVER = '/media/product-cover.webp'
-const OG_DEFAULT = '/og/default.jpg'
+const SOLDIER = '/media/wardogs-soldier-hero.jpg'
+const TACTICAL = '/media/wardogs-tactical-fps.jpg'
+const OBJECTIVE = '/media/wardogs-control-zone.jpg'
+const PRODUCT_HERO = '/media/wardogs-product-hero.webp'
+const PRODUCT_COVER = '/media/wardogs-product-cover.webp'
+const OG_DEFAULT = '/og/wardogs-hacks.jpg'
 
 /** All indexable still images that must appear in the sitemap at least once. */
-const ALL_SITE_IMAGES = [FOREST, RIVER, HOME_HERO, PRODUCT_HERO, PRODUCT_COVER, OG_DEFAULT]
+const ALL_SITE_IMAGES = [SOLDIER, TACTICAL, OBJECTIVE, PRODUCT_HERO, PRODUCT_COVER, OG_DEFAULT]
 
 const FORUM_IMAGES = {
-  'features-list': RIVER,
-  hotkeys: FOREST,
-  'complete-setup': RIVER,
-  'disable-antivirus': FOREST,
-  'undetected-status': RIVER,
+  'features-list': OBJECTIVE,
+  hotkeys: SOLDIER,
+  'complete-setup': OBJECTIVE,
+  'disable-antivirus': TACTICAL,
+  'undetected-status': OBJECTIVE,
 }
 
 function escapeXml(value) {
@@ -108,31 +108,31 @@ function buildSitemap(games, forums) {
       changefreq: 'daily',
       images: [
         {
-          src: FOREST,
-          title: 'TheIsle Cheats ESP Gameplay',
-          caption: 'Entity ESP gameplay shown before checkout.',
+          src: SOLDIER,
+          title: 'WARDOGS Hacks Hero',
+          caption: 'Tactical soldier hero for WARDOGS Hacks on PC.',
         },
         {
-          src: HOME_HERO,
-          title: 'TheIsle Cheats Home Hero',
-          caption: 'Homepage hero artwork for The Isle Cheats on Evrima.',
+          src: TACTICAL,
+          title: 'WARDOGS Hacks Tactical Artwork',
+          caption: 'Homepage artwork for WARDOGS ESP, radar and soft aim.',
         },
         {
           src: OG_DEFAULT,
-          title: 'TheIsle Cheats Social Preview',
-          caption: 'Default Open Graph image for The Isle Cheats.',
+          title: 'WARDOGS Hacks Social Preview',
+          caption: 'Default Open Graph image for WARDOGS Hacks.',
         },
       ],
     }),
     ...games.map((game) =>
       urlEntry({
-        path: `/${game.slug}-cheats`,
+        path: `/${game.slug}-hacks`,
         priority: '0.9',
         changefreq: 'weekly',
         images: [
           {
-            src: RIVER,
-            title: 'Evrima ESP Product Gameplay',
+            src: OBJECTIVE,
+            title: 'WARDOGS ESP Product Artwork',
             caption: 'Product features, compatibility, status and price before checkout.',
           },
           {
@@ -154,9 +154,9 @@ function buildSitemap(games, forums) {
       changefreq: 'weekly',
       images: [
         {
-          src: RIVER,
-          title: 'The Isle Cheats Forum Gameplay',
-          caption: 'Gameplay reference for setup and feature threads.',
+          src: OBJECTIVE,
+          title: 'WARDOGS Hacks Forum Artwork',
+          caption: 'Artwork reference for setup and feature threads.',
         },
       ],
     }),
@@ -168,9 +168,9 @@ function buildSitemap(games, forums) {
         lastmod: forum.date,
         images: [
           {
-            src: FORUM_IMAGES[forum.slug] || RIVER,
-            title: `${forum.title} Gameplay`,
-            caption: `Visible Evrima gameplay reference for ${forum.title}.`,
+            src: FORUM_IMAGES[forum.slug] || OBJECTIVE,
+            title: `${forum.title} Artwork`,
+            caption: `Visible WARDOGS reference for ${forum.title}.`,
           },
         ],
       }),
@@ -181,9 +181,9 @@ function buildSitemap(games, forums) {
       changefreq: 'weekly',
       images: [
         {
-          src: FOREST,
-          title: 'The Isle Cheats Review Gameplay',
-          caption: 'Gameplay accompanying verified buyer reviews.',
+          src: TACTICAL,
+          title: 'WARDOGS Hacks Review Artwork',
+          caption: 'Artwork accompanying verified buyer reviews.',
         },
       ],
     }),
@@ -193,9 +193,9 @@ function buildSitemap(games, forums) {
       changefreq: 'monthly',
       images: [
         {
-          src: RIVER,
-          title: 'Evrima ESP FAQ Gameplay',
-          caption: 'Product screenshot accompanying pre-purchase answers.',
+          src: OBJECTIVE,
+          title: 'WARDOGS Hacks FAQ Artwork',
+          caption: 'Product artwork accompanying pre-purchase answers.',
         },
       ],
     }),
@@ -205,9 +205,45 @@ function buildSitemap(games, forums) {
       changefreq: 'weekly',
       images: [
         {
-          src: FOREST,
-          title: 'The Isle Cheats Support Gameplay',
-          caption: 'Evrima ESP reference accompanying load, inject and delivery support.',
+          src: TACTICAL,
+          title: 'WARDOGS Hacks Support Artwork',
+          caption: 'Artwork accompanying load and delivery support.',
+        },
+      ],
+    }),
+    urlEntry({
+      path: '/privacy',
+      priority: '0.4',
+      changefreq: 'yearly',
+      images: [
+        {
+          src: OG_DEFAULT,
+          title: 'WARDOGS Hacks Privacy Policy',
+          caption: 'Privacy policy for wardogshacks.net orders and support.',
+        },
+      ],
+    }),
+    urlEntry({
+      path: '/terms',
+      priority: '0.4',
+      changefreq: 'yearly',
+      images: [
+        {
+          src: OG_DEFAULT,
+          title: 'WARDOGS Hacks Terms of Use',
+          caption: 'License terms and risk disclaimer for WARDOGS Hacks.',
+        },
+      ],
+    }),
+    urlEntry({
+      path: '/refunds',
+      priority: '0.45',
+      changefreq: 'yearly',
+      images: [
+        {
+          src: OG_DEFAULT,
+          title: 'WARDOGS Hacks Refund Policy',
+          caption: 'Refund rules for digital WARDOGS Hacks licenses.',
         },
       ],
     }),
@@ -229,8 +265,8 @@ function validate(games, forums, staticRoutes, sitemap) {
   }
 
   for (const game of games) {
-    const page = join(pagesDir, `${game.slug}-cheats.astro`)
-    if (!existsSync(page)) errors.push(`Product route has no page file: /${game.slug}-cheats`)
+    const page = join(pagesDir, `${game.slug}-hacks.astro`)
+    if (!existsSync(page)) errors.push(`Product route has no page file: /${game.slug}-hacks`)
   }
   if (forums.length && !existsSync(join(pagesDir, 'forums', '[slug].astro'))) {
     errors.push('Forum routes have no dynamic page file: src/pages/forums/[slug].astro')
@@ -243,7 +279,7 @@ function validate(games, forums, staticRoutes, sitemap) {
 
   const expectedRoutes = new Set([
     ...staticRoutes,
-    ...games.map((game) => `/${game.slug}-cheats`),
+    ...games.map((game) => `/${game.slug}-hacks`),
     ...forums.map((forum) => `/forums/${forum.slug}`),
   ])
   const expectedUrls = new Set([...expectedRoutes].map(siteUrl))

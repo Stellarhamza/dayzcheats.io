@@ -12,31 +12,30 @@ import {
 import { PRODUCT_PAGE_FAQS } from '../data/faqs'
 import { PRODUCT_PRICE_USD, SITE_HOST, SITE_NAME } from '../data/site'
 import { FaqSection } from '../components/FaqSection'
-import { SeoMedia } from '../components/SeoMedia'
 import { CheckoutLink } from '../components/CheckoutLink'
 import { NotFoundPage } from './NotFoundPage'
 import { blogPath } from '../data/blogs'
-import { PAGE_MEDIA } from '../data/media'
+import { WARDOGS_HOME_VIDEO } from '../data/media'
 
 function ProductPurchaseCard({ game }: { game: Game }) {
   return (
     <div className="page-card overflow-hidden rounded-2xl sm:rounded-3xl">
-      <CheckoutLink className="block" aria-label="Buy The Isle Cheats">
+      <CheckoutLink className="block" aria-label="Buy WARDOGS Hacks">
         <GameCover slug={game.slug} name={game.name} aspect="square" className="rounded-none" />
       </CheckoutLink>
       <div className="p-5 sm:p-8">
         <div className="flex items-center gap-3">
-          <div className="icon-well shrink-0 text-sm font-bold">TI</div>
+          <div className="icon-well shrink-0 text-sm font-bold">WD</div>
           <div className="min-w-0">
-            <p className="truncate text-sm font-semibold text-white">The Isle Cheats</p>
+            <p className="truncate text-sm font-semibold text-white">WARDOGS Hacks</p>
             <p className="text-xs text-white/45">
-              Status: {game.status} · Evrima · From ${PRODUCT_PRICE_USD}
+              Status: {game.status} · WARDOGS · From ${PRODUCT_PRICE_USD}
             </p>
           </div>
         </div>
 
         <CheckoutLink className="cta-gradient mt-5 block w-full rounded-full py-3.5 text-center text-sm font-semibold text-white transition-opacity hover:opacity-90 sm:mt-6">
-          Buy The Isle Cheats
+          Buy WARDOGS Hacks
         </CheckoutLink>
         <p className="mt-3 text-center text-[11px] text-white/40">
           Instant delivery · Check Undetected first
@@ -54,7 +53,7 @@ export function GameProductPage({ guideSlug }: GameProductPageProps) {
   const slug = parseGuideSlug(guideSlug)
   const game = getGame(slug)
 
-  if (!guideSlug.endsWith('-cheats')) {
+  if (!guideSlug.endsWith('-hacks')) {
     const maybe = getGame(guideSlug)
     if (maybe) {
       if (typeof window !== 'undefined') {
@@ -87,42 +86,36 @@ export function GameProductPage({ guideSlug }: GameProductPageProps) {
               <span className="min-w-0 text-white/70">Product details</span>
             </nav>
 
-            <div className="mt-5 overflow-hidden rounded-2xl border border-z-soft/20 sm:mt-8">
-              <video
-                controls
-                muted
-                autoPlay
-                loop
-                playsInline
-                preload="metadata"
-                poster={PAGE_MEDIA.product.image}
-                aria-label={PAGE_MEDIA.product.videoTitle}
-                className="aspect-video w-full bg-black object-cover lg:aspect-[21/9]"
-              >
-                <source src={PAGE_MEDIA.product.video} type="video/mp4" />
-              </video>
+            <div className="mt-5 overflow-hidden rounded-2xl border border-z-soft/20 bg-black sm:mt-8">
+              <div className="relative aspect-video w-full lg:aspect-[21/9]">
+                <iframe
+                  className="absolute inset-0 h-full w-full"
+                  src={`https://www.youtube-nocookie.com/embed/${WARDOGS_HOME_VIDEO.id}?rel=0`}
+                  title={WARDOGS_HOME_VIDEO.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                  loading="lazy"
+                />
+              </div>
             </div>
 
             <div className="mt-5 sm:mt-6">
-              <span className="inline-flex items-center gap-1.5 text-xs text-z-success/90">
-                <Shield className="h-3.5 w-3.5 shrink-0 text-z-success" strokeWidth={1.75} />
-                {game.status} · Evrima / Horde · EAC-aware · {SITE_HOST}
+              <span className="inline-flex items-center gap-1.5 text-xs text-z-soft">
+                <Shield className="h-3.5 w-3.5 shrink-0 text-z-soft" strokeWidth={1.75} />
+                {game.status} · WARDOGS · EAC · {SITE_HOST}
               </span>
 
               <h1 className="mt-3 text-2xl font-semibold leading-tight tracking-tight text-white sm:mt-4 sm:text-4xl lg:text-5xl">
-                Evrima ESP Features, Price & Checkout
+                WARDOGS Hack Features, Price & Checkout
               </h1>
               <p className="mt-3 max-w-2xl text-sm leading-relaxed text-white/55 sm:mt-4 sm:text-base">
-                Compare Entity ESP, World ESP, radar, stream-proof mode, and HWID spoofer
-                support. Confirm current status, then continue to checkout.
+                Compare player ESP, vehicle ESP, soft aim, 2D radar and stream-proof options.
+                Confirm current status, then continue to checkout.
               </p>
               <CheckoutLink className="cta-gradient mt-5 inline-flex items-center justify-center rounded-full px-7 py-3.5 text-sm font-semibold text-white transition-opacity hover:opacity-90">
-                Buy The Isle Cheats
+                Buy WARDOGS Hacks
               </CheckoutLink>
-            </div>
-
-            <div className="mt-8">
-              <SeoMedia media={PAGE_MEDIA.product} showVideo={false} />
             </div>
 
             <div className="mt-6 lg:hidden">
@@ -133,7 +126,7 @@ export function GameProductPage({ guideSlug }: GameProductPageProps) {
               <div className="lg:col-span-7 space-y-10">
                 <div>
                   <h2 className="text-lg font-semibold tracking-tight text-white sm:text-xl">
-                    Included Evrima features
+                    Included WARDOGS features
                   </h2>
                   <div className="mt-4 grid gap-3 sm:grid-cols-2">
                     {GUIDE_FEATURES.map((f) => (
@@ -154,30 +147,30 @@ export function GameProductPage({ guideSlug }: GameProductPageProps) {
 
                 <div className="space-y-3 text-sm leading-relaxed text-white/55">
                   <h2 className="text-lg font-semibold tracking-tight text-white sm:text-xl">
-                    Entity ESP, World ESP & radar
+                    Player ESP, vehicle ESP & radar
                   </h2>
                   <p>
-                    The Isle Cheats kit leads with Entity ESP / wallhack (players + dinos),
-                    World ESP for food/water/corpses, and a 2D radar so you rotate before
-                    they scent you.
+                    WARDOGS Hacks lead with player ESP through terrain and buildings, vehicle
+                    tags for combined-arms fights, and a 2D radar so you see rotations before
+                    they third-party your Control Zone hold.
                   </p>
                   <p>
-                    Optional aim assist stays optional. If you want the lowest footprint
-                    playstyle, run ESP + radar + stream-proof and leave combat extras off.
+                    Soft aim stays optional. If you want the lowest-report playstyle, run ESP
+                    + radar + stream-proof and leave combat extras off.
                   </p>
                 </div>
 
                 <div className="space-y-3 text-sm leading-relaxed text-white/55">
                   <h2 className="text-lg font-semibold tracking-tight text-white sm:text-xl">
-                    The Isle Undetected status (EAC)
+                    WARDOGS Undetected status (EAC)
                   </h2>
                   <p>
-                    The Isle uses Easy Anti-Cheat. After an Evrima or Horde patch, builds can
-                    flip to Updating until tested. {SITE_NAME} shows live Undetected status so
-                    you are not buying a dead loader from a screenshot farm.
+                    WARDOGS uses Easy Anti-Cheat. After a client or EAC patch, builds can flip
+                    to Updating until tested. {SITE_NAME} shows live Undetected status so you
+                    are not buying a dead loader from a screenshot farm.
                   </p>
                   <p>
-                    Rule: status first, inject second. That beats every “lifetime undetected”
+                    Rule: status first, load second. That beats every “lifetime undetected”
                     claim on competing shops.
                   </p>
                 </div>
@@ -189,8 +182,8 @@ export function GameProductPage({ guideSlug }: GameProductPageProps) {
                   <ol className="list-decimal space-y-2 pl-5">
                     <li>Confirm current status on the {SITE_HOST} homepage.</li>
                     <li>Confirm status is Undetected (or accept Updating risk).</li>
-                    <li>Scan Entity ESP / World ESP / radar / spoofer features.</li>
-                    <li>Checkout for instant loader delivery.</li>
+                    <li>Scan ESP / radar / soft-aim features on this page.</li>
+                    <li>Checkout for digital license delivery.</li>
                     <li>
                       Follow the{' '}
                       <a
@@ -206,39 +199,42 @@ export function GameProductPage({ guideSlug }: GameProductPageProps) {
 
                 <div className="space-y-3 text-sm leading-relaxed text-white/55">
                   <h2 className="text-lg font-semibold tracking-tight text-white sm:text-xl">
-                    Evrima, Horde & why we stay Isle-only
+                    Why we stay WARDOGS-only
                   </h2>
                   <p>
-                    {SITE_NAME} is Isle-only — The Isle Evrima first, Horde when the build
-                    includes it. Status updates stay on one product page, not buried under a
-                    multi-game catalog.
+                    {SITE_NAME} covers one title — WARDOGS on Windows Early Access. Status
+                    updates stay on one product page, not buried under a multi-game catalog.
                   </p>
                   <p>
                     Play the game from the{' '}
                     <a
-                      href="https://www.survivetheisle.com/"
+                      href="https://wardogs.com/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-white/80 underline-offset-2 hover:underline"
                     >
-                      official The Isle website
+                      official WARDOGS website
                     </a>{' '}
                     or{' '}
                     <a
-                      href="https://store.steampowered.com/app/376210/The_Isle/"
+                      href="https://store.steampowered.com/app/1867240/WARDOGS/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-white/80 underline-offset-2 hover:underline"
                     >
-                      The Isle on Steam
+                      WARDOGS on Steam
                     </a>
-                    . For cheats, stay on {SITE_HOST}:{' '}
+                    . For hacks, stay on {SITE_HOST}:{' '}
                     <a href="/reviews" className="text-white/80 underline-offset-2 hover:underline">
                       reviews
                     </a>
                     ,{' '}
                     <a href="/support" className="text-white/80 underline-offset-2 hover:underline">
                       support
+                    </a>
+                    ,{' '}
+                    <a href="/refunds" className="text-white/80 underline-offset-2 hover:underline">
+                      refunds
                     </a>
                     , and{' '}
                     <a href="/forums" className="text-white/80 underline-offset-2 hover:underline">
@@ -247,40 +243,24 @@ export function GameProductPage({ guideSlug }: GameProductPageProps) {
                     .
                   </p>
                 </div>
-
-                <div>
-                  <h2 className="text-lg font-semibold tracking-tight text-white sm:text-xl">
-                    More help
-                  </h2>
-                  <p className="mt-3 text-sm leading-relaxed text-white/55">
-                    Full answers live in the FAQ section below and on the{' '}
-                    <a href="/faq" className="text-white/80 underline-offset-2 hover:underline">
-                      The Isle Cheats FAQ
-                    </a>{' '}
-                    page. For load issues open{' '}
-                    <a href="/support" className="text-white/80 underline-offset-2 hover:underline">
-                      support
-                    </a>
-                    .
-                  </p>
-                </div>
               </div>
 
-              <aside className="hidden lg:col-span-5 lg:block lg:sticky lg:top-8">
-                <ProductPurchaseCard game={game} />
+              <aside className="hidden lg:col-span-5 lg:block">
+                <div className="sticky top-24">
+                  <ProductPurchaseCard game={game} />
+                </div>
               </aside>
             </div>
           </div>
         </section>
 
         <FaqSection
-          id="faq"
-          heading="Product questions"
-          intro="Answers about EAC status, included features, compatibility, and HWID spoofer support."
+          heading="WARDOGS Hacks product FAQ"
+          intro="Status, features, delivery and load questions before checkout."
           items={PRODUCT_PAGE_FAQS}
         />
 
-        <SiteFooter currentPath="/isle-cheats" />
+        <SiteFooter currentPath="/wardogs-hacks" />
       </main>
     </div>
   )

@@ -1,38 +1,39 @@
-import { ISLE_OG, PAGE_IMAGES } from './images'
+import { WARDOGS_OG, PAGE_IMAGES } from './images'
 
-export const SITE_URL = 'https://theislecheats.net'
-export const SITE_NAME = 'The Isle Cheats'
-export const SITE_HOST = 'theislecheats.net'
+export const SITE_URL = 'https://wardogshacks.net'
+export const SITE_NAME = 'WARDOGS Hacks'
+export const SITE_HOST = 'wardogshacks.net'
 
 /**
  * Sole purpose — used in schema + about copy.
- * Single-product site: The Isle Cheats only (Evrima).
+ * Single-product site: WARDOGS hacks for the PC Early Access release.
  */
 export const SITE_PURPOSE =
-  'The Isle Cheats sells undetected ESP, wallhack, radar, and HWID spoofer for The Isle (Evrima) with live patch status. Isle-only — no other games.'
+  'WARDOGS Hacks covers ESP, player information, radar, aim assistance and loader status for the 100-player tactical FPS by BULKHEAD and Team17.'
 
 export const SITE_ABOUT = [
-  'The Isle Cheats',
-  'isle cheats',
-  'theisle cheats',
-  'The Isle Evrima cheats',
-  'The Isle ESP',
-  'The Isle wallhack',
+  'WARDOGS Hacks',
+  'wardogs hacks',
+  'WARDOGS ESP',
+  'WARDOGS aimbot',
+  'WARDOGS radar',
+  'WARDOGS Early Access',
+  'WARDOGS PC',
+  'WARDOGS tactical FPS',
+  'BULKHEAD WARDOGS',
+  'Team17 WARDOGS',
 ] as const
 
-/**
- * Offer price shown on product schema + purchase UI.
- * Keep in sync with checkout listing.
- */
-export const PRODUCT_PRICE_USD = '24.99'
+/** Offer price shown on product schema + purchase UI. */
+export const PRODUCT_PRICE_USD = '29.99'
 
 export const SEO_REGIONS = [
   { hreflang: 'en', label: 'English' },
   { hreflang: 'x-default', label: 'Default' },
 ] as const
 
-/** Default social / OG image — IGN The Isle library art */
-export const OG_IMAGE = ISLE_OG
+/** First-party branded social image. */
+export const OG_IMAGE = WARDOGS_OG
 
 export type PageSeo = {
   title: string
@@ -46,55 +47,55 @@ export type PageSeo = {
 /** Unique SEO per route — commercial / transactional intent. */
 export const SEO = {
   home: {
-    title: 'TheIsle Cheats | Buy The Isle Cheats for Evrima',
+    title: 'WARDOGS Hacks | ESP, Aimbot & Radar for PC',
     description:
-      'Buy The Isle Cheats for Evrima with Entity ESP, World ESP, radar and an HWID spoofer. Check live status, features and price before checkout.',
+      'WARDOGS hacks for Windows PC with player ESP, soft aim, 2D radar and live loader status for BULKHEAD’s 100-player Early Access FPS.',
     path: '/',
     ogType: 'website',
     image: PAGE_IMAGES.home.src,
     robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
   },
   forums: {
-    title: 'The Isle Cheats Forums | Setup, Antivirus, Hotkeys & Load',
+    title: 'WARDOGS Hacks Guides | Setup, Hotkeys & Status',
     description:
-      'Product forums covering Evrima features, hotkeys, complete setup, antivirus exclusions and current loader status.',
+      'WARDOGS hacks guides covering features, hotkeys, setup, antivirus exclusions and loader status for the Steam Early Access build.',
     path: '/forums',
     ogType: 'website',
     image: PAGE_IMAGES.forums.src,
     robots: 'index, follow, max-image-preview:large, max-snippet:-1',
   },
   reviews: {
-    title: 'The Isle Cheats Reviews | Before You Buy',
+    title: 'WARDOGS Hacks Reviews | Before You Buy',
     description:
-      'The Isle Cheats reviews from Evrima players — ESP accuracy, Undetected honesty, and patch notes before you checkout.',
+      'Early Access player feedback on WARDOGS ESP, soft aim, radar and post-patch rebuilds before you choose a license.',
     path: '/reviews',
     ogType: 'website',
     image: PAGE_IMAGES.reviews.src,
     robots: 'index, follow, max-image-preview:large, max-snippet:-1',
   },
   faq: {
-    title: 'The Isle Cheats FAQ | Buy, Load & Undetected Answers',
+    title: 'WARDOGS Hacks FAQ | Compatibility, Setup & Status',
     description:
-      'Pre-purchase answers about Evrima compatibility, current status, included ESP features, delivery, pricing and checkout.',
+      'Answers about WARDOGS PC compatibility, Early Access updates, ESP features, setup, delivery and loader status.',
     path: '/faq',
     ogType: 'website',
     image: PAGE_IMAGES.faq.src,
     robots: 'index, follow, max-image-preview:large, max-snippet:-1',
   },
   support: {
-    title: 'The Isle Cheats Support | Load, Inject & Spoofer Help',
+    title: 'WARDOGS Hacks Support | Loader & Setup Help',
     description:
-      'Post-purchase support for loader delivery, setup, inject errors and HWID spoofer recovery.',
+      'Support for WARDOGS hacks delivery, Windows setup, loader errors, updates and account-specific order questions.',
     path: '/support',
     ogType: 'website',
     image: PAGE_IMAGES.support.src,
     robots: 'index, follow, max-image-preview:large, max-snippet:-1',
   },
   product: {
-    title: 'Evrima ESP Features, Price & Checkout | The Isle',
+    title: 'WARDOGS Hack Features | ESP, Aimbot & Radar',
     description:
-      'Review Evrima ESP, radar, stream-proof mode, HWID spoofer support, current status and pricing before opening checkout.',
-    path: '/isle-cheats',
+      'Compare WARDOGS player ESP, vehicle ESP, soft aim, 2D radar, stream-proof options and current PC Early Access compatibility.',
+    path: '/wardogs-hacks',
     ogType: 'product',
     image: PAGE_IMAGES.product.src,
     robots: 'index, follow, max-image-preview:large, max-snippet:-1',
@@ -102,12 +103,12 @@ export const SEO = {
 } as const satisfies Record<string, PageSeo>
 
 export const HOME_HEADINGS = {
-  h1: 'Buy TheIsle Cheats for Evrima',
-  h2Features: 'What you get with The Isle Cheats',
-  h2Featured: 'The Isle Cheats for Evrima',
-  h2About: 'Why buy The Isle Cheats here',
-  h2Access: 'Buy The Isle Cheats',
-  h2Faq: 'The Isle Cheats FAQ',
+  h1: 'WARDOGS Hack for PC',
+  h2Features: 'ESP, soft aim and radar',
+  h2Featured: 'WARDOGS ESP and Radar',
+  h2About: 'Built for the new WARDOGS release',
+  h2Access: 'Get WARDOGS Hacks',
+  h2Faq: 'WARDOGS Hacks FAQ',
 } as const
 
 export function absoluteUrl(path: string) {

@@ -25,27 +25,32 @@ export function SiteFooter({ currentPath }: SiteFooterProps) {
               <span className="font-semibold text-z-ink">{SITE_NAME}</span>
             </div>
             <p className="mt-3 text-sm leading-relaxed text-white/55">
-              Undetected The Isle cheats for Evrima. Status checked. Features listed. Built for
-              The Isle players only.
+              WARDOGS hacks for PC — ESP, soft aim, radar and live EAC status. Built for Early
+              Access players only.
             </p>
           </div>
 
           <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-white/65">
             <li>
-              <a href="/sitemap.xml" className="hover:text-white">
-                XML sitemap
+              <a href="/privacy" className="hover:text-white">
+                Privacy
               </a>
             </li>
             <li>
-              <a href="/robots.txt" className="hover:text-white">
-                Robots.txt
+              <a href="/terms" className="hover:text-white">
+                Terms
+              </a>
+            </li>
+            <li>
+              <a href="/refunds" className="hover:text-white">
+                Refunds
               </a>
             </li>
           </ul>
         </div>
         <p className="mx-auto mt-10 max-w-6xl text-xs text-white/35">
-          © {new Date().getFullYear()} {SITE_NAME}. Not affiliated with Afterthought LLC or
-          the official The Isle game.
+          © {new Date().getFullYear()} {SITE_NAME}. Not affiliated with BULKHEAD and Team17 or
+          the official WARDOGS game.
         </p>
       </footer>
     </>

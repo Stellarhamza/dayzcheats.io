@@ -3,11 +3,11 @@
  * IMPORTANT: Always fetch assets via https://assets.local — never the request
  * hostname — or Cloudflare returns HTTP 522 on custom domains.
  */
-const CANONICAL_HOST = 'theislecheats.net'
+const CANONICAL_HOST = 'wardogshacks.net'
 const LEGACY_HOSTS = new Set([
-  'theislecheats.cc',
-  'www.theislecheats.cc',
-  'www.theislecheats.net',
+  'wardogshacks.net',
+  'www.wardogshacks.net',
+  'www.wardogshacks.net',
 ])
 
 function needsCanonicalRedirect(url) {

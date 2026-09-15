@@ -28,10 +28,10 @@ export function siteIdentityGraph() {
       '@id': `${SITE_URL}/#organization`,
       name: SITE_NAME,
       alternateName: [
-        'isle cheats',
-        'theisle cheats',
-        'the isle cheats',
-        'theislecheats',
+        'wardogs hacks',
+        'wardogs hacks',
+        'the wardogs hacks',
+        'wardogshacks',
         SITE_URL.replace('https://', ''),
       ],
       url: SITE_URL,
@@ -55,9 +55,9 @@ export function siteIdentityGraph() {
       inLanguage: 'en',
       about: {
         '@type': 'Thing',
-        name: 'The Isle Cheats',
+        name: 'WARDOGS Hacks',
         description:
-          'Cheats for The Isle Evrima only — ESP, wallhack, radar, HWID spoofer.',
+          'Hacks for WARDOGS only — ESP, soft aim, radar and live EAC status.',
       },
       publisher: { '@id': `${SITE_URL}/#organization` },
     },
@@ -77,7 +77,7 @@ export function webPageNode(seo: PageSeo) {
     inLanguage: 'en',
   } as Record<string, unknown>
   const hasVisibleImage =
-    ['/', '/isle-cheats', '/forums', '/reviews', '/faq', '/support'].includes(seo.path) ||
+    ['/', '/wardogs-hacks', '/forums', '/reviews', '/faq', '/support'].includes(seo.path) ||
     seo.path.startsWith('/forums/')
   if (hasVisibleImage) {
     page.primaryImageOfPage = {
@@ -101,7 +101,7 @@ export function productCoreJsonLd() {
     image: absoluteAsset(PAGE_MEDIA.home.image),
     brand: { '@type': 'Brand', name: SITE_NAME },
     manufacturer: { '@id': `${SITE_URL}/#organization` },
-    category: 'The Isle Evrima software',
+    category: 'WARDOGS software',
   }
 }
 
@@ -113,19 +113,19 @@ export function productDetailJsonLd(status: GameStatus) {
     image: absoluteAsset(PAGE_MEDIA.product.image),
     about: {
       '@type': 'VideoGame',
-      name: 'The Isle',
-      alternateName: 'The Isle Evrima',
+      name: 'WARDOGS',
+      alternateName: 'WARDOGS Early Access',
     },
     additionalProperty: [
       {
         '@type': 'PropertyValue',
         name: 'Supported branch',
-        value: 'Evrima',
+        value: 'WARDOGS',
       },
     ],
     offers: {
       '@type': 'Offer',
-      url: `${SITE_URL}/isle-cheats`,
+      url: `${SITE_URL}/wardogs-hacks`,
       availability,
       price: PRODUCT_PRICE_USD,
       priceCurrency: 'USD',

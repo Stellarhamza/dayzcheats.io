@@ -8,92 +8,87 @@ export type SeoMediaItem = {
   videoDescription?: string
 }
 
-export const ISLE_ESP_FOREST = '/media/theisle-cheats-esp-forest.jpg'
-export const ISLE_ESP_RIVER = '/media/theisle-cheats-esp-river.jpg'
-export const ISLE_ESP_VIDEO = '/media/theisle-cheats-esp-gameplay.mp4'
-export const ISLE_MISC_VIDEO = '/media/theisle-cheats-misc-features.mp4'
+export const WARDOGS_SOLDIER_HERO = '/media/wardogs-soldier-hero.jpg'
+export const WARDOGS_TACTICAL = '/media/wardogs-tactical-fps.jpg'
+export const WARDOGS_OBJECTIVE = '/media/wardogs-control-zone.jpg'
+
+/** Homepage preview embed — purple tactical trailer. */
+export const WARDOGS_HOME_VIDEO = {
+  id: 'h5xrkTHh0nU',
+  url: 'https://www.youtube.com/watch?v=h5xrkTHh0nU',
+  title: 'WARDOGS Hacks preview video',
+  caption: 'Gameplay preview for WARDOGS ESP, radar and soft aim on PC.',
+} as const
 
 export const PAGE_MEDIA = {
   home: {
-    image: ISLE_ESP_FOREST,
-    video: ISLE_ESP_VIDEO,
-    alt: 'TheIsle Cheats Entity ESP highlighting targets in an Evrima forest',
-    title: 'TheIsle Cheats ESP Gameplay',
-    caption: 'Entity ESP shown in The Isle Evrima before checkout.',
-    videoTitle: 'TheIsle Cheats Entity ESP preview',
-    videoDescription: 'Short Evrima gameplay preview showing Entity ESP target overlays.',
+    image: WARDOGS_SOLDIER_HERO,
+    alt: 'Tactical soldier overlooking a mountainous WARDOGS battlefield',
+    title: 'WARDOGS Hacks for PC',
+    caption: 'Feature overview for WARDOGS ESP, radar and aim assistance.',
   },
   product: {
-    image: ISLE_ESP_RIVER,
-    video: ISLE_MISC_VIDEO,
-    alt: 'Evrima ESP tracking targets beside a river',
-    title: 'Evrima ESP and Miscellaneous Features',
-    caption: 'Product preview of ESP overlays and supporting features on Evrima.',
-    videoTitle: 'Evrima ESP feature preview',
-    videoDescription: 'Short product preview showing ESP and miscellaneous menu features.',
+    image: WARDOGS_OBJECTIVE,
+    alt: 'WARDOGS ESP and radar feature artwork',
+    title: 'WARDOGS ESP, Radar and Aim Features',
+    caption: 'Product overview for the WARDOGS Windows Early Access build.',
   },
   forums: {
-    image: ISLE_ESP_RIVER,
-    video: ISLE_ESP_VIDEO,
-    alt: 'The Isle Cheats forum preview showing Entity ESP gameplay',
-    title: 'The Isle Cheats Forum Media',
-    caption: 'Gameplay reference used by the setup, hotkey, antivirus and status threads.',
-    videoTitle: 'Entity ESP forum reference',
-    videoDescription: 'Evrima gameplay reference for product setup and feature threads.',
+    image: WARDOGS_OBJECTIVE,
+    alt: 'WARDOGS hacks guides and setup artwork',
+    title: 'WARDOGS Hacks Guides',
+    caption: 'Reference for setup, hotkeys, features and status articles.',
   },
   reviews: {
-    image: ISLE_ESP_FOREST,
-    video: ISLE_MISC_VIDEO,
-    alt: 'The Isle Cheats gameplay preview accompanying verified buyer reviews',
-    title: 'The Isle Cheats Review Gameplay',
-    caption: 'Gameplay preview shown alongside verified Evrima buyer feedback.',
-    videoTitle: 'Product review feature preview',
-    videoDescription: 'Short Evrima feature preview accompanying verified buyer reviews.',
+    image: WARDOGS_TACTICAL,
+    alt: 'WARDOGS hacks product review artwork',
+    title: 'WARDOGS Hacks Reviews',
+    caption: 'Advertised features and compatibility reviewed for the recent release.',
   },
   faq: {
-    image: ISLE_ESP_RIVER,
-    alt: 'Evrima ESP gameplay accompanying pre-purchase questions',
-    title: 'Evrima ESP FAQ Preview',
-    caption: 'Product screenshot accompanying compatibility, feature and checkout answers.',
+    image: WARDOGS_OBJECTIVE,
+    alt: 'WARDOGS hacks FAQ artwork',
+    title: 'WARDOGS Hacks FAQ',
+    caption: 'Compatibility, status and setup answers for WARDOGS.',
   },
   support: {
-    image: ISLE_ESP_FOREST,
-    alt: 'Evrima ESP gameplay accompanying load and inject support',
-    title: 'The Isle Cheats Support Preview',
-    caption: 'Gameplay reference for post-purchase load, inject and delivery help.',
+    image: WARDOGS_TACTICAL,
+    alt: 'WARDOGS hacks support artwork',
+    title: 'WARDOGS Hacks Support',
+    caption: 'Delivery, loader and setup help for WARDOGS.',
   },
 } as const satisfies Record<string, SeoMediaItem>
 
 const FORUM_MEDIA: Record<string, SeoMediaItem> = {
   'features-list': {
     ...PAGE_MEDIA.product,
-    alt: 'Entity ESP and World ESP features shown during Evrima gameplay',
-    title: 'Evrima ESP Feature List Preview',
-    caption: 'Visible reference for Entity ESP, radar and miscellaneous product features.',
+    alt: 'WARDOGS player ESP radar and aim features',
+    title: 'WARDOGS Hacks Feature List',
+    caption: 'Reference for player ESP, vehicle ESP, radar and aim options.',
   },
   hotkeys: {
     ...PAGE_MEDIA.home,
-    alt: 'The Isle ESP overlay used while configuring menu hotkeys',
+    alt: 'WARDOGS ESP overlay used while configuring menu hotkeys',
     title: 'ESP Menu Hotkey Preview',
-    caption: 'Evrima gameplay reference for ESP, radar and stream-proof hotkeys.',
+    caption: 'Reference for ESP, radar, aim and stream-proof hotkeys.',
   },
   'complete-setup': {
     ...PAGE_MEDIA.product,
-    alt: 'Evrima ESP running after the complete loader setup',
-    title: 'Complete Evrima Setup Preview',
-    caption: 'Expected in-game ESP view after delivery, exclusions and clean load order.',
+    alt: 'WARDOGS hacks complete loader setup',
+    title: 'Complete WARDOGS Setup Preview',
+    caption: 'Delivery, exclusions and clean load-order reference.',
   },
   'disable-antivirus': {
     ...PAGE_MEDIA.home,
-    alt: 'The Isle ESP gameplay after the delivered loader is allowlisted',
+    alt: 'WARDOGS hacks antivirus exclusion setup',
     title: 'Loader Exclusion Setup Preview',
-    caption: 'Gameplay reference for the antivirus exclusion and loader setup thread.',
+    caption: 'Reference for antivirus exclusions before loading WARDOGS hacks.',
   },
   'undetected-status': {
     ...PAGE_MEDIA.product,
-    alt: 'Evrima ESP gameplay used to illustrate current product status',
-    title: 'Evrima Loader Status Preview',
-    caption: 'Gameplay reference for checking Undetected or Updating before loading.',
+    alt: 'WARDOGS hacks current product status',
+    title: 'WARDOGS Loader Status Preview',
+    caption: 'Reference for checking Undetected or Updating before loading.',
   },
 }
 

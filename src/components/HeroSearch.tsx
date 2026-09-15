@@ -18,7 +18,7 @@ export function HeroSearch({
   value,
   onChange,
   submitTo = 'forums',
-  placeholder = 'Search The Isle Cheats…',
+  placeholder = 'Search WARDOGS Hacks…',
   autoFocus = false,
   className = '',
 }: HeroSearchProps) {
@@ -42,10 +42,10 @@ export function HeroSearch({
     const term = q.trim().toLowerCase()
     if (!term) return []
     const cheatAliases = [
-      'isle cheats',
-      'the isle cheats',
-      'theisle cheats',
-      'theislecheats',
+      'wardogs hacks',
+      'the wardogs hacks',
+      'wardogs hacks',
+      'wardogshacks',
       'cheats',
     ]
     if (cheatAliases.some((a) => a.includes(term) || term.includes(a))) {

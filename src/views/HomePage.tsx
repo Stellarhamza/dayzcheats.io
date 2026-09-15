@@ -1,38 +1,36 @@
-import { ArrowRight, Crosshair, Eye, Shield, Sparkles } from 'lucide-react'
+import { ArrowRight, Crosshair, Eye, Radar, Sparkles } from 'lucide-react'
 import { Navbar } from '../components/Navbar'
 import { VideoBg } from '../components/VideoBg'
-import { LocalVideoStrip } from '../components/LocalVideoStrip'
 import { SiteFooter } from '../components/SiteFooter'
 import { HeroSearch } from '../components/HeroSearch'
 import { FaqSection } from '../components/FaqSection'
-import { SeoMedia } from '../components/SeoMedia'
 import { guidePath } from '../data/games'
 import { CheckoutLink } from '../components/CheckoutLink'
 import { HOME_FAQS } from '../data/faqs'
 import { HOME_HEADINGS, SITE_HOST, SITE_NAME, SITE_PURPOSE } from '../data/site'
 import { BLOGS, blogPath } from '../data/blogs'
-import { PAGE_MEDIA } from '../data/media'
+import { WARDOGS_HOME_VIDEO } from '../data/media'
 
 const FEATURES = [
   {
     icon: Eye,
-    label: 'The Isle ESP / Wallhack',
-    desc: 'See players and dinos through fog and trees. Distance and health when the build supports it.',
+    label: 'Player ESP / Wallhack',
+    desc: 'Boxes, skeletons, health and distance through terrain and buildings on the Control Zone map.',
   },
   {
-    icon: Shield,
-    label: 'The Isle HWID Spoofer',
-    desc: 'Hardware reset path if you catch a ban. Pair it with the current Evrima build.',
-  },
-  {
-    icon: Sparkles,
-    label: 'Undetected patch status',
-    desc: 'We mark Undetected or Updating after The Isle patches so you don’t buy a dead product.',
+    icon: Radar,
+    label: '2D radar overlay',
+    desc: 'Track off-screen threats and vehicles before they swing onto your flank.',
   },
   {
     icon: Crosshair,
-    label: 'Optional aim assist',
-    desc: 'Available if you want it — The Isle Cheats here lead with ESP, wallhack, and awareness.',
+    label: 'Soft aim assistance',
+    desc: 'Adjustable FOV, smoothing and hitbox — leave it off if you only want ESP.',
+  },
+  {
+    icon: Sparkles,
+    label: 'EAC rebuild status',
+    desc: 'We mark Undetected or Updating after WARDOGS and Easy Anti-Cheat patches.',
   },
 ] as const
 
@@ -41,8 +39,8 @@ export function HomePage() {
     <div className="min-h-screen overflow-x-hidden text-white">
       <section id="home" className="relative flex min-h-screen flex-col overflow-x-clip">
         <VideoBg
-          image="/media/home-hero-dino.jpg"
-          imageAlt="The Isle Cheats — cinematic Carnotaurus hero"
+          image="/media/wardogs-soldier-hero.jpg"
+          imageAlt="Tactical soldier aiming across a purple-lit mountainous battlefield"
         />
 
         <div className="relative z-20 flex min-h-screen flex-col">
@@ -52,45 +50,45 @@ export function HomePage() {
             <div className="flex flex-col gap-6 sm:gap-8 lg:flex-row lg:items-end lg:justify-between">
               <div className="relative z-30 max-w-xl">
                 <p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-z-soft/80">
-                  Evrima · Undetected · {SITE_HOST}
+                  WARDOGS · Undetected · {SITE_HOST}
                 </p>
                 <h1 className="text-3xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[3.5rem]">
                   {HOME_HEADINGS.h1}
                 </h1>
                 <p className="mt-5 max-w-lg text-base leading-relaxed text-white/70 sm:text-lg">
-                  Buy The Isle Cheats for Evrima with ESP, wallhack, radar, and an HWID
-                  spoofer. Check live patch status and price before checkout on {SITE_HOST}.
+                  WARDOGS hacks for Windows PC with player ESP, soft aim, 2D radar and live
+                  loader status for BULKHEAD’s 100-player Early Access FPS.
                 </p>
 
                 <div className="relative z-50 mt-7">
-                  <HeroSearch placeholder="Search The Isle Cheats…" />
+                  <HeroSearch placeholder="Search WARDOGS Hacks…" />
                 </div>
               </div>
 
               <div className="relative z-10 grid w-full grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-5 lg:w-[34rem] lg:shrink-0">
                 <div className="glass flex h-full min-h-[168px] flex-col justify-between rounded-2xl p-5 sm:min-h-[200px] sm:p-6">
-                    <p
+                  <p
                     className="status-pill text-3xl font-normal tracking-tight sm:text-4xl"
                     style={{ fontFamily: "'Silkscreen', cursive" }}
                   >
                     UD
                   </p>
                   <p className="mt-3 text-sm leading-relaxed text-white/70 sm:mt-4">
-                    Live undetected status for The Isle Evrima. Updated after patches — not
-                    random Discord screenshots.
+                    Live undetected status for WARDOGS. Updated after EAC patches — not random
+                    Discord screenshots.
                   </p>
                 </div>
 
                 <div className="glass flex h-full min-h-[168px] flex-col rounded-2xl p-5 sm:min-h-[200px] sm:p-6">
                   <div className="mb-3 flex items-center gap-2 sm:mb-4">
                     <div className="flex h-6 w-6 items-center justify-center rounded bg-z-accent/30 text-xs font-bold text-z-soft">
-                      TI
+                      WD
                     </div>
-                    <span className="text-sm font-semibold text-white">The Isle</span>
+                    <span className="text-sm font-semibold text-white">WARDOGS</span>
                   </div>
                   <p className="flex-1 text-sm leading-relaxed text-white/80">
-                    “Status was right. Grabbed The Isle ESP after the last patch and it held
-                    up on Evrima.”
+                    “Bought it for ESP and leave aim off. Seeing a rotation before a third-party
+                    changes everything on Control Zone.”
                   </p>
                   <div className="mt-4 flex items-center gap-3 sm:mt-5">
                     <div className="flex h-9 w-9 items-center justify-center rounded-full bg-z-accent/25 text-sm font-semibold text-z-ink">
@@ -98,7 +96,7 @@ export function HomePage() {
                     </div>
                     <div>
                       <p className="text-sm font-semibold text-white">jayk</p>
-                      <p className="text-xs text-white/60">Evrima player</p>
+                      <p className="text-xs text-white/60">WARDOGS player</p>
                     </div>
                   </div>
                 </div>
@@ -114,9 +112,22 @@ export function HomePage() {
         <section className="page-x py-12">
           <div className="mx-auto max-w-6xl">
             <h2 className="mb-5 text-xl font-semibold tracking-tight text-white sm:text-2xl">
-              TheIsle Cheats ESP gameplay
+              WARDOGS Hacks preview
             </h2>
-            <SeoMedia media={PAGE_MEDIA.home} priority />
+            <div className="overflow-hidden rounded-2xl border border-z-soft/20 bg-black shadow-glow">
+              <div className="relative aspect-video w-full">
+                <iframe
+                  className="absolute inset-0 h-full w-full"
+                  src={`https://www.youtube-nocookie.com/embed/${WARDOGS_HOME_VIDEO.id}?rel=0`}
+                  title={WARDOGS_HOME_VIDEO.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <p className="mt-3 text-sm text-white/45">{WARDOGS_HOME_VIDEO.caption}</p>
           </div>
         </section>
 
@@ -150,7 +161,7 @@ export function HomePage() {
                   Forums
                 </p>
                 <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                  The Isle Cheats forums
+                  WARDOGS Hacks forums
                 </h2>
                 <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/55 sm:text-base">
                   Setup, antivirus, hotkeys, features, and load steps before you buy.
@@ -192,13 +203,13 @@ export function HomePage() {
 
             <div className="page-card mt-8 flex flex-col gap-4 rounded-2xl p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
               <div>
-                <h3 className="text-lg font-semibold text-white">The Isle Cheats product</h3>
+                <h3 className="text-lg font-semibold text-white">WARDOGS Hacks product</h3>
                 <p className="mt-1 text-sm text-white/55">
                   Detailed features · compatibility · price · checkout
                 </p>
               </div>
               <a
-                href={guidePath('isle')}
+                href={guidePath('wardogs')}
                 className="cta-gradient inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium text-white"
               >
                 View product details
@@ -219,12 +230,12 @@ export function HomePage() {
                 </h2>
                 <p className="mt-4 text-sm leading-relaxed text-white/55 sm:text-base">
                   {SITE_PURPOSE} Clear features, honest Undetected status, buyer guides for
-                  setup and load. Own the game on Steam (Evrima branch), then check{' '}
+                  setup and load. Own the game on Steam, then check{' '}
                   <a
-                    href="/isle-cheats"
+                    href="/wardogs-hacks"
                     className="text-white/80 underline-offset-2 hover:underline"
                   >
-                    Evrima feature list
+                    WARDOGS feature list
                   </a>
                   ,{' '}
                   <a
@@ -244,7 +255,7 @@ export function HomePage() {
                 </p>
               </div>
               <a
-                href={guidePath('isle')}
+                href={guidePath('wardogs')}
                 className="mt-8 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-white hover:text-white/80"
               >
                 Open product page
@@ -264,12 +275,12 @@ export function HomePage() {
                   {HOME_HEADINGS.h2Access}
                 </h2>
                 <p className="mt-4 text-sm leading-relaxed text-white/55 sm:text-base">
-                  Confirm The Isle Cheats status is Undetected, then checkout for instant
-                  delivery on supported Evrima builds.
+                  Confirm WARDOGS Hacks status is Undetected, then checkout for digital delivery
+                  on supported Windows Early Access builds.
                 </p>
               </div>
               <CheckoutLink className="cta-gradient mt-8 inline-flex w-full items-center justify-center rounded-full px-6 py-3.5 text-sm font-medium text-white transition-opacity hover:opacity-90 sm:w-fit">
-                Buy The Isle Cheats
+                Buy WARDOGS Hacks
               </CheckoutLink>
             </div>
           </div>
@@ -293,13 +304,6 @@ export function HomePage() {
             </a>
           </div>
         </div>
-
-        <section
-          aria-hidden
-          className="relative border-y border-z-soft/20 bg-z-band"
-        >
-          <LocalVideoStrip src="/videos/home-wave" startAt={0} eager />
-        </section>
 
         <SiteFooter currentPath="/" />
       </div>

@@ -1,16 +1,21 @@
 import { blogPath } from './blog-paths'
 
-/** Official The Isle game destinations (authority / topical relevance). */
-export const OFFICIAL_ISLE_LINKS = [
+/** Official WARDOGS destinations for factual game context. */
+export const OFFICIAL_WARDOGS_LINKS = [
   {
-    label: 'The Isle official website',
-    href: 'https://www.survivetheisle.com/',
-    description: 'Official Survive The Isle site from the developers',
+    label: 'WARDOGS official website',
+    href: 'https://wardogs.com/',
+    description: 'Official WARDOGS website',
   },
   {
-    label: 'The Isle on Steam',
-    href: 'https://store.steampowered.com/app/376210/The_Isle/',
-    description: 'Buy The Isle and switch to the Evrima branch on Steam',
+    label: 'WARDOGS on Steam',
+    href: 'https://store.steampowered.com/app/1867240/WARDOGS/',
+    description: 'Official Windows Early Access store page',
+  },
+  {
+    label: 'WARDOGS at Team17',
+    href: 'https://www.team17.com/games/wardogs',
+    description: 'Publisher page with official game details',
   },
 ] as const
 
@@ -19,8 +24,8 @@ export const SITE_PAGE_LINKS = [
   { label: 'Home', to: '/', description: 'Live status, price and checkout' },
   {
     label: 'Product page',
-    to: '/isle-cheats',
-    description: 'ESP, radar, stream-proof and spoofer features',
+    to: '/wardogs-hacks',
+    description: 'ESP, radar, aim and compatibility details',
   },
   {
     label: 'Forums index',
@@ -40,7 +45,22 @@ export const SITE_PAGE_LINKS = [
   {
     label: 'Support desk',
     to: '/support',
-    description: 'Load, inject, spoofer and EAC help',
+    description: 'Delivery, loader and setup help',
+  },
+  {
+    label: 'Privacy policy',
+    to: '/privacy',
+    description: 'Order data and site privacy',
+  },
+  {
+    label: 'Terms of use',
+    to: '/terms',
+    description: 'License rules and risk disclaimer',
+  },
+  {
+    label: 'Refund policy',
+    to: '/refunds',
+    description: 'When digital license refunds apply',
   },
 ] as const
 
@@ -54,12 +74,12 @@ export const SITE_GUIDE_LINKS = [
 ] as const
 
 /**
- * External checkout go-link → The Isle product.
+ * External checkout go-link → WARDOGS product.
  * Always pair with rel=nofollow so crawlers do not index the redirect.
  */
 const CHECKOUT_HOST = ['za', 'deyo', '.com'].join('')
 const CHECKOUT_REF = ['Q', 'R', 'H'].join('')
-const CHECKOUT_PRODUCT = '/products/the-isle-novaxware-cheats'
+const CHECKOUT_PRODUCT = '/products/wardogs-hacks'
 
 export const CHECKOUT_URL = `https://${CHECKOUT_HOST}/go/${CHECKOUT_REF}?to=${encodeURIComponent(CHECKOUT_PRODUCT)}`
 
