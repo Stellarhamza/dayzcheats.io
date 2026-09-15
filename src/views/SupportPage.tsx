@@ -26,7 +26,7 @@ export function SupportPage() {
             <p className="mt-4 max-w-3xl text-base leading-relaxed text-white/55">
               {SUPPORT_INTRO} Play Warzone from the{' '}
               <a
-                href="https://Warzone.com/"
+                href="https://www.callofduty.com/warzone"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white/80 underline-offset-2 hover:underline"
@@ -43,7 +43,7 @@ export function SupportPage() {
                 Steam
               </a>
               . Product help stays on{' '}
-              <a href="/Warzone-hacks" className="text-white/80 underline-offset-2 hover:underline">
+              <a href="/warzone-cheats" className="text-white/80 underline-offset-2 hover:underline">
                 product details
               </a>
               ,{' '}
@@ -109,7 +109,7 @@ export function SupportPage() {
             </div>
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end">
               <a
-                href="/Warzone-hacks"
+                href="/warzone-cheats"
                 className="inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-white/5"
               >
                 Product details

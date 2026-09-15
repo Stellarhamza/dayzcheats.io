@@ -45,7 +45,7 @@ export const POLICY_PAGES: PolicyPageContent[] = [
         heading: 'Cookies and third parties',
         body: [
           'Essential cookies may be set by checkout or CDN providers so payment and delivery work.',
-          'Embedded media (for example YouTube on the homepage) is governed by that provider’s privacy terms when you play it.',
+          'Embedded preview video (hosted via mediadelivery) is governed by that provider’s privacy terms when you play it.',
           'Official Warzone / Steam / Call of Duty links are external. Their privacy policies apply once you leave warzonecheats.uk.',
         ],
       },

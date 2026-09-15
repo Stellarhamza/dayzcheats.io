@@ -1,12 +1,11 @@
 import { Star } from 'lucide-react'
 import { Navbar } from '../components/Navbar'
 import { SiteFooter } from '../components/SiteFooter'
-import { LocalVideoStrip } from '../components/LocalVideoStrip'
 import { getReviewsAggregate, REVIEWS } from '../data/reviews'
 import { CheckoutLink } from '../components/CheckoutLink'
 import { SeoMedia } from '../components/SeoMedia'
 import { SITE_NAME } from '../data/site'
-import { PAGE_MEDIA } from '../data/media'
+import { PAGE_MEDIA, WARZONE_ESP, WARZONE_GAMEPLAY, WARZONE_MENU } from '../data/media'
 
 function Stars({ rating }: { rating: number }) {
   return (
@@ -43,7 +42,7 @@ export function ReviewsPage() {
             <p className="mt-4 max-w-3xl text-base leading-relaxed text-white/55">
               Reviews from Warzone players who bought Warzone Cheats — ESP accuracy,
               Undetected honesty, and whether the build held after the last patch. Read the{' '}
-              <a href="/Warzone-hacks" className="text-white/80 underline-offset-2 hover:underline">
+              <a href="/warzone-cheats" className="text-white/80 underline-offset-2 hover:underline">
                 product page
               </a>
               ,{' '}
@@ -53,15 +52,6 @@ export function ReviewsPage() {
               , or{' '}
               <a href="/forums" className="text-white/80 underline-offset-2 hover:underline">
                 forums
-              </a>
-              . Play Warzone via{' '}
-              <a
-                href="https://store.steampowered.com/app/1867240/Warzone/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/80 underline-offset-2 hover:underline"
-              >
-                Steam
               </a>
               .
             </p>
@@ -79,16 +69,39 @@ export function ReviewsPage() {
         </section>
 
         <section
-          aria-hidden
+          aria-label="Warzone gameplay previews"
           className="relative mt-10 border-y border-z-soft/20 bg-z-band sm:mt-12"
         >
-          <LocalVideoStrip
-            src="/videos/reviews-neon"
-            startAt={0}
-            eager
-            poster="/media/theWarzone-hacks-esp-river.jpg"
-            className="video-strip--reviews"
-          />
+          <div className="video-strip video-strip--reviews relative w-full overflow-hidden">
+            <div className="grid h-full grid-cols-3">
+              <img
+                src={WARZONE_GAMEPLAY}
+                alt="Warzone Aimbot gameplay preview"
+                className="h-full w-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+              <img
+                src={WARZONE_MENU}
+                alt="Warzone cheats menu preview"
+                className="h-full w-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+              <img
+                src={WARZONE_ESP}
+                alt="Warzone ESP wallhack gameplay preview"
+                className="h-full w-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div className="video-strip-tint pointer-events-none absolute inset-0 z-[2]" aria-hidden />
+            <div
+              className="video-strip-tint-glow pointer-events-none absolute inset-0 z-[2]"
+              aria-hidden
+            />
+          </div>
         </section>
 
         <section className="page-x py-14 sm:py-16">
@@ -155,7 +168,7 @@ export function ReviewsPage() {
             </div>
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end">
               <a
-                href="/Warzone-hacks"
+                href="/warzone-cheats"
                 className="inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-white/5"
               >
                 Product details

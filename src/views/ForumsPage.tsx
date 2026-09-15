@@ -33,7 +33,10 @@ export function ForumsPage({ initialQuery = '' }: ForumsPageProps) {
   return (
     <div className="min-h-screen overflow-x-hidden bg-z-bg text-white">
       <section className="relative flex min-h-[60vh] flex-col overflow-x-clip sm:min-h-[65vh]">
-        <VideoBg />
+        <VideoBg
+          image="/media/warzone-delta-hero.webp"
+          imageAlt="Warzone cheats forums and setup artwork"
+        />
         <div className="relative z-20 flex min-h-[60vh] flex-col sm:min-h-[65vh]">
           <Navbar onVideo />
           <div className="page-x mt-auto pb-10 sm:pb-14">
@@ -76,7 +79,7 @@ export function ForumsPage({ initialQuery = '' }: ForumsPageProps) {
                 </p>
               </div>
               <a
-                href={guidePath('Warzone')}
+                href={guidePath('warzone')}
                 className="cta-gradient inline-flex shrink-0 items-center justify-center rounded-full px-6 py-3 text-sm font-medium text-white"
               >
                 Open product

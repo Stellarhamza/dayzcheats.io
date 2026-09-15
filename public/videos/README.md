@@ -1,5 +1,7 @@
-# Hero / strip videos
+# Videos
 
-- `black-angel.webm` — forums / other hero backgrounds
-- `home-wave.webm` + `home-wave.mp4` — home footer strip (webm + h264)
-- `reviews-neon.webm` + `reviews-neon.mp4` — reviews page strip
+Legacy Isle / neon background videos were removed.
+Warzone pages use:
+- Full-bleed hero images under `/media/warzone-*`
+- Preview GIF strips on reviews
+- Mediadelivery iframe embed (watermark blurred in CSS) for Aimbot/ESP preview

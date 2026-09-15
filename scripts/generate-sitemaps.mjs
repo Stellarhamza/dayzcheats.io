@@ -19,25 +19,42 @@ const TACTICAL = '/media/warzone-esp-gameplay.gif'
 const OBJECTIVE = '/media/warzone-menu.gif'
 const PRODUCT_HERO = '/media/warzone-delta-hero.webp'
 const PRODUCT_COVER = '/media/warzone-auron-cover.webp'
+const GAMEPLAY = '/media/warzone-delta-gameplay.gif'
+const RANKED = '/media/warzone-ranked-cover.webp'
+const CONTROL = '/media/warzone-control-art.jpg'
+const HOME_ART = '/media/warzone-home-art.jpg'
+const TACTICAL_ART = '/media/warzone-tactical-art.jpg'
 const OG_DEFAULT = '/og/warzone-cheats.jpg'
 
 /** All indexable still images that must appear in the sitemap at least once. */
-const ALL_SITE_IMAGES = [SOLDIER, TACTICAL, OBJECTIVE, PRODUCT_HERO, PRODUCT_COVER, OG_DEFAULT]
+const ALL_SITE_IMAGES = [
+  SOLDIER,
+  TACTICAL,
+  OBJECTIVE,
+  PRODUCT_HERO,
+  PRODUCT_COVER,
+  GAMEPLAY,
+  RANKED,
+  CONTROL,
+  HOME_ART,
+  TACTICAL_ART,
+  OG_DEFAULT,
+]
 
 const FORUM_IMAGES = {
-  'features-list': OBJECTIVE,
-  hotkeys: SOLDIER,
-  'complete-setup': OBJECTIVE,
-  'disable-antivirus': TACTICAL,
-  'undetected-status': OBJECTIVE,
-  'aimbot-settings': SOLDIER,
+  'features-list': PRODUCT_COVER,
+  hotkeys: OBJECTIVE,
+  'complete-setup': PRODUCT_HERO,
+  'disable-antivirus': CONTROL,
+  'undetected-status': PRODUCT_COVER,
+  'aimbot-settings': GAMEPLAY,
   'esp-wallhack-guide': TACTICAL,
   'radar-hack-guide': OBJECTIVE,
-  'stream-proof-setup': PRODUCT_HERO,
+  'stream-proof-setup': HOME_ART,
   'ricochet-status': PRODUCT_COVER,
   'windows-setup': SOLDIER,
-  'ranked-play-guide': TACTICAL,
-  'loader-errors': OBJECTIVE,
+  'ranked-play-guide': RANKED,
+  'loader-errors': TACTICAL_ART,
 }
 
 function escapeXml(value) {
@@ -121,9 +138,14 @@ function buildSitemap(games, forums) {
           caption: 'Warzone Aimbot and ESP hero for Warzone Cheats on PC.',
         },
         {
-          src: TACTICAL,
-          title: 'Warzone Cheats Tactical Artwork',
-          caption: 'Homepage artwork for Warzone ESP, radar and soft aim.',
+          src: GAMEPLAY,
+          title: 'Warzone Cheats Gameplay Preview',
+          caption: 'Warzone Aimbot and ESP gameplay GIF for homepage previews.',
+        },
+        {
+          src: HOME_ART,
+          title: 'Warzone Cheats Homepage Artwork',
+          caption: 'Homepage atmosphere art for Warzone Cheats UK.',
         },
         {
           src: OG_DEFAULT,
@@ -139,7 +161,7 @@ function buildSitemap(games, forums) {
         changefreq: 'weekly',
         images: [
           {
-            src: OBJECTIVE,
+            src: PRODUCT_COVER,
             title: 'Warzone ESP Product Artwork',
             caption: 'Product features, compatibility, status and price before checkout.',
           },
@@ -149,9 +171,19 @@ function buildSitemap(games, forums) {
             caption: `Hero artwork for ${game.name} product details and checkout.`,
           },
           {
-            src: PRODUCT_COVER,
-            title: `${game.name} Product Cover`,
-            caption: `Cover artwork for ${game.name} listing and social previews.`,
+            src: OBJECTIVE,
+            title: `${game.name} Menu Preview`,
+            caption: `Menu and feature preview GIF for ${game.name} cheats.`,
+          },
+          {
+            src: TACTICAL,
+            title: `${game.name} ESP Gameplay`,
+            caption: `ESP and wallhack gameplay preview for ${game.name}.`,
+          },
+          {
+            src: RANKED,
+            title: `${game.name} Ranked Cover`,
+            caption: `Ranked / spoofer-adjacent cover art for ${game.name} listings.`,
           },
         ],
       }),

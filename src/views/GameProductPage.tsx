@@ -53,8 +53,8 @@ export function GameProductPage({ guideSlug }: GameProductPageProps) {
   const slug = parseGuideSlug(guideSlug)
   const game = getGame(slug)
 
-  if (!guideSlug.endsWith('-cheats')) {
-    const maybe = getGame(guideSlug)
+  if (!guideSlug.toLowerCase().endsWith('-cheats')) {
+    const maybe = getGame(guideSlug.toLowerCase())
     if (maybe) {
       if (typeof window !== 'undefined') {
         window.location.replace(guidePath(maybe.slug))

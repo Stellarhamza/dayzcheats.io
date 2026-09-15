@@ -17,11 +17,12 @@ export function getGame(slug: string) {
 }
 
 export function guidePath(slug: string) {
-  return `/${slug}-cheats`
+  return `/${slug.toLowerCase()}-cheats`
 }
 
 export function parseGuideSlug(param: string) {
-  return param.endsWith('-cheats') ? param.slice(0, -7) : param
+  const lower = param.toLowerCase()
+  return lower.endsWith('-cheats') ? lower.slice(0, -7) : lower
 }
 
 export const GUIDE_FEATURES = [

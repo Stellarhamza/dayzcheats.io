@@ -13,6 +13,10 @@ export const WARZONE_GAMEPLAY = '/media/warzone-delta-gameplay.gif'
 export const WARZONE_MENU = '/media/warzone-menu.gif'
 export const WARZONE_ESP = '/media/warzone-esp-gameplay.gif'
 export const WARZONE_COVER = '/media/warzone-auron-cover.webp'
+export const WARZONE_RANKED = '/media/warzone-ranked-cover.webp'
+export const WARZONE_CONTROL = '/media/warzone-control-art.jpg'
+export const WARZONE_HOME_ART = '/media/warzone-home-art.jpg'
+export const WARZONE_TACTICAL = '/media/warzone-tactical-art.jpg'
 
 /** Homepage / product preview embed — Battlelog UI blurred via CSS overlay. */
 export const WARZONE_HOME_VIDEO = {
@@ -74,7 +78,12 @@ const FORUM_MEDIA: Record<string, SeoMediaItem> = {
   'stream-proof-setup': { ...PAGE_MEDIA.forums },
   'ricochet-status': { ...PAGE_MEDIA.product },
   'windows-setup': { ...PAGE_MEDIA.support },
-  'ranked-play-guide': { ...PAGE_MEDIA.home },
+  'ranked-play-guide': {
+    image: WARZONE_RANKED,
+    alt: 'Warzone Ranked play cheats artwork',
+    title: 'Warzone Ranked Cheats Guide',
+    caption: 'Ranked lobby tips for Warzone Aimbot and ESP.',
+  },
   'loader-errors': { ...PAGE_MEDIA.support },
 }
 

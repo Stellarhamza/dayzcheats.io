@@ -25,8 +25,8 @@ export function SiteFooter({ currentPath }: SiteFooterProps) {
               <span className="font-semibold text-z-ink">{SITE_NAME}</span>
             </div>
             <p className="mt-3 text-sm leading-relaxed text-white/55">
-              Warzone Cheats for PC — ESP, soft aim, radar and live Ricochet status. Built for Early
-              Access players only.
+              Warzone Cheats for PC — Aimbot, ESP, wallhack, radar and live Ricochet status for
+              UK and worldwide players.
             </p>
           </div>
 
