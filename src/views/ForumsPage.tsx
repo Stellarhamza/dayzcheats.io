@@ -34,8 +34,8 @@ export function ForumsPage({ initialQuery = '' }: ForumsPageProps) {
     <div className="min-h-screen overflow-x-hidden bg-z-bg text-white">
       <section className="relative flex min-h-[60vh] flex-col overflow-x-clip sm:min-h-[65vh]">
         <VideoBg
-          image="/media/warzone-delta-hero.webp"
-          imageAlt="Warzone Delta cheats product box artwork"
+          image="/media/warzone-soldier-hero.webp"
+          imageAlt="Warzone cheats Aimbot and ESP product artwork"
         />
         <div className="relative z-20 flex min-h-[60vh] flex-col sm:min-h-[65vh]">
           <Navbar onVideo />
