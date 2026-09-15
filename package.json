@@ -5,15 +5,19 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev --port 5174",
-    "build": "node scripts/generate-sitemaps.mjs && astro build",
+    "build": "node scripts/generate-seo-assets.mjs && node scripts/generate-sitemaps.mjs && astro build",
     "preview": "astro preview --port 5174",
     "check": "astro check",
     "generate:sitemaps": "node scripts/generate-sitemaps.mjs",
+    "generate:seo-assets": "node scripts/generate-seo-assets.mjs",
+    "verify:seo": "node scripts/verify-seo.mjs",
     "lint": "oxlint"
   },
   "dependencies": {
     "@astrojs/react": "^4.4.2",
     "@astrojs/tailwind": "^6.0.2",
+    "@fontsource/geist": "^5.3.0",
+    "@fontsource/silkscreen": "^5.3.0",
     "astro": "^5.18.2",
     "lucide-react": "^1.43.0",
     "react": "^19.2.8",
@@ -27,6 +31,7 @@
     "autoprefixer": "^10.5.5",
     "oxlint": "^1.79.0",
     "postcss": "^8.5.28",
+    "sharp": "^0.34.4",
     "tailwindcss": "^3.4.19",
     "typescript": "~6.0.2"
   },

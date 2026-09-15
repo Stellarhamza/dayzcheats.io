@@ -2,8 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import { BlogPostPage } from '../../views/BlogPostPage'
 import { BLOGS, blogPath, getBlog } from '../../data/blogs'
-import { SITE_NAME, SITE_URL, OG_IMAGE, type PageSeo } from '../../data/site'
-import { getGameImage } from '../../data/images'
+import { SITE_URL, type PageSeo } from '../../data/site'
+import { getForumMedia } from '../../data/media'
 
 export function getStaticPaths() {
   return BLOGS.map((post) => ({
@@ -18,13 +18,15 @@ if (!post) {
   return Astro.redirect('/404')
 }
 
+const media = getForumMedia(post.slug)
+const absoluteMedia = (path: string) => `${SITE_URL}${path}`
+
 const seo: PageSeo = {
   title: post.metaTitle,
   description: post.metaDescription,
   path: blogPath(post.slug),
-  keywords: post.keywords,
   ogType: 'article',
-  image: getGameImage('isle'),
+  image: media.image,
   robots: 'index, follow, max-image-preview:large, max-snippet:-1',
 }
 
@@ -35,24 +37,38 @@ const jsonLdExtra = [
     description: post.metaDescription,
     datePublished: post.date,
     dateModified: post.date,
-    author: { '@type': 'Organization', name: SITE_NAME },
-    publisher: {
-      '@type': 'Organization',
-      name: SITE_NAME,
-      url: SITE_URL,
-      logo: { '@type': 'ImageObject', url: `${SITE_URL}/favicon.svg` },
-    },
+    author: { '@id': `${SITE_URL}/#organization` },
+    publisher: { '@id': `${SITE_URL}/#organization` },
     mainEntityOfPage: `${SITE_URL}${blogPath(post.slug)}`,
-    keywords: post.keywords,
-    image: getGameImage('isle') || OG_IMAGE,
+    image: {
+      '@type': 'ImageObject',
+      url: absoluteMedia(media.image),
+      width: 800,
+      height: 450,
+      name: media.title,
+      caption: media.caption,
+    },
     inLanguage: 'en',
     articleSection: post.tag,
   },
+  ...(media.video
+    ? [
+        {
+          '@type': 'VideoObject',
+          name: media.videoTitle || media.title,
+          description: media.videoDescription || media.caption,
+          thumbnailUrl: absoluteMedia(media.image),
+          contentUrl: absoluteMedia(media.video),
+          uploadDate: post.date,
+          isFamilyFriendly: false,
+        },
+      ]
+    : []),
   {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: 'Blogs', item: `${SITE_URL}/articles` },
+      { '@type': 'ListItem', position: 2, name: 'Forums', item: `${SITE_URL}/forums` },
       {
         '@type': 'ListItem',
         position: 3,
@@ -67,4 +83,3 @@ const jsonLdExtra = [
 <BaseLayout seo={seo} jsonLdExtra={jsonLdExtra}>
   <BlogPostPage client:visible slug={post.slug} />
 </BaseLayout>
-

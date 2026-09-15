@@ -1,8 +1,37 @@
 # Cloudflare Pages: Astro trailingSlash never + custom 404
 /isle-cheats/   /isle-cheats   301
-/articles/      /articles      301
+/forums/        /forums        301
 /reviews/       /reviews       301
 /faq/           /faq           301
 /support/       /support       301
-/blog/:slug/    /blog/:slug    301
+
+# Transactional keyword variants consolidate on the homepage
+/theisle-cheats   /   301
+/theisle-cheats/  /   301
+/the-isle-cheats  /   301
+/the-isle-cheats/ /   301
+/buy-isle-cheats  /   301
+/buy-isle-cheats/ /   301
+
+# Legacy slugs → forums
+/articles       /forums        301
+/articles/      /forums        301
+/articles/*     /forums        301
+/blog/instructions       /forums/complete-setup#quick-checklist  301
+/blog/how-to-load        /forums/complete-setup#load-order       301
+/forums/instructions     /forums/complete-setup#quick-checklist  301
+/forums/instructions/    /forums/complete-setup#quick-checklist  301
+/forums/how-to-load      /forums/complete-setup#load-order       301
+/forums/how-to-load/     /forums/complete-setup#load-order       301
+/blog/:slug/    /forums/:slug  301
+/blog/:slug     /forums/:slug  301
+/forums/:slug/  /forums/:slug  301
+
+# Legacy split sitemaps → single sitemap
+/sitemap-pages.xml     /sitemap.xml  301
+/sitemap-products.xml  /sitemap.xml  301
+/sitemap-forums.xml    /sitemap.xml  301
+/sitemap-images.xml    /sitemap.xml  301
+/sitemap-blogs.xml     /sitemap.xml  301
+
 /*              /404.html      404

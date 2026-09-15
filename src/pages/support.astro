@@ -1,9 +1,8 @@
 ﻿---
 import BaseLayout from '../layouts/BaseLayout.astro'
 import { SupportPage } from '../views/SupportPage'
-import { SEO, SITE_NAME, SITE_PURPOSE, SITE_URL } from '../data/site'
-import { SUPPORT_FAQS } from '../data/support'
-import { faqPageJsonLd } from '../lib/seo'
+import { SEO, SITE_URL } from '../data/site'
+import { PRODUCT_ID } from '../lib/seo'
 
 const jsonLdExtra = [
   {
@@ -12,15 +11,10 @@ const jsonLdExtra = [
     url: `${SITE_URL}/support`,
     name: SEO.support.title,
     description: SEO.support.description,
-    about: {
-      '@type': 'Thing',
-      name: SITE_NAME,
-      description: SITE_PURPOSE,
-    },
+    about: { '@id': PRODUCT_ID },
     inLanguage: 'en',
     isPartOf: { '@id': `${SITE_URL}/#website` },
   },
-  faqPageJsonLd(SUPPORT_FAQS, `${SITE_URL}/support`),
   {
     '@type': 'BreadcrumbList',
     itemListElement: [

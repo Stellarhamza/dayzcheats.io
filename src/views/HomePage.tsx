@@ -5,11 +5,13 @@ import { LocalVideoStrip } from '../components/LocalVideoStrip'
 import { SiteFooter } from '../components/SiteFooter'
 import { HeroSearch } from '../components/HeroSearch'
 import { FaqSection } from '../components/FaqSection'
+import { SeoMedia } from '../components/SeoMedia'
 import { guidePath } from '../data/games'
 import { CheckoutLink } from '../components/CheckoutLink'
 import { HOME_FAQS } from '../data/faqs'
 import { HOME_HEADINGS, SITE_HOST, SITE_NAME, SITE_PURPOSE } from '../data/site'
 import { BLOGS, blogPath } from '../data/blogs'
+import { PAGE_MEDIA } from '../data/media'
 
 const FEATURES = [
   {
@@ -46,15 +48,15 @@ export function HomePage() {
           <main className="page-x mt-auto pb-8 sm:pb-12 lg:pb-16">
             <div className="flex flex-col gap-6 sm:gap-8 lg:flex-row lg:items-end lg:justify-between">
               <div className="relative z-30 max-w-xl">
-                <p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-white/50">
+                <p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-z-soft/80">
                   Evrima · Undetected · {SITE_HOST}
                 </p>
                 <h1 className="text-3xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[3.5rem]">
                   {HOME_HEADINGS.h1}
                 </h1>
                 <p className="mt-5 max-w-lg text-base leading-relaxed text-white/70 sm:text-lg">
-                  Undetected The Isle Cheats for Evrima — ESP, wallhack, radar, and spoofer
-                  with live patch status. Check what works, then buy on {SITE_HOST}.
+                  Buy The Isle Cheats for Evrima with ESP, wallhack, radar, and an HWID
+                  spoofer. Check live patch status and price before checkout on {SITE_HOST}.
                 </p>
 
                 <div className="relative z-50 mt-7">
@@ -64,8 +66,8 @@ export function HomePage() {
 
               <div className="relative z-10 grid w-full grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-5 lg:w-[34rem] lg:shrink-0">
                 <div className="glass flex h-full min-h-[168px] flex-col justify-between rounded-2xl p-5 sm:min-h-[200px] sm:p-6">
-                  <p
-                    className="text-3xl font-normal tracking-tight text-white sm:text-4xl"
+                    <p
+                    className="status-pill text-3xl font-normal tracking-tight sm:text-4xl"
                     style={{ fontFamily: "'Silkscreen', cursive" }}
                   >
                     UD
@@ -78,7 +80,7 @@ export function HomePage() {
 
                 <div className="glass flex h-full min-h-[168px] flex-col rounded-2xl p-5 sm:min-h-[200px] sm:p-6">
                   <div className="mb-3 flex items-center gap-2 sm:mb-4">
-                    <div className="flex h-6 w-6 items-center justify-center rounded bg-black text-xs font-bold text-white">
+                    <div className="flex h-6 w-6 items-center justify-center rounded bg-z-accent/30 text-xs font-bold text-z-soft">
                       TI
                     </div>
                     <span className="text-sm font-semibold text-white">The Isle</span>
@@ -88,7 +90,7 @@ export function HomePage() {
                     up on Evrima.”
                   </p>
                   <div className="mt-4 flex items-center gap-3 sm:mt-5">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white/20 text-sm font-semibold text-white">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-full bg-z-accent/25 text-sm font-semibold text-z-ink">
                       JK
                     </div>
                     <div>
@@ -106,7 +108,16 @@ export function HomePage() {
       <div className="hero-to-body" aria-hidden />
 
       <div className="page-body relative z-10">
-        <section className="page-band page-x border-t border-white/10 py-14">
+        <section className="page-x py-12">
+          <div className="mx-auto max-w-6xl">
+            <h2 className="mb-5 text-xl font-semibold tracking-tight text-white sm:text-2xl">
+              TheIsle Cheats ESP gameplay
+            </h2>
+            <SeoMedia media={PAGE_MEDIA.home} priority />
+          </div>
+        </section>
+
+        <section className="page-band page-x border-t border-z-soft/15 py-14">
           <div className="mx-auto max-w-6xl">
             <h2 className="mb-6 text-xl font-semibold tracking-tight text-white sm:text-2xl">
               {HOME_HEADINGS.h2Features}
@@ -130,9 +141,9 @@ export function HomePage() {
 
         <section
           aria-hidden
-          className="relative border-y border-white/15 bg-[#0a0a0a]"
+          className="relative border-y border-z-soft/20 bg-z-band"
         >
-          <LocalVideoStrip src="/videos/home-wave.webm" startAt={5} />
+          <LocalVideoStrip src="/videos/home-wave.webm" startAt={5} eager />
         </section>
 
         <section id="picks" className="page-x py-16 sm:py-20">
@@ -140,20 +151,20 @@ export function HomePage() {
             <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <p className="text-xs font-medium uppercase tracking-[0.2em] text-white/45">
-                  Blogs
+                  Forums
                 </p>
                 <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                  The Isle Cheats blogs
+                  The Isle Cheats forums
                 </h2>
                 <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/55 sm:text-base">
-                  ESP, wallhack, undetected status, spoofer, and buyer guides for Evrima.
+                  Setup, antivirus, hotkeys, features, and load steps before you buy.
                 </p>
               </div>
               <a
-                href="/articles"
+                href="/forums"
                 className="inline-flex items-center gap-1.5 text-sm font-medium text-white/80 hover:text-white"
               >
-                All blogs
+                All forums
                 <ArrowRight className="h-4 w-4" strokeWidth={1.75} />
               </a>
             </div>
@@ -173,7 +184,7 @@ export function HomePage() {
                     {post.excerpt}
                   </p>
                   <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-white transition-colors group-hover:text-white/80">
-                    Read blog
+                    Read guide
                     <ArrowRight
                       className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
                       strokeWidth={1.75}
@@ -187,14 +198,14 @@ export function HomePage() {
               <div>
                 <h3 className="text-lg font-semibold text-white">The Isle Cheats product</h3>
                 <p className="mt-1 text-sm text-white/55">
-                  Live Undetected status · ESP · wallhack · spoofer
+                  Detailed features · compatibility · price · checkout
                 </p>
               </div>
               <a
                 href={guidePath('isle')}
                 className="cta-gradient inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium text-white"
               >
-                Open The Isle Cheats
+                View product details
               </a>
             </div>
           </div>
@@ -211,8 +222,8 @@ export function HomePage() {
                   {HOME_HEADINGS.h2About}
                 </h2>
                 <p className="mt-4 text-sm leading-relaxed text-white/55 sm:text-base">
-                  {SITE_PURPOSE} Clear features, honest Undetected status, no spam walls. Own
-                  the game via the{' '}
+                  {SITE_PURPOSE} Clear features, honest Undetected status, buyer guides for
+                  setup and load. Own the game via the{' '}
                   <a
                     href="https://www.survivetheisle.com/"
                     target="_blank"
@@ -235,7 +246,7 @@ export function HomePage() {
                     href="/isle-cheats"
                     className="text-white/80 underline-offset-2 hover:underline"
                   >
-                    The Isle Cheats
+                    product details
                   </a>
                   ,{' '}
                   <a
@@ -258,7 +269,7 @@ export function HomePage() {
                 href={guidePath('isle')}
                 className="mt-8 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-white hover:text-white/80"
               >
-                Read the full guide
+                View features and price
                 <ArrowRight className="h-4 w-4" strokeWidth={1.75} />
               </a>
             </div>
@@ -289,7 +300,7 @@ export function HomePage() {
         <FaqSection
           id="faq"
           heading={HOME_HEADINGS.h2Faq}
-          intro="Straight answers if you’re comparing the isle cheats, theisle cheats, or Evrima ESP options. See the full FAQ page for every question."
+          intro="Pre-purchase answers about status, compatibility, features, delivery, and checkout."
           items={HOME_FAQS}
         />
 
@@ -305,7 +316,7 @@ export function HomePage() {
           </div>
         </div>
 
-        <SiteFooter />
+        <SiteFooter currentPath="/" />
       </div>
     </div>
   )

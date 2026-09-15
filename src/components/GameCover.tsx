@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import { getGameImage, getImageAlt, getImageTitle, getProductHeroImage } from '../data/images'
 
 type GameCoverProps = {
@@ -44,11 +44,6 @@ export function GameCover({
   const [index, setIndex] = useState(0)
   const [failed, setFailed] = useState(false)
 
-  useEffect(() => {
-    setIndex(0)
-    setFailed(false)
-  }, [slug, variant])
-
   const src = sources[index]
   const ratio = fill
     ? 'h-full w-full'
@@ -61,19 +56,18 @@ export function GameCover({
   const eager = priority || variant === 'product'
 
   return (
-    <div className={`relative overflow-hidden bg-[#121212] ${ratio} ${className}`}>
+    <div className={`relative overflow-hidden bg-z-elevated ${ratio} ${className}`}>
       {!failed && src ? (
         <img
           key={src}
           src={src}
           alt={getImageAlt(slug, name, variant)}
           title={getImageTitle(slug, name, variant)}
-          width={1440}
-          height={810}
+          width={variant === 'product' ? 1440 : 1000}
+          height={variant === 'product' ? 810 : 1000}
           loading={eager ? 'eager' : 'lazy'}
           decoding={eager ? 'sync' : 'async'}
           fetchPriority={eager ? 'high' : 'auto'}
-          referrerPolicy="no-referrer"
           sizes={
             aspect === 'hero' || variant === 'product'
               ? '100vw'
@@ -88,7 +82,7 @@ export function GameCover({
           className={`game-cover-img absolute inset-0 h-full w-full object-cover object-center${variant === 'product' ? ' game-cover-img--color' : ''}`}
         />
       ) : (
-        <div className="absolute inset-0 flex items-center justify-center bg-[#161616]">
+        <div className="absolute inset-0 flex items-center justify-center bg-z-elevated">
           <span className="px-3 text-center text-sm font-semibold tracking-tight text-white/25">
             {name}
           </span>

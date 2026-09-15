@@ -4,15 +4,17 @@ import { Navbar } from '../components/Navbar'
 import { SiteFooter } from '../components/SiteFooter'
 import { VideoBg } from '../components/VideoBg'
 import { HeroSearch } from '../components/HeroSearch'
+import { SeoMedia } from '../components/SeoMedia'
 import { BLOGS, blogPath } from '../data/blogs'
 import { guidePath } from '../data/games'
 import { SITE_HOST } from '../data/site'
+import { PAGE_MEDIA } from '../data/media'
 
-type ArticlesPageProps = {
+type ForumsPageProps = {
   initialQuery?: string
 }
 
-export function ArticlesPage({ initialQuery = '' }: ArticlesPageProps) {
+export function ForumsPage({ initialQuery = '' }: ForumsPageProps) {
   const [q, setQ] = useState(() => initialQuery)
 
   function onSearchChange(next: string) {
@@ -23,13 +25,13 @@ export function ArticlesPage({ initialQuery = '' }: ArticlesPageProps) {
     const term = q.trim().toLowerCase()
     if (!term) return BLOGS
     return BLOGS.filter((b) => {
-      const hay = `${b.title} ${b.excerpt} ${b.tag} ${b.keywords}`.toLowerCase()
+      const hay = `${b.title} ${b.excerpt} ${b.tag} ${b.searchTerms}`.toLowerCase()
       return hay.includes(term)
     })
   }, [q])
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#0e0e0e] text-white">
+    <div className="min-h-screen overflow-x-hidden bg-z-bg text-white">
       <section className="relative flex min-h-[60vh] flex-col overflow-x-clip sm:min-h-[65vh]">
         <VideoBg />
         <div className="relative z-20 flex min-h-[60vh] flex-col sm:min-h-[65vh]">
@@ -37,21 +39,21 @@ export function ArticlesPage({ initialQuery = '' }: ArticlesPageProps) {
           <div className="page-x mt-auto pb-10 sm:pb-14">
             <div className="relative z-30 mx-auto max-w-6xl">
               <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-white/50">
-                Blogs · Guides · {SITE_HOST}
+                Forums · Setup · {SITE_HOST}
               </p>
               <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-5xl">
-                The Isle Cheats Blogs
+                The Isle Cheats Forums
               </h1>
               <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/70">
-                Guides for The Isle Evrima — ESP, wallhack, undetected status, spoofer, and
-                how to buy without getting burned. Isle-only.
+                Setup threads for The Isle Cheats — features, hotkeys, complete setup,
+                disable antivirus, how to load, and Undetected status before you checkout.
               </p>
               <div className="relative z-50 mt-7">
                 <HeroSearch
                   value={q}
                   onChange={onSearchChange}
                   submitTo="filter"
-                  placeholder="Search Isle blogs — ESP, spoofer, status…"
+                  placeholder="Search forums — setup, antivirus, hotkeys…"
                 />
               </div>
             </div>
@@ -81,19 +83,21 @@ export function ArticlesPage({ initialQuery = '' }: ArticlesPageProps) {
               </a>
             </div>
 
+            <SeoMedia media={PAGE_MEDIA.forums} className="mb-10" />
+
             <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
               <h2 className="text-xl font-semibold tracking-tight text-white">
-                {q.trim() ? 'Search results' : 'All The Isle blogs'}
+                {q.trim() ? 'Search results' : 'All forum threads'}
               </h2>
               <p className="text-sm text-white/40">
-                {filtered.length} post{filtered.length === 1 ? '' : 's'}
+                {filtered.length} thread{filtered.length === 1 ? '' : 's'}
               </p>
             </div>
 
             {filtered.length === 0 ? (
               <div className="page-card mt-8 rounded-2xl px-6 py-10 text-center">
                 <p className="text-sm text-white/55">
-                  Nothing matched “{q}”. Try “ESP”, “spoofer”, or “undetected”.
+                  Nothing matched “{q}”. Try “setup”, “antivirus”, or “hotkeys”.
                 </p>
                 <button
                   type="button"
@@ -124,7 +128,7 @@ export function ArticlesPage({ initialQuery = '' }: ArticlesPageProps) {
                       {post.excerpt}
                     </p>
                     <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-white transition-colors group-hover:text-white/80">
-                      Read blog
+                      Open thread
                       <ArrowRight
                         className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
                         strokeWidth={1.75}
@@ -137,7 +141,7 @@ export function ArticlesPage({ initialQuery = '' }: ArticlesPageProps) {
           </div>
         </section>
 
-        <SiteFooter />
+        <SiteFooter currentPath="/forums" />
       </main>
     </div>
   )

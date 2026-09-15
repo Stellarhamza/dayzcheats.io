@@ -5,8 +5,8 @@ import { CheckoutLink } from '../components/CheckoutLink'
 
 export function NotFoundPage() {
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#0e0e0e] text-white">
-      <div className="border-b border-white/10 bg-[#0e0e0e]/90 backdrop-blur-xl">
+    <div className="min-h-screen overflow-x-hidden bg-z-bg text-white">
+      <div className="border-b border-z-soft/15 bg-z-bg/90 backdrop-blur-xl">
         <Navbar />
       </div>
 
@@ -41,10 +41,10 @@ export function NotFoundPage() {
                 Back home
               </a>
               <a
-                href="/articles"
+                href="/forums"
                 className="inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-white/5"
               >
-                All articles
+                Forums
               </a>
               <CheckoutLink className="cta-gradient inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium text-white">
                 Get
@@ -53,7 +53,7 @@ export function NotFoundPage() {
           </div>
         </section>
 
-        <SiteFooter />
+        <SiteFooter currentPath="/404" />
       </main>
     </div>
   )

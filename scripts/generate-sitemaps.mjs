@@ -1,319 +1,218 @@
 /**
- * Split sitemaps for The Isle Cheats (theislecheats.cc)
- * One English site, one purpose — no regional sitemap dance.
- *
- * - sitemap-pages.xml     → /, /articles, /reviews
- * - sitemap-products.xml  → /isle-cheats
- * - sitemap-blogs.xml     → /blog/*
- * - sitemap-images.xml    → image annotations for key URLs
- * - sitemap.xml           → index
- *
- * Run: npm run generate:sitemaps
+ * Single sitemap at /sitemap.xml — every indexed URL in one urlset.
+ * Support stays out (noindex). Images are attached on the same entries.
  */
-import { readFileSync, writeFileSync, unlinkSync, existsSync } from 'fs'
-import { dirname, join } from 'path'
-import { fileURLToPath } from 'url'
+import { existsSync, readFileSync, unlinkSync, writeFileSync } from 'node:fs'
+import { dirname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
-const __dirname = dirname(fileURLToPath(import.meta.url))
-const root = join(__dirname, '..')
+const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const publicDir = join(root, 'public')
 const dataDir = join(root, 'src', 'data')
-
 const SITE = (process.env.SITE_URL || 'https://theislecheats.cc').replace(/\/$/, '')
-const TODAY = new Date().toISOString().slice(0, 10)
-
-/** Honest hreflang for a single global English site. */
+const TODAY = new Date().toLocaleDateString('en-CA')
 const HREFLANG = ['en', 'x-default']
 
-const STATIC_PAGES = [
-  { path: '/', priority: '1.0', changefreq: 'daily' },
-  { path: '/articles', priority: '0.9', changefreq: 'weekly' },
-  { path: '/reviews', priority: '0.85', changefreq: 'weekly' },
-  { path: '/faq', priority: '0.9', changefreq: 'weekly' },
-  { path: '/support', priority: '0.85', changefreq: 'weekly' },
-]
-
-const OG_IMAGE =
-  'https://assets-prd.ignimgs.com/2023/09/12/library-600x900-1694540297721.jpg?width=1200&format=jpg&auto=webp&quality=80'
+const FOREST = '/media/theisle-cheats-esp-forest.jpg'
+const RIVER = '/media/theisle-cheats-esp-river.jpg'
 
 function escapeXml(value) {
   return String(value)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&apos;')
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&apos;')
 }
 
 function siteUrl(path) {
-  if (!path || path === '/') return `${SITE}/`
-  return `${SITE}${path.startsWith('/') ? path : `/${path}`}`
-}
-
-function guidePath(slug) {
-  return `/${slug}-cheats`
+  return !path || path === '/' ? `${SITE}/` : `${SITE}${path.startsWith('/') ? path : `/${path}`}`
 }
 
 function loadGames() {
   const src = readFileSync(join(dataDir, 'games.ts'), 'utf8')
-  // Only catalog entries: { slug: '...', name: '...'
   return [...src.matchAll(/\{\s*slug:\s*['"]([^'"]+)['"],\s*name:\s*['"]([^'"]+)['"]/g)].map(
-    (m) => ({ slug: m[1], name: m[2] }),
+    (match) => ({ slug: match[1], name: match[2] }),
   )
 }
 
-function loadBlogs() {
+function loadForums() {
   const src = readFileSync(join(dataDir, 'blogs.ts'), 'utf8')
-  const blogs = []
-  const blockRe =
-    /slug:\s*['"]([^'"]+)['"],\s*title:\s*['"]([^'"]+)['"],[\s\S]*?metaTitle:\s*['"]([^'"]+)['"],[\s\S]*?date:\s*['"](\d{4}-\d{2}-\d{2})['"]/g
-  for (const m of src.matchAll(blockRe)) {
-    blogs.push({
-      slug: m[1],
-      title: m[2],
-      metaTitle: m[3],
-      date: m[4],
-    })
-  }
-  return blogs
+  const pattern =
+    /slug:\s*['"]([^'"]+)['"],\s*title:\s*['"]([^'"]+)['"],[\s\S]*?date:\s*['"](\d{4}-\d{2}-\d{2})['"]/g
+  return [...src.matchAll(pattern)].map((match) => ({
+    slug: match[1],
+    title: match[2],
+    date: match[3],
+  }))
 }
 
-function loadIsleCover() {
-  const src = readFileSync(join(dataDir, 'images.ts'), 'utf8')
-  // Prefer explicit ISLE_COVER / ISLE_HERO constants, then legacy "isle": "url" map entries.
-  const fromConst =
-    src.match(/ISLE_COVER\s*=\s*['"](https?:[^'"]+)['"]/) ||
-    src.match(/ISLE_HERO\s*=\s*['"](https?:[^'"]+)['"]/)
-  if (fromConst?.[1]) return fromConst[1]
-  const fromMap = src.match(/["']isle["']\s*:\s*["'](https?:[^'"]+)["']/)
-  return fromMap?.[1] || OG_IMAGE
-}
-
-function loadImageSeo() {
-  const src = readFileSync(join(dataDir, 'images.ts'), 'utf8')
-  const block = src.match(/isle:\s*\{([\s\S]*?)\n\s*\},/)
-  if (!block) return null
-  const pick = (key) => {
-    const m = block[1].match(new RegExp(`${key}:\\s*'([^']*)'`))
-    return m?.[1] || null
-  }
-  return {
-    title: pick('title'),
-    caption: pick('caption'),
-    heroTitle: pick('heroTitle'),
-    heroCaption: pick('heroCaption'),
-  }
-}
-
-function hreflangLinks(loc) {
+function alternateLinks(url) {
   return HREFLANG.map(
-    (lang) =>
-      `    <xhtml:link rel="alternate" hreflang="${lang}" href="${escapeXml(loc)}" />`,
+    (language) =>
+      `    <xhtml:link rel="alternate" hreflang="${language}" href="${escapeXml(url)}" />`,
   ).join('\n')
 }
 
-function urlEntry({ loc, priority, changefreq, lastmod = TODAY }) {
-  return `  <url>
-    <loc>${escapeXml(loc)}</loc>
-    <lastmod>${lastmod}</lastmod>
-    <changefreq>${changefreq}</changefreq>
-    <priority>${priority}</priority>
-${hreflangLinks(loc)}
-  </url>`
-}
-
-function urlset(body, { xhtml = false, image = false } = {}) {
-  const attrs = [
-    'xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
-    xhtml ? 'xmlns:xhtml="http://www.w3.org/1999/xhtml"' : null,
-    image ? 'xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"' : null,
-  ]
-    .filter(Boolean)
-    .join('\n        ')
-  return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset ${attrs}>
-${body}
-</urlset>
-`
-}
-
-function imageBlock(imageLoc, title, caption) {
+function imageBlock(image, title, caption) {
   return `    <image:image>
-      <image:loc>${escapeXml(imageLoc)}</image:loc>
+      <image:loc>${escapeXml(siteUrl(image))}</image:loc>
       <image:title>${escapeXml(title)}</image:title>
       <image:caption>${escapeXml(caption)}</image:caption>
     </image:image>`
 }
 
-function buildPagesSitemap() {
-  return urlset(
-    STATIC_PAGES.map((p) =>
+function urlEntry({
+  path,
+  priority,
+  changefreq,
+  lastmod = TODAY,
+  image,
+  imageTitle,
+  imageCaption,
+}) {
+  const url = siteUrl(path)
+  const imageXml =
+    image && imageTitle && imageCaption
+      ? `\n${imageBlock(image, imageTitle, imageCaption)}`
+      : ''
+  return `  <url>
+    <loc>${escapeXml(url)}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>${changefreq}</changefreq>
+    <priority>${priority}</priority>
+${alternateLinks(url)}${imageXml}
+  </url>`
+}
+
+function buildSitemap(games, forums) {
+  const entries = [
+    urlEntry({
+      path: '/',
+      priority: '1.0',
+      changefreq: 'daily',
+      image: FOREST,
+      imageTitle: 'TheIsle Cheats ESP Gameplay',
+      imageCaption: 'Entity ESP gameplay shown before checkout.',
+    }),
+    ...games.map((game) =>
       urlEntry({
-        loc: siteUrl(p.path),
-        priority: p.priority,
-        changefreq: p.changefreq,
-        lastmod: TODAY,
+        path: `/${game.slug}-cheats`,
+        priority: '0.9',
+        changefreq: 'weekly',
+        image: RIVER,
+        imageTitle: 'Evrima ESP Product Gameplay',
+        imageCaption: 'Product features, compatibility, status and price before checkout.',
       }),
-    ).join('\n'),
-    { xhtml: true },
-  )
-}
-
-function buildProductsSitemap(games) {
-  return urlset(
-    games
-      .map((g) =>
-        urlEntry({
-          loc: siteUrl(guidePath(g.slug)),
-          priority: '1.0',
-          changefreq: 'daily',
-          lastmod: TODAY,
-        }),
-      )
-      .join('\n'),
-    { xhtml: true },
-  )
-}
-
-function buildBlogsSitemap(blogs) {
-  return urlset(
-    blogs
-      .map((b) =>
-        urlEntry({
-          loc: siteUrl(`/blog/${b.slug}`),
-          priority: '0.85',
-          changefreq: 'monthly',
-          lastmod: b.date || TODAY,
-        }),
-      )
-      .join('\n'),
-    { xhtml: true },
-  )
-}
-
-/**
- * One primary image per indexed URL — no near-duplicate crop variants,
- * no keyword stuffing in titles/captions.
- */
-function buildImagesSitemap(games, blogs, cover, imageSeo) {
-  const urls = []
-
-  urls.push(`  <url>
-    <loc>${escapeXml(siteUrl('/'))}</loc>
-    <lastmod>${TODAY}</lastmod>
-${imageBlock(
-  OG_IMAGE,
-  'The Isle Cheats',
-  'Isle-only The Isle Cheats for Evrima — ESP, wallhack, radar, HWID spoofer',
-)}
-  </url>`)
-
-  for (const game of games) {
-    const pageUrl = siteUrl(guidePath(game.slug))
-    const title =
-      imageSeo?.heroTitle || `Buy The Isle Cheats | ${game.name} Evrima ESP & Wallhack`
-    // Clean caption — do not import keyword-stuffed IMAGE_SEO captions into the sitemap.
-    const caption =
-      'Buy The Isle Cheats for Evrima — Entity ESP, World ESP, radar, HWID spoofer'
-    urls.push(`  <url>
-    <loc>${escapeXml(pageUrl)}</loc>
-    <lastmod>${TODAY}</lastmod>
-${imageBlock(cover, title, caption)}
-  </url>`)
-  }
-
-  for (const b of blogs) {
-    urls.push(`  <url>
-    <loc>${escapeXml(siteUrl(`/blog/${b.slug}`))}</loc>
-    <lastmod>${b.date || TODAY}</lastmod>
-${imageBlock(
-  cover,
-  b.metaTitle || b.title,
-  `${b.title} — The Isle Cheats guide for Evrima`,
-)}
-  </url>`)
-  }
-
-  return urlset(urls.join('\n'), { image: true })
-}
-
-function buildSitemapIndex() {
-  const files = [
-    'sitemap-pages.xml',
-    'sitemap-products.xml',
-    'sitemap-blogs.xml',
-    'sitemap-images.xml',
+    ),
+    urlEntry({
+      path: '/forums',
+      priority: '0.85',
+      changefreq: 'weekly',
+      image: RIVER,
+      imageTitle: 'The Isle Cheats Forum Gameplay',
+      imageCaption: 'Gameplay reference for setup and feature threads.',
+    }),
+    ...forums.map((forum, index) =>
+      urlEntry({
+        path: `/forums/${forum.slug}`,
+        priority: '0.8',
+        changefreq: 'monthly',
+        lastmod: forum.date,
+        image: index % 2 === 0 ? RIVER : FOREST,
+        imageTitle: `${forum.title} Gameplay`,
+        imageCaption: `Visible Evrima gameplay reference for ${forum.title}.`,
+      }),
+    ),
+    urlEntry({
+      path: '/reviews',
+      priority: '0.8',
+      changefreq: 'weekly',
+      image: FOREST,
+      imageTitle: 'The Isle Cheats Review Gameplay',
+      imageCaption: 'Gameplay accompanying verified buyer reviews.',
+    }),
+    urlEntry({
+      path: '/faq',
+      priority: '0.75',
+      changefreq: 'monthly',
+      image: RIVER,
+      imageTitle: 'Evrima ESP FAQ Gameplay',
+      imageCaption: 'Product screenshot accompanying pre-purchase answers.',
+    }),
+    urlEntry({
+      path: '/support',
+      priority: '0.75',
+      changefreq: 'weekly',
+      image: FOREST,
+      imageTitle: 'The Isle Cheats Support Gameplay',
+      imageCaption: 'Evrima ESP reference accompanying load, inject and delivery support.',
+    }),
   ]
+
   return `<?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${files
-  .map(
-    (f) => `  <sitemap>
-    <loc>${escapeXml(siteUrl(`/${f}`))}</loc>
-    <lastmod>${TODAY}</lastmod>
-  </sitemap>`,
-  )
-  .join('\n')}
-</sitemapindex>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+${entries.join('\n')}
+</urlset>
 `
 }
 
-/** Index only — children are discovered via sitemap.xml (no robots dance). */
-function buildRobotsTxt() {
-  return `User-agent: *
-Allow: /
-
-Sitemap: ${siteUrl('/sitemap.xml')}
-`
-}
-
-function assertPerfect({ games, blogs }) {
+function validate(games, forums, sitemap) {
   const errors = []
-  if (games.length !== 1 || games[0]?.slug !== 'isle') {
-    errors.push(`Expected exactly 1 product (isle), got: ${JSON.stringify(games)}`)
+  if (games.length !== 1 || games[0]?.slug !== 'isle') errors.push('Expected one isle product')
+  if (forums.length !== 5) errors.push(`Expected 5 forum threads, found ${forums.length}`)
+  if (forums.some((forum) => ['instructions', 'how-to-load'].includes(forum.slug))) {
+    errors.push('Retired forum slug remains indexed')
   }
-  if (blogs.length < 1) errors.push('No blogs parsed for sitemap-blogs.xml')
-  const slugs = new Set(blogs.map((b) => b.slug))
-  if (slugs.size !== blogs.length) errors.push('Duplicate blog slugs in sitemap data')
-  for (const b of blogs) {
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(b.date)) {
-      errors.push(`Blog ${b.slug} missing valid date`)
-    }
+
+  const required = [
+    `${SITE}/`,
+    `${SITE}/isle-cheats`,
+    `${SITE}/forums`,
+    `${SITE}/reviews`,
+    `${SITE}/faq`,
+    `${SITE}/support`,
+    ...forums.map((forum) => `${SITE}/forums/${forum.slug}`),
+  ]
+  for (const url of required) {
+    if (!sitemap.includes(`<loc>${url}</loc>`)) errors.push(`Missing URL: ${url}`)
   }
-  if (errors.length) {
-    throw new Error(`Sitemap validation failed:\n- ${errors.join('\n- ')}`)
+  if (sitemap.includes('<sitemapindex')) errors.push('sitemap.xml must be a single urlset, not an index')
+  if ((sitemap.match(/<url>/g) || []).length !== required.length) {
+    errors.push(`Expected ${required.length} URLs in sitemap.xml`)
   }
+  if (errors.length) throw new Error(`Sitemap validation failed:\n- ${errors.join('\n- ')}`)
 }
 
 function main() {
   const games = loadGames()
-  const blogs = loadBlogs()
-  const cover = loadIsleCover()
-  const imageSeo = loadImageSeo()
+  const forums = loadForums()
+  const sitemap = buildSitemap(games, forums)
+  validate(games, forums, sitemap)
 
-  assertPerfect({ games, blogs })
-
-  writeFileSync(join(publicDir, 'sitemap-pages.xml'), buildPagesSitemap())
-  writeFileSync(join(publicDir, 'sitemap-products.xml'), buildProductsSitemap(games))
-  writeFileSync(join(publicDir, 'sitemap-blogs.xml'), buildBlogsSitemap(blogs))
+  writeFileSync(join(publicDir, 'sitemap.xml'), sitemap)
   writeFileSync(
-    join(publicDir, 'sitemap-images.xml'),
-    buildImagesSitemap(games, blogs, cover, imageSeo),
+    join(publicDir, 'robots.txt'),
+    `User-agent: *\nAllow: /\n\nSitemap: ${siteUrl('/sitemap.xml')}\n`,
   )
-  writeFileSync(join(publicDir, 'sitemap.xml'), buildSitemapIndex())
-  writeFileSync(join(publicDir, 'robots.txt'), buildRobotsTxt())
 
-  const staleRegions = join(publicDir, 'sitemap-regions.xml')
-  if (existsSync(staleRegions)) unlinkSync(staleRegions)
+  const stale = [
+    'sitemap-pages.xml',
+    'sitemap-products.xml',
+    'sitemap-forums.xml',
+    'sitemap-images.xml',
+    'sitemap-blogs.xml',
+    'sitemap-regions.xml',
+  ]
+  for (const name of stale) {
+    const path = join(publicDir, name)
+    if (existsSync(path)) unlinkSync(path)
+  }
 
-  console.log(`Sitemaps OK for ${SITE}`)
-  console.log(`  pages:    ${STATIC_PAGES.length}  (/ /articles /reviews /faq /support)`)
-  console.log(`  products: ${games.length}  (${games.map((g) => guidePath(g.slug)).join(', ')})`)
-  console.log(`  blogs:    ${blogs.length}`)
-  console.log(`  images:   ${1 + games.length + blogs.length} URLs × 1 image`)
-  console.log(`  hreflang: ${HREFLANG.join(', ')}`)
-  console.log(`  robots:   sitemap.xml index only`)
+  const urlCount = (sitemap.match(/<url>/g) || []).length
+  console.log(`Sitemap OK: ${urlCount} URLs in ${siteUrl('/sitemap.xml')}`)
 }
 
 main()
-

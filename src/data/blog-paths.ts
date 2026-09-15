@@ -1,5 +1,9 @@
-/** Lightweight blog path helpers — keep full post bodies out of shared chunks. */
+/** Forum thread path helpers — keep post bodies out of shared chunks. */
 
 export function blogPath(slug: string) {
-  return `/blog/${slug}`
+  return `/forums/${slug}`
+}
+
+export function forumsPath() {
+  return '/forums'
 }

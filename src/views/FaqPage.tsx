@@ -2,15 +2,16 @@ import { Navbar } from '../components/Navbar'
 import { SiteFooter } from '../components/SiteFooter'
 import { FaqSection } from '../components/FaqSection'
 import { SITE_FAQS } from '../data/faqs'
-import { guidePath } from '../data/games'
 import { OFFICIAL_ISLE_LINKS } from '../data/links'
 import { CheckoutLink } from '../components/CheckoutLink'
+import { SeoMedia } from '../components/SeoMedia'
 import { SITE_HOST, SITE_NAME } from '../data/site'
+import { PAGE_MEDIA } from '../data/media'
 
 export function FaqPage() {
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#0e0e0e] text-white">
-      <div className="border-b border-white/10 bg-[#0e0e0e]/90 backdrop-blur-xl">
+    <div className="min-h-screen overflow-x-hidden bg-z-bg text-white">
+      <div className="border-b border-z-soft/15 bg-z-bg/90 backdrop-blur-xl">
         <Navbar />
       </div>
 
@@ -26,11 +27,10 @@ export function FaqPage() {
             <p className="mt-4 max-w-3xl text-base leading-relaxed text-white/55">
               Frequently asked questions about The Isle Cheats for Evrima — Undetected status,
               ESP, wallhack, radar, HWID spoofer, how to buy, how to load, support, and reviews.
-              Answers below are visible on the page for readers and search engines.
             </p>
             <p className="mt-3 text-sm text-white/45">
               Related:{' '}
-              <a href={guidePath('isle')} className="text-white/75 underline-offset-2 hover:underline">
+              <a href="/" className="text-white/75 underline-offset-2 hover:underline">
                 Buy The Isle Cheats
               </a>
               {' · '}
@@ -54,10 +54,16 @@ export function FaqPage() {
           </div>
         </section>
 
+        <section className="page-x pt-10 sm:pt-12">
+          <div className="mx-auto max-w-6xl">
+            <SeoMedia media={PAGE_MEDIA.faq} />
+          </div>
+        </section>
+
         <FaqSection
           id="faq"
           heading="All The Isle Cheats questions"
-          intro="Straight answers matched in FAQ schema so Google can read the same text you see."
+          intro="Straight answers on buying, loading, Undetected status, and features."
           items={SITE_FAQS}
           className="border-t-0 pt-10 sm:pt-12"
         />
@@ -86,7 +92,7 @@ export function FaqPage() {
           </div>
         </section>
 
-        <SiteFooter />
+        <SiteFooter currentPath="/faq" />
       </main>
     </div>
   )

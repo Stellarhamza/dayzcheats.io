@@ -2,14 +2,15 @@ import { Navbar } from '../components/Navbar'
 import { SiteFooter } from '../components/SiteFooter'
 import { FaqSection } from '../components/FaqSection'
 import { CheckoutLink } from '../components/CheckoutLink'
-import { guidePath } from '../data/games'
+import { SeoMedia } from '../components/SeoMedia'
 import { SITE_HOST, SITE_NAME } from '../data/site'
 import { SUPPORT_FAQS, SUPPORT_INTRO, SUPPORT_TOPICS } from '../data/support'
+import { PAGE_MEDIA } from '../data/media'
 
 export function SupportPage() {
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#0e0e0e] text-white">
-      <div className="border-b border-white/10 bg-[#0e0e0e]/90 backdrop-blur-xl">
+    <div className="min-h-screen overflow-x-hidden bg-z-bg text-white">
+      <div className="border-b border-z-soft/15 bg-z-bg/90 backdrop-blur-xl">
         <Navbar />
       </div>
 
@@ -43,11 +44,11 @@ export function SupportPage() {
               </a>
               . Product help stays on{' '}
               <a href="/isle-cheats" className="text-white/80 underline-offset-2 hover:underline">
-                Buy The Isle Cheats
+                product details
               </a>
               ,{' '}
-              <a href="/articles" className="text-white/80 underline-offset-2 hover:underline">
-                blogs
+              <a href="/forums" className="text-white/80 underline-offset-2 hover:underline">
+                forums
               </a>
               , and{' '}
               <a href="/reviews" className="text-white/80 underline-offset-2 hover:underline">
@@ -59,6 +60,12 @@ export function SupportPage() {
               </a>
               .
             </p>
+          </div>
+        </section>
+
+        <section className="page-x pt-10 sm:pt-12">
+          <div className="mx-auto max-w-6xl">
+            <SeoMedia media={PAGE_MEDIA.support} />
           </div>
         </section>
 
@@ -82,7 +89,7 @@ export function SupportPage() {
         <FaqSection
           id="faq"
           heading="The Isle Cheats support FAQ"
-          intro="Load, inject, download, menu, setup, config, spoofer, and EAC answers for Evrima — visible on-page for Google."
+          intro="Load, inject, download, menu, setup, config, spoofer, and EAC answers for Evrima buyers."
           items={SUPPORT_FAQS}
         />
 
@@ -102,10 +109,10 @@ export function SupportPage() {
             </div>
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end">
               <a
-                href={guidePath('isle')}
+                href="/isle-cheats"
                 className="inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-white/5"
               >
-                Open The Isle Cheats
+                Product details
               </a>
               <CheckoutLink className="cta-gradient inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium text-white">
                 Buy The Isle Cheats
@@ -114,30 +121,7 @@ export function SupportPage() {
           </div>
         </section>
 
-        {/* Noscript: full text for non-JS crawlers */}
-        <noscript>
-          <section>
-            <h1>The Isle Cheats Support</h1>
-            <p>{SUPPORT_INTRO}</p>
-            {SUPPORT_TOPICS.map((t) => (
-              <div key={t.heading}>
-                <h2>{t.heading}</h2>
-                {t.body.map((line) => (
-                  <p key={line.slice(0, 40)}>{line}</p>
-                ))}
-              </div>
-            ))}
-            <h2>FAQ</h2>
-            {SUPPORT_FAQS.map((f) => (
-              <div key={f.q}>
-                <h3>{f.q}</h3>
-                <p>{f.a}</p>
-              </div>
-            ))}
-          </section>
-        </noscript>
-
-        <SiteFooter />
+        <SiteFooter currentPath="/support" />
       </main>
     </div>
   )

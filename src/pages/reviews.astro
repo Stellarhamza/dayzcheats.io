@@ -1,45 +1,11 @@
 ﻿---
 import BaseLayout from '../layouts/BaseLayout.astro'
 import { ReviewsPage } from '../views/ReviewsPage'
-import { SEO, SITE_NAME, SITE_PURPOSE, SITE_URL } from '../data/site'
-import { getReviewsAggregate, REVIEWS } from '../data/reviews'
+import { SEO, SITE_URL } from '../data/site'
+import { productReviewsJsonLd } from '../lib/seo'
 
-const aggregate = getReviewsAggregate()
 const jsonLdExtra = [
-  {
-    '@type': 'Product',
-    '@id': `${SITE_URL}/isle-cheats#product`,
-    name: 'The Isle Cheats',
-    description: SITE_PURPOSE,
-    brand: { '@type': 'Brand', name: SITE_NAME },
-    url: `${SITE_URL}/isle-cheats`,
-    category: 'The Isle Evrima Cheats',
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: aggregate.ratingValue,
-      reviewCount: aggregate.reviewCount,
-      bestRating: aggregate.bestRating,
-      worstRating: aggregate.worstRating,
-    },
-    review: REVIEWS.map((r) => ({
-      '@type': 'Review',
-      author: { '@type': 'Person', name: r.author },
-      datePublished: r.datePublished,
-      reviewBody: r.body,
-      name: `${r.author} The Isle Cheats review`,
-      reviewRating: {
-        '@type': 'Rating',
-        ratingValue: String(r.rating),
-        bestRating: '5',
-        worstRating: '1',
-      },
-      itemReviewed: {
-        '@type': 'Product',
-        name: 'The Isle Cheats',
-        url: `${SITE_URL}/isle-cheats`,
-      },
-    })),
-  },
+  productReviewsJsonLd(),
   {
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -53,4 +19,4 @@ const jsonLdExtra = [
 <BaseLayout seo={SEO.reviews} jsonLdExtra={jsonLdExtra}>
   <ReviewsPage client:visible />
 </BaseLayout>
-
+

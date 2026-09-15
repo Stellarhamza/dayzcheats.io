@@ -10,11 +10,13 @@ import {
   type Game,
 } from '../data/games'
 import { PRODUCT_PAGE_FAQS } from '../data/faqs'
-import { SITE_HOST, SITE_NAME } from '../data/site'
+import { PRODUCT_PRICE_USD, SITE_HOST, SITE_NAME } from '../data/site'
 import { FaqSection } from '../components/FaqSection'
+import { SeoMedia } from '../components/SeoMedia'
 import { CheckoutLink } from '../components/CheckoutLink'
 import { NotFoundPage } from './NotFoundPage'
 import { blogPath } from '../data/blogs'
+import { PAGE_MEDIA } from '../data/media'
 
 function ProductPurchaseCard({ game }: { game: Game }) {
   return (
@@ -28,7 +30,7 @@ function ProductPurchaseCard({ game }: { game: Game }) {
           <div className="min-w-0">
             <p className="truncate text-sm font-semibold text-white">The Isle Cheats</p>
             <p className="text-xs text-white/45">
-              Status: {game.status} · Evrima · Instant delivery
+              Status: {game.status} · Evrima · From ${PRODUCT_PRICE_USD}
             </p>
           </div>
         </div>
@@ -66,8 +68,8 @@ export function GameProductPage({ guideSlug }: GameProductPageProps) {
   if (!game) return <NotFoundPage />
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#0e0e0e] text-white">
-      <div className="border-b border-white/10 bg-[#0e0e0e]/90 backdrop-blur-xl">
+    <div className="min-h-screen overflow-x-hidden bg-z-bg text-white">
+      <div className="border-b border-z-soft/15 bg-z-bg/90 backdrop-blur-xl">
         <Navbar />
       </div>
 
@@ -82,42 +84,45 @@ export function GameProductPage({ guideSlug }: GameProductPageProps) {
                 Home
               </a>
               <span className="shrink-0">/</span>
-              <a href="/articles" className="shrink-0 hover:text-white/70">
-                Blogs
-              </a>
-              <span className="shrink-0">/</span>
-              <span className="min-w-0 text-white/70">The Isle Cheats</span>
+              <span className="min-w-0 text-white/70">Product details</span>
             </nav>
 
-            <div className="mt-5 overflow-hidden rounded-2xl border border-white/10 sm:mt-8">
-              <CheckoutLink className="block" aria-label="Buy The Isle Cheats">
-                <GameCover
-                  slug={game.slug}
-                  name={game.name}
-                  aspect="hero"
-                  variant="product"
-                  priority
-                />
-              </CheckoutLink>
+            <div className="mt-5 overflow-hidden rounded-2xl border border-z-soft/20 sm:mt-8">
+              <video
+                controls
+                muted
+                autoPlay
+                loop
+                playsInline
+                preload="metadata"
+                poster={PAGE_MEDIA.product.image}
+                aria-label={PAGE_MEDIA.product.videoTitle}
+                className="aspect-video w-full bg-black object-cover lg:aspect-[21/9]"
+              >
+                <source src={PAGE_MEDIA.product.video} type="video/mp4" />
+              </video>
             </div>
 
             <div className="mt-5 sm:mt-6">
-              <span className="inline-flex items-center gap-1.5 text-xs text-white/45">
-                <Shield className="h-3.5 w-3.5 shrink-0" strokeWidth={1.75} />
+              <span className="inline-flex items-center gap-1.5 text-xs text-z-success/90">
+                <Shield className="h-3.5 w-3.5 shrink-0 text-z-success" strokeWidth={1.75} />
                 {game.status} · Evrima / Horde · EAC-aware · {SITE_HOST}
               </span>
 
               <h1 className="mt-3 text-2xl font-semibold leading-tight tracking-tight text-white sm:mt-4 sm:text-4xl lg:text-5xl">
-                Buy The Isle Cheats for Evrima
+                Evrima ESP Features, Price & Checkout
               </h1>
               <p className="mt-3 max-w-2xl text-sm leading-relaxed text-white/55 sm:mt-4 sm:text-base">
-                Private The Isle Cheats with Entity ESP, World ESP, radar, and HWID spoofer.
-                Faster pages than bloated multi-cheat shops — check Undetected status, then
-                buy.
+                Compare Entity ESP, World ESP, radar, stream-proof mode, and HWID spoofer
+                support. Confirm current status, then continue to checkout.
               </p>
               <CheckoutLink className="cta-gradient mt-5 inline-flex items-center justify-center rounded-full px-7 py-3.5 text-sm font-semibold text-white transition-opacity hover:opacity-90">
                 Buy The Isle Cheats
               </CheckoutLink>
+            </div>
+
+            <div className="mt-8">
+              <SeoMedia media={PAGE_MEDIA.product} showVideo={false} />
             </div>
 
             <div className="mt-6 lg:hidden">
@@ -128,14 +133,14 @@ export function GameProductPage({ guideSlug }: GameProductPageProps) {
               <div className="lg:col-span-7 space-y-10">
                 <div>
                   <h2 className="text-lg font-semibold tracking-tight text-white sm:text-xl">
-                    The Isle Cheats features
+                    Included Evrima features
                   </h2>
                   <div className="mt-4 grid gap-3 sm:grid-cols-2">
                     {GUIDE_FEATURES.map((f) => (
                       <div key={f.name} className="page-card rounded-2xl p-4">
                         <div className="flex items-start gap-3">
-                          <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white/10">
-                            <Check className="h-3 w-3 text-white" strokeWidth={2.5} />
+                          <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-z-accent/20">
+                            <Check className="h-3 w-3 text-z-soft" strokeWidth={2.5} />
                           </span>
                           <div className="min-w-0">
                             <h3 className="text-sm font-semibold text-white">{f.name}</h3>
@@ -152,10 +157,9 @@ export function GameProductPage({ guideSlug }: GameProductPageProps) {
                     Entity ESP, World ESP & radar
                   </h2>
                   <p>
-                    Ranking pages for the isle cheats talk about growth ESP, wallhack, and
-                    world radar — not filler. Our The Isle Cheats kit leads with Entity ESP /
-                    wallhack (players + dinos), World ESP for food/water/corpses, and a 2D
-                    radar so you rotate before they scent you.
+                    The Isle Cheats kit leads with Entity ESP / wallhack (players + dinos),
+                    World ESP for food/water/corpses, and a 2D radar so you rotate before
+                    they scent you.
                   </p>
                   <p>
                     Optional aim assist stays optional. If you want the lowest footprint
@@ -180,18 +184,22 @@ export function GameProductPage({ guideSlug }: GameProductPageProps) {
 
                 <div className="space-y-3 text-sm leading-relaxed text-white/55">
                   <h2 className="text-lg font-semibold tracking-tight text-white sm:text-xl">
-                    How to buy The Isle Cheats in 2026
+                    Checkout and delivery
                   </h2>
                   <ol className="list-decimal space-y-2 pl-5">
-                    <li>Open the The Isle Cheats page on {SITE_HOST}.</li>
+                    <li>Confirm current status on the {SITE_HOST} homepage.</li>
                     <li>Confirm status is Undetected (or accept Updating risk).</li>
                     <li>Scan Entity ESP / World ESP / radar / spoofer features.</li>
                     <li>Checkout for instant loader delivery.</li>
-                    <li>Read{' '}
-                      <a href={blogPath('how-to-load')} className="text-white/80 underline-offset-2 hover:underline">
-                        how to load
+                    <li>
+                      Follow the{' '}
+                      <a
+                        href={blogPath('complete-setup')}
+                        className="text-white/80 underline-offset-2 hover:underline"
+                      >
+                        complete setup and load order
                       </a>{' '}
-                      before you inject.
+                      after delivery.
                     </li>
                   </ol>
                 </div>
@@ -201,9 +209,9 @@ export function GameProductPage({ guideSlug }: GameProductPageProps) {
                     Evrima, Horde & why we stay Isle-only
                   </h2>
                   <p>
-                    Competitors bury The Isle under hundreds of titles. We don’t. {SITE_NAME}
-                    is built for The Isle Evrima (and Horde when the build includes it) so
-                    pages stay fast, keywords stay clean, and status updates are obvious.
+                    {SITE_NAME} is Isle-only — The Isle Evrima first, Horde when the build
+                    includes it. Status updates stay on one product page, not buried under a
+                    multi-game catalog.
                   </p>
                   <p>
                     Play the game from the{' '}
@@ -233,8 +241,8 @@ export function GameProductPage({ guideSlug }: GameProductPageProps) {
                       support
                     </a>
                     , and{' '}
-                    <a href="/articles" className="text-white/80 underline-offset-2 hover:underline">
-                      blogs
+                    <a href="/forums" className="text-white/80 underline-offset-2 hover:underline">
+                      forums
                     </a>
                     .
                   </p>
@@ -267,12 +275,12 @@ export function GameProductPage({ guideSlug }: GameProductPageProps) {
 
         <FaqSection
           id="faq"
-          heading="Frequently asked questions about The Isle Cheats"
-          intro="Visible answers for EAC, ESP, Evrima, buy steps, and HWID spoofer — same text as our FAQ schema."
+          heading="Product questions"
+          intro="Answers about EAC status, included features, compatibility, and HWID spoofer support."
           items={PRODUCT_PAGE_FAQS}
         />
 
-        <SiteFooter />
+        <SiteFooter currentPath="/isle-cheats" />
       </main>
     </div>
   )

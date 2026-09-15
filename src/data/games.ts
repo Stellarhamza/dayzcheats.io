@@ -51,7 +51,7 @@ export const GUIDE_FEATURES = [
   },
   {
     name: 'Optional aim assist',
-    text: 'Available if you want it — most theisle cheats traffic is ESP / radar, not sticky aim.',
+    text: 'Available if you want it — most buyers want ESP / radar first, not sticky aim.',
   },
   {
     name: 'Evrima + Horde ready',

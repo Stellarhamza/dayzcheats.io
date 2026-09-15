@@ -3,13 +3,22 @@ import { Navbar } from '../components/Navbar'
 import { SiteFooter } from '../components/SiteFooter'
 import { BLOGS, blogPath, getBlog } from '../data/blogs'
 import { guidePath } from '../data/games'
-import { getGameImage, IMAGE_SEO } from '../data/images'
 import { CheckoutLink } from '../components/CheckoutLink'
+import { SeoMedia } from '../components/SeoMedia'
 import { SITE_HOST } from '../data/site'
+import { getForumMedia } from '../data/media'
 import { NotFoundPage } from './NotFoundPage'
 
 type BlogPostPageProps = {
   slug: string
+}
+
+function sectionId(heading: string) {
+  return heading
+    .replace(/^\d+\)\s*/, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '')
 }
 
 export function BlogPostPage({ slug }: BlogPostPageProps) {
@@ -20,8 +29,8 @@ export function BlogPostPage({ slug }: BlogPostPageProps) {
   const related = BLOGS.filter((b) => b.slug !== post.slug).slice(0, 6)
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#0e0e0e] text-white">
-      <div className="border-b border-white/10 bg-[#0e0e0e]/90 backdrop-blur-xl">
+    <div className="min-h-screen overflow-x-hidden bg-z-bg text-white">
+      <div className="border-b border-z-soft/15 bg-z-bg/90 backdrop-blur-xl">
         <Navbar />
       </div>
 
@@ -36,8 +45,8 @@ export function BlogPostPage({ slug }: BlogPostPageProps) {
                 Home
               </a>
               <span>/</span>
-              <a href="/articles" className="hover:text-white/70">
-                Blogs
+              <a href="/forums" className="hover:text-white/70">
+                Forums
               </a>
               <span>/</span>
               <span className="text-white/70">{post.tag}</span>
@@ -53,27 +62,11 @@ export function BlogPostPage({ slug }: BlogPostPageProps) {
               {post.excerpt}
             </p>
 
-            <figure className="mt-8 overflow-hidden rounded-2xl border border-white/10">
-              <img
-                src={getGameImage('isle')}
-                alt={`${post.title} — The Isle Cheats IGN image for ${post.keywords.split(',')[0].trim()}`}
-                title={IMAGE_SEO.isle?.title ?? 'The Isle Cheats'}
-                width={800}
-                height={450}
-                loading="eager"
-                decoding="async"
-                fetchPriority="high"
-                referrerPolicy="no-referrer"
-                className="game-cover-img aspect-[3/4] w-full object-cover object-center sm:aspect-[16/10]"
-              />
-              <figcaption className="border-t border-white/10 px-4 py-3 text-xs text-white/45">
-                {IMAGE_SEO.isle?.caption ?? 'The Isle Cheats — Evrima'}
-              </figcaption>
-            </figure>
+            <SeoMedia media={getForumMedia(post.slug)} className="mt-8" />
 
             <div className="mt-10 space-y-10">
               {post.sections.map((section) => (
-                <section key={section.heading}>
+                <section key={section.heading} id={sectionId(section.heading)} className="scroll-mt-24">
                   <h2 className="text-xl font-semibold tracking-tight text-white sm:text-2xl">
                     {section.heading}
                   </h2>
@@ -131,11 +124,11 @@ export function BlogPostPage({ slug }: BlogPostPageProps) {
             </div>
 
             <a
-              href="/articles"
+              href="/forums"
               className="mt-10 inline-flex items-center gap-1.5 text-sm text-white/55 hover:text-white"
             >
               <ArrowLeft className="h-4 w-4" strokeWidth={1.75} />
-              All The Isle blogs
+              All forum threads
             </a>
           </div>
         </article>
@@ -144,7 +137,7 @@ export function BlogPostPage({ slug }: BlogPostPageProps) {
           <section className="page-band page-x border-t border-white/10 py-12 sm:py-16">
             <div className="mx-auto max-w-6xl">
               <h2 className="text-xl font-semibold tracking-tight text-white">
-                More The Isle Cheats blogs
+                More forum threads
               </h2>
               <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {related.map((b) => (
@@ -171,7 +164,7 @@ export function BlogPostPage({ slug }: BlogPostPageProps) {
           </section>
         ) : null}
 
-        <SiteFooter />
+        <SiteFooter currentPath={blogPath(post.slug)} />
       </main>
     </div>
   )

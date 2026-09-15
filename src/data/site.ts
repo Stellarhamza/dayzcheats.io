@@ -1,173 +1,111 @@
-/** Site identity for theislecheats.cc — one purpose, no topic dancing. */
+import { ISLE_OG, PAGE_IMAGES } from './images'
 
 export const SITE_URL = 'https://theislecheats.cc'
 export const SITE_NAME = 'The Isle Cheats'
 export const SITE_HOST = 'theislecheats.cc'
 
 /**
- * Sole purpose Google should understand — used in schema + about copy.
- * This site sells / documents The Isle Cheats only (Evrima). Not a multi-game shop.
+ * Sole purpose — used in schema + about copy.
+ * Single-product site: The Isle Cheats only (Evrima).
  */
 export const SITE_PURPOSE =
-  'The Isle Cheats is a single-product site for The Isle (Evrima): undetected ESP, wallhack, radar, and HWID spoofer with live patch status. We do not sell cheats for other games.'
+  'The Isle Cheats sells undetected ESP, wallhack, radar, and HWID spoofer for The Isle (Evrima) with live patch status. Isle-only — no other games.'
 
 export const SITE_ABOUT = [
   'The Isle Cheats',
+  'isle cheats',
+  'theisle cheats',
   'The Isle Evrima cheats',
   'The Isle ESP',
   'The Isle wallhack',
 ] as const
 
 /**
- * Full SEO vocabulary for The Isle Cheats.
- * Distribute across pages in copy + short keywords — never dump every term on one meta tag.
+ * Offer price shown on product schema + purchase UI.
+ * Keep in sync with checkout listing.
  */
-export const ALL_SEO_TERMS = [
-  'The Isle Cheats',
-  'the isle cheats',
-  'theisle cheats',
-  'theislecheats',
-  'theislecheats.cc',
-  'The Isle Evrima cheats',
-  'isle evrima cheats',
-  'the isle evrima',
-  'evrima cheats',
-  'The Isle Horde cheats',
-  'the isle cheat',
-  'isle cheats',
-  'undetected the isle cheats',
-  'the isle undetected',
-  'the isle cheats undetected',
-  'safe the isle cheats',
-  'best the isle cheats',
-  'best The Isle Cheats 2026',
-  'the isle ESP',
-  'isle ESP',
-  'the isle Entity ESP',
-  'the isle World ESP',
-  'the isle wallhack',
-  'isle wallhack',
-  'the isle radar',
-  'the isle overlay',
-  'the isle spoofer',
-  'isle HWID spoofer',
-  'the isle HWID spoofer',
-  'buy the isle cheats',
-  'the isle cheats for sale',
-  'the isle cheats download',
-  'cheap the isle cheats',
-  'how to load the isle cheats',
-  'inject the isle cheats',
-  'the isle cheats menu',
-  'the isle cheats guide',
-  'the isle cheats blogs',
-  'the isle cheats reviews',
-  'the isle cheats setup',
-  'the isle cheats config',
-  'EAC the isle cheats',
-  'private the isle cheats',
-  'the isle cheats support',
-] as const
+export const PRODUCT_PRICE_USD = '24.99'
 
-/** Honest language tags for one global English site (no fake locale dance). */
 export const SEO_REGIONS = [
   { hreflang: 'en', label: 'English' },
   { hreflang: 'x-default', label: 'Default' },
 ] as const
 
-export const OG_IMAGE =
-  'https://assets-prd.ignimgs.com/2023/09/12/library-600x900-1694540297721.jpg?width=1200&format=jpg&auto=webp&quality=80'
+/** Default social / OG image — IGN The Isle library art */
+export const OG_IMAGE = ISLE_OG
 
 export type PageSeo = {
   title: string
   description: string
   path: string
-  /** Short, page-intent only — never dump the whole site keyword list. */
-  keywords?: string
   ogType?: 'website' | 'article' | 'product'
   image?: string
   robots?: string
 }
 
-/** Unique SEO per route — same brand purpose, different page intent. */
+/** Unique SEO per route — commercial / transactional intent. */
 export const SEO = {
   home: {
-    title: 'The Isle Cheats | Undetected Evrima ESP & Wallhack',
+    title: 'TheIsle Cheats | Buy The Isle Cheats for Evrima',
     description:
-      'The Isle Cheats — Isle-only shop for Evrima. Undetected Entity ESP, World ESP, radar & HWID spoofer with live status on theislecheats.cc.',
+      'Buy The Isle Cheats for Evrima with Entity ESP, World ESP, radar and an HWID spoofer. Check live status, features and price before checkout.',
     path: '/',
-    keywords: 'The Isle Cheats, the isle cheats, The Isle Evrima cheats, the isle ESP',
     ogType: 'website',
-    image: OG_IMAGE,
+    image: PAGE_IMAGES.home.src,
     robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
   },
-  articles: {
-    title: 'The Isle Cheats Blogs | Guides for Evrima Players',
+  forums: {
+    title: 'The Isle Cheats Forums | Setup, Antivirus, Hotkeys & Load',
     description:
-      'Guides for The Isle Cheats only: best setup 2026, ESP tips, undetected status, HWID spoofer, and how to load — no other games.',
-    path: '/articles',
-    keywords: 'The Isle Cheats blogs, the isle cheats guide, Evrima cheats guide',
+      'Product forums covering Evrima features, hotkeys, complete setup, antivirus exclusions and current loader status.',
+    path: '/forums',
     ogType: 'website',
-    image: OG_IMAGE,
+    image: PAGE_IMAGES.forums.src,
     robots: 'index, follow, max-image-preview:large, max-snippet:-1',
   },
   reviews: {
-    title: 'The Isle Cheats Reviews | ESP Wallhack Undetected Feedback',
+    title: 'The Isle Cheats Reviews | Before You Buy',
     description:
-      'The Isle Cheats reviews from Evrima players — Entity ESP, World ESP, wallhack, radar, Undetected vs EAC honesty, and HWID spoofer notes before you buy.',
+      'The Isle Cheats reviews from Evrima players — ESP accuracy, Undetected honesty, and patch notes before you checkout.',
     path: '/reviews',
-    keywords:
-      'the isle cheats reviews, the isle cheats review, undetected the isle cheats, the isle ESP, the isle wallhack, the isle radar, private the isle cheats',
     ogType: 'website',
-    image: OG_IMAGE,
+    image: PAGE_IMAGES.reviews.src,
     robots: 'index, follow, max-image-preview:large, max-snippet:-1',
   },
   faq: {
-    title: 'The Isle Cheats FAQ | Undetected ESP Wallhack EAC Answers',
+    title: 'The Isle Cheats FAQ | Buy, Load & Undetected Answers',
     description:
-      'The Isle Cheats FAQ for Evrima — Undetected vs EAC, Entity ESP, World ESP, wallhack, radar, HWID spoofer, how to buy, how to load, support, and reviews.',
+      'Pre-purchase answers about Evrima compatibility, current status, included ESP features, delivery, pricing and checkout.',
     path: '/faq',
-    keywords:
-      'The Isle Cheats FAQ, the isle cheats questions, undetected the isle cheats, how to load the isle cheats, EAC the isle cheats, the isle ESP, the isle wallhack',
     ogType: 'website',
-    image: OG_IMAGE,
+    image: PAGE_IMAGES.faq.src,
     robots: 'index, follow, max-image-preview:large, max-snippet:-1',
   },
   support: {
-    title: 'The Isle Cheats Support | Load, Inject, Spoofer & EAC Help',
+    title: 'The Isle Cheats Support | Load, Inject & Spoofer Help',
     description:
-      'The Isle Cheats support for Evrima — how to load and inject, Undetected vs Updating, HWID spoofer steps, menu setup, download help, and EAC patch questions.',
+      'Post-purchase support for loader delivery, setup, inject errors and HWID spoofer recovery.',
     path: '/support',
-    keywords:
-      'the isle cheats support, how to load the isle cheats, inject the isle cheats, the isle HWID spoofer, EAC the isle cheats, the isle cheats download, the isle cheats setup, the isle cheats menu, the isle cheats config',
     ogType: 'website',
-    image: OG_IMAGE,
+    image: PAGE_IMAGES.support.src,
     robots: 'index, follow, max-image-preview:large, max-snippet:-1',
   },
   product: {
-    title: 'Buy The Isle Cheats | Evrima Entity ESP, World ESP & Radar',
+    title: 'Evrima ESP Features, Price & Checkout | The Isle',
     description:
-      'Buy The Isle Cheats for Evrima — Entity ESP, World ESP, radar, HWID spoofer, stream-proof. Live Undetected vs EAC status. Instant delivery.',
+      'Review Evrima ESP, radar, stream-proof mode, HWID spoofer support, current status and pricing before opening checkout.',
     path: '/isle-cheats',
-    keywords:
-      'buy the isle cheats, the isle Entity ESP, the isle World ESP, the isle wallhack, the isle cheats for sale, cheap the isle cheats, The Isle Horde cheats, theislecheats.cc',
     ogType: 'product',
-    image: OG_IMAGE,
+    image: PAGE_IMAGES.product.src,
     robots: 'index, follow, max-image-preview:large, max-snippet:-1',
   },
 } as const satisfies Record<string, PageSeo>
 
-export const HOME_META = {
-  title: SEO.home.title,
-  description: SEO.home.description,
-  keywords: SEO.home.keywords,
-} as const
-
 export const HOME_HEADINGS = {
-  h1: 'The Isle Cheats',
+  h1: 'TheIsle Cheats for Evrima',
   h2Features: 'What you get with The Isle Cheats',
   h2Featured: 'The Isle Cheats for Evrima',
-  h2About: 'Why use The Isle Cheats here',
+  h2About: 'Why buy The Isle Cheats here',
   h2Access: 'Buy The Isle Cheats',
   h2Faq: 'The Isle Cheats FAQ',
 } as const
@@ -176,4 +114,3 @@ export function absoluteUrl(path: string) {
   if (!path || path === '/') return `${SITE_URL}/`
   return `${SITE_URL}${path.startsWith('/') ? path : `/${path}`}`
 }
-

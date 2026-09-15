@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import { LogoMark } from './LogoMark'
 import { SiteLinkHub } from './SiteLinkHub'
 import { OFFICIAL_ISLE_LINKS, SITE_GUIDE_LINKS, SITE_PAGE_LINKS } from '../data/links'
@@ -9,22 +8,18 @@ type SiteFooterProps = {
 }
 
 export function SiteFooter({ currentPath }: SiteFooterProps) {
-  const [path, setPath] = useState(currentPath ?? '/')
-
-  useEffect(() => {
-    setPath(currentPath ?? window.location.pathname)
-  }, [currentPath])
+  const hubPath = currentPath || '/'
 
   return (
     <>
-      <SiteLinkHub currentPath={path} />
+      <SiteLinkHub currentPath={hubPath} />
 
-      <footer className="page-x border-t border-white/10 bg-[#0a0a0a] py-12">
+      <footer className="page-x border-t border-z-soft/15 bg-z-band py-12">
         <div className="mx-auto grid max-w-6xl gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <div className="flex items-center gap-2">
-              <LogoMark className="text-white" />
-              <span className="font-semibold text-white">{SITE_NAME}</span>
+              <LogoMark className="text-z-soft" />
+              <span className="font-semibold text-z-ink">{SITE_NAME}</span>
             </div>
             <p className="mt-3 text-sm leading-relaxed text-white/55">
               Undetected The Isle cheats for Evrima. Status checked. Features listed. Built for{' '}
@@ -57,10 +52,10 @@ export function SiteFooter({ currentPath }: SiteFooterProps) {
 
           <div>
             <p className="text-xs font-semibold uppercase tracking-wider text-white/45">
-              Guides
+              Forums
             </p>
             <ul className="mt-3 space-y-2 text-sm text-white/65">
-              {SITE_GUIDE_LINKS.slice(0, 5).map((l) => (
+              {SITE_GUIDE_LINKS.map((l) => (
                 <li key={l.to}>
                   <a href={l.to} className="hover:text-white">
                     {l.label}
@@ -68,8 +63,8 @@ export function SiteFooter({ currentPath }: SiteFooterProps) {
                 </li>
               ))}
               <li>
-                <a href="/articles" className="hover:text-white">
-                  All The Isle blogs →
+                <a href="/forums" className="hover:text-white">
+                  All forums →
                 </a>
               </li>
             </ul>
@@ -97,6 +92,11 @@ export function SiteFooter({ currentPath }: SiteFooterProps) {
                   theislecheats.cc
                 </a>
               </li>
+              <li>
+                <a href="/sitemap.xml" className="hover:text-white">
+                  XML sitemap
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -108,4 +108,3 @@ export function SiteFooter({ currentPath }: SiteFooterProps) {
     </>
   )
 }
-

@@ -15,14 +15,19 @@ type Props = {
   bodyClass?: string
 }
 
-const { seo, jsonLdExtra = [], bodyClass = 'bg-[#0e0e0e] text-white' } = Astro.props
+const { seo, jsonLdExtra = [], bodyClass = 'bg-z-bg text-z-ink' } = Astro.props
 const url = absoluteUrl(seo.path)
 const image = seo.image || OG_IMAGE
+const imageUrl = image.startsWith('http') ? image : absoluteUrl(image)
+const isProduct = seo.path === '/isle-cheats'
+const imageType = image.endsWith('.webp') ? 'image/webp' : 'image/jpeg'
+const isGameplayImage = image.includes('/media/theisle-cheats-esp-')
+const imageWidth = isGameplayImage ? 800 : 1200
+const imageHeight = isGameplayImage ? 450 : 630
 const robots =
   seo.robots || 'index, follow, max-image-preview:large, max-snippet:-1'
 const jsonLd = buildPageJsonLd(seo, jsonLdExtra)
-const fontHref =
-  'https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700&family=Silkscreen:wght@400&display=swap'
+const isHome = seo.path === '/' || seo.path === ''
 ---
 
 <!doctype html>
@@ -30,30 +35,30 @@ const fontHref =
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0e0e0e" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#08060f" />
+    <meta name="format-detection" content="telephone=no" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://assets-prd.ignimgs.com" crossorigin />
+    {isProduct ? <link rel="preload" as="image" href={imageUrl} type={imageType} fetchpriority="high" /> : null}
 
-    <link rel="preload" as="style" href={fontHref} />
-    <link
-      rel="stylesheet"
-      href={fontHref}
-      media="print"
-      onload={"this.media='all'"}
-    />
-    <noscript>
-      <link rel="stylesheet" href={fontHref} />
-    </noscript>
+    {isHome ? (
+      <link
+        rel="preload"
+        as="video"
+        href="/videos/black-angel.webm"
+        type="video/webm"
+      />
+    ) : null}
 
     <title>{seo.title}</title>
     <meta name="description" content={seo.description} />
-    {seo.keywords ? <meta name="keywords" content={seo.keywords} /> : null}
     <meta name="robots" content={robots} />
+    <meta name="googlebot" content={robots} />
     <meta name="author" content={SITE_NAME} />
     <link rel="canonical" href={url} />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
     {
       SEO_REGIONS.map((region) => (
@@ -67,17 +72,30 @@ const fontHref =
     <meta property="og:url" content={url} />
     <meta property="og:title" content={seo.title} />
     <meta property="og:description" content={seo.description} />
-    <meta property="og:image" content={image} />
-    <meta property="og:image:alt" content={`${SITE_NAME} — The Isle Evrima cheats`} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:secure_url" content={imageUrl} />
+    <meta property="og:image:alt" content={seo.title} />
+    <meta property="og:image:type" content={imageType} />
+    <meta property="og:image:width" content={String(imageWidth)} />
+    <meta property="og:image:height" content={String(imageHeight)} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={seo.title} />
     <meta name="twitter:description" content={seo.description} />
-    <meta name="twitter:image" content={image} />
+    <meta name="twitter:image" content={imageUrl} />
+    <meta name="twitter:image:alt" content={seo.title} />
 
     <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body class={bodyClass}>
-    <slot />
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-z-accent focus:px-4 focus:py-2 focus:text-white"
+    >
+      Skip to content
+    </a>
+    <div id="main">
+      <slot />
+    </div>
   </body>
 </html>

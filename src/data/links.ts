@@ -16,43 +16,41 @@ export const OFFICIAL_ISLE_LINKS = [
 
 /** Primary internal routes for crawl equity. */
 export const SITE_PAGE_LINKS = [
-  { label: 'Home', to: '/', description: 'The Isle Cheats homepage' },
+  { label: 'Buy The Isle Cheats', to: '/', description: 'Live status, price and checkout' },
   {
-    label: 'Buy The Isle Cheats',
+    label: 'Product details',
     to: '/isle-cheats',
-    description: 'Product page — ESP, wallhack, radar, spoofer',
+    description: 'ESP, radar, stream-proof and spoofer features',
   },
   {
-    label: 'The Isle Cheats blogs',
-    to: '/articles',
-    description: 'All Evrima cheat guides',
+    label: 'Forums',
+    to: '/forums',
+    description: 'Setup forums — antivirus, hotkeys, load',
   },
   {
-    label: 'The Isle Cheats reviews',
+    label: 'Reviews',
     to: '/reviews',
     description: 'Player reviews and ratings',
   },
   {
-    label: 'The Isle Cheats FAQ',
+    label: 'FAQ',
     to: '/faq',
-    description: 'Frequently asked questions — Google-readable answers',
+    description: 'Frequently asked questions',
   },
   {
-    label: 'The Isle Cheats support',
+    label: 'Support',
     to: '/support',
     description: 'Load, inject, spoofer and EAC help',
   },
 ] as const
 
-/** Deep links into blog posts — keeps guide equity circulating. */
+/** Deep links into forum threads — commercial / transactional. */
 export const SITE_GUIDE_LINKS = [
-  { label: 'Best The Isle Cheats 2026', to: blogPath('best-2026') },
-  { label: 'The Isle Cheats menu', to: blogPath('cheat-menu') },
-  { label: 'The Isle ESP cheat guide', to: blogPath('esp-cheat') },
-  { label: 'Undetected status guide', to: blogPath('undetected') },
-  { label: 'HWID spoofer guide', to: blogPath('hwid-spoofer') },
-  { label: 'How to load The Isle Cheats', to: blogPath('how-to-load') },
-  { label: 'Best Evrima setup', to: blogPath('best-setup') },
+  { label: 'Features list', to: blogPath('features-list') },
+  { label: 'Hotkeys', to: blogPath('hotkeys') },
+  { label: 'Complete setup', to: blogPath('complete-setup') },
+  { label: 'Disable antivirus', to: blogPath('disable-antivirus') },
+  { label: 'Undetected status', to: blogPath('undetected-status') },
 ] as const
 
 /**
@@ -71,4 +69,3 @@ export function getCheckoutUrl(_productSlug?: string): string {
 
 /** Outbound checkout: nofollow so redirect targets are not indexed via our links. */
 export const CHECKOUT_REL = 'nofollow noopener noreferrer'
-

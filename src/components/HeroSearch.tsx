@@ -1,14 +1,14 @@
 import { useEffect, useId, useMemo, useRef, useState } from 'react'
 import type { KeyboardEvent, SyntheticEvent } from 'react'
 import { ArrowRight, Search } from 'lucide-react'
-import { GAMES, guidePath } from '../data/games'
+import { GAMES } from '../data/games'
 
 type HeroSearchProps = {
   /** Controlled value when parent owns the query (e.g. Articles page) */
   value?: string
   onChange?: (value: string) => void
-  /** Where Go navigates when no exact game match — default /articles */
-  submitTo?: 'articles' | 'filter'
+  /** Where Go navigates when no exact game match — default /forums */
+  submitTo?: 'forums' | 'filter'
   placeholder?: string
   autoFocus?: boolean
   className?: string
@@ -17,8 +17,8 @@ type HeroSearchProps = {
 export function HeroSearch({
   value,
   onChange,
-  submitTo = 'articles',
-  placeholder = 'Search articles, guides, game updates…',
+  submitTo = 'forums',
+  placeholder = 'Search The Isle Cheats…',
   autoFocus = false,
   className = '',
 }: HeroSearchProps) {
@@ -31,10 +31,6 @@ export function HeroSearch({
   const q = value !== undefined ? value : internal
 
   useEffect(() => {
-    if (value !== undefined) setInternal(value)
-  }, [value])
-
-  useEffect(() => {
     function onDoc(e: MouseEvent) {
       if (!rootRef.current?.contains(e.target as Node)) setOpen(false)
     }
@@ -45,6 +41,16 @@ export function HeroSearch({
   const matches = useMemo(() => {
     const term = q.trim().toLowerCase()
     if (!term) return []
+    const cheatAliases = [
+      'isle cheats',
+      'the isle cheats',
+      'theisle cheats',
+      'theislecheats',
+      'cheats',
+    ]
+    if (cheatAliases.some((a) => a.includes(term) || term.includes(a))) {
+      return GAMES.slice(0, 1)
+    }
     return GAMES.filter(
       (g) => g.name.toLowerCase().includes(term) || g.slug.includes(term),
     ).slice(0, 8)
@@ -57,9 +63,9 @@ export function HeroSearch({
     setActive(0)
   }
 
-  function goToGame(slug: string) {
+  function goToHome() {
     setOpen(false)
-    window.location.assign(guidePath(slug))
+    window.location.assign('/')
   }
 
   function submit(e?: SyntheticEvent) {
@@ -71,16 +77,16 @@ export function HeroSearch({
         g.slug === term.toLowerCase().replace(/\s+/g, '-'),
     )
     if (exact) {
-      goToGame(exact.slug)
+      goToHome()
       return
     }
     if (matches.length === 1) {
-      goToGame(matches[0].slug)
+      goToHome()
       return
     }
-    if (submitTo === 'articles') {
+    if (submitTo === 'forums') {
       setOpen(false)
-      window.location.assign(term ? `/articles?q=${encodeURIComponent(term)}` : '/articles')
+      window.location.assign(term ? `/forums?q=${encodeURIComponent(term)}` : '/forums')
       return
     }
     setOpen(false)
@@ -99,7 +105,7 @@ export function HeroSearch({
       setActive((i) => Math.max(i - 1, 0))
     } else if (e.key === 'Enter' && open && matches[active]) {
       e.preventDefault()
-      goToGame(matches[active].slug)
+      goToHome()
     } else if (e.key === 'Escape') {
       setOpen(false)
     }
@@ -111,7 +117,7 @@ export function HeroSearch({
     <div ref={rootRef} className={`relative z-50 w-full max-w-xl ${className}`}>
       <form
         onSubmit={submit}
-        className="relative z-50 flex w-full max-w-full flex-col gap-2.5 sm:flex-row sm:items-center sm:gap-0 sm:rounded-full sm:bg-white sm:p-1.5 sm:shadow-[0_8px_30px_rgba(0,0,0,0.25)]"
+        className="relative z-50 flex w-full max-w-full flex-col gap-2.5 sm:flex-row sm:items-center sm:gap-0 sm:rounded-full sm:bg-white sm:p-1.5 sm:shadow-[0_8px_32px_rgba(176,64,251,0.28)]"
         role="search"
       >
         <div className="flex w-full min-w-0 items-center gap-2 rounded-full bg-white px-4 py-3 sm:flex-1 sm:rounded-none sm:bg-transparent sm:px-4 sm:py-2">
@@ -145,20 +151,20 @@ export function HeroSearch({
         <ul
           id={listId}
           role="listbox"
-          className="search-results absolute left-0 right-0 top-full z-[60] mt-2 max-h-72 overflow-y-auto rounded-2xl border border-white/10 bg-[#1a1a1a] py-2 shadow-2xl"
+          className="search-results absolute left-0 right-0 top-full z-[60] mt-2 max-h-72 overflow-y-auto rounded-2xl border border-z-soft/20 bg-z-card py-2 shadow-glow"
         >
           {matches.map((game, i) => (
             <li key={game.slug} role="option" aria-selected={i === active}>
               <button
                 type="button"
                 onMouseEnter={() => setActive(i)}
-                onClick={() => goToGame(game.slug)}
+                onClick={goToHome}
                 className={`flex w-full items-center justify-between px-4 py-2.5 text-left text-sm transition-colors ${
-                  i === active ? 'bg-white/10 text-white' : 'text-white/75 hover:bg-white/5'
+                  i === active ? 'bg-z-accent/20 text-z-ink' : 'text-white/75 hover:bg-z-accent/10'
                 }`}
               >
                 <span className="truncate font-medium">{game.name}</span>
-                <span className="ml-3 shrink-0 text-xs text-white/40">Open guide</span>
+                <span className="ml-3 shrink-0 text-xs text-z-soft/70">Open buy page</span>
               </button>
             </li>
           ))}

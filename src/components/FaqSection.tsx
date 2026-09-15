@@ -10,8 +10,8 @@ type FaqSectionProps = {
 }
 
 /**
- * Visible FAQ block for Google: real H2/H3 + answer text in the DOM,
- * schema.org Question/Answer microdata, and matching FAQPage JSON-LD on the page.
+ * Visible FAQ: real H2/H3 + answer text in the DOM.
+ * Structured data comes from page-level FAQPage JSON-LD only (no duplicate microdata).
  */
 export function FaqSection({
   id = 'faq',
@@ -23,10 +23,8 @@ export function FaqSection({
   return (
     <section
       id={id}
-      className={`page-x border-t border-white/10 py-16 sm:py-20 ${className}`.trim()}
+      className={`page-x border-t border-z-soft/15 py-16 sm:py-20 ${className}`.trim()}
       aria-labelledby={`${id}-heading`}
-      itemScope
-      itemType="https://schema.org/FAQPage"
     >
       <div className="mx-auto max-w-6xl">
         <h2
@@ -43,46 +41,13 @@ export function FaqSection({
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2">
           {items.map((item) => (
-            <article
-              key={item.q}
-              className="page-card rounded-2xl p-5 sm:p-6"
-              itemScope
-              itemProp="mainEntity"
-              itemType="https://schema.org/Question"
-            >
-              <h3
-                className="text-sm font-semibold text-white sm:text-base"
-                itemProp="name"
-              >
-                {item.q}
-              </h3>
-              <div
-                itemScope
-                itemProp="acceptedAnswer"
-                itemType="https://schema.org/Answer"
-              >
-                <p
-                  className="mt-2 text-sm leading-relaxed text-white/55"
-                  itemProp="text"
-                >
-                  {item.a}
-                </p>
-              </div>
+            <article key={item.q} className="page-card rounded-2xl p-5 sm:p-6">
+              <h3 className="text-sm font-semibold text-white sm:text-base">{item.q}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-white/55">{item.a}</p>
             </article>
           ))}
         </div>
       </div>
-
-      <noscript>
-        <h2>{heading}</h2>
-        {items.map((item) => (
-          <div key={item.q}>
-            <h3>{item.q}</h3>
-            <p>{item.a}</p>
-          </div>
-        ))}
-      </noscript>
     </section>
   )
 }
-

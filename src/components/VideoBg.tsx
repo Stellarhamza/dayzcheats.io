@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
 const HERO_VIDEO = '/videos/black-angel.webm'
-/** Skip the first 5 seconds on every play / loop */
 const START_AT = 5
 
 function prefersReducedMotion() {
@@ -13,111 +12,110 @@ function prefersReducedMotion() {
 
 export function VideoBg() {
   const ref = useRef<HTMLVideoElement>(null)
-  const [ready, setReady] = useState(false)
-  const [enabled, setEnabled] = useState(true)
+  const [visible, setVisible] = useState(false)
+  const [failed, setFailed] = useState(false)
 
   useEffect(() => {
-    if (prefersReducedMotion()) {
-      setEnabled(false)
-      return
-    }
+    if (prefersReducedMotion()) return
 
     const video = ref.current
     if (!video) return
 
     let cancelled = false
-    video.controls = false
+    let showTimer: ReturnType<typeof setTimeout> | undefined
+
     video.muted = true
     video.defaultMuted = true
-    video.disablePictureInPicture = true
-    video.setAttribute('controlsList', 'nodownload nofullscreen noremoteplayback')
+    video.playsInline = true
+    video.loop = true
+    video.controls = false
 
-    const reveal = () => {
-      if (cancelled) return
-      if (!video.paused && video.currentTime >= START_AT - 0.05) {
-        setReady(true)
-      }
+    const show = () => {
+      if (!cancelled) setVisible(true)
     }
 
-    const seekAndPlay = () => {
-      const startPlay = () => {
-        void video.play().then(reveal).catch(() => {})
-      }
-
-      if (Math.abs(video.currentTime - START_AT) > 0.1) {
-        const onSeeked = () => {
-          video.removeEventListener('seeked', onSeeked)
-          startPlay()
+    const jumpStart = () => {
+      if (!video.duration || video.duration <= START_AT) return
+      try {
+        if (video.currentTime < START_AT - 0.2) {
+          video.currentTime = START_AT
         }
-        video.addEventListener('seeked', onSeeked)
-        video.currentTime = START_AT
-      } else {
-        startPlay()
+      } catch {
+        /* seek may fail until buffered — ignore */
       }
     }
 
-    const onLoadedMeta = () => seekAndPlay()
-
-    const onTimeUpdate = () => {
-      if (video.currentTime > 0 && video.currentTime < START_AT) {
-        video.currentTime = START_AT
-        return
-      }
-      reveal()
+    const play = () => {
+      jumpStart()
+      void video.play().then(show).catch(() => {
+        /* autoplay blocked — still reveal once a frame exists */
+        if (video.readyState >= 2) show()
+      })
     }
 
-    const onPlaying = () => reveal()
+    const onLoadedData = () => {
+      jumpStart()
+      play()
+    }
+
+    const onCanPlay = () => play()
+    const onPlaying = () => show()
+    const onSeeked = () => {
+      void video.play().then(show).catch(() => show())
+    }
 
     const onEnded = () => {
-      video.currentTime = START_AT
+      try {
+        video.currentTime = video.duration > START_AT ? START_AT : 0
+      } catch {
+        /* ignore */
+      }
       void video.play().catch(() => {})
     }
 
-    // Load after first paint — avoid competing with LCP
-    const kick = () => {
-      video.addEventListener('loadedmetadata', onLoadedMeta)
-      video.addEventListener('timeupdate', onTimeUpdate)
-      video.addEventListener('playing', onPlaying)
-      video.addEventListener('ended', onEnded)
-      if (video.readyState >= 1) onLoadedMeta()
-      else video.load()
+    const onError = () => {
+      setFailed(true)
     }
 
-    let idleId: number | undefined
-    let timeoutId: ReturnType<typeof setTimeout> | undefined
-    if (typeof window.requestIdleCallback === 'function') {
-      idleId = window.requestIdleCallback(kick, { timeout: 1200 })
-    } else {
-      timeoutId = setTimeout(kick, 200)
-    }
+    video.addEventListener('loadeddata', onLoadedData)
+    video.addEventListener('canplay', onCanPlay)
+    video.addEventListener('playing', onPlaying)
+    video.addEventListener('seeked', onSeeked)
+    video.addEventListener('ended', onEnded)
+    video.addEventListener('error', onError)
+
+    // Failsafe: never leave the hero blank if play/seek stalls
+    showTimer = setTimeout(show, 1800)
+
+    if (video.readyState >= 2) onLoadedData()
+    else video.load()
 
     return () => {
       cancelled = true
-      if (idleId !== undefined && typeof window.cancelIdleCallback === 'function') {
-        window.cancelIdleCallback(idleId)
-      }
-      if (timeoutId !== undefined) clearTimeout(timeoutId)
-      video.removeEventListener('loadedmetadata', onLoadedMeta)
-      video.removeEventListener('timeupdate', onTimeUpdate)
+      if (showTimer) clearTimeout(showTimer)
+      video.removeEventListener('loadeddata', onLoadedData)
+      video.removeEventListener('canplay', onCanPlay)
       video.removeEventListener('playing', onPlaying)
+      video.removeEventListener('seeked', onSeeked)
       video.removeEventListener('ended', onEnded)
+      video.removeEventListener('error', onError)
     }
   }, [])
 
   return (
     <div className="hero-video-wrap absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
-      <div className="absolute inset-0 bg-[#0e0e0e]" />
-      {enabled ? (
+      <div className="absolute inset-0 z-0 bg-z-bg" aria-hidden />
+      {!failed ? (
         <video
           ref={ref}
-          className={`hero-video-bg transition-opacity duration-500 ${
-            ready ? 'opacity-100' : 'opacity-0'
+          className={`hero-video-bg absolute inset-0 z-[1] h-full w-full object-cover transition-opacity duration-700 ${
+            visible ? 'opacity-100' : 'opacity-0'
           }`}
           src={HERO_VIDEO}
           muted
           playsInline
           loop
-          preload="none"
+          preload="metadata"
           controls={false}
           disablePictureInPicture
           disableRemotePlayback
@@ -125,9 +123,10 @@ export function VideoBg() {
           tabIndex={-1}
         />
       ) : null}
-      <div className="absolute inset-0 bg-black/30" />
-      <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/75 to-transparent" />
-      <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-black/45 to-transparent" />
+      <div className="hero-video-tint pointer-events-none absolute inset-0 z-[2]" aria-hidden />
+      <div className="hero-video-tint-glow pointer-events-none absolute inset-0 z-[2]" aria-hidden />
+      <div className="absolute inset-x-0 bottom-0 z-[3] h-40 bg-gradient-to-t from-z-bg via-z-bg/80 to-transparent" />
+      <div className="absolute inset-x-0 top-0 z-[3] h-24 bg-gradient-to-b from-z-bg/70 to-transparent" />
     </div>
   )
 }

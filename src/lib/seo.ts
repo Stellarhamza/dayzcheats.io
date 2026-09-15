@@ -1,6 +1,7 @@
 import type { FaqItem } from '../data/faqs'
 import {
   OG_IMAGE,
+  PRODUCT_PRICE_USD,
   SEO_REGIONS,
   SITE_ABOUT,
   SITE_NAME,
@@ -9,6 +10,15 @@ import {
   absoluteUrl,
   type PageSeo,
 } from '../data/site'
+import { getReviewsAggregate, REVIEWS } from '../data/reviews'
+import type { GameStatus } from '../data/games'
+import { PAGE_MEDIA } from '../data/media'
+
+export const PRODUCT_ID = `${SITE_URL}/#product`
+
+function absoluteAsset(src: string) {
+  return src.startsWith('http') ? src : `${SITE_URL}${src.startsWith('/') ? src : `/${src}`}`
+}
 
 /** Stable Organization + WebSite identity for every page. */
 export function siteIdentityGraph() {
@@ -18,6 +28,7 @@ export function siteIdentityGraph() {
       '@id': `${SITE_URL}/#organization`,
       name: SITE_NAME,
       alternateName: [
+        'isle cheats',
         'theisle cheats',
         'the isle cheats',
         'theislecheats',
@@ -27,18 +38,13 @@ export function siteIdentityGraph() {
       description: SITE_PURPOSE,
       knowsAbout: [...SITE_ABOUT],
       brand: { '@type': 'Brand', name: SITE_NAME },
-      subjectOf: [
-        {
-          '@type': 'WebPage',
-          name: 'The Isle official website',
-          url: 'https://www.survivetheisle.com/',
-        },
-        {
-          '@type': 'WebPage',
-          name: 'The Isle on Steam',
-          url: 'https://store.steampowered.com/app/376210/The_Isle/',
-        },
-      ],
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_URL}/favicon.svg`,
+        width: 48,
+        height: 46,
+      },
+      image: absoluteAsset(OG_IMAGE),
     },
     {
       '@type': 'WebSite',
@@ -59,7 +65,8 @@ export function siteIdentityGraph() {
 }
 
 export function webPageNode(seo: PageSeo) {
-  return {
+  const img = seo.image || OG_IMAGE
+  const page = {
     '@type': 'WebPage',
     '@id': `${absoluteUrl(seo.path)}#webpage`,
     url: absoluteUrl(seo.path),
@@ -68,7 +75,92 @@ export function webPageNode(seo: PageSeo) {
     isPartOf: { '@id': `${SITE_URL}/#website` },
     about: { '@id': `${SITE_URL}/#organization` },
     inLanguage: 'en',
-    primaryImageOfPage: seo.image || OG_IMAGE,
+  } as Record<string, unknown>
+  const hasVisibleImage =
+    ['/', '/isle-cheats', '/forums', '/reviews', '/faq', '/support'].includes(seo.path) ||
+    seo.path.startsWith('/forums/')
+  if (hasVisibleImage) {
+    page.primaryImageOfPage = {
+      '@type': 'ImageObject',
+      url: absoluteAsset(img),
+      width: 800,
+      height: 450,
+      caption: seo.title,
+    }
+  }
+  return page
+}
+
+export function productCoreJsonLd() {
+  return {
+    '@type': 'Product',
+    '@id': PRODUCT_ID,
+    name: SITE_NAME,
+    description: SITE_PURPOSE,
+    url: `${SITE_URL}/`,
+    image: absoluteAsset(PAGE_MEDIA.home.image),
+    brand: { '@type': 'Brand', name: SITE_NAME },
+    manufacturer: { '@id': `${SITE_URL}/#organization` },
+    category: 'The Isle Evrima software',
+  }
+}
+
+export function productDetailJsonLd(status: GameStatus) {
+  const availability =
+    status === 'Undetected' ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock'
+  return {
+    ...productCoreJsonLd(),
+    image: absoluteAsset(PAGE_MEDIA.product.image),
+    about: {
+      '@type': 'VideoGame',
+      name: 'The Isle',
+      alternateName: 'The Isle Evrima',
+    },
+    additionalProperty: [
+      {
+        '@type': 'PropertyValue',
+        name: 'Supported branch',
+        value: 'Evrima',
+      },
+    ],
+    offers: {
+      '@type': 'Offer',
+      url: `${SITE_URL}/isle-cheats`,
+      availability,
+      price: PRODUCT_PRICE_USD,
+      priceCurrency: 'USD',
+      priceValidUntil: '2027-12-31',
+      itemCondition: 'https://schema.org/NewCondition',
+      seller: { '@id': `${SITE_URL}/#organization` },
+    },
+  }
+}
+
+export function productReviewsJsonLd() {
+  const aggregate = getReviewsAggregate()
+  return {
+    ...productCoreJsonLd(),
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: aggregate.ratingValue,
+      reviewCount: aggregate.reviewCount,
+      bestRating: aggregate.bestRating,
+      worstRating: aggregate.worstRating,
+    },
+    review: REVIEWS.map((review) => ({
+      '@type': 'Review',
+      author: { '@type': 'Person', name: review.author },
+      datePublished: review.datePublished,
+      reviewBody: review.body,
+      name: `${review.author} verified buyer review`,
+      reviewRating: {
+        '@type': 'Rating',
+        ratingValue: String(review.rating),
+        bestRating: '5',
+        worstRating: '1',
+      },
+      itemReviewed: { '@id': PRODUCT_ID },
+    })),
   }
 }
 
@@ -102,4 +194,3 @@ export function faqPageJsonLd(items: FaqItem[], pageUrl?: string) {
 }
 
 export { SEO_REGIONS, absoluteUrl, OG_IMAGE, SITE_NAME, SITE_URL }
-
