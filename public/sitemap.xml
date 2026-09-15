@@ -13,7 +13,7 @@
     <image:image>
       <image:loc>https://warzonecheats.uk/media/warzone-soldier-hero.webp</image:loc>
       <image:title>Warzone Cheats Hero</image:title>
-      <image:caption>Buy Warzone cheats — Aimbot and ESP hero artwork for PC.</image:caption>
+      <image:caption>Buy Warzone cheats - Aimbot and ESP hero artwork for PC.</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://warzonecheats.uk/media/warzone-delta-hero.webp</image:loc>
@@ -67,7 +67,7 @@
     <image:image>
       <image:loc>https://warzonecheats.uk/media/warzone-ranked-cover.webp</image:loc>
       <image:title>Warzone Ranked Cover</image:title>
-      <image:caption>Ranked / spoofer-adjacent cover art for Warzone listings.</image:caption>
+      <image:caption>Ranked cover art for Warzone listings.</image:caption>
     </image:image>
   </url>
   <url>
@@ -85,20 +85,6 @@
     </image:image>
   </url>
   <url>
-    <loc>https://warzonecheats.uk/forums/features-list</loc>
-    <lastmod>2026-09-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en-GB" href="https://warzonecheats.uk/forums/features-list" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://warzonecheats.uk/forums/features-list" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://warzonecheats.uk/forums/features-list" />
-    <image:image>
-      <image:loc>https://warzonecheats.uk/media/warzone-auron-box.webp</image:loc>
-      <image:title>Warzone Cheats Features List Artwork</image:title>
-      <image:caption>Visible Warzone reference for Warzone Cheats Features List.</image:caption>
-    </image:image>
-  </url>
-  <url>
     <loc>https://warzonecheats.uk/forums/aimbot-settings</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -110,48 +96,6 @@
       <image:loc>https://warzonecheats.uk/media/warzone-delta-gameplay.gif</image:loc>
       <image:title>Warzone Aimbot Settings Guide Artwork</image:title>
       <image:caption>Visible Warzone reference for Warzone Aimbot Settings Guide.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://warzonecheats.uk/forums/esp-wallhack-guide</loc>
-    <lastmod>2026-09-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en-GB" href="https://warzonecheats.uk/forums/esp-wallhack-guide" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://warzonecheats.uk/forums/esp-wallhack-guide" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://warzonecheats.uk/forums/esp-wallhack-guide" />
-    <image:image>
-      <image:loc>https://warzonecheats.uk/media/warzone-esp-gameplay.gif</image:loc>
-      <image:title>Warzone ESP &amp; Wallhack Guide Artwork</image:title>
-      <image:caption>Visible Warzone reference for Warzone ESP &amp; Wallhack Guide.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://warzonecheats.uk/forums/radar-hack-guide</loc>
-    <lastmod>2026-09-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en-GB" href="https://warzonecheats.uk/forums/radar-hack-guide" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://warzonecheats.uk/forums/radar-hack-guide" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://warzonecheats.uk/forums/radar-hack-guide" />
-    <image:image>
-      <image:loc>https://warzonecheats.uk/media/warzone-menu.gif</image:loc>
-      <image:title>Warzone Radar Hack Guide Artwork</image:title>
-      <image:caption>Visible Warzone reference for Warzone Radar Hack Guide.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://warzonecheats.uk/forums/hotkeys</loc>
-    <lastmod>2026-09-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en-GB" href="https://warzonecheats.uk/forums/hotkeys" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://warzonecheats.uk/forums/hotkeys" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://warzonecheats.uk/forums/hotkeys" />
-    <image:image>
-      <image:loc>https://warzonecheats.uk/media/warzone-menu.gif</image:loc>
-      <image:title>Warzone Cheats Hotkeys Artwork</image:title>
-      <image:caption>Visible Warzone reference for Warzone Cheats Hotkeys.</image:caption>
     </image:image>
   </url>
   <url>
@@ -169,20 +113,6 @@
     </image:image>
   </url>
   <url>
-    <loc>https://warzonecheats.uk/forums/windows-setup</loc>
-    <lastmod>2026-09-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en-GB" href="https://warzonecheats.uk/forums/windows-setup" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://warzonecheats.uk/forums/windows-setup" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://warzonecheats.uk/forums/windows-setup" />
-    <image:image>
-      <image:loc>https://warzonecheats.uk/media/warzone-soldier-hero.webp</image:loc>
-      <image:title>Warzone Cheats Windows 10/11 Setup Artwork</image:title>
-      <image:caption>Visible Warzone reference for Warzone Cheats Windows 10/11 Setup.</image:caption>
-    </image:image>
-  </url>
-  <url>
     <loc>https://warzonecheats.uk/forums/disable-antivirus</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -197,45 +127,73 @@
     </image:image>
   </url>
   <url>
-    <loc>https://warzonecheats.uk/forums/stream-proof-setup</loc>
+    <loc>https://warzonecheats.uk/forums/esp-wallhack-guide</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en-GB" href="https://warzonecheats.uk/forums/stream-proof-setup" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://warzonecheats.uk/forums/stream-proof-setup" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://warzonecheats.uk/forums/stream-proof-setup" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://warzonecheats.uk/forums/esp-wallhack-guide" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://warzonecheats.uk/forums/esp-wallhack-guide" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://warzonecheats.uk/forums/esp-wallhack-guide" />
     <image:image>
-      <image:loc>https://warzonecheats.uk/media/warzone-home-art.jpg</image:loc>
-      <image:title>Warzone Stream-Proof Setup Artwork</image:title>
-      <image:caption>Visible Warzone reference for Warzone Stream-Proof Setup.</image:caption>
+      <image:loc>https://warzonecheats.uk/media/warzone-esp-gameplay.gif</image:loc>
+      <image:title>Warzone ESP &amp; Wallhack Guide Artwork</image:title>
+      <image:caption>Visible Warzone reference for Warzone ESP &amp; Wallhack Guide.</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://warzonecheats.uk/forums/ricochet-status</loc>
+    <loc>https://warzonecheats.uk/forums/features-list</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en-GB" href="https://warzonecheats.uk/forums/ricochet-status" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://warzonecheats.uk/forums/ricochet-status" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://warzonecheats.uk/forums/ricochet-status" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://warzonecheats.uk/forums/features-list" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://warzonecheats.uk/forums/features-list" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://warzonecheats.uk/forums/features-list" />
     <image:image>
       <image:loc>https://warzonecheats.uk/media/warzone-auron-box.webp</image:loc>
-      <image:title>Warzone Ricochet Status Explained Artwork</image:title>
-      <image:caption>Visible Warzone reference for Warzone Ricochet Status Explained.</image:caption>
+      <image:title>Warzone Cheats Features List Artwork</image:title>
+      <image:caption>Visible Warzone reference for Warzone Cheats Features List.</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://warzonecheats.uk/forums/undetected-status</loc>
+    <loc>https://warzonecheats.uk/forums/hotkeys</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en-GB" href="https://warzonecheats.uk/forums/undetected-status" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://warzonecheats.uk/forums/undetected-status" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://warzonecheats.uk/forums/undetected-status" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://warzonecheats.uk/forums/hotkeys" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://warzonecheats.uk/forums/hotkeys" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://warzonecheats.uk/forums/hotkeys" />
     <image:image>
-      <image:loc>https://warzonecheats.uk/media/warzone-auron-box.webp</image:loc>
-      <image:title>Check Undetected Before You Buy or Load Artwork</image:title>
-      <image:caption>Visible Warzone reference for Check Undetected Before You Buy or Load.</image:caption>
+      <image:loc>https://warzonecheats.uk/media/warzone-menu.gif</image:loc>
+      <image:title>Warzone Cheats Hotkeys Artwork</image:title>
+      <image:caption>Visible Warzone reference for Warzone Cheats Hotkeys.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://warzonecheats.uk/forums/loader-errors</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://warzonecheats.uk/forums/loader-errors" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://warzonecheats.uk/forums/loader-errors" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://warzonecheats.uk/forums/loader-errors" />
+    <image:image>
+      <image:loc>https://warzonecheats.uk/media/warzone-tactical-art.jpg</image:loc>
+      <image:title>Warzone Cheats Loader Errors Artwork</image:title>
+      <image:caption>Visible Warzone reference for Warzone Cheats Loader Errors.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://warzonecheats.uk/forums/radar-hack-guide</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://warzonecheats.uk/forums/radar-hack-guide" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://warzonecheats.uk/forums/radar-hack-guide" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://warzonecheats.uk/forums/radar-hack-guide" />
+    <image:image>
+      <image:loc>https://warzonecheats.uk/media/warzone-menu.gif</image:loc>
+      <image:title>Warzone Radar Hack Guide Artwork</image:title>
+      <image:caption>Visible Warzone reference for Warzone Radar Hack Guide.</image:caption>
     </image:image>
   </url>
   <url>
@@ -253,17 +211,59 @@
     </image:image>
   </url>
   <url>
-    <loc>https://warzonecheats.uk/forums/loader-errors</loc>
+    <loc>https://warzonecheats.uk/forums/ricochet-status</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en-GB" href="https://warzonecheats.uk/forums/loader-errors" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://warzonecheats.uk/forums/loader-errors" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://warzonecheats.uk/forums/loader-errors" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://warzonecheats.uk/forums/ricochet-status" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://warzonecheats.uk/forums/ricochet-status" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://warzonecheats.uk/forums/ricochet-status" />
     <image:image>
-      <image:loc>https://warzonecheats.uk/media/warzone-tactical-art.jpg</image:loc>
-      <image:title>Warzone Cheats Loader Errors Artwork</image:title>
-      <image:caption>Visible Warzone reference for Warzone Cheats Loader Errors.</image:caption>
+      <image:loc>https://warzonecheats.uk/media/warzone-auron-box.webp</image:loc>
+      <image:title>Warzone Ricochet Status Explained Artwork</image:title>
+      <image:caption>Visible Warzone reference for Warzone Ricochet Status Explained.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://warzonecheats.uk/forums/stream-proof-setup</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://warzonecheats.uk/forums/stream-proof-setup" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://warzonecheats.uk/forums/stream-proof-setup" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://warzonecheats.uk/forums/stream-proof-setup" />
+    <image:image>
+      <image:loc>https://warzonecheats.uk/media/warzone-home-art.jpg</image:loc>
+      <image:title>Warzone Stream-Proof Setup Artwork</image:title>
+      <image:caption>Visible Warzone reference for Warzone Stream-Proof Setup.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://warzonecheats.uk/forums/undetected-status</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://warzonecheats.uk/forums/undetected-status" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://warzonecheats.uk/forums/undetected-status" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://warzonecheats.uk/forums/undetected-status" />
+    <image:image>
+      <image:loc>https://warzonecheats.uk/media/warzone-auron-box.webp</image:loc>
+      <image:title>Check Undetected Before You Buy or Load Artwork</image:title>
+      <image:caption>Visible Warzone reference for Check Undetected Before You Buy or Load.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://warzonecheats.uk/forums/windows-setup</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://warzonecheats.uk/forums/windows-setup" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://warzonecheats.uk/forums/windows-setup" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://warzonecheats.uk/forums/windows-setup" />
+    <image:image>
+      <image:loc>https://warzonecheats.uk/media/warzone-soldier-hero.webp</image:loc>
+      <image:title>Warzone Cheats Windows 10/11 Setup Artwork</image:title>
+      <image:caption>Visible Warzone reference for Warzone Cheats Windows 10/11 Setup.</image:caption>
     </image:image>
   </url>
   <url>
@@ -323,20 +323,6 @@
     </image:image>
   </url>
   <url>
-    <loc>https://warzonecheats.uk/terms</loc>
-    <lastmod>2026-09-15</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
-    <xhtml:link rel="alternate" hreflang="en-GB" href="https://warzonecheats.uk/terms" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://warzonecheats.uk/terms" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://warzonecheats.uk/terms" />
-    <image:image>
-      <image:loc>https://warzonecheats.uk/og/warzone-cheats.jpg</image:loc>
-      <image:title>Warzone Cheats Terms of Use</image:title>
-      <image:caption>License terms and risk disclaimer for Warzone Cheats.</image:caption>
-    </image:image>
-  </url>
-  <url>
     <loc>https://warzonecheats.uk/refunds</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>yearly</changefreq>
@@ -348,6 +334,20 @@
       <image:loc>https://warzonecheats.uk/og/warzone-cheats.jpg</image:loc>
       <image:title>Warzone Cheats Refund Policy</image:title>
       <image:caption>Refund rules for digital Warzone Cheats licenses.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://warzonecheats.uk/terms</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://warzonecheats.uk/terms" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://warzonecheats.uk/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://warzonecheats.uk/terms" />
+    <image:image>
+      <image:loc>https://warzonecheats.uk/og/warzone-cheats.jpg</image:loc>
+      <image:title>Warzone Cheats Terms of Use</image:title>
+      <image:caption>License terms and risk disclaimer for Warzone Cheats.</image:caption>
     </image:image>
   </url>
 </urlset>
