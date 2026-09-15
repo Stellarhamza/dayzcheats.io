@@ -1,23 +1,6 @@
-# Cloudflare Workers + static assets (works with: npx wrangler deploy)
-# Build: npm run build
-# Output assets: ./dist
+# Cloudflare Pages project — deploy with: wrangler pages deploy
+# (npm run deploy). Do not use Workers `main`/`[assets]` here; that
+# detaches custom domains and produces HTTP 522 for Googlebot.
 name = "theisleqrhe"
-main = "workers/site.js"
 compatibility_date = "2026-09-12"
-
-# Attach apex + www so Cloudflare creates DNS + SSL (apex currently has no A/AAAA).
-[[routes]]
-pattern = "theislecheats.net"
-custom_domain = true
-
-[[routes]]
-pattern = "www.theislecheats.net"
-custom_domain = true
-
-[assets]
-directory = "./dist"
-binding = "ASSETS"
-not_found_handling = "404-page"
-html_handling = "drop-trailing-slash"
-# Host redirects in workers/site.js must run before asset lookup
-run_worker_first = true
+pages_build_output_dir = "./dist"

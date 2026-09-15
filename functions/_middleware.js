@@ -1,10 +1,15 @@
 /**
- * Legacy Pages middleware (unused by wrangler deploy).
- * Host redirects now live in workers/site.js for Workers+assets deploys.
- * Kept so older Pages dashboards that still invoke Functions keep working.
+ * Cloudflare Pages middleware — runs before static HTML for matched routes.
+ * 301 www/.cc/http → https://theislecheats.net (canonical apex).
+ * /sitemap.xml and /robots.txt are excluded in public/_routes.json so Google
+ * fetches them as pure static files (avoids Functions/522 timeouts).
  */
 const CANONICAL_HOST = 'theislecheats.net'
-const LEGACY_HOSTS = new Set(['theislecheats.cc', 'www.theislecheats.cc', 'www.theislecheats.net'])
+const LEGACY_HOSTS = new Set([
+  'theislecheats.cc',
+  'www.theislecheats.cc',
+  'www.theislecheats.net',
+])
 
 export async function onRequest(context) {
   const url = new URL(context.request.url)
