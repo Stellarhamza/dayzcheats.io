@@ -1,6 +1,6 @@
 /**
- * Single sitemap at /sitemap.xml — every indexed URL in one urlset.
- * Support is indexable. Images are attached on the same entries.
+ * Single sitemap at /sitemap.xml — every indexed page URL + image sitemap entries.
+ * Every <url> must include ≥1 <image:image>. Every first-party still image must appear.
  */
 import { existsSync, readFileSync, readdirSync, unlinkSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
@@ -16,6 +16,21 @@ const HREFLANG = ['en', 'x-default']
 
 const FOREST = '/media/theisle-cheats-esp-forest.jpg'
 const RIVER = '/media/theisle-cheats-esp-river.jpg'
+const HOME_HERO = '/media/home-hero-dino.jpg'
+const PRODUCT_HERO = '/media/product-hero.webp'
+const PRODUCT_COVER = '/media/product-cover.webp'
+const OG_DEFAULT = '/og/default.jpg'
+
+/** All indexable still images that must appear in the sitemap at least once. */
+const ALL_SITE_IMAGES = [FOREST, RIVER, HOME_HERO, PRODUCT_HERO, PRODUCT_COVER, OG_DEFAULT]
+
+const FORUM_IMAGES = {
+  'features-list': RIVER,
+  hotkeys: FOREST,
+  'complete-setup': RIVER,
+  'disable-antivirus': FOREST,
+  'undetected-status': RIVER,
+}
 
 function escapeXml(value) {
   return String(value)
@@ -61,34 +76,27 @@ function alternateLinks(url) {
   ).join('\n')
 }
 
-function imageBlock(image, title, caption) {
+function imageBlock({ src, title, caption }) {
   return `    <image:image>
-      <image:loc>${escapeXml(siteUrl(image))}</image:loc>
+      <image:loc>${escapeXml(siteUrl(src))}</image:loc>
       <image:title>${escapeXml(title)}</image:title>
       <image:caption>${escapeXml(caption)}</image:caption>
     </image:image>`
 }
 
-function urlEntry({
-  path,
-  priority,
-  changefreq,
-  lastmod = TODAY,
-  image,
-  imageTitle,
-  imageCaption,
-}) {
+function urlEntry({ path, priority, changefreq, lastmod = TODAY, images }) {
+  if (!images?.length) {
+    throw new Error(`Sitemap entry for ${path} is missing images`)
+  }
   const url = siteUrl(path)
-  const imageXml =
-    image && imageTitle && imageCaption
-      ? `\n${imageBlock(image, imageTitle, imageCaption)}`
-      : ''
+  const imageXml = images.map((image) => imageBlock(image)).join('\n')
   return `  <url>
     <loc>${escapeXml(url)}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
-${alternateLinks(url)}${imageXml}
+${alternateLinks(url)}
+${imageXml}
   </url>`
 }
 
@@ -98,67 +106,113 @@ function buildSitemap(games, forums) {
       path: '/',
       priority: '1.0',
       changefreq: 'daily',
-      image: FOREST,
-      imageTitle: 'TheIsle Cheats ESP Gameplay',
-      imageCaption: 'Entity ESP gameplay shown before checkout.',
+      images: [
+        {
+          src: FOREST,
+          title: 'TheIsle Cheats ESP Gameplay',
+          caption: 'Entity ESP gameplay shown before checkout.',
+        },
+        {
+          src: HOME_HERO,
+          title: 'TheIsle Cheats Home Hero',
+          caption: 'Homepage hero artwork for The Isle Cheats on Evrima.',
+        },
+        {
+          src: OG_DEFAULT,
+          title: 'TheIsle Cheats Social Preview',
+          caption: 'Default Open Graph image for The Isle Cheats.',
+        },
+      ],
     }),
     ...games.map((game) =>
       urlEntry({
         path: `/${game.slug}-cheats`,
         priority: '0.9',
         changefreq: 'weekly',
-        image: RIVER,
-        imageTitle: 'Evrima ESP Product Gameplay',
-        imageCaption: 'Product features, compatibility, status and price before checkout.',
+        images: [
+          {
+            src: RIVER,
+            title: 'Evrima ESP Product Gameplay',
+            caption: 'Product features, compatibility, status and price before checkout.',
+          },
+          {
+            src: PRODUCT_HERO,
+            title: `${game.name} Product Hero`,
+            caption: `Hero artwork for ${game.name} product details and checkout.`,
+          },
+          {
+            src: PRODUCT_COVER,
+            title: `${game.name} Product Cover`,
+            caption: `Cover artwork for ${game.name} listing and social previews.`,
+          },
+        ],
       }),
     ),
     urlEntry({
       path: '/forums',
       priority: '0.85',
       changefreq: 'weekly',
-      image: RIVER,
-      imageTitle: 'The Isle Cheats Forum Gameplay',
-      imageCaption: 'Gameplay reference for setup and feature threads.',
+      images: [
+        {
+          src: RIVER,
+          title: 'The Isle Cheats Forum Gameplay',
+          caption: 'Gameplay reference for setup and feature threads.',
+        },
+      ],
     }),
-    ...forums.map((forum, index) =>
+    ...forums.map((forum) =>
       urlEntry({
         path: `/forums/${forum.slug}`,
         priority: '0.8',
         changefreq: 'monthly',
         lastmod: forum.date,
-        image: index % 2 === 0 ? RIVER : FOREST,
-        imageTitle: `${forum.title} Gameplay`,
-        imageCaption: `Visible Evrima gameplay reference for ${forum.title}.`,
+        images: [
+          {
+            src: FORUM_IMAGES[forum.slug] || RIVER,
+            title: `${forum.title} Gameplay`,
+            caption: `Visible Evrima gameplay reference for ${forum.title}.`,
+          },
+        ],
       }),
     ),
     urlEntry({
       path: '/reviews',
       priority: '0.8',
       changefreq: 'weekly',
-      image: FOREST,
-      imageTitle: 'The Isle Cheats Review Gameplay',
-      imageCaption: 'Gameplay accompanying verified buyer reviews.',
+      images: [
+        {
+          src: FOREST,
+          title: 'The Isle Cheats Review Gameplay',
+          caption: 'Gameplay accompanying verified buyer reviews.',
+        },
+      ],
     }),
     urlEntry({
       path: '/faq',
       priority: '0.75',
       changefreq: 'monthly',
-      image: RIVER,
-      imageTitle: 'Evrima ESP FAQ Gameplay',
-      imageCaption: 'Product screenshot accompanying pre-purchase answers.',
+      images: [
+        {
+          src: RIVER,
+          title: 'Evrima ESP FAQ Gameplay',
+          caption: 'Product screenshot accompanying pre-purchase answers.',
+        },
+      ],
     }),
     urlEntry({
       path: '/support',
       priority: '0.75',
       changefreq: 'weekly',
-      image: FOREST,
-      imageTitle: 'The Isle Cheats Support Gameplay',
-      imageCaption: 'Evrima ESP reference accompanying load, inject and delivery support.',
+      images: [
+        {
+          src: FOREST,
+          title: 'The Isle Cheats Support Gameplay',
+          caption: 'Evrima ESP reference accompanying load, inject and delivery support.',
+        },
+      ],
     }),
   ]
 
-  // No xml-stylesheet PI here — Googlebot/GSC treat it as a fetch risk.
-  // workers/site.js injects the stylesheet for human browsers only.
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
@@ -182,27 +236,58 @@ function validate(games, forums, staticRoutes, sitemap) {
     errors.push('Forum routes have no dynamic page file: src/pages/forums/[slug].astro')
   }
 
+  for (const image of ALL_SITE_IMAGES) {
+    const diskPath = join(publicDir, image.replace(/^\//, ''))
+    if (!existsSync(diskPath)) errors.push(`Missing image asset on disk: ${image}`)
+  }
+
   const expectedRoutes = new Set([
     ...staticRoutes,
     ...games.map((game) => `/${game.slug}-cheats`),
     ...forums.map((forum) => `/forums/${forum.slug}`),
   ])
   const expectedUrls = new Set([...expectedRoutes].map(siteUrl))
-  const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1])
+
+  // Page <loc> only — image:loc also uses <loc> nesting under image:image
+  const pageLocs = [...sitemap.matchAll(/<url>\s*<loc>([^<]+)<\/loc>/g)].map((match) => match[1])
+  const imageLocs = [...sitemap.matchAll(/<image:loc>([^<]+)<\/image:loc>/g)].map((match) => match[1])
+  const urlBlocks = sitemap.match(/<url>[\s\S]*?<\/url>/g) || []
 
   for (const url of expectedUrls) {
-    if (!sitemapUrls.includes(url)) errors.push(`Missing URL: ${url}`)
+    if (!pageLocs.includes(url)) errors.push(`Missing URL: ${url}`)
   }
-  for (const url of sitemapUrls) {
+  for (const url of pageLocs) {
     if (!expectedUrls.has(url)) errors.push(`Unexpected URL: ${url}`)
   }
-  if (new Set(sitemapUrls).size !== sitemapUrls.length) {
-    errors.push('sitemap.xml contains duplicate URLs')
+  if (new Set(pageLocs).size !== pageLocs.length) {
+    errors.push('sitemap.xml contains duplicate page URLs')
   }
   if (sitemap.includes('<sitemapindex')) errors.push('sitemap.xml must be a single urlset, not an index')
-  if ((sitemap.match(/<url>/g) || []).length !== expectedUrls.size) {
-    errors.push(`Expected ${expectedUrls.size} URLs in sitemap.xml`)
+  if (urlBlocks.length !== expectedUrls.size) {
+    errors.push(`Expected ${expectedUrls.size} <url> entries, found ${urlBlocks.length}`)
   }
+
+  for (const block of urlBlocks) {
+    const loc = block.match(/<loc>([^<]+)<\/loc>/)?.[1] || '(unknown)'
+    if (!block.includes('<image:image>')) {
+      errors.push(`URL missing image entry: ${loc}`)
+    }
+    if (!block.includes('<image:loc>')) {
+      errors.push(`URL missing image:loc: ${loc}`)
+    }
+  }
+
+  for (const image of ALL_SITE_IMAGES) {
+    const absolute = siteUrl(image)
+    if (!imageLocs.includes(absolute)) {
+      errors.push(`Sitemap missing required image: ${image}`)
+    }
+  }
+
+  if (imageLocs.length < expectedUrls.size) {
+    errors.push('Image count is lower than page count — every URL needs an image')
+  }
+
   if (errors.length) throw new Error(`Sitemap validation failed:\n- ${errors.join('\n- ')}`)
 }
 
@@ -256,7 +341,10 @@ function main() {
   }
 
   const urlCount = (sitemap.match(/<url>/g) || []).length
-  console.log(`Sitemap OK: ${urlCount} URLs in ${siteUrl('/sitemap.xml')}`)
+  const imageCount = (sitemap.match(/<image:image>/g) || []).length
+  console.log(
+    `Sitemap OK: ${urlCount} URLs, ${imageCount} images in ${siteUrl('/sitemap.xml')}`,
+  )
 }
 
 main()

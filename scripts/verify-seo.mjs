@@ -133,8 +133,18 @@ const expectedUrls = new Set(
     .filter((file) => relative(dist, file).replaceAll('\\', '/') !== '404.html')
     .map(pageUrl),
 )
-const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1])
-const uniqueSitemapUrls = new Set(sitemapUrls)
+const urlBlocks = sitemap.match(/<url>[\s\S]*?<\/url>/g) || []
+const pageLocs = urlBlocks.map((block) => block.match(/<loc>([^<]+)<\/loc>/)?.[1]).filter(Boolean)
+const uniqueSitemapUrls = new Set(pageLocs)
+const imageLocs = [...sitemap.matchAll(/<image:loc>([^<]+)<\/image:loc>/g)].map((match) => match[1])
+const requiredImages = [
+  '/media/theisle-cheats-esp-forest.jpg',
+  '/media/theisle-cheats-esp-river.jpg',
+  '/media/home-hero-dino.jpg',
+  '/media/product-hero.webp',
+  '/media/product-cover.webp',
+  '/og/default.jpg',
+]
 
 for (const url of expectedUrls) {
   if (!uniqueSitemapUrls.has(url)) fail(`sitemap.xml missing built page ${url}`)
@@ -142,18 +152,23 @@ for (const url of expectedUrls) {
 for (const url of uniqueSitemapUrls) {
   if (!expectedUrls.has(url)) fail(`sitemap.xml contains URL without a built page: ${url}`)
 }
-if (uniqueSitemapUrls.size !== sitemapUrls.length) fail('sitemap.xml contains duplicate URLs')
-if ((sitemap.match(/<url>/g) || []).length !== expectedUrls.size) {
+if (uniqueSitemapUrls.size !== pageLocs.length) fail('sitemap.xml contains duplicate URLs')
+if (urlBlocks.length !== expectedUrls.size) {
   fail(`sitemap.xml must contain exactly ${expectedUrls.size} built page URLs`)
 }
-if ((sitemap.match(/<image:image>/g) || []).length !== expectedUrls.size) {
-  fail('Every sitemap URL must include an image entry')
+if ((sitemap.match(/<image:image>/g) || []).length < expectedUrls.size) {
+  fail('Every sitemap URL must include at least one image entry')
 }
-if (!sitemap.includes('/media/theisle-cheats-esp-forest.jpg')) {
-  fail('sitemap.xml lacks forest gameplay image')
+for (const block of urlBlocks) {
+  const loc = block.match(/<loc>([^<]+)<\/loc>/)?.[1] || '(unknown)'
+  if (!block.includes('<image:image>') || !block.includes('<image:loc>')) {
+    fail(`sitemap URL missing image entry: ${loc}`)
+  }
 }
-if (!sitemap.includes('/media/theisle-cheats-esp-river.jpg')) {
-  fail('sitemap.xml lacks river gameplay image')
+for (const image of requiredImages) {
+  if (!imageLocs.some((loc) => loc.endsWith(image))) {
+    fail(`sitemap.xml missing required image ${image}`)
+  }
 }
 if (!sitemap.trimStart().startsWith('<?xml version="1.0" encoding="UTF-8"?>')) {
   fail('sitemap.xml must start with an XML declaration')

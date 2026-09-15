@@ -14,6 +14,16 @@
       <image:title>TheIsle Cheats ESP Gameplay</image:title>
       <image:caption>Entity ESP gameplay shown before checkout.</image:caption>
     </image:image>
+    <image:image>
+      <image:loc>https://theislecheats.net/media/home-hero-dino.jpg</image:loc>
+      <image:title>TheIsle Cheats Home Hero</image:title>
+      <image:caption>Homepage hero artwork for The Isle Cheats on Evrima.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://theislecheats.net/og/default.jpg</image:loc>
+      <image:title>TheIsle Cheats Social Preview</image:title>
+      <image:caption>Default Open Graph image for The Isle Cheats.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://theislecheats.net/isle-cheats</loc>
@@ -26,6 +36,16 @@
       <image:loc>https://theislecheats.net/media/theisle-cheats-esp-river.jpg</image:loc>
       <image:title>Evrima ESP Product Gameplay</image:title>
       <image:caption>Product features, compatibility, status and price before checkout.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://theislecheats.net/media/product-hero.webp</image:loc>
+      <image:title>The Isle Product Hero</image:title>
+      <image:caption>Hero artwork for The Isle product details and checkout.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://theislecheats.net/media/product-cover.webp</image:loc>
+      <image:title>The Isle Product Cover</image:title>
+      <image:caption>Cover artwork for The Isle listing and social previews.</image:caption>
     </image:image>
   </url>
   <url>
