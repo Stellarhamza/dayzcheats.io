@@ -1,9 +1,12 @@
-# Cloudflare Pages project (not a Worker).
+# Cloudflare Workers + static assets (works with: npx wrangler deploy)
 # Build: npm run build
-# Output: dist
-# Deploy command in Cloudflare must be: npm run deploy
-#   (or: npx wrangler pages deploy dist)
-# Do NOT use: npx wrangler deploy
+# Output assets: ./dist
 name = "theislecheats"
+main = "workers/site.js"
 compatibility_date = "2026-09-12"
-pages_build_output_dir = "dist"
+
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+not_found_handling = "404-page"
+html_handling = "drop-trailing-slash"

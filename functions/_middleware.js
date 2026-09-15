@@ -1,6 +1,7 @@
 /**
- * Canonical host: HTTPS + apex theislecheats.net.
- * Also redirects legacy .cc / www hosts to .net. Sitemap/robots bypass via _routes.json.
+ * Legacy Pages middleware (unused by wrangler deploy).
+ * Host redirects now live in workers/site.js for Workers+assets deploys.
+ * Kept so older Pages dashboards that still invoke Functions keep working.
  */
 const CANONICAL_HOST = 'theislecheats.net'
 const LEGACY_HOSTS = new Set(['theislecheats.cc', 'www.theislecheats.cc', 'www.theislecheats.net'])
