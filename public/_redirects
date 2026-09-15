@@ -1,5 +1,5 @@
-# Cloudflare Pages redirects (static files always win over these rules).
-# Host www/HTTP → HTTPS apex is handled by functions/_middleware.js
+# Cloudflare Workers/Pages redirects (static files always win over these rules).
+# Host www/HTTP → HTTPS apex is handled by workers/site.js (not_found_handling serves 404.html).
 
 # Trailing-slash canonicalization
 /isle-cheats/   /isle-cheats   301
@@ -40,6 +40,3 @@
 /sitemap-index.xml     /sitemap.xml  301
 /sitemap_index.xml     /sitemap.xml  301
 /sitemap.xml/          /sitemap.xml  301
-
-# Unknown paths
-/*              /404.html      404

@@ -1,7 +1,7 @@
 # Cloudflare Workers + static assets (works with: npx wrangler deploy)
 # Build: npm run build
 # Output assets: ./dist
-name = "theislecheats"
+name = "theisleqrhe"
 main = "workers/site.js"
 compatibility_date = "2026-09-12"
 
