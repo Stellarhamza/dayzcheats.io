@@ -4,14 +4,11 @@
  * hostname — or Cloudflare returns HTTP 522 on custom domains.
  */
 const CANONICAL_HOST = 'wardogshacks.net'
-const LEGACY_HOSTS = new Set([
-  'wardogshacks.net',
-  'www.wardogshacks.net',
-  'www.wardogshacks.net',
-])
+const LEGACY_HOSTS = new Set(['www.wardogshacks.net'])
 
 function needsCanonicalRedirect(url) {
   const host = url.hostname.toLowerCase()
+  // Only force HTTPS on the apex, or move www → apex. Never redirect apex→apex.
   return url.protocol === 'http:' || LEGACY_HOSTS.has(host)
 }
 

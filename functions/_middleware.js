@@ -4,11 +4,7 @@
  * /sitemap.xml is excluded in public/_routes.json so crawlers get a static file.
  */
 const CANONICAL_HOST = 'wardogshacks.net'
-const LEGACY_HOSTS = new Set([
-  'wardogshacks.net',
-  'www.wardogshacks.net',
-  'www.wardogshacks.net',
-])
+const LEGACY_HOSTS = new Set(['www.wardogshacks.net'])
 
 export async function onRequest(context) {
   const url = new URL(context.request.url)
