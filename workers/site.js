@@ -14,13 +14,33 @@ function needsCanonicalRedirect(url) {
   return url.protocol === 'http:' || LEGACY_HOSTS.has(host)
 }
 
-function withHtmlCharset(response) {
-  const contentType = response.headers.get('content-type') || ''
-  if (!contentType.toLowerCase().startsWith('text/html')) return response
-  if (/charset=/i.test(contentType)) return response
+function firstHeaderValue(value) {
+  return (value || '').split(',')[0].trim()
+}
 
+function cleanResponseHeaders(response, pathname) {
   const headers = new Headers(response.headers)
-  headers.set('content-type', 'text/html; charset=utf-8')
+  const path = pathname.toLowerCase()
+
+  if (path === '/sitemap.xml' || path.endsWith('.xml')) {
+    headers.set('content-type', 'application/xml; charset=utf-8')
+  } else if (path === '/robots.txt') {
+    headers.set('content-type', 'text/plain; charset=utf-8')
+  } else {
+    const type = firstHeaderValue(headers.get('content-type'))
+    if (type.toLowerCase().startsWith('text/html')) {
+      headers.set(
+        'content-type',
+        /charset=/i.test(type) ? type : 'text/html; charset=utf-8',
+      )
+    } else if (type) {
+      headers.set('content-type', type)
+    }
+  }
+
+  const cache = firstHeaderValue(headers.get('cache-control'))
+  if (cache) headers.set('cache-control', cache)
+
   return new Response(response.body, {
     status: response.status,
     statusText: response.statusText,
@@ -39,6 +59,6 @@ export default {
     }
 
     const assetResponse = await env.ASSETS.fetch(request)
-    return withHtmlCharset(assetResponse)
+    return cleanResponseHeaders(assetResponse, url.pathname)
   },
 }

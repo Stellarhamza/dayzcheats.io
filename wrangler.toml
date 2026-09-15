@@ -5,6 +5,15 @@ name = "theisleqrhe"
 main = "workers/site.js"
 compatibility_date = "2026-09-12"
 
+# Attach apex + www so Cloudflare creates DNS + SSL (apex currently has no A/AAAA).
+[[routes]]
+pattern = "theislecheats.net"
+custom_domain = true
+
+[[routes]]
+pattern = "www.theislecheats.net"
+custom_domain = true
+
 [assets]
 directory = "./dist"
 binding = "ASSETS"

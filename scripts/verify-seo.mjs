@@ -222,6 +222,9 @@ if (!headers.includes('Content-Type: text/html; charset=utf-8')) {
 if (!headers.includes('/sitemap.xml')) {
   fail('_headers missing /sitemap.xml Content-Type')
 }
+if (!headers.includes('application/xml; charset=utf-8')) {
+  fail('_headers missing XML charset Content-Type')
+}
 
 if (failures.length) {
   throw new Error(`SEO verification failed:\n- ${failures.join('\n- ')}`)
