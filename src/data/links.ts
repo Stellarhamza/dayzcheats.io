@@ -14,31 +14,31 @@ export const OFFICIAL_ISLE_LINKS = [
   },
 ] as const
 
-/** Primary internal routes for crawl equity. */
+/** Primary internal routes for crawl equity. Unique anchors vs nav CTAs. */
 export const SITE_PAGE_LINKS = [
-  { label: 'Buy The Isle Cheats', to: '/', description: 'Live status, price and checkout' },
+  { label: 'Home', to: '/', description: 'Live status, price and checkout' },
   {
-    label: 'Product details',
+    label: 'Product page',
     to: '/isle-cheats',
     description: 'ESP, radar, stream-proof and spoofer features',
   },
   {
-    label: 'Forums',
+    label: 'Forums index',
     to: '/forums',
     description: 'Setup forums — antivirus, hotkeys, load',
   },
   {
-    label: 'Reviews',
+    label: 'Player reviews',
     to: '/reviews',
     description: 'Player reviews and ratings',
   },
   {
-    label: 'FAQ',
+    label: 'FAQ answers',
     to: '/faq',
     description: 'Frequently asked questions',
   },
   {
-    label: 'Support',
+    label: 'Support desk',
     to: '/support',
     description: 'Load, inject, spoofer and EAC help',
   },
@@ -46,11 +46,11 @@ export const SITE_PAGE_LINKS = [
 
 /** Deep links into forum threads — commercial / transactional. */
 export const SITE_GUIDE_LINKS = [
-  { label: 'Features list', to: blogPath('features-list') },
-  { label: 'Hotkeys', to: blogPath('hotkeys') },
-  { label: 'Complete setup', to: blogPath('complete-setup') },
-  { label: 'Disable antivirus', to: blogPath('disable-antivirus') },
-  { label: 'Undetected status', to: blogPath('undetected-status') },
+  { label: 'Features list guide', to: blogPath('features-list') },
+  { label: 'Hotkeys guide', to: blogPath('hotkeys') },
+  { label: 'Complete setup guide', to: blogPath('complete-setup') },
+  { label: 'Antivirus exclusion guide', to: blogPath('disable-antivirus') },
+  { label: 'Undetected status guide', to: blogPath('undetected-status') },
 ] as const
 
 /**

@@ -226,44 +226,26 @@ export function HomePage() {
                 </h2>
                 <p className="mt-4 text-sm leading-relaxed text-white/55 sm:text-base">
                   {SITE_PURPOSE} Clear features, honest Undetected status, buyer guides for
-                  setup and load. Own the game via the{' '}
-                  <a
-                    href="https://www.survivetheisle.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white/80 underline-offset-2 hover:underline"
-                  >
-                    official The Isle website
-                  </a>{' '}
-                  and{' '}
-                  <a
-                    href="https://store.steampowered.com/app/376210/The_Isle/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white/80 underline-offset-2 hover:underline"
-                  >
-                    Steam
-                  </a>
-                  — then use{' '}
+                  setup and load. Own the game on Steam (Evrima branch), then check{' '}
                   <a
                     href="/isle-cheats"
                     className="text-white/80 underline-offset-2 hover:underline"
                   >
-                    product details
+                    Evrima feature list
                   </a>
                   ,{' '}
                   <a
                     href="/reviews"
                     className="text-white/80 underline-offset-2 hover:underline"
                   >
-                    reviews
+                    buyer reviews
                   </a>
                   , or{' '}
                   <a
                     href="/support"
                     className="text-white/80 underline-offset-2 hover:underline"
                   >
-                    support
+                    loader help
                   </a>
                   .
                 </p>
@@ -272,7 +254,7 @@ export function HomePage() {
                 href={guidePath('isle')}
                 className="mt-8 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-white hover:text-white/80"
               >
-                View features and price
+                Open product page
                 <ArrowRight className="h-4 w-4" strokeWidth={1.75} />
               </a>
             </div>
@@ -313,7 +295,7 @@ export function HomePage() {
               href="/faq"
               className="inline-flex items-center gap-1.5 text-sm font-semibold text-white hover:text-white/80"
             >
-              View all The Isle Cheats FAQ
+              Full FAQ page
               <ArrowRight className="h-4 w-4" strokeWidth={1.75} />
             </a>
           </div>

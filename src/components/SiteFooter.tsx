@@ -1,7 +1,6 @@
 import { LogoMark } from './LogoMark'
 import { SiteLinkHub } from './SiteLinkHub'
-import { OFFICIAL_ISLE_LINKS } from '../data/links'
-import { SITE_HOST, SITE_NAME, SITE_URL } from '../data/site'
+import { SITE_NAME } from '../data/site'
 
 type SiteFooterProps = {
   currentPath?: string
@@ -26,38 +25,20 @@ export function SiteFooter({ currentPath }: SiteFooterProps) {
               <span className="font-semibold text-z-ink">{SITE_NAME}</span>
             </div>
             <p className="mt-3 text-sm leading-relaxed text-white/55">
-              Undetected The Isle cheats for Evrima. Status checked. Features listed. Built for{' '}
-              <a
-                href={OFFICIAL_ISLE_LINKS[0].href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/75 underline-offset-2 hover:text-white hover:underline"
-              >
-                The Isle
-              </a>{' '}
-              players only.
+              Undetected The Isle cheats for Evrima. Status checked. Features listed. Built for
+              The Isle players only.
             </p>
           </div>
 
           <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-white/65">
-            <li>
-              <a href={SITE_URL} className="hover:text-white">
-                {SITE_HOST}
-              </a>
-            </li>
             <li>
               <a href="/sitemap.xml" className="hover:text-white">
                 XML sitemap
               </a>
             </li>
             <li>
-              <a
-                href={OFFICIAL_ISLE_LINKS[1].href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white"
-              >
-                The Isle on Steam
+              <a href="/robots.txt" className="hover:text-white">
+                Robots.txt
               </a>
             </li>
           </ul>
