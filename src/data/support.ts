@@ -38,7 +38,7 @@ export const SUPPORT_TOPICS: SupportTopic[] = [
     heading: 'What we support',
     body: [
       'Supported: Escape from Tarkov on Windows PC — Aimbot, ESP, wallhack, loot filter, radar, HWID spoofer, menu, setup and status questions.',
-      'Not supported: other games (including Warzone or Apex), cracked loaders or third-party mirrors.',
+      'Not supported: other games, cracked loaders or third-party mirrors.',
       'Policy pages: Privacy, Terms and Refunds are linked in the footer.',
     ],
   },

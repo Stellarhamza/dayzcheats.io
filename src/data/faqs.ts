@@ -11,7 +11,7 @@ export const SITE_FAQS: FaqItem[] = [
   },
   {
     q: 'Do you cover other games?',
-    a: 'No. tarkovcheats.io sells Escape from Tarkov cheats only — no Warzone, Apex, Fortnite or filler catalog titles.',
+    a: 'No. tarkovcheats.io sells Escape from Tarkov (EFT) cheats only — one product, no multi-game catalog.',
   },
   {
     q: 'Is Aimbot the main feature?',

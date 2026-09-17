@@ -8,7 +8,7 @@ export type SeoMediaItem = {
   videoDescription?: string
 }
 
-/** Battlelog EFT Reaper product art + menu stills (self-hosted). */
+/** EFT Reaper product art + menu stills (self-hosted). */
 export const TARKOV_HERO = '/media/tarkov-reaper-full.webp'
 export const TARKOV_SOLDIER = '/media/tarkov-reaper-full.webp'
 export const TARKOV_GAMEPLAY = '/media/tarkov-exfil-esp.gif'
