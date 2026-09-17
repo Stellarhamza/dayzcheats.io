@@ -109,11 +109,50 @@ if (!reviews.includes('"reviewCount":12') || !reviews.includes('"ratingValue":"4
   fail('Reviews AggregateRating must report 12 reviews averaging 4.6')
 }
 if (support.includes('noindex')) fail('Support page must be indexable')
+function decodeEntities(value = '') {
+  return value
+    .replaceAll('&amp;', '&')
+    .replaceAll('&#38;', '&')
+    .replaceAll('&lt;', '<')
+    .replaceAll('&gt;', '>')
+    .replaceAll('&quot;', '"')
+    .replaceAll('&#39;', "'")
+}
+
 for (const file of files) {
   const page = relative(dist, file).replaceAll('\\', '/')
   if (page === '404.html') continue
   const html = readFileSync(file, 'utf8')
   if (html.includes('content="noindex')) fail(`${page}: content page must not be noindex`)
+
+  const title = decodeEntities(html.match(/<title>(.*?)<\/title>/)?.[1])
+  const description = decodeEntities(html.match(/<meta name="description" content="([^"]+)"/)?.[1])
+  const ogImage = html.match(/<meta property="og:image" content="([^"]+)"/)?.[1]
+  const ogTitle = decodeEntities(html.match(/<meta property="og:title" content="([^"]+)"/)?.[1])
+  const ogDesc = decodeEntities(html.match(/<meta property="og:description" content="([^"]+)"/)?.[1])
+  const twImage = html.match(/<meta name="twitter:image" content="([^"]+)"/)?.[1]
+  const robotsMeta = html.match(/<meta name="robots" content="([^"]+)"/)?.[1]
+
+  if (!ogImage?.startsWith('https://tarkovcheats.io/og/') || !ogImage.endsWith('.jpg')) {
+    fail(`${page}: og:image must be https://tarkovcheats.io/og/*.jpg for SERP thumbnails`)
+  }
+  if (!twImage || twImage !== ogImage) {
+    fail(`${page}: twitter:image must match og:image`)
+  }
+  if (ogTitle !== title) fail(`${page}: og:title must match <title>`)
+  if (ogDesc !== description) fail(`${page}: og:description must match meta description`)
+  if (!html.includes('property="og:image:width" content="1200"')) {
+    fail(`${page}: og:image:width must be 1200`)
+  }
+  if (!html.includes('property="og:image:height" content="630"')) {
+    fail(`${page}: og:image:height must be 630`)
+  }
+  if (!robotsMeta?.includes('max-image-preview:large')) {
+    fail(`${page}: robots must allow max-image-preview:large`)
+  }
+  if (!html.includes('rel="image_src"')) {
+    fail(`${page}: missing link rel=image_src for thumbnail crawlers`)
+  }
 }
 for (const html of importantPages) {
   if (!html.includes('/media/tarkov-')) {
@@ -126,10 +165,25 @@ if (!home.includes('/videos/tarkov-preview.mp4') || !home.includes('/media/tarko
 if (home.includes('iframe.mediadelivery.net') || product.includes('iframe.mediadelivery.net')) {
   fail('Pages still embed blocked mediadelivery video (403 off-domain)')
 }
+if (/warzonecheats|wardogshacks|theislecheats|\.uk\/|Delta Product|Auron Product/i.test(home + product)) {
+  fail('Built pages still contain legacy Warzone/UK branding')
+}
 
 const sitemap = readFileSync(join(dist, 'sitemap.xml'), 'utf8')
 if (sitemap.includes('<sitemapindex')) fail('sitemap.xml must be a single urlset, not an index')
 if (/forums\/(instructions|how-to-load)/.test(sitemap)) fail('Retired forum remains in sitemap.xml')
+if (!sitemap.includes('https://tarkovcheats.io/')) {
+  fail('sitemap.xml must use https://tarkovcheats.io URLs')
+}
+if (!sitemap.includes('/videos/tarkov-preview.mp4')) {
+  fail('sitemap.xml missing Tarkov preview video entry')
+}
+if (!sitemap.includes('xmlns:video=')) {
+  fail('sitemap.xml missing video namespace for Google video indexing')
+}
+if (/warzonecheats|wardogshacks|theislecheats|Delta Product|Auron Product|Ricochet/i.test(sitemap)) {
+  fail('sitemap.xml still contains legacy Warzone branding')
+}
 const expectedUrls = new Set(
   files
     .filter((file) => relative(dist, file).replaceAll('\\', '/') !== '404.html')
@@ -140,13 +194,15 @@ const pageLocs = urlBlocks.map((block) => block.match(/<loc>([^<]+)<\/loc>/)?.[1
 const uniqueSitemapUrls = new Set(pageLocs)
 const imageLocs = [...sitemap.matchAll(/<image:loc>([^<]+)<\/image:loc>/g)].map((match) => match[1])
 const requiredImages = [
-  '/media/tarkov-soldier-hero.webp',
-  '/media/tarkov-delta-hero.webp',
+  '/og/home.jpg',
+  '/og/tarkov-cheats.jpg',
+  '/og/forums.jpg',
+  '/og/reviews.jpg',
+  '/media/tarkov-reaper-full.webp',
+  '/media/tarkov-reaper-lite.webp',
   '/media/tarkov-esp-gameplay.gif',
   '/media/tarkov-menu.gif',
-  '/media/tarkov-auron-box.webp',
-  '/media/tarkov-delta-gameplay.gif',
-  '/og/tarkov-cheats.jpg',
+  '/media/tarkov-video-thumb.jpg',
 ]
 
 for (const url of expectedUrls) {
@@ -203,6 +259,9 @@ if (!robots.includes('Sitemap: https://tarkovcheats.io/sitemap.xml')) {
 if (!robots.includes('Allow: /sitemap.xml')) {
   fail('robots.txt must explicitly allow /sitemap.xml')
 }
+if (!robots.includes('Allow: /videos/')) {
+  fail('robots.txt must allow /videos/ for preview crawlability')
+}
 if (!robots.includes('User-agent: Googlebot')) {
   fail('robots.txt must explicitly allow Googlebot')
 }
@@ -213,10 +272,14 @@ if (!routes.exclude?.includes('/sitemap.xml') || !routes.exclude?.includes('/rob
 }
 
 for (const asset of [
+  'public/og/home.jpg',
   'public/og/tarkov-cheats.jpg',
-  'public/media/tarkov-delta-hero.webp',
-  'public/media/tarkov-auron-box.webp',
-  'public/media/tarkov-delta-hero.webp',
+  'public/og/forums.jpg',
+  'public/og/reviews.jpg',
+  'public/og/faq.jpg',
+  'public/og/support.jpg',
+  'public/media/tarkov-reaper-full.webp',
+  'public/media/tarkov-reaper-lite.webp',
   'public/media/tarkov-esp-gameplay.gif',
   'public/media/tarkov-menu.gif',
   'public/media/tarkov-video-thumb.jpg',

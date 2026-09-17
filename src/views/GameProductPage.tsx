@@ -16,7 +16,7 @@ import { CheckoutLink } from '../components/CheckoutLink'
 import { NotFoundPage } from './NotFoundPage'
 import { blogPath } from '../data/blogs'
 import { TARKOV_HOME_VIDEO } from '../data/media'
-import { TarkovPreview } from '../components/WarzonePreview'
+import { TarkovPreview } from '../components/TarkovPreview'
 
 function ProductPurchaseCard({ game }: { game: Game }) {
   return (

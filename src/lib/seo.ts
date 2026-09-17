@@ -99,8 +99,9 @@ export function webPageNode(seo: PageSeo) {
       url: absoluteAsset(img),
       width: 1200,
       height: 630,
-      caption: seo.title,
+      caption: seo.imageAlt || seo.title,
     }
+    page.image = absoluteAsset(img)
   }
   return page
 }
@@ -120,11 +121,26 @@ export function productCoreJsonLd() {
     ],
     description: SITE_PURPOSE,
     url: `${SITE_URL}/`,
-    image: [absoluteAsset(PAGE_MEDIA.home.image), absoluteAsset(PAGE_MEDIA.product.image)],
+    image: [
+      absoluteAsset('/og/home.jpg'),
+      absoluteAsset('/og/tarkov-cheats.jpg'),
+      absoluteAsset(PAGE_MEDIA.home.image),
+      absoluteAsset(PAGE_MEDIA.product.image),
+    ],
     brand: { '@type': 'Brand', name: SITE_NAME },
     manufacturer: { '@id': `${SITE_URL}/#organization` },
     category: 'PC game software',
     offers: baseOffer(`${SITE_URL}/`, 'https://schema.org/InStock'),
+    subjectOf: {
+      '@type': 'VideoObject',
+      name: 'Tarkov Cheats Aimbot and ESP preview',
+      description:
+        'Preview of Escape from Tarkov Aimbot, ESP menu and loot radar features on PC.',
+      thumbnailUrl: absoluteAsset('/media/tarkov-video-thumb.jpg'),
+      contentUrl: absoluteAsset('/videos/tarkov-preview.mp4'),
+      uploadDate: '2026-09-16',
+      inLanguage: 'en',
+    },
   }
 }
 

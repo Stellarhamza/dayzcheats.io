@@ -19,11 +19,6 @@ export const OFFICIAL_TARKOV_LINKS = [
   },
 ] as const
 
-/** @deprecated alias */
-export const OFFICIAL_WARZONE_LINKS = OFFICIAL_TARKOV_LINKS
-/** @deprecated alias */
-export const OFFICIAL_WARDOGS_LINKS = OFFICIAL_TARKOV_LINKS
-
 /** Primary internal routes for crawl equity. */
 export const SITE_PAGE_LINKS = [
   { label: 'Home', to: '/', description: 'Live status, price and checkout' },

@@ -32,6 +32,3 @@ export function TarkovPreview({ className = '', wide = false }: TarkovPreviewPro
     </div>
   )
 }
-
-/** @deprecated alias */
-export const WarzonePreview = TarkovPreview

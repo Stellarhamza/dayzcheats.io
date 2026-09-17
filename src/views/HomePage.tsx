@@ -10,7 +10,7 @@ import { HOME_FAQS } from '../data/faqs'
 import { HOME_HEADINGS, SITE_HOST, SITE_NAME, SITE_PURPOSE } from '../data/site'
 import { BLOGS, blogPath } from '../data/blogs'
 import { TARKOV_HOME_VIDEO } from '../data/media'
-import { TarkovPreview } from '../components/WarzonePreview'
+import { TarkovPreview } from '../components/TarkovPreview'
 
 const FEATURES = [
   {
@@ -40,7 +40,7 @@ export function HomePage() {
     <div className="min-h-screen overflow-x-hidden text-white">
       <section id="home" className="relative flex min-h-screen flex-col overflow-x-clip">
         <VideoBg
-          image="/media/tarkov-soldier-hero.webp"
+          image="/media/tarkov-reaper-full.webp"
           imageAlt="Tarkov cheats Aimbot and ESP product artwork"
         />
 

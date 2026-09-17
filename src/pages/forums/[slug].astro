@@ -20,14 +20,16 @@ if (!post) {
 
 const media = getForumMedia(post.slug)
 const absoluteMedia = (path: string) => `${SITE_URL}${path}`
+const ogImage = `/og/forums-${post.slug}.jpg`
 
 const seo: PageSeo = {
   title: post.metaTitle,
   description: post.metaDescription,
   path: blogPath(post.slug),
   ogType: 'article',
-  image: media.image,
-  robots: 'index, follow, max-image-preview:large, max-snippet:-1',
+  image: ogImage,
+  imageAlt: `${post.title} — Tarkov Cheats guide`,
+  robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
 }
 
 const jsonLdExtra = [
@@ -42,12 +44,13 @@ const jsonLdExtra = [
     mainEntityOfPage: `${SITE_URL}${blogPath(post.slug)}`,
     image: {
       '@type': 'ImageObject',
-      url: absoluteMedia(media.image),
-      width: 800,
-      height: 450,
-      name: media.title,
-      caption: media.caption,
+      url: absoluteMedia(ogImage),
+      width: 1200,
+      height: 630,
+      name: post.metaTitle,
+      caption: post.metaDescription,
     },
+    thumbnailUrl: absoluteMedia(ogImage),
     inLanguage: 'en',
     articleSection: post.tag,
   },
@@ -57,10 +60,10 @@ const jsonLdExtra = [
           '@type': 'VideoObject',
           name: media.videoTitle || media.title,
           description: media.videoDescription || media.caption,
-          thumbnailUrl: absoluteMedia(media.image),
+          thumbnailUrl: absoluteMedia('/media/tarkov-video-thumb.jpg'),
           contentUrl: absoluteMedia(media.video),
           uploadDate: post.date,
-          isFamilyFriendly: false,
+          isFamilyFriendly: true,
         },
       ]
     : []),

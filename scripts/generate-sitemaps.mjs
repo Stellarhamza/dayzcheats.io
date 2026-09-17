@@ -14,47 +14,54 @@ const SITE = (process.env.SITE_URL || 'https://tarkovcheats.io').replace(/\/$/, 
 const TODAY = new Date().toLocaleDateString('en-CA')
 const HREFLANG = ['en', 'x-default']
 
-const SOLDIER = '/media/tarkov-soldier-hero.webp'
-const DELTA = '/media/tarkov-delta-hero.webp'
-const TACTICAL = '/media/tarkov-esp-gameplay.gif'
-const OBJECTIVE = '/media/tarkov-menu.gif'
-const PRODUCT_HERO = '/media/tarkov-delta-hero.webp'
-const PRODUCT_COVER = '/media/tarkov-auron-box.webp'
-const GAMEPLAY = '/media/tarkov-delta-gameplay.gif'
-const RANKED = '/media/tarkov-ranked-cover.webp'
+const REAPER_FULL = '/media/tarkov-reaper-full.webp'
+const REAPER_LITE = '/media/tarkov-reaper-lite.webp'
+const REAPER_BOX = '/media/tarkov-reaper-box.jpg'
+const ESP = '/media/tarkov-esp-gameplay.gif'
+const MENU = '/media/tarkov-menu.gif'
+const EXFIL = '/media/tarkov-exfil-esp.gif'
 const CONTROL = '/media/tarkov-control-art.jpg'
 const HOME_ART = '/media/tarkov-home-art.jpg'
 const TACTICAL_ART = '/media/tarkov-tactical-art.jpg'
+const VIDEO_THUMB = '/media/tarkov-video-thumb.jpg'
+const PREVIEW_VIDEO = '/videos/tarkov-preview.mp4'
 const OG_DEFAULT = '/og/tarkov-cheats.jpg'
 
 const ALL_SITE_IMAGES = [
-  SOLDIER,
-  DELTA,
-  TACTICAL,
-  OBJECTIVE,
-  PRODUCT_HERO,
-  PRODUCT_COVER,
-  GAMEPLAY,
-  RANKED,
+  REAPER_FULL,
+  REAPER_LITE,
+  REAPER_BOX,
+  ESP,
+  MENU,
+  EXFIL,
   CONTROL,
   HOME_ART,
   TACTICAL_ART,
-  OG_DEFAULT,
+  VIDEO_THUMB,
+  '/og/home.jpg',
+  '/og/tarkov-cheats.jpg',
+  '/og/forums.jpg',
+  '/og/reviews.jpg',
+  '/og/faq.jpg',
+  '/og/support.jpg',
+  '/og/privacy.jpg',
+  '/og/terms.jpg',
+  '/og/refunds.jpg',
 ]
 
 const FORUM_IMAGES = {
-  'features-list': PRODUCT_COVER,
-  hotkeys: OBJECTIVE,
-  'complete-setup': PRODUCT_HERO,
+  'features-list': REAPER_LITE,
+  hotkeys: MENU,
+  'complete-setup': REAPER_FULL,
   'disable-antivirus': CONTROL,
-  'undetected-status': PRODUCT_COVER,
-  'aimbot-settings': GAMEPLAY,
-  'esp-wallhack-guide': TACTICAL,
-  'radar-hack-guide': OBJECTIVE,
+  'undetected-status': REAPER_LITE,
+  'aimbot-settings': EXFIL,
+  'esp-wallhack-guide': ESP,
+  'radar-hack-guide': MENU,
   'stream-proof-setup': HOME_ART,
-  'battleye-status': PRODUCT_COVER,
-  'windows-setup': SOLDIER,
-  'raid-play-guide': RANKED,
+  'battleye-status': REAPER_LITE,
+  'windows-setup': REAPER_FULL,
+  'raid-play-guide': REAPER_BOX,
   'loader-errors': TACTICAL_ART,
 }
 
@@ -132,43 +139,114 @@ function imageBlock({ src, title, caption }) {
     </image:image>`
 }
 
-function urlEntry({ path, priority, changefreq, lastmod = TODAY, images }) {
+function videoBlock({ thumb, title, description, content }) {
+  return `    <video:video>
+      <video:thumbnail_loc>${escapeXml(siteUrl(thumb))}</video:thumbnail_loc>
+      <video:title>${escapeXml(asciiSafe(title))}</video:title>
+      <video:description>${escapeXml(asciiSafe(description))}</video:description>
+      <video:content_loc>${escapeXml(siteUrl(content))}</video:content_loc>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>`
+}
+
+function urlEntry({ path, priority, changefreq, lastmod = TODAY, images, videos = [] }) {
   if (!images?.length) throw new Error(`Sitemap entry for ${path} is missing images`)
   const url = siteUrl(path)
+  const media = [
+    ...images.map((image) => imageBlock(image)),
+    ...videos.map((video) => videoBlock(video)),
+  ]
   return `  <url>
     <loc>${escapeXml(url)}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
 ${alternateLinks(url)}
-${images.map((image) => imageBlock(image)).join('\n')}
+${media.join('\n')}
   </url>`
 }
 
 function imagesForPath(path, games, forums) {
   if (path === '/') {
     return [
-      { src: SOLDIER, title: 'Tarkov Cheats Hero', caption: 'Buy Tarkov cheats - Aimbot and ESP hero artwork for PC.' },
-      { src: DELTA, title: 'Tarkov Delta Product Box', caption: 'Tarkov Delta cheats product packaging for commercial listings.' },
-      { src: GAMEPLAY, title: 'Tarkov Cheats Gameplay Preview', caption: 'Tarkov Aimbot and ESP gameplay GIF for homepage previews.' },
-      { src: PRODUCT_COVER, title: 'Tarkov Auron Product Cover', caption: 'Tarkov cheats product cover for checkout and social previews.' },
-      { src: OG_DEFAULT, title: 'Tarkov Cheats Social Preview', caption: 'Default Open Graph image for Tarkov Cheats.' },
+      {
+        src: '/og/home.jpg',
+        title: 'Tarkov Cheats Open Graph',
+        caption: 'Google and social preview image for tarkovcheats.io homepage.',
+      },
+      {
+        src: REAPER_FULL,
+        title: 'Tarkov Cheats Hero',
+        caption: 'Buy Tarkov cheats - Escape from Tarkov Aimbot and ESP hero artwork for PC.',
+      },
+      {
+        src: REAPER_LITE,
+        title: 'EFT Reaper Product Cover',
+        caption: 'Escape from Tarkov cheats product cover for checkout and social previews.',
+      },
+      {
+        src: VIDEO_THUMB,
+        title: 'Tarkov Cheats Preview Thumbnail',
+        caption: 'Thumbnail for the Tarkov Aimbot and ESP preview video.',
+      },
+      {
+        src: OG_DEFAULT,
+        title: 'Tarkov Cheats Product Social Preview',
+        caption: 'Default Open Graph image for tarkovcheats.io product pages.',
+      },
     ]
   }
 
   const game = games.find((g) => path === `/${g.slug}-cheats`)
   if (game) {
     return [
-      { src: PRODUCT_COVER, title: 'Tarkov ESP Product Artwork', caption: 'Product features, compatibility, status and price before checkout.' },
-      { src: PRODUCT_HERO, title: `${game.name} Product Hero`, caption: `Hero artwork for ${game.name} product details and checkout.` },
-      { src: OBJECTIVE, title: `${game.name} Menu Preview`, caption: `Menu and feature preview GIF for ${game.name} cheats.` },
-      { src: TACTICAL, title: `${game.name} ESP Gameplay`, caption: `ESP and wallhack gameplay preview for ${game.name}.` },
-      { src: RANKED, title: `${game.name} Raid Cover`, caption: `Raid Cover art for ${game.name} listings.` },
+      {
+        src: '/og/tarkov-cheats.jpg',
+        title: 'EFT Cheats Open Graph',
+        caption: 'Google and social preview for Escape from Tarkov cheats product page.',
+      },
+      {
+        src: REAPER_LITE,
+        title: 'EFT Aimbot ESP Product Artwork',
+        caption: 'Product features, compatibility, status and price before checkout.',
+      },
+      {
+        src: REAPER_FULL,
+        title: `${game.name} Cheats Product Hero`,
+        caption: `Hero artwork for ${game.name} Aimbot, ESP and radar product details.`,
+      },
+      {
+        src: MENU,
+        title: `${game.name} Cheats Menu Preview`,
+        caption: `Menu and Aimbot settings preview for ${game.name} cheats.`,
+      },
+      {
+        src: ESP,
+        title: `${game.name} ESP Gameplay`,
+        caption: `Player ESP and wallhack preview for ${game.name}.`,
+      },
+      {
+        src: VIDEO_THUMB,
+        title: 'Tarkov Cheats Preview Thumbnail',
+        caption: 'Thumbnail for the Escape from Tarkov cheats preview video.',
+      },
     ]
   }
 
   if (path === '/forums') {
-    return [{ src: OBJECTIVE, title: 'Tarkov Cheats Forum Artwork', caption: 'Artwork reference for setup and feature threads.' }]
+    return [
+      {
+        src: '/og/forums.jpg',
+        title: 'Tarkov Cheats Forums Open Graph',
+        caption: 'Google preview image for Tarkov Cheats guides index.',
+      },
+      {
+        src: MENU,
+        title: 'Tarkov Cheats Forum Artwork',
+        caption: 'Artwork reference for Escape from Tarkov setup and feature guides.',
+      },
+    ]
   }
 
   if (path.startsWith('/forums/')) {
@@ -176,33 +254,104 @@ function imagesForPath(path, games, forums) {
     const forum = forums.find((f) => f.slug === slug)
     return [
       {
-        src: FORUM_IMAGES[slug] || OBJECTIVE,
+        src: `/og/forums-${slug}.jpg`,
+        title: `${forum?.title || slug} Open Graph`,
+        caption: `Google preview image for ${forum?.title || slug} on tarkovcheats.io.`,
+      },
+      {
+        src: FORUM_IMAGES[slug] || MENU,
         title: `${forum?.title || slug} Artwork`,
-        caption: `Visible Tarkov reference for ${forum?.title || slug}.`,
+        caption: `Visible Tarkov Cheats reference for ${forum?.title || slug}.`,
       },
     ]
   }
 
   if (path === '/reviews') {
-    return [{ src: TACTICAL, title: 'Tarkov Cheats Review Artwork', caption: 'Artwork accompanying verified buyer reviews.' }]
+    return [
+      {
+        src: '/og/reviews.jpg',
+        title: 'Tarkov Cheats Reviews Open Graph',
+        caption: 'Google preview image for Escape from Tarkov cheats reviews.',
+      },
+      {
+        src: ESP,
+        title: 'Tarkov Cheats Review Artwork',
+        caption: 'Artwork accompanying verified Escape from Tarkov cheats buyer reviews.',
+      },
+    ]
   }
   if (path === '/faq') {
-    return [{ src: OBJECTIVE, title: 'Tarkov Cheats FAQ Artwork', caption: 'Product artwork accompanying pre-purchase answers.' }]
+    return [
+      {
+        src: '/og/faq.jpg',
+        title: 'Tarkov Cheats FAQ Open Graph',
+        caption: 'Google preview image for Tarkov Cheats FAQ.',
+      },
+      {
+        src: MENU,
+        title: 'Tarkov Cheats FAQ Artwork',
+        caption: 'Product artwork accompanying pre-purchase EFT cheats answers.',
+      },
+    ]
   }
   if (path === '/support') {
-    return [{ src: TACTICAL, title: 'Tarkov Cheats Support Artwork', caption: 'Artwork accompanying load and delivery support.' }]
+    return [
+      {
+        src: '/og/support.jpg',
+        title: 'Tarkov Cheats Support Open Graph',
+        caption: 'Google preview image for Tarkov Cheats support.',
+      },
+      {
+        src: ESP,
+        title: 'Tarkov Cheats Support Artwork',
+        caption: 'Artwork accompanying Escape from Tarkov loader and delivery support.',
+      },
+    ]
   }
   if (path === '/privacy') {
-    return [{ src: OG_DEFAULT, title: 'Tarkov Cheats Privacy Policy', caption: 'Privacy policy for tarkovcheats.io orders and support.' }]
+    return [
+      {
+        src: '/og/privacy.jpg',
+        title: 'Tarkov Cheats Privacy Policy',
+        caption: 'Privacy policy preview for tarkovcheats.io orders and support.',
+      },
+    ]
   }
   if (path === '/terms') {
-    return [{ src: OG_DEFAULT, title: 'Tarkov Cheats Terms of Use', caption: 'License terms and risk disclaimer for Tarkov Cheats.' }]
+    return [
+      {
+        src: '/og/terms.jpg',
+        title: 'Tarkov Cheats Terms of Use',
+        caption: 'License terms preview for Tarkov Cheats.',
+      },
+    ]
   }
   if (path === '/refunds') {
-    return [{ src: OG_DEFAULT, title: 'Tarkov Cheats Refund Policy', caption: 'Refund rules for digital Tarkov Cheats licenses.' }]
+    return [
+      {
+        src: '/og/refunds.jpg',
+        title: 'Tarkov Cheats Refund Policy',
+        caption: 'Refund rules preview for digital Tarkov Cheats licenses.',
+      },
+    ]
   }
 
   return [{ src: OG_DEFAULT, title: 'Tarkov Cheats', caption: 'Tarkov Cheats page artwork.' }]
+}
+
+function videosForPath(path) {
+  if (path === '/' || path === '/tarkov-cheats') {
+    return [
+      {
+        thumb: VIDEO_THUMB,
+        title: 'Tarkov Cheats Aimbot and ESP Preview',
+        description:
+          'Self-hosted Escape from Tarkov cheats preview showing Aimbot, ESP menu and raid visuals on PC.',
+        content: PREVIEW_VIDEO,
+      },
+    ]
+  }
+  return []
 }
 
 function collectAllPaths(games, forums, staticRoutes) {
@@ -246,13 +395,15 @@ function buildSitemap(games, forums, allPaths) {
       changefreq: meta.changefreq,
       lastmod: forum?.date || TODAY,
       images: imagesForPath(path, games, forums),
+      videos: videosForPath(path),
     })
   })
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 ${entries.join('\n')}
 </urlset>
 `
@@ -303,6 +454,18 @@ function validate(games, forums, allPaths, sitemap) {
   for (const image of ALL_SITE_IMAGES) {
     if (!imageLocs.includes(siteUrl(image))) errors.push(`Sitemap missing required image: ${image}`)
   }
+  if (!sitemap.includes(siteUrl(PREVIEW_VIDEO))) {
+    errors.push('Sitemap missing Tarkov preview video content_loc')
+  }
+  if (/Delta|Auron|Warzone|warzonecheats|Ricochet/i.test(sitemap)) {
+    errors.push('Sitemap still contains legacy Warzone/Delta/Auron labels')
+  }
+  if (!sitemap.includes('tarkovcheats.io')) {
+    errors.push('Sitemap must target tarkovcheats.io')
+  }
+  if (/warzonecheats|wardogshacks|theisle/i.test(sitemap)) {
+    errors.push('Sitemap contains a non-Tarkov domain')
+  }
   if (imageLocs.length < expectedUrls.size) {
     errors.push('Image count is lower than page count - every URL needs an image')
   }
@@ -330,6 +493,7 @@ function main() {
       'Allow: /robots.txt',
       'Allow: /media/',
       'Allow: /og/',
+      'Allow: /videos/',
       '',
       'User-agent: Google-InspectionTool',
       'Allow: /',
@@ -337,11 +501,15 @@ function main() {
       'Allow: /robots.txt',
       'Allow: /media/',
       'Allow: /og/',
+      'Allow: /videos/',
       '',
       'User-agent: Bingbot',
       'Allow: /',
       'Allow: /sitemap.xml',
       'Allow: /robots.txt',
+      'Allow: /media/',
+      'Allow: /og/',
+      'Allow: /videos/',
       '',
       'User-agent: *',
       'Allow: /',
@@ -349,6 +517,7 @@ function main() {
       'Allow: /robots.txt',
       'Allow: /media/',
       'Allow: /og/',
+      'Allow: /videos/',
       'Disallow: /404',
       'Disallow: /404.html',
       '',

@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 import { PolicyPage } from '../views/PolicyPage'
 import { SITE_URL } from '../data/site'
 import { getPolicyPage } from '../data/policies'
-import { PAGE_IMAGES } from '../data/images'
+import { PAGE_OG } from '../data/og'
 
 const page = getPolicyPage('refunds')!
 const seo = {
@@ -11,8 +11,9 @@ const seo = {
   description: page.description,
   path: page.path,
   ogType: 'website' as const,
-  image: PAGE_IMAGES.support.src,
-  robots: 'index, follow, max-image-preview:large, max-snippet:-1',
+  image: PAGE_OG.refunds,
+  imageAlt: 'Tarkov Cheats refund policy',
+  robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
 }
 
 const jsonLdExtra = [

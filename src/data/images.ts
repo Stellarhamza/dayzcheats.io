@@ -3,18 +3,15 @@ import {
   TARKOV_SOLDIER,
   TARKOV_COVER,
   TARKOV_GAMEPLAY,
-  TARKOV_MENU,
   TARKOV_ESP,
 } from './media'
+import { TARKOV_OG, getOgImageForPath, PAGE_OG } from './og'
 
-export const TARKOV_OG = '/og/tarkov-cheats.jpg'
+export { TARKOV_OG, getOgImageForPath, PAGE_OG }
+export { forumOgImage } from './og'
+
 export const TARKOV_PRODUCT_HERO = TARKOV_HERO
 export const TARKOV_PRODUCT_COVER = TARKOV_COVER
-
-/** @deprecated aliases */
-export const WARZONE_OG = TARKOV_OG
-export const WARZONE_PRODUCT_HERO = TARKOV_PRODUCT_HERO
-export const WARZONE_PRODUCT_COVER = TARKOV_PRODUCT_COVER
 
 export type ImageSeoFields = {
   alt: string
@@ -40,47 +37,54 @@ export const IMAGE_SEO: Record<
   },
 }
 
-type PageImage = ImageSeoFields & { src: string }
+type PageImage = ImageSeoFields & { src: string; og: string }
 
+/** On-page media + dedicated OG JPEG for Google SERP thumbnails. */
 export const PAGE_IMAGES: Record<
   'home' | 'forums' | 'reviews' | 'faq' | 'support' | 'product',
   PageImage
 > = {
   home: {
     src: TARKOV_SOLDIER,
+    og: PAGE_OG.home,
     alt: 'Tarkov cheats Aimbot and ESP artwork for Escape from Tarkov PC',
     title: 'Tarkov Cheats',
     caption: 'Escape from Tarkov Aimbot, ESP, wallhack and loot radar overview.',
   },
   forums: {
     src: TARKOV_HERO,
+    og: PAGE_OG.forums,
     alt: 'Escape from Tarkov cheats product artwork',
     title: 'Tarkov Cheats Guides',
     caption: 'Setup, Aimbot and ESP guides for EFT.',
   },
   reviews: {
     src: TARKOV_ESP,
+    og: PAGE_OG.reviews,
     alt: 'Tarkov cheats review artwork',
     title: 'Tarkov Cheats Reviews',
     caption: 'Feature and compatibility feedback for Escape from Tarkov.',
   },
   faq: {
     src: TARKOV_GAMEPLAY,
+    og: PAGE_OG.faq,
     alt: 'Tarkov cheats FAQ artwork',
     title: 'Tarkov Cheats FAQ',
     caption: 'Compatibility, feature and setup answers for EFT.',
   },
   support: {
     src: TARKOV_HERO,
+    og: PAGE_OG.support,
     alt: 'Tarkov cheats support artwork',
     title: 'Tarkov Cheats Support',
     caption: 'Delivery, loader and setup support for Escape from Tarkov cheats.',
   },
   product: {
     src: TARKOV_COVER,
+    og: PAGE_OG.product,
     alt: 'EFT Aimbot ESP and loot filter product artwork',
     title: 'Tarkov Cheats Features',
-    caption: 'Product details for Escape from Tarkov Aimbot, ESP and radar.',
+    caption: 'Product details for Escape from Tarkov Aimbot and ESP.',
   },
 }
 
@@ -93,13 +97,7 @@ export function getProductHeroImage(_slug: string): string {
 }
 
 export function getOgImage(path?: string): string {
-  if (!path || path === '/') return PAGE_IMAGES.home.src
-  if (path === '/tarkov-cheats' || path === '/eft-cheats') return PAGE_IMAGES.product.src
-  if (path === '/forums') return PAGE_IMAGES.forums.src
-  if (path === '/reviews') return PAGE_IMAGES.reviews.src
-  if (path === '/faq') return PAGE_IMAGES.faq.src
-  if (path === '/support') return PAGE_IMAGES.support.src
-  return TARKOV_OG
+  return getOgImageForPath(path)
 }
 
 export function getPageImage(key: keyof typeof PAGE_IMAGES) {

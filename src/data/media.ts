@@ -8,38 +8,27 @@ export type SeoMediaItem = {
   videoDescription?: string
 }
 
-export const TARKOV_HERO = '/media/tarkov-delta-hero.webp'
-export const TARKOV_SOLDIER = '/media/tarkov-soldier-hero.webp'
-export const TARKOV_GAMEPLAY = '/media/tarkov-delta-gameplay.gif'
+/** Battlelog EFT Reaper product art + menu stills (self-hosted). */
+export const TARKOV_HERO = '/media/tarkov-reaper-full.webp'
+export const TARKOV_SOLDIER = '/media/tarkov-reaper-full.webp'
+export const TARKOV_GAMEPLAY = '/media/tarkov-exfil-esp.gif'
 export const TARKOV_MENU = '/media/tarkov-menu.gif'
 export const TARKOV_ESP = '/media/tarkov-esp-gameplay.gif'
-export const TARKOV_COVER = '/media/tarkov-auron-box.webp'
-export const TARKOV_RAID = '/media/tarkov-ranked-cover.webp'
+export const TARKOV_COVER = '/media/tarkov-reaper-lite.webp'
+export const TARKOV_RAID = '/media/tarkov-reaper-box.jpg'
 export const TARKOV_CONTROL = '/media/tarkov-control-art.jpg'
 export const TARKOV_HOME_ART = '/media/tarkov-home-art.jpg'
 export const TARKOV_TACTICAL = '/media/tarkov-tactical-art.jpg'
+export const TARKOV_VIDEO_THUMB = '/media/tarkov-video-thumb.jpg'
 
 /** Self-hosted battlelog EFT Reaper preview (Bunny Stream GUID 8bd1c340-…). */
 export const TARKOV_HOME_VIDEO = {
   id: '8bd1c340-5705-45d7-84c6-3a326a9747ce',
   src: '/videos/tarkov-preview.mp4',
-  poster: '/media/tarkov-video-thumb.jpg',
+  poster: TARKOV_VIDEO_THUMB,
   title: 'Tarkov Cheats Aimbot and ESP preview',
   caption: 'Preview of Escape from Tarkov Aimbot, ESP menu and loot radar features on PC.',
 } as const
-
-/** @deprecated aliases */
-export const WARZONE_HERO = TARKOV_HERO
-export const WARZONE_SOLDIER = TARKOV_SOLDIER
-export const WARZONE_GAMEPLAY = TARKOV_GAMEPLAY
-export const WARZONE_MENU = TARKOV_MENU
-export const WARZONE_ESP = TARKOV_ESP
-export const WARZONE_COVER = TARKOV_COVER
-export const WARZONE_RANKED = TARKOV_RAID
-export const WARZONE_CONTROL = TARKOV_CONTROL
-export const WARZONE_HOME_ART = TARKOV_HOME_ART
-export const WARZONE_TACTICAL = TARKOV_TACTICAL
-export const WARZONE_HOME_VIDEO = TARKOV_HOME_VIDEO
 
 export const PAGE_MEDIA = {
   home: {

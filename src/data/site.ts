@@ -1,4 +1,5 @@
-﻿import { TARKOV_OG, PAGE_IMAGES } from './images'
+﻿import { TARKOV_OG } from './images'
+import { PAGE_OG } from './og'
 
 export const SITE_URL = 'https://tarkovcheats.io'
 export const SITE_NAME = 'Tarkov Cheats'
@@ -40,9 +41,14 @@ export type PageSeo = {
   description: string
   path: string
   ogType?: 'website' | 'article' | 'product'
+  /** Prefer /og/*.jpg (1200x630) for Google SERP thumbnails */
   image?: string
+  imageAlt?: string
   robots?: string
 }
+
+const INDEX_ROBOTS =
+  'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
 
 export const SEO = {
   home: {
@@ -51,8 +57,9 @@ export const SEO = {
       'Buy Tarkov cheats for Escape from Tarkov (EFT) — undetected Aimbot, ESP, wallhack, loot filter and radar from $11.90. Check BattlEye status, then checkout.',
     path: '/',
     ogType: 'website',
-    image: PAGE_IMAGES.home.src,
-    robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+    image: PAGE_OG.home,
+    imageAlt: 'Tarkov Cheats — Escape from Tarkov Aimbot and ESP for PC',
+    robots: INDEX_ROBOTS,
   },
   forums: {
     title: 'Tarkov Cheats Guides | EFT Aimbot, ESP Setup & Status',
@@ -60,8 +67,9 @@ export const SEO = {
       'Escape from Tarkov cheats guides — Aimbot, ESP, loot filter, radar, antivirus exclusions, loader setup and BattlEye Undetected checks before you buy.',
     path: '/forums',
     ogType: 'website',
-    image: PAGE_IMAGES.forums.src,
-    robots: 'index, follow, max-image-preview:large, max-snippet:-1',
+    image: PAGE_OG.forums,
+    imageAlt: 'Tarkov Cheats setup guides for Aimbot, ESP and BattlEye',
+    robots: INDEX_ROBOTS,
   },
   reviews: {
     title: 'Tarkov Cheats Reviews | EFT Buyer Feedback',
@@ -69,8 +77,9 @@ export const SEO = {
       'Read Escape from Tarkov cheats reviews on Aimbot, ESP, loot ESP and BattlEye rebuilds before you buy an EFT license for PC.',
     path: '/reviews',
     ogType: 'website',
-    image: PAGE_IMAGES.reviews.src,
-    robots: 'index, follow, max-image-preview:large, max-snippet:-1',
+    image: PAGE_OG.reviews,
+    imageAlt: 'Tarkov Cheats buyer reviews for Escape from Tarkov',
+    robots: INDEX_ROBOTS,
   },
   faq: {
     title: 'Tarkov Cheats FAQ | EFT Price, BattlEye & Setup',
@@ -78,8 +87,9 @@ export const SEO = {
       'FAQ for buying Escape from Tarkov cheats (EFT) on Windows PC — price, Aimbot/ESP features, BattlEye status, loader setup and delivery.',
     path: '/faq',
     ogType: 'website',
-    image: PAGE_IMAGES.faq.src,
-    robots: 'index, follow, max-image-preview:large, max-snippet:-1',
+    image: PAGE_OG.faq,
+    imageAlt: 'Tarkov Cheats FAQ — price, BattlEye and setup',
+    robots: INDEX_ROBOTS,
   },
   support: {
     title: 'Tarkov Cheats Support | EFT Loader, Delivery & Setup',
@@ -87,8 +97,9 @@ export const SEO = {
       'Get help buying and loading Escape from Tarkov cheats — delivery email, Windows setup, antivirus exclusions, loader errors and BattlEye updates.',
     path: '/support',
     ogType: 'website',
-    image: PAGE_IMAGES.support.src,
-    robots: 'index, follow, max-image-preview:large, max-snippet:-1',
+    image: PAGE_OG.support,
+    imageAlt: 'Tarkov Cheats support for loader and delivery help',
+    robots: INDEX_ROBOTS,
   },
   product: {
     title: 'EFT Cheats Features & Price | Tarkov Aimbot, ESP, Radar',
@@ -96,8 +107,9 @@ export const SEO = {
       'Compare Escape from Tarkov cheats features and price — Aimbot, ESP, wallhack, loot filter, radar, HWID spoofer and BattlEye status before checkout.',
     path: '/tarkov-cheats',
     ogType: 'product',
-    image: PAGE_IMAGES.product.src,
-    robots: 'index, follow, max-image-preview:large, max-snippet:-1',
+    image: PAGE_OG.product,
+    imageAlt: 'Escape from Tarkov Aimbot, ESP and radar product details',
+    robots: INDEX_ROBOTS,
   },
 } as const satisfies Record<string, PageSeo>
 

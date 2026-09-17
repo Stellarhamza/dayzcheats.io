@@ -18,17 +18,21 @@ const { seo, jsonLdExtra = [], bodyClass = 'bg-z-bg text-z-ink' } = Astro.props
 const url = absoluteUrl(seo.path)
 const image = seo.image || OG_IMAGE
 const imageUrl = image.startsWith('http') ? image : absoluteUrl(image)
-const isProduct = seo.path === '/tarkov-cheats'
-const imageType = image.endsWith('.webp')
-  ? 'image/webp'
-  : image.endsWith('.gif')
-    ? 'image/gif'
-    : 'image/jpeg'
-const isGameplayImage = image.includes('/media/tarkov-')
-const imageWidth = isGameplayImage ? 800 : 1200
-const imageHeight = isGameplayImage ? 450 : 630
+const imageAlt = seo.imageAlt || seo.title
+/** Google SERP thumbnails prefer crawlable JPEG 1200x630 */
+const isOgJpeg = image.includes('/og/') && image.endsWith('.jpg')
+const imageType = isOgJpeg
+  ? 'image/jpeg'
+  : image.endsWith('.webp')
+    ? 'image/webp'
+    : image.endsWith('.gif')
+      ? 'image/gif'
+      : 'image/jpeg'
+const imageWidth = isOgJpeg ? 1200 : image.includes('/media/tarkov-') ? 800 : 1200
+const imageHeight = isOgJpeg ? 630 : image.includes('/media/tarkov-') ? 450 : 630
 const robots =
-  seo.robots || 'index, follow, max-image-preview:large, max-snippet:-1'
+  seo.robots ||
+  'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
 const jsonLd = buildPageJsonLd(seo, jsonLdExtra)
 const isHome = seo.path === '/' || seo.path === ''
 ---
@@ -44,13 +48,12 @@ const isHome = seo.path === '/' || seo.path === ''
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/favicon.svg" />
 
-    {isProduct ? <link rel="preload" as="image" href={imageUrl} type={imageType} fetchpriority="high" /> : null}
-
+    <link rel="preload" as="image" href={imageUrl} type={imageType} fetchpriority="high" />
     {isHome ? (
       <link
         rel="preload"
         as="image"
-        href="/media/tarkov-soldier-hero.webp"
+        href="/media/tarkov-reaper-full.webp"
         type="image/webp"
         fetchpriority="high"
       />
@@ -60,11 +63,14 @@ const isHome = seo.path === '/' || seo.path === ''
     <meta name="description" content={seo.description} />
     <meta name="robots" content={robots} />
     <meta name="googlebot" content={robots} />
+    <meta name="bingbot" content={robots} />
     <meta name="author" content={SITE_NAME} />
     <link rel="canonical" href={url} />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
     <link rel="alternate" hreflang="en" href={url} />
     <link rel="alternate" hreflang="x-default" href={url} />
+    {/* Legacy crawlers still read image_src for result thumbnails */}
+    <link rel="image_src" href={imageUrl} />
 
     <meta property="og:type" content={seo.ogType || 'website'} />
     <meta property="og:site_name" content={SITE_NAME} />
@@ -73,8 +79,9 @@ const isHome = seo.path === '/' || seo.path === ''
     <meta property="og:title" content={seo.title} />
     <meta property="og:description" content={seo.description} />
     <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:url" content={imageUrl} />
     <meta property="og:image:secure_url" content={imageUrl} />
-    <meta property="og:image:alt" content={seo.title} />
+    <meta property="og:image:alt" content={imageAlt} />
     <meta property="og:image:type" content={imageType} />
     <meta property="og:image:width" content={String(imageWidth)} />
     <meta property="og:image:height" content={String(imageHeight)} />
@@ -83,6 +90,7 @@ const isHome = seo.path === '/' || seo.path === ''
     <meta name="twitter:title" content={seo.title} />
     <meta name="twitter:description" content={seo.description} />
     <meta name="twitter:image" content={imageUrl} />
+    <meta name="twitter:image:alt" content={imageAlt} />
 
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
