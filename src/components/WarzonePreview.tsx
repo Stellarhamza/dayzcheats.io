@@ -1,50 +1,37 @@
-import {
-  WARZONE_ESP,
-  WARZONE_GAMEPLAY,
-  WARZONE_HOME_VIDEO,
-  WARZONE_MENU,
-} from '../data/media'
+import { TARKOV_HOME_VIDEO } from '../data/media'
 
-type WarzonePreviewProps = {
+type TarkovPreviewProps = {
   className?: string
   /** Wider crop on product page */
   wide?: boolean
 }
 
-/** Self-hosted Warzone preview — mediadelivery embeds 403 off battlelog domains. */
-export function WarzonePreview({ className = '', wide = false }: WarzonePreviewProps) {
+/** Self-hosted Tarkov preview scraped from battlelog (mediadelivery embeds 403 off-domain). */
+export function TarkovPreview({ className = '', wide = false }: TarkovPreviewProps) {
   return (
     <div className={`video-brand-mask border border-z-soft/20 ${className}`.trim()}>
       <div
         className={`relative w-full overflow-hidden ${wide ? 'aspect-video lg:aspect-[21/9]' : 'aspect-video'}`}
       >
-        <div className="absolute inset-0 grid grid-cols-3">
-          <img
-            src={WARZONE_GAMEPLAY}
-            alt="Warzone Aimbot gameplay preview"
-            className="h-full w-full object-cover"
-            loading="eager"
-            decoding="async"
-          />
-          <img
-            src={WARZONE_MENU}
-            alt="Warzone cheats menu preview"
-            className="h-full w-full object-cover"
-            loading="eager"
-            decoding="async"
-          />
-          <img
-            src={WARZONE_ESP}
-            alt="Warzone ESP wallhack gameplay preview"
-            className="h-full w-full object-cover"
-            loading="eager"
-            decoding="async"
-          />
-        </div>
+        <video
+          className="absolute inset-0 h-full w-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster={TARKOV_HOME_VIDEO.poster}
+          aria-label={TARKOV_HOME_VIDEO.title}
+        >
+          <source src={TARKOV_HOME_VIDEO.src} type="video/mp4" />
+        </video>
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-z-bg/50 via-transparent to-z-bg/20" />
         <div className="video-brand-blur" aria-hidden />
       </div>
-      <p className="sr-only">{WARZONE_HOME_VIDEO.title}</p>
+      <p className="sr-only">{TARKOV_HOME_VIDEO.title}</p>
     </div>
   )
 }
+
+/** @deprecated alias */
+export const WarzonePreview = TarkovPreview

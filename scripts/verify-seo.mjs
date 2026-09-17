@@ -1,9 +1,9 @@
-import { existsSync, readFileSync, readdirSync } from 'node:fs'
+﻿import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { join, relative } from 'node:path'
 
 const root = join(import.meta.dirname, '..')
 const dist = join(root, 'dist')
-const site = 'https://warzonecheats.uk'
+const site = 'https://tarkovcheats.io'
 const failures = []
 
 function fail(message) {
@@ -49,8 +49,8 @@ for (const file of files) {
     if (!html.includes(`rel="canonical" href="${canonicalUrl}"`)) {
       fail(`${page}: missing self-referencing canonical ${canonicalUrl}`)
     }
-    if (!html.includes(`hreflang="en-GB" href="${canonicalUrl}"`)) {
-      fail(`${page}: missing self-referencing hreflang=en-GB`)
+    if (!html.includes(`hreflang="en" href="${canonicalUrl}"`)) {
+      fail(`${page}: missing self-referencing hreflang=en`)
     }
     if (!html.includes(`hreflang="x-default" href="${canonicalUrl}"`)) {
       fail(`${page}: missing self-referencing hreflang=x-default`)
@@ -67,7 +67,7 @@ for (const file of files) {
 }
 
 const home = readFileSync(join(dist, 'index.html'), 'utf8')
-const product = readFileSync(join(dist, 'warzone-cheats', 'index.html'), 'utf8')
+const product = readFileSync(join(dist, 'tarkov-cheats', 'index.html'), 'utf8')
 const reviews = readFileSync(join(dist, 'reviews', 'index.html'), 'utf8')
 const faq = readFileSync(join(dist, 'faq', 'index.html'), 'utf8')
 const support = readFileSync(join(dist, 'support', 'index.html'), 'utf8')
@@ -80,10 +80,10 @@ const importantPages = [
   readFileSync(join(dist, 'forums', 'index.html'), 'utf8'),
 ]
 
-if (!home.includes('<title>Warzone Cheats | Aimbot, ESP, Wallhack &amp; Radar</title>')) {
+if (!home.includes('<title>Tarkov Cheats | Escape from Tarkov &amp; EFT Aimbot, ESP</title>')) {
   fail('Homepage does not own the exact transactional title')
 }
-if (product.includes('<title>Buy Warzone Cheats')) fail('Product details page competes with homepage')
+if (product.includes('<title>Buy Tarkov Cheats')) fail('Product details page competes with homepage')
 if ((faq.match(/"@type":"FAQPage"/g) || []).length !== 1) fail('/faq must own one FAQPage')
 for (const [name, html] of [
   ['home', home],
@@ -98,7 +98,7 @@ for (const [name, html] of [
   ['product', product],
   ['reviews', reviews],
 ]) {
-  if (!html.includes('"@id":"https://warzonecheats.uk/#product"')) {
+  if (!html.includes('"@id":"https://tarkovcheats.io/#product"')) {
     fail(`${name}: missing shared Product ID`)
   }
 }
@@ -116,12 +116,12 @@ for (const file of files) {
   if (html.includes('content="noindex')) fail(`${page}: content page must not be noindex`)
 }
 for (const html of importantPages) {
-  if (!html.includes('/media/warzone-')) {
-    fail('An important indexed page is missing visible Warzone media')
+  if (!html.includes('/media/tarkov-')) {
+    fail('An important indexed page is missing visible Tarkov media')
   }
 }
-if (!home.includes('/media/warzone-delta-gameplay.gif') || !home.includes('/media/warzone-esp-gameplay.gif')) {
-  fail('Homepage is missing the Warzone preview media strip')
+if (!home.includes('/videos/tarkov-preview.mp4') || !home.includes('/media/tarkov-video-thumb.jpg')) {
+  fail('Homepage is missing the self-hosted Tarkov preview video')
 }
 if (home.includes('iframe.mediadelivery.net') || product.includes('iframe.mediadelivery.net')) {
   fail('Pages still embed blocked mediadelivery video (403 off-domain)')
@@ -140,13 +140,13 @@ const pageLocs = urlBlocks.map((block) => block.match(/<loc>([^<]+)<\/loc>/)?.[1
 const uniqueSitemapUrls = new Set(pageLocs)
 const imageLocs = [...sitemap.matchAll(/<image:loc>([^<]+)<\/image:loc>/g)].map((match) => match[1])
 const requiredImages = [
-  '/media/warzone-soldier-hero.webp',
-  '/media/warzone-delta-hero.webp',
-  '/media/warzone-esp-gameplay.gif',
-  '/media/warzone-menu.gif',
-  '/media/warzone-auron-box.webp',
-  '/media/warzone-delta-gameplay.gif',
-  '/og/warzone-cheats.jpg',
+  '/media/tarkov-soldier-hero.webp',
+  '/media/tarkov-delta-hero.webp',
+  '/media/tarkov-esp-gameplay.gif',
+  '/media/tarkov-menu.gif',
+  '/media/tarkov-auron-box.webp',
+  '/media/tarkov-delta-gameplay.gif',
+  '/og/tarkov-cheats.jpg',
 ]
 
 for (const url of expectedUrls) {
@@ -197,7 +197,7 @@ if (!existsSync(join(dist, 'robots.txt'))) fail('dist/robots.txt is missing')
 if (!existsSync(join(dist, '_routes.json'))) fail('dist/_routes.json is missing')
 
 const robots = readFileSync(join(dist, 'robots.txt'), 'utf8')
-if (!robots.includes('Sitemap: https://warzonecheats.uk/sitemap.xml')) {
+if (!robots.includes('Sitemap: https://tarkovcheats.io/sitemap.xml')) {
   fail('robots.txt must point at the canonical HTTPS sitemap')
 }
 if (!robots.includes('Allow: /sitemap.xml')) {
@@ -213,12 +213,14 @@ if (!routes.exclude?.includes('/sitemap.xml') || !routes.exclude?.includes('/rob
 }
 
 for (const asset of [
-  'public/og/warzone-cheats.jpg',
-  'public/media/warzone-delta-hero.webp',
-  'public/media/warzone-auron-box.webp',
-  'public/media/warzone-delta-hero.webp',
-  'public/media/warzone-esp-gameplay.gif',
-  'public/media/warzone-menu.gif',
+  'public/og/tarkov-cheats.jpg',
+  'public/media/tarkov-delta-hero.webp',
+  'public/media/tarkov-auron-box.webp',
+  'public/media/tarkov-delta-hero.webp',
+  'public/media/tarkov-esp-gameplay.gif',
+  'public/media/tarkov-menu.gif',
+  'public/media/tarkov-video-thumb.jpg',
+  'public/videos/tarkov-preview.mp4',
   'public/sitemap.css',
   'public/_routes.json',
   'functions/_middleware.js',
@@ -228,10 +230,10 @@ for (const asset of [
 
 const redirects = readFileSync(join(root, 'public', '_redirects'), 'utf8')
 if (!redirects.includes('/sitemap-pages.xml')) {
-  fail('_redirects missing legacy sitemap → /sitemap.xml redirects')
+  fail('_redirects missing legacy sitemap â†’ /sitemap.xml redirects')
 }
 if (!redirects.includes('/sitemap-index.xml')) {
-  fail('_redirects missing sitemap-index.xml → /sitemap.xml redirect')
+  fail('_redirects missing sitemap-index.xml â†’ /sitemap.xml redirect')
 }
 
 const headers = readFileSync(join(root, 'public', '_headers'), 'utf8')

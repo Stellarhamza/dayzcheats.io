@@ -7,9 +7,9 @@ export type Game = {
   popular?: boolean
 }
 
-/** Site is Warzone Cheats only — no other titles in the catalog. */
+/** Site is Tarkov / EFT Cheats only — no other titles in the catalog. */
 export const GAMES: Game[] = [
-  { slug: 'warzone', name: 'Warzone', status: 'Undetected', popular: true },
+  { slug: 'tarkov', name: 'Escape from Tarkov', status: 'Undetected', popular: true },
 ]
 
 export function getGame(slug: string) {
@@ -27,36 +27,36 @@ export function parseGuideSlug(param: string) {
 
 export const GUIDE_FEATURES = [
   {
-    name: 'Warzone Aimbot',
-    text: 'Smooth, humanized Aimbot with FOV, smoothing and hitbox controls so shots look natural in Warzone lobbies.',
+    name: 'EFT Aimbot',
+    text: 'Smooth, humanized Aimbot with FOV, smoothing, bone selection and silent-aim options so shots look natural in Tarkov raids.',
   },
   {
     name: 'Player ESP / Wallhack',
-    text: 'See enemies through buildings and terrain with distance, health and team information when supported.',
+    text: 'See PMCs, Scavs and bosses through walls with distance, health, weapon and team information when supported.',
   },
   {
-    name: 'Loot & World ESP',
-    text: 'Highlight high-value loot, contracts and world items so you rotate with better information.',
+    name: 'Loot ESP & Price Filter',
+    text: 'Highlight keys, weapons, meds and high-value loot by category or rouble price so you clear rooms with intent.',
   },
   {
     name: 'Radar Hack',
-    text: '2D radar awareness for off-screen threats across Verdansk-style and current Warzone maps.',
+    text: '2D radar awareness for off-screen PMCs and Scavs across Customs, Interchange, Reserve, Streets and more.',
   },
   {
-    name: 'Stream-proof mode',
-    text: 'Keep supported overlays out of common capture software when you stream or clip.',
+    name: 'Exfil & Hazard Intel',
+    text: 'Mark extracts, tripwires and other raid hazards so you never push or extract blind.',
   },
   {
-    name: 'Triggerbot (optional)',
-    text: 'Optional trigger assistance where the current build supports it — leave off for a lower footprint.',
+    name: 'Movement Suite',
+    text: 'Optional speed hack, high jump and infinite stamina for extended control when the current build supports them.',
   },
   {
-    name: 'Windows PC support',
-    text: 'Built for Windows 10 and 11 on Intel and AMD CPUs with straightforward loader setup.',
+    name: 'HWID Spoofer + Cleaner',
+    text: 'Protect system identifiers and refresh traces after bans or hardware swaps — included with the package.',
   },
   {
-    name: 'Ricochet status + support',
-    text: 'Undetected or Updating status is reviewed after Ricochet and Warzone patches before you load.',
+    name: 'BattlEye status + support',
+    text: 'Undetected or Updating status is reviewed after BattlEye and Escape from Tarkov patches before you load.',
   },
 ] as const
 

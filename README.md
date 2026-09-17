@@ -1,8 +1,8 @@
-# Warzone Cheats (warzonecheats.uk)
+# Tarkov Cheats (tarkovcheats.io)
 
-Static Astro site for Call of Duty: Warzone cheats — Aimbot, ESP, wallhack, radar — Cloudflare Workers ready.
+Static Astro site for Escape from Tarkov (EFT) cheats — Aimbot, ESP, wallhack, loot filter, radar — Cloudflare Workers ready.
 
-UK-first SEO (`en-GB`) with worldwide English coverage.
+Worldwide English SEO targeting **tarkov cheats**, **escape from tarkov cheats**, and **eft cheats**.
 
 ```bash
 npm install

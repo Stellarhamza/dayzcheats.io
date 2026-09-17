@@ -9,29 +9,29 @@ import { CheckoutLink } from '../components/CheckoutLink'
 import { HOME_FAQS } from '../data/faqs'
 import { HOME_HEADINGS, SITE_HOST, SITE_NAME, SITE_PURPOSE } from '../data/site'
 import { BLOGS, blogPath } from '../data/blogs'
-import { WARZONE_HOME_VIDEO } from '../data/media'
-import { WarzonePreview } from '../components/WarzonePreview'
+import { TARKOV_HOME_VIDEO } from '../data/media'
+import { TarkovPreview } from '../components/WarzonePreview'
 
 const FEATURES = [
   {
     icon: Crosshair,
-    label: 'Warzone Aimbot',
-    desc: 'Humanized Aimbot with FOV, smoothing and hitbox controls for Warzone PC lobbies.',
+    label: 'EFT Aimbot',
+    desc: 'Humanized Aimbot with FOV, smoothing and bone selection for Escape from Tarkov PC raids.',
   },
   {
     icon: Eye,
     label: 'ESP / Wallhack',
-    desc: 'Player boxes, distance and health through buildings — plus loot ESP when supported.',
+    desc: 'PMC, Scav and boss boxes, distance and health through walls — plus loot ESP when supported.',
   },
   {
     icon: Radar,
     label: 'Radar hack',
-    desc: '2D radar for off-screen threats so third parties stop surprising your squad.',
+    desc: '2D radar for off-screen threats so flanks stop surprising your squad mid-raid.',
   },
   {
     icon: Sparkles,
-    label: 'Ricochet status',
-    desc: 'We mark Undetected or Updating after Warzone and Ricochet patches.',
+    label: 'BattlEye status',
+    desc: 'We mark Undetected or Updating after Tarkov and BattlEye patches.',
   },
 ] as const
 
@@ -40,8 +40,8 @@ export function HomePage() {
     <div className="min-h-screen overflow-x-hidden text-white">
       <section id="home" className="relative flex min-h-screen flex-col overflow-x-clip">
         <VideoBg
-          image="/media/warzone-soldier-hero.webp"
-          imageAlt="Warzone cheats Aimbot and ESP product artwork"
+          image="/media/tarkov-soldier-hero.webp"
+          imageAlt="Tarkov cheats Aimbot and ESP product artwork"
         />
 
         <div className="relative z-20 flex min-h-screen flex-col">
@@ -51,18 +51,18 @@ export function HomePage() {
             <div className="flex flex-col gap-6 sm:gap-8 lg:flex-row lg:items-end lg:justify-between">
               <div className="relative z-30 max-w-xl">
                 <p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-z-soft/80">
-                  Warzone · UK & Worldwide · {SITE_HOST}
+                  Tarkov · Worldwide · {SITE_HOST}
                 </p>
                 <h1 className="text-3xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[3.5rem]">
                   {HOME_HEADINGS.h1}
                 </h1>
                 <p className="mt-5 max-w-lg text-base leading-relaxed text-white/70 sm:text-lg">
-                  Undetected Warzone cheats for Windows PC — Aimbot, ESP, wallhack, radar hack and
-                  live Ricochet status for players in the UK and worldwide.
+                  Undetected Escape from Tarkov cheats (EFT cheats) for Windows PC — Aimbot, Tarkov ESP,
+                  EFT ESP, wallhack, loot filter, radar and live BattlEye status for worldwide raids.
                 </p>
 
                 <div className="relative z-50 mt-7">
-                  <HeroSearch placeholder="Search Warzone cheats…" />
+                  <HeroSearch placeholder="Search Tarkov cheats…" />
                 </div>
               </div>
 
@@ -75,21 +75,21 @@ export function HomePage() {
                     UD
                   </p>
                   <p className="mt-3 text-sm leading-relaxed text-white/70 sm:mt-4">
-                    Live undetected status for Warzone. Updated after Ricochet patches — not random
-                    Discord screenshots.
+                    Live undetected status for Escape from Tarkov. Updated after BattlEye patches —
+                    not random Discord screenshots.
                   </p>
                 </div>
 
                 <div className="glass flex h-full min-h-[168px] flex-col rounded-2xl p-5 sm:min-h-[200px] sm:p-6">
                   <div className="mb-3 flex items-center gap-2 sm:mb-4">
                     <div className="flex h-6 w-6 items-center justify-center rounded bg-z-accent/30 text-xs font-bold text-z-soft">
-                      WZ
+                      EFT
                     </div>
-                    <span className="text-sm font-semibold text-white">Warzone</span>
+                    <span className="text-sm font-semibold text-white">Escape from Tarkov</span>
                   </div>
                   <p className="flex-1 text-sm leading-relaxed text-white/80">
-                    “Bought for ESP and mild Aimbot. Status stayed honest after the last Ricochet
-                    rebuild — finally a UK-friendly shop.”
+                    “Bought for ESP and mild Aimbot. Status stayed honest after the last BattlEye
+                    rebuild — finally an honest status shop.”
                   </p>
                   <div className="mt-4 flex items-center gap-3 sm:mt-5">
                     <div className="flex h-9 w-9 items-center justify-center rounded-full bg-z-accent/25 text-sm font-semibold text-z-ink">
@@ -97,7 +97,7 @@ export function HomePage() {
                     </div>
                     <div>
                       <p className="text-sm font-semibold text-white">jayk</p>
-                      <p className="text-xs text-white/60">UK Warzone player</p>
+                      <p className="text-xs text-white/60">Tarkov player</p>
                     </div>
                   </div>
                 </div>
@@ -113,10 +113,10 @@ export function HomePage() {
         <section className="page-x py-12">
           <div className="mx-auto max-w-6xl">
             <h2 className="mb-5 text-xl font-semibold tracking-tight text-white sm:text-2xl">
-              Warzone Cheats preview
+              Tarkov Cheats preview
             </h2>
-            <WarzonePreview className="shadow-glow" />
-            <p className="mt-3 text-sm text-white/45">{WARZONE_HOME_VIDEO.caption}</p>
+            <TarkovPreview className="shadow-glow" />
+            <p className="mt-3 text-sm text-white/45">{TARKOV_HOME_VIDEO.caption}</p>
           </div>
         </section>
 
@@ -150,10 +150,10 @@ export function HomePage() {
                   Forums
                 </p>
                 <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                  Warzone Cheats forums
+                  Tarkov Cheats forums
                 </h2>
                 <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/55 sm:text-base">
-                  Bigger setup library — Aimbot, ESP, radar, Ranked, Ricochet status and loader
+                  Bigger setup library — Aimbot, ESP, radar, raid tips, BattlEye status and loader
                   fixes before you buy.
                 </p>
               </div>
@@ -193,13 +193,13 @@ export function HomePage() {
 
             <div className="page-card mt-8 flex flex-col gap-4 rounded-2xl p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
               <div>
-                <h3 className="text-lg font-semibold text-white">Warzone Cheats product</h3>
+                <h3 className="text-lg font-semibold text-white">Tarkov Cheats product</h3>
                 <p className="mt-1 text-sm text-white/55">
-                  Detailed features · Ricochet status · price · checkout
+                  Detailed features · BattlEye status · price · checkout
                 </p>
               </div>
               <a
-                href={guidePath('warzone')}
+                href={guidePath('tarkov')}
                 className="cta-gradient inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium text-white"
               >
                 View product details
@@ -222,10 +222,10 @@ export function HomePage() {
                   {SITE_PURPOSE} Clear features, honest Undetected status, and deep forums for
                   setup. Then check{' '}
                   <a
-                    href="/warzone-cheats"
+                    href="/tarkov-cheats"
                     className="text-white/80 underline-offset-2 hover:underline"
                   >
-                    Warzone feature list
+                    Tarkov feature list
                   </a>
                   ,{' '}
                   <a href="/reviews" className="text-white/80 underline-offset-2 hover:underline">
@@ -239,7 +239,7 @@ export function HomePage() {
                 </p>
               </div>
               <a
-                href={guidePath('warzone')}
+                href={guidePath('tarkov')}
                 className="mt-8 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-white hover:text-white/80"
               >
                 Open product page
@@ -259,12 +259,12 @@ export function HomePage() {
                   {HOME_HEADINGS.h2Access}
                 </h2>
                 <p className="mt-4 text-sm leading-relaxed text-white/55 sm:text-base">
-                  Confirm Warzone Cheats status is Undetected, then checkout for digital delivery
-                  on supported Windows builds — UK and worldwide.
+                  Confirm Tarkov Cheats status is Undetected, then checkout for digital delivery
+                  on supported Windows builds — worldwide.
                 </p>
               </div>
               <CheckoutLink className="cta-gradient mt-8 inline-flex w-full items-center justify-center rounded-full px-6 py-3.5 text-sm font-medium text-white transition-opacity hover:opacity-90 sm:w-fit">
-                Buy Warzone Cheats
+                Buy Tarkov Cheats
               </CheckoutLink>
             </div>
           </div>
@@ -273,7 +273,7 @@ export function HomePage() {
         <FaqSection
           id="faq"
           heading={HOME_HEADINGS.h2Faq}
-          intro="Pre-purchase answers about Ricochet status, Aimbot/ESP, UK delivery and checkout."
+          intro="Pre-purchase answers about BattlEye status, Aimbot/ESP, delivery and checkout."
           items={HOME_FAQS}
         />
 

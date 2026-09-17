@@ -5,7 +5,7 @@ import { getReviewsAggregate, REVIEWS } from '../data/reviews'
 import { CheckoutLink } from '../components/CheckoutLink'
 import { SeoMedia } from '../components/SeoMedia'
 import { SITE_NAME } from '../data/site'
-import { PAGE_MEDIA, WARZONE_ESP, WARZONE_GAMEPLAY, WARZONE_MENU } from '../data/media'
+import { PAGE_MEDIA, TARKOV_ESP, TARKOV_GAMEPLAY, TARKOV_MENU } from '../data/media'
 
 function Stars({ rating }: { rating: number }) {
   return (
@@ -37,12 +37,12 @@ export function ReviewsPage() {
               {SITE_NAME} · Community reviews
             </p>
             <h1 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-5xl">
-              Warzone Cheats Reviews
+              Tarkov Cheats Reviews
             </h1>
             <p className="mt-4 max-w-3xl text-base leading-relaxed text-white/55">
-              Reviews from Warzone players who bought Warzone Cheats — ESP accuracy,
+              Reviews from Escape from Tarkov players who bought Tarkov Cheats — ESP accuracy,
               Undetected honesty, and whether the build held after the last patch. Read the{' '}
-              <a href="/warzone-cheats" className="text-white/80 underline-offset-2 hover:underline">
+              <a href="/tarkov-cheats" className="text-white/80 underline-offset-2 hover:underline">
                 product page
               </a>
               ,{' '}
@@ -56,7 +56,7 @@ export function ReviewsPage() {
               .
             </p>
             <p className="mt-3 text-sm text-white/45" aria-label="Aggregate rating">
-              Average {aggregate.ratingValue} / 5 from {aggregate.reviewCount} Warzone Cheats
+              Average {aggregate.ratingValue} / 5 from {aggregate.reviewCount} Tarkov Cheats
               reviews
             </p>
           </div>
@@ -69,28 +69,28 @@ export function ReviewsPage() {
         </section>
 
         <section
-          aria-label="Warzone gameplay previews"
+          aria-label="Escape from Tarkov gameplay previews"
           className="relative mt-10 border-y border-z-soft/20 bg-z-band sm:mt-12"
         >
           <div className="video-strip video-strip--reviews relative w-full overflow-hidden">
             <div className="grid h-full grid-cols-3">
               <img
-                src={WARZONE_GAMEPLAY}
-                alt="Warzone Aimbot gameplay preview"
+                src={TARKOV_GAMEPLAY}
+                alt="Escape from Tarkov Aimbot gameplay preview"
                 className="h-full w-full object-cover"
                 loading="lazy"
                 decoding="async"
               />
               <img
-                src={WARZONE_MENU}
-                alt="Warzone cheats menu preview"
+                src={TARKOV_MENU}
+                alt="Tarkov cheats menu preview"
                 className="h-full w-full object-cover"
                 loading="lazy"
                 decoding="async"
               />
               <img
-                src={WARZONE_ESP}
-                alt="Warzone ESP wallhack gameplay preview"
+                src={TARKOV_ESP}
+                alt="Tarkov ESP wallhack gameplay preview"
                 className="h-full w-full object-cover"
                 loading="lazy"
                 decoding="async"
@@ -107,7 +107,7 @@ export function ReviewsPage() {
         <section className="page-x py-14 sm:py-16">
           <div className="mx-auto max-w-6xl">
             <h2 className="mb-6 text-xl font-semibold tracking-tight text-white">
-              Latest Warzone Cheats feedback
+              Latest Tarkov Cheats feedback
             </h2>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {REVIEWS.map((review) => (
@@ -156,19 +156,19 @@ export function ReviewsPage() {
                 Next step
               </p>
               <h2 className="mt-3 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-                Ready to buy Warzone Cheats?
+                Ready to buy Tarkov Cheats?
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-white/55">
                 Open the guide, confirm Undetected status, then checkout — or visit{' '}
                 <a href="/support" className="text-white underline-offset-2 hover:underline">
-                  Warzone Cheats support
+                  Tarkov Cheats support
                 </a>{' '}
                 for load and inject help.
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end">
               <a
-                href="/warzone-cheats"
+                href="/tarkov-cheats"
                 className="inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-white/5"
               >
                 Product details

@@ -15,13 +15,13 @@ import { FaqSection } from '../components/FaqSection'
 import { CheckoutLink } from '../components/CheckoutLink'
 import { NotFoundPage } from './NotFoundPage'
 import { blogPath } from '../data/blogs'
-import { WARZONE_HOME_VIDEO } from '../data/media'
-import { WarzonePreview } from '../components/WarzonePreview'
+import { TARKOV_HOME_VIDEO } from '../data/media'
+import { TarkovPreview } from '../components/WarzonePreview'
 
 function ProductPurchaseCard({ game }: { game: Game }) {
   return (
     <div className="page-card overflow-hidden rounded-2xl sm:rounded-3xl">
-      <CheckoutLink className="block" aria-label="Buy Warzone Cheats">
+      <CheckoutLink className="block" aria-label="Buy Tarkov Cheats">
         <GameCover
           slug={game.slug}
           name={game.name}
@@ -32,17 +32,17 @@ function ProductPurchaseCard({ game }: { game: Game }) {
       </CheckoutLink>
       <div className="p-5 sm:p-8">
         <div className="flex items-center gap-3">
-          <div className="icon-well shrink-0 text-sm font-bold">WZ</div>
+          <div className="icon-well shrink-0 text-sm font-bold">EFT</div>
           <div className="min-w-0">
-            <p className="truncate text-sm font-semibold text-white">Warzone Cheats</p>
+            <p className="truncate text-sm font-semibold text-white">Tarkov Cheats</p>
             <p className="text-xs text-white/45">
-              Status: {game.status} · Warzone · From ${PRODUCT_PRICE_USD}
+              Status: {game.status} · Escape from Tarkov · From ${PRODUCT_PRICE_USD}
             </p>
           </div>
         </div>
 
         <CheckoutLink className="cta-gradient mt-5 block w-full rounded-full py-3.5 text-center text-sm font-semibold text-white transition-opacity hover:opacity-90 sm:mt-6">
-          Buy Warzone Cheats
+          Buy Tarkov Cheats
         </CheckoutLink>
         <p className="mt-3 text-center text-[11px] text-white/40">
           Instant delivery · Check Undetected first
@@ -93,24 +93,25 @@ export function GameProductPage({ guideSlug }: GameProductPageProps) {
               <span className="min-w-0 text-white/70">Product details</span>
             </nav>
 
-            <WarzonePreview wide className="mt-5 sm:mt-8" />
-            <p className="mt-3 text-sm text-white/45">{WARZONE_HOME_VIDEO.caption}</p>
+            <TarkovPreview wide className="mt-5 sm:mt-8" />
+            <p className="mt-3 text-sm text-white/45">{TARKOV_HOME_VIDEO.caption}</p>
 
             <div className="mt-5 sm:mt-6">
               <span className="inline-flex items-center gap-1.5 text-xs text-z-soft">
                 <Shield className="h-3.5 w-3.5 shrink-0 text-z-soft" strokeWidth={1.75} />
-                {game.status} · Warzone · Ricochet · {SITE_HOST}
+                {game.status} · Escape from Tarkov · BattlEye · {SITE_HOST}
               </span>
 
               <h1 className="mt-3 text-2xl font-semibold leading-tight tracking-tight text-white sm:mt-4 sm:text-4xl lg:text-5xl">
-                Warzone Cheats Features, Price & Checkout
+                Tarkov Cheats Features, Price & Checkout
               </h1>
               <p className="mt-3 max-w-2xl text-sm leading-relaxed text-white/55 sm:mt-4 sm:text-base">
-                Compare Warzone Aimbot, ESP, wallhack, radar hack and stream-proof options for PC.
-                Confirm Ricochet status, then continue to checkout — UK and worldwide delivery.
+                Compare EFT Aimbot, Tarkov ESP, EFT ESP, wallhack, loot filter, radar hack and
+                stream-proof options for Escape from Tarkov cheats on PC. Confirm BattlEye status,
+                then checkout — worldwide delivery.
               </p>
               <CheckoutLink className="cta-gradient mt-5 inline-flex items-center justify-center rounded-full px-7 py-3.5 text-sm font-semibold text-white transition-opacity hover:opacity-90">
-                Buy Warzone Cheats
+                Buy Tarkov Cheats
               </CheckoutLink>
             </div>
 
@@ -122,7 +123,7 @@ export function GameProductPage({ guideSlug }: GameProductPageProps) {
               <div className="space-y-10 lg:col-span-7">
                 <div>
                   <h2 className="text-lg font-semibold tracking-tight text-white sm:text-xl">
-                    Included Warzone features
+                    Included Tarkov features
                   </h2>
                   <div className="mt-4 grid gap-3 sm:grid-cols-2">
                     {GUIDE_FEATURES.map((f) => (
@@ -146,23 +147,23 @@ export function GameProductPage({ guideSlug }: GameProductPageProps) {
                     Aimbot, ESP, wallhack & radar
                   </h2>
                   <p>
-                    Warzone Cheats lead with humanized Aimbot, player ESP through buildings, loot
-                    awareness and a 2D radar so third parties stop ending your games early.
+                    Tarkov Cheats lead with humanized Aimbot, player ESP through walls, loot
+                    awareness and a 2D radar so flanks stop ending your raids early.
                   </p>
                   <p>
-                    Soft Aimbot stays optional. For Ranked UK lobbies, run ESP + radar first and keep
-                    Aimbot conservative.
+                    Soft Aimbot stays optional. For high-stakes raids, run ESP + radar first and
+                    keep Aimbot conservative.
                   </p>
                 </div>
 
                 <div className="space-y-3 text-sm leading-relaxed text-white/55">
                   <h2 className="text-lg font-semibold tracking-tight text-white sm:text-xl">
-                    Ricochet Undetected status
+                    BattlEye Undetected status
                   </h2>
                   <p>
-                    Warzone uses Ricochet. After a client or anti-cheat patch, builds can flip to
-                    Updating until tested. {SITE_NAME} shows live Undetected status so you are not
-                    buying a dead loader.
+                    Escape from Tarkov uses BattlEye. After a client or anti-cheat patch, builds can
+                    flip to Updating until tested. {SITE_NAME} shows live Undetected status so you
+                    are not buying a dead loader.
                   </p>
                   <p>Rule: status first, load second.</p>
                 </div>
@@ -175,7 +176,7 @@ export function GameProductPage({ guideSlug }: GameProductPageProps) {
                     <li>Confirm current status on {SITE_HOST}.</li>
                     <li>Confirm Undetected (or accept Updating risk).</li>
                     <li>Scan Aimbot / ESP / radar features on this page.</li>
-                    <li>Checkout for digital licence delivery (UK & worldwide).</li>
+                    <li>Checkout for digital license delivery worldwide.</li>
                     <li>
                       Follow the{' '}
                       <a
@@ -200,12 +201,12 @@ export function GameProductPage({ guideSlug }: GameProductPageProps) {
         </section>
 
         <FaqSection
-          heading="Warzone Cheats product FAQ"
-          intro="Status, features, UK delivery and load questions before checkout."
+          heading="Tarkov Cheats product FAQ"
+          intro="Status, features, delivery and load questions before checkout."
           items={PRODUCT_PAGE_FAQS}
         />
 
-        <SiteFooter currentPath="/warzone-cheats" />
+        <SiteFooter currentPath="/tarkov-cheats" />
       </main>
     </div>
   )

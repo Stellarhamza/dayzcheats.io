@@ -18,7 +18,7 @@ export function HeroSearch({
   value,
   onChange,
   submitTo = 'forums',
-  placeholder = 'Search Warzone Cheats…',
+  placeholder = 'Search Tarkov Cheats…',
   autoFocus = false,
   className = '',
 }: HeroSearchProps) {
@@ -42,10 +42,10 @@ export function HeroSearch({
     const term = q.trim().toLowerCase()
     if (!term) return []
     const cheatAliases = [
-      'Warzone Cheats',
-      'the Warzone Cheats',
-      'Warzone Cheats',
-      'Warzonehacks',
+      'tarkov cheats',
+      'eft cheats',
+      'escape from tarkov cheats',
+      'tarkovhacks',
       'cheats',
     ]
     if (cheatAliases.some((a) => a.includes(term) || term.includes(a))) {

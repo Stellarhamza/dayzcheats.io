@@ -1,6 +1,6 @@
-# Cloudflare Workers + static assets — required so CI `npx wrangler deploy` succeeds.
+﻿# Cloudflare Workers + static assets — required so CI `npx wrangler deploy` succeeds.
 # (Dashboard is locked to that command; `wrangler pages deploy` is not used.)
-name = "warzoneqrh"
+name = "tarkovqrh"
 main = "workers/site.js"
 compatibility_date = "2026-09-12"
 
@@ -10,11 +10,11 @@ compatibility_date = "2026-09-12"
 command = "npm run build"
 
 [[routes]]
-pattern = "warzonecheats.uk"
+pattern = "tarkovcheats.io"
 custom_domain = true
 
 [[routes]]
-pattern = "www.warzonecheats.uk"
+pattern = "www.tarkovcheats.io"
 custom_domain = true
 
 [assets]

@@ -18,13 +18,13 @@ const { seo, jsonLdExtra = [], bodyClass = 'bg-z-bg text-z-ink' } = Astro.props
 const url = absoluteUrl(seo.path)
 const image = seo.image || OG_IMAGE
 const imageUrl = image.startsWith('http') ? image : absoluteUrl(image)
-const isProduct = seo.path === '/warzone-cheats'
+const isProduct = seo.path === '/tarkov-cheats'
 const imageType = image.endsWith('.webp')
   ? 'image/webp'
   : image.endsWith('.gif')
     ? 'image/gif'
     : 'image/jpeg'
-const isGameplayImage = image.includes('/media/warzone-')
+const isGameplayImage = image.includes('/media/tarkov-')
 const imageWidth = isGameplayImage ? 800 : 1200
 const imageHeight = isGameplayImage ? 450 : 630
 const robots =
@@ -34,14 +34,13 @@ const isHome = seo.path === '/' || seo.path === ''
 ---
 
 <!doctype html>
-<html lang="en-GB">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="dark" />
     <meta name="theme-color" content="#08060f" />
     <meta name="format-detection" content="telephone=no" />
-    <meta name="geo.region" content="GB" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/favicon.svg" />
 
@@ -51,7 +50,7 @@ const isHome = seo.path === '/' || seo.path === ''
       <link
         rel="preload"
         as="image"
-        href="/media/warzone-soldier-hero.webp"
+        href="/media/tarkov-soldier-hero.webp"
         type="image/webp"
         fetchpriority="high"
       />
@@ -64,14 +63,12 @@ const isHome = seo.path === '/' || seo.path === ''
     <meta name="author" content={SITE_NAME} />
     <link rel="canonical" href={url} />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-    <link rel="alternate" hreflang="en-GB" href={url} />
     <link rel="alternate" hreflang="en" href={url} />
     <link rel="alternate" hreflang="x-default" href={url} />
 
     <meta property="og:type" content={seo.ogType || 'website'} />
     <meta property="og:site_name" content={SITE_NAME} />
-    <meta property="og:locale" content="en_GB" />
-    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:url" content={url} />
     <meta property="og:title" content={seo.title} />
     <meta property="og:description" content={seo.description} />

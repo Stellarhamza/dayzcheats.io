@@ -1,5 +1,5 @@
 import {
-  OFFICIAL_WARZONE_LINKS,
+  OFFICIAL_TARKOV_LINKS,
   SITE_GUIDE_LINKS,
   SITE_PAGE_LINKS,
 } from '../data/links'
@@ -26,7 +26,7 @@ function isCurrent(to: string, currentPath?: string) {
 }
 
 /**
- * HTML sitemap: internal + Official Warzone links for crawl paths.
+ * HTML sitemap: internal + Official Tarkov links for crawl paths.
  * Always renders the full link set — current page is marked, not removed.
  */
 export function SiteLinkHub({ currentPath, variant = 'section' }: SiteLinkHubProps) {
@@ -77,10 +77,10 @@ export function SiteLinkHub({ currentPath, variant = 'section' }: SiteLinkHubPro
         </div>
         <div>
           <p className="text-xs font-semibold uppercase tracking-wider text-white/45">
-            Official Warzone
+            Official Tarkov
           </p>
           <ul className="mt-3 space-y-2 text-white/65">
-            {OFFICIAL_WARZONE_LINKS.map((l) => (
+            {OFFICIAL_TARKOV_LINKS.map((l) => (
               <li key={l.href}>
                 <a
                   href={l.href}
@@ -111,11 +111,11 @@ export function SiteLinkHub({ currentPath, variant = 'section' }: SiteLinkHubPro
           id="site-link-hub-heading"
           className="mt-2 text-xl font-semibold tracking-tight text-white sm:text-2xl"
         >
-          Warzone Cheats sitemap
+          Tarkov Cheats sitemap
         </h2>
         <p className="mt-2 max-w-2xl text-sm text-white/50">
           Every indexed page — product, forums, FAQ, support, reviews — plus the official
-          Warzone website and Steam store for Warzone.
+          Escape from Tarkov website and launcher for EFT.
         </p>
 
         <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -177,9 +177,9 @@ export function SiteLinkHub({ currentPath, variant = 'section' }: SiteLinkHubPro
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold text-white">Official Warzone</h3>
+            <h3 className="text-sm font-semibold text-white">Official Tarkov</h3>
             <ul className="mt-3 space-y-2.5">
-              {OFFICIAL_WARZONE_LINKS.map((l) => (
+              {OFFICIAL_TARKOV_LINKS.map((l) => (
                 <li key={l.href}>
                   <div className="group block text-sm text-white/70">
                     <a

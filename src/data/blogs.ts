@@ -1,4 +1,4 @@
-export type BlogSection = {
+﻿export type BlogSection = {
   heading: string
   body: string[]
 }
@@ -17,18 +17,18 @@ export type BlogPost = {
 }
 
 /**
- * Commercial / transactional buyer guides — expanded for Warzone UK SEO.
+ * Commercial / transactional buyer guides — expanded for Tarkov SEO.
  */
 export const BLOGS: BlogPost[] = [
   {
     slug: 'features-list',
-    title: 'Warzone Cheats Features List',
+    title: 'Tarkov Cheats Features List',
     excerpt:
-      'Full Warzone cheats features before you buy — Aimbot, ESP, wallhack, radar hack, stream-proof and Ricochet status.',
-    metaTitle: 'Warzone Cheats Features | Aimbot, ESP & Radar List',
+      'Full Escape from Tarkov cheats features before you buy — Aimbot, ESP, wallhack, loot filter, radar, HWID spoofer and BattlEye status from $11.90.',
+    metaTitle: 'Tarkov Cheats Features | EFT Aimbot, ESP & Radar List',
     metaDescription:
-      'Compare Warzone Aimbot, ESP, wallhack, radar hack and stream-proof features for PC players in the UK and worldwide.',
-    searchTerms: 'warzone cheats features aimbot esp wallhack radar uk',
+      'Compare Escape from Tarkov Aimbot, ESP, wallhack, loot filter, radar and HWID spoofer on tarkovcheats.io from $11.90.',
+    searchTerms: 'tarkov cheats features eft aimbot esp wallhack loot filter radar',
     date: '2026-09-15',
     readMinutes: 8,
     tag: 'Features',
@@ -36,39 +36,39 @@ export const BLOGS: BlogPost[] = [
       {
         heading: 'What you get when you buy',
         body: [
-          'Warzone Cheats on warzonecheats.uk is one product for Call of Duty: Warzone on Windows PC. You are buying a loader + licence with live Undetected / Updating status — not a random multi-game pack.',
-          'UK and worldwide buyers get the same digital delivery after checkout. Open the product page, confirm Ricochet status, then buy when Undetected.',
+          'Tarkov Cheats on tarkovcheats.io is one Escape from Tarkov (EFT) product for Windows PC. You are buying a loader + license with live Undetected / Updating status against BattlEye — not a random multi-game pack.',
+          'Licenses start from $11.90. worldwide buyers get the same digital delivery after checkout. Open the product page, confirm BattlEye status, then buy when Undetected.',
         ],
       },
       {
         heading: 'Core features list',
         body: [
-          'Warzone Aimbot — FOV, smoothing, hitbox and visible-check options for humanized tracking.',
-          'Player ESP / wallhack — boxes, skeletons, distance and health through buildings and terrain.',
-          'Loot / world ESP — highlight valuable loot and world items when the build supports it.',
-          'Radar hack — 2D radar for off-screen threats across the current Warzone map pool.',
+          'EFT Aimbot — FOV, smoothing, hitbox and visible-check options for humanized tracking on PMCs and Scavs.',
+          'Player ESP / wallhack — boxes, skeletons, distance and health through walls on Customs, Interchange, Labs and every other map.',
+          'Loot filter / loot ESP — highlight high-value items by price so you extract with worth, not clutter.',
+          'Radar hack — 2D radar for off-screen PMCs, Scavs and boss packs across the raid.',
+          'HWID spoofer — optional hardware ID spoof support when the current build includes it.',
           'Stream-proof — keep supported overlays out of OBS and common capture tools.',
-          'Optional triggerbot — leave off if you want the lowest-report footprint.',
         ],
       },
       {
-        heading: 'Why UK players search these terms',
+        heading: 'Why players search these terms',
         body: [
-          'Searches like “Warzone cheats UK”, “Warzone aimbot” and “Warzone ESP” map to the same toolkit. Status and setup quality matter as much as the feature names on the sales page.',
-          'Read the Aimbot settings, ESP wallhack and Ricochet status guides next, then checkout only when Undetected is live.',
+          'Searches like "tarkov cheats", "escape from tarkov cheats" and "eft cheats" map to the same toolkit. BattlEye status and setup quality matter as much as the feature names on the sales page.',
+          'Read the Aimbot settings, ESP wallhack and BattlEye status guides next, then checkout only when Undetected is live on tarkovcheats.io.',
         ],
       },
     ],
   },
   {
     slug: 'aimbot-settings',
-    title: 'Warzone Aimbot Settings Guide',
+    title: 'EFT Aimbot Settings Guide',
     excerpt:
-      'Tune Warzone Aimbot FOV, smoothing, hitbox and visible-check so tracking stays effective without looking robotic.',
-    metaTitle: 'Warzone Aimbot Settings | FOV, Smoothing & Hitbox',
+      'Tune Escape from Tarkov Aimbot FOV, smoothing, hitbox and visible-check so PMC and Scav tracking stays effective without looking robotic.',
+    metaTitle: 'Tarkov Aimbot Settings | EFT FOV, Smoothing & Hitbox',
     metaDescription:
-      'Warzone Aimbot setup for PC: FOV, smoothing, humanized tracking, visible-check and ranked-safe defaults for UK lobbies.',
-    searchTerms: 'warzone aimbot settings fov smoothing humanized uk',
+      'Escape from Tarkov Aimbot setup for PC: FOV, smoothing, humanized tracking and visible-check for raid-safe EFT cheats.',
+    searchTerms: 'tarkov aimbot settings eft cheats fov smoothing humanized',
     date: '2026-09-15',
     readMinutes: 10,
     tag: 'Aimbot',
@@ -76,43 +76,43 @@ export const BLOGS: BlogPost[] = [
       {
         heading: 'Start conservative',
         body: [
-          'Blatant Aimbot is the fastest way to get reported in Warzone. Start with a tight FOV, heavy smoothing and chest or nearest-bone targeting before you ever touch head-only snap settings.',
-          'Confirm Undetected status first. Aimbot settings cannot save a detected build after a Ricochet update.',
+          'Blatant Aimbot is the fastest way to get reported in Escape from Tarkov raids. Start with a tight FOV, heavy smoothing and chest or nearest-bone targeting before you ever touch head-only snap settings.',
+          'Confirm Undetected status against BattlEye first. Aimbot settings cannot save a detected build after a Battlestate Games / BattlEye update.',
         ],
       },
       {
         heading: 'FOV, smoothing and distance',
         body: [
-          'FOV controls how large the assist cone is. Smaller FOV looks more like good tracking; huge FOV looks like a magnet.',
+          'FOV controls how large the assist cone is. Smaller FOV looks more like good tracking; huge FOV looks like a magnet in close dorms or Interchange aisles.',
           'Smoothing is your primary stealth lever. Higher smoothing = slower, more human corrections. Lower smoothing = snappier and riskier.',
-          'Cap aim distance so mid/long fights do not look impossible from impossible angles.',
+          'Cap aim distance so mid/long peeks on Customs or Woods do not look impossible from impossible angles.',
         ],
       },
       {
         heading: 'Visible-check and hitbox',
         body: [
-          'Enable visibility checks when available so Aimbot does not lock through solid cover — that behaviour is easy for teammates and spectators to notice.',
-          'Chest or body hitboxes are safer than permanent head lock for public lobbies and Ranked.',
+          'Enable visibility checks when available so Aimbot does not lock through solid cover — that behavior is easy for teammates and spectators to notice.',
+          'Chest or body hitboxes are safer than permanent head lock for public PMC raids and scav runs.',
         ],
       },
       {
-        heading: 'UK Ranked and casual defaults',
+        heading: 'Raid defaults for PMC and Scav',
         body: [
-          'For UK Ranked and competitive EU lobbies, keep Aimbot mild or off and lean on ESP + radar. Casual can run slightly more assist if you still avoid snap behaviour.',
-          'Save a “ranked” and a “casual” config so you are not retuning mid-session.',
+          'For high-risk Labs or contested extracts, keep Aimbot mild or off and lean on ESP, loot filter and radar. Casual scav runs can run slightly more assist if you still avoid snap behavior.',
+          'Save a "labs" and a "casual raid" config so you are not retuning mid-session. Licenses start from $11.90 on tarkovcheats.io.',
         ],
       },
     ],
   },
   {
     slug: 'esp-wallhack-guide',
-    title: 'Warzone ESP & Wallhack Guide',
+    title: 'Tarkov ESP & Wallhack Guide',
     excerpt:
-      'Use Warzone ESP and wallhack for player boxes, distance, health and loot awareness without overloading your screen.',
-    metaTitle: 'Warzone ESP & Wallhack Guide | Player & Loot ESP',
+      'Use Escape from Tarkov ESP and wallhack for PMC/Scav boxes, distance, health and loot filter awareness without overloading your HUD.',
+    metaTitle: 'Tarkov ESP & Wallhack Guide | EFT Player & Loot ESP',
     metaDescription:
-      'Warzone ESP and wallhack setup: player boxes, skeletons, distance, health and loot ESP for PC cheats in the UK.',
-    searchTerms: 'warzone esp wallhack loot esp player boxes uk',
+      'Escape from Tarkov ESP and wallhack setup: PMC boxes, skeletons, distance, health and loot price filter for EFT cheats.',
+    searchTerms: 'tarkov esp wallhack eft cheats loot filter player boxes',
     date: '2026-09-15',
     readMinutes: 9,
     tag: 'ESP',
@@ -120,103 +120,111 @@ export const BLOGS: BlogPost[] = [
       {
         heading: 'What ESP actually does',
         body: [
-          'Warzone ESP (and wallhack visuals) draw information through walls so you know where players and high-value loot are before you peek. It does not pull the trigger for you.',
-          'Most buyers who search “Warzone wallhack” want this awareness layer — not a loud Aimbot.',
+          'Escape from Tarkov ESP (and wallhack visuals) draw information through walls so you know where PMCs, Scavs, bosses and high-value loot are before you peek. It does not pull the trigger for you.',
+          'Most buyers who search "tarkov wallhack" or "eft cheats esp" want this awareness layer — not a loud Aimbot.',
         ],
       },
       {
         heading: 'Player ESP essentials',
         body: [
-          'Enable boxes or skeletons, distance and health when supported. Colour-code enemies clearly and keep teammate ESP distinct or off.',
-          'Limit max distance so your HUD is not flooded with 300m ghosts you cannot fight yet.',
+          'Enable boxes or skeletons, distance and health when supported. Colour-code hostile PMCs clearly and keep teammate or scav ESP distinct or filtered.',
+          'Limit max distance so your HUD is not flooded with 300m ghosts you cannot fight yet on Customs or Shoreline.',
         ],
       },
       {
-        heading: 'Loot and world ESP',
+        heading: 'Loot filter and world ESP',
         body: [
-          'Loot ESP helps contested buildings and contracts. Filter to high-tier items if the menu allows — showing everything creates clutter and tunnel vision.',
+          'Loot filter / loot ESP is the money feature in Tarkov. Filter by price so Interchange tech, Labs keycards and high-value meds stand out — showing everything creates clutter and tunnel vision.',
+          'Pair loot ESP with extract awareness so you leave with value instead of dying overweight at the extract.',
         ],
       },
       {
         heading: 'Stream and report risk',
         body: [
-          'Pair ESP with stream-proof mode if you clip or go live. Short ranges and clean colours look less suspicious on killcams than neon skeletons across the entire map.',
+          'Pair ESP with stream-proof mode if you clip or go live. Short ranges and clean colors look less suspicious than neon skeletons across the entire map.',
         ],
       },
     ],
   },
   {
     slug: 'radar-hack-guide',
-    title: 'Warzone Radar Hack Guide',
+    title: 'Tarkov Radar Hack Guide',
     excerpt:
-      'Use the Warzone radar hack / 2D radar overlay to track off-screen threats and plan safer rotations.',
-    metaTitle: 'Warzone Radar Hack Guide | 2D Radar Overlay',
+      'Use the Escape from Tarkov radar hack / 2D radar overlay to track off-screen PMCs, Scavs and plan safer extracts.',
+    metaTitle: 'Tarkov Radar Hack Guide | EFT 2D Radar Overlay',
     metaDescription:
-      'Warzone radar hack setup for PC: 2D radar, off-screen threats and rotation awareness for UK and worldwide lobbies.',
-    searchTerms: 'warzone radar hack 2d radar overlay uk',
+      'Escape from Tarkov radar hack setup for PC: 2D radar, off-screen threats and extract awareness for EFT cheats.',
+    searchTerms: 'tarkov radar hack eft cheats 2d radar overlay',
     date: '2026-09-15',
-    readMinutes: 7,
+    readMinutes: 8,
     tag: 'Radar',
     sections: [
       {
-        heading: 'Why radar matters in Warzone',
+        heading: 'Why radar matters in Tarkov',
         body: [
-          'Most deaths come from information gaps — third parties, rooftop angles and rotations you never heard. A radar hack closes that gap without forcing Aimbot.',
+          'Most raid deaths come from information gaps — third parties at dorms, scav waves, boss packs and extracts you never heard. A radar hack closes that gap without forcing Aimbot.',
+          'Buyers searching "tarkov cheats radar" or "eft cheats radar" usually want macro awareness for Customs, Interchange and Labs rotations.',
         ],
       },
       {
         heading: 'Recommended radar setup',
         body: [
-          'Keep radar readable and small enough that it does not cover your reticle. Show enemies clearly; hide or dim teammates if the overlay gets noisy.',
-          'Use radar with ESP distance readouts so you know whether a ping is a fight you can take.',
+          'Keep radar readable and small enough that it does not cover your reticle. Show hostile PMCs clearly; filter or dim scavs if the overlay gets noisy.',
+          'Use radar with ESP distance readouts so you know whether a ping is a fight you can take before you commit to an extract.',
         ],
       },
       {
-        heading: 'Combining radar with ESP',
+        heading: 'Combining radar with ESP and loot filter',
         body: [
-          'Radar for macro movement, ESP for the room you are about to clear. That split is how strong Warzone cheats setups feel “smart” instead of chaotic.',
+          'Radar for macro movement, ESP for the room you are about to clear, loot filter for what is worth the risk. That split is how strong Escape from Tarkov cheats setups feel "smart" instead of chaotic.',
         ],
       },
     ],
   },
   {
     slug: 'hotkeys',
-    title: 'Warzone Cheats Hotkeys',
+    title: 'Tarkov Cheats Hotkeys',
     excerpt:
-      'Hotkeys and menu keys for Warzone Cheats after load — menu, Aimbot, ESP, radar and panic toggles.',
-    metaTitle: 'Warzone Cheats Hotkeys | Menu & ESP Toggles',
+      'Hotkeys and menu keys for Escape from Tarkov cheats after load — menu, Aimbot, ESP, loot filter, radar and panic toggles.',
+    metaTitle: 'Tarkov Cheats Hotkeys | EFT Menu, ESP & Aimbot Toggles',
     metaDescription:
-      'Warzone cheats hotkeys after checkout: open menu, Aimbot, ESP, radar and stream-proof toggles for PC.',
-    searchTerms: 'warzone cheats hotkeys menu esp aimbot',
+      'Escape from Tarkov cheats hotkeys after checkout: open menu, Aimbot, ESP, loot filter, radar and stream-proof toggles.',
+    searchTerms: 'tarkov cheats hotkeys eft menu esp aimbot radar',
     date: '2026-09-15',
-    readMinutes: 5,
+    readMinutes: 8,
     tag: 'Hotkeys',
     sections: [
       {
         heading: 'After a clean load',
         body: [
-          'Buy Warzone Cheats, confirm Undetected, launch Warzone, run the loader, then open the menu with the key in your delivery notes.',
+          'Buy Tarkov Cheats on tarkovcheats.io (from $11.90), confirm Undetected against BattlEye, launch Escape from Tarkov, run the loader, then open the menu with the key in your delivery notes.',
           'If the menu does not open, do not spam keys — contact support with your order ID.',
         ],
       },
       {
         heading: 'Typical binds',
         body: [
-          'Menu open/close, ESP master toggle, Aimbot toggle, radar toggle, stream-proof toggle.',
-          'Bind only what you use. Extra panic binds get pressed mid-fight and look obvious.',
+          'Menu open/close, ESP master toggle, Aimbot toggle, loot filter toggle, radar toggle, stream-proof toggle.',
+          'Bind only what you use mid-raid. Extra panic binds get pressed in dorms fights and look obvious.',
+        ],
+      },
+      {
+        heading: 'Raid habits',
+        body: [
+          'Keep a quick ESP-off bind for screenshots or party clips. Re-check hotkeys after every build update listed on the product page.',
         ],
       },
     ],
   },
   {
     slug: 'complete-setup',
-    title: 'Complete Warzone Cheats Setup',
+    title: 'Complete Tarkov Cheats Setup',
     excerpt:
-      'Complete Warzone cheats setup: buy, exclusions, load order, enable ESP/Aimbot, save config, re-check Ricochet status.',
-    metaTitle: 'Buy Warzone Cheats Setup Guide | Complete Loader Steps',
+      'Complete Escape from Tarkov cheats setup: buy from $11.90, exclusions, load order, enable ESP/Aimbot/loot filter, save config, re-check BattlEye status.',
+    metaTitle: 'Buy Tarkov Cheats Setup Guide | Complete EFT Loader Steps',
     metaDescription:
-      'Complete Warzone cheats setup for Windows PC: delivery checklist, antivirus exclusions, load order and first-run Aimbot/ESP config.',
-    searchTerms: 'warzone cheats setup load order windows uk',
+      'Complete Escape from Tarkov cheats setup for Windows PC: delivery checklist, antivirus exclusions, load order and first-run Aimbot/ESP config.',
+    searchTerms: 'tarkov cheats setup eft load order windows complete',
     date: '2026-09-15',
     readMinutes: 11,
     tag: 'Setup',
@@ -224,41 +232,41 @@ export const BLOGS: BlogPost[] = [
       {
         heading: '1) Buy and confirm status',
         body: [
-          'Open warzonecheats.uk. If status is Updating after a Ricochet patch, wait. If Undetected, checkout and use only the official delivery link.',
+          'Open tarkovcheats.io. If status is Updating after a BattlEye patch, wait. If Undetected, checkout from $11.90 and use only the official delivery link.',
         ],
       },
       {
         heading: '2) Prep Windows',
         body: [
           'Close Discord overlay, GeForce overlay and RGB hooks that fight loaders.',
-          'Follow the antivirus exclusion guide for the delivery folder before first launch.',
+          'Follow the antivirus exclusion guide for the delivery folder before first launch. Optional HWID spoofer steps belong in your delivery notes when the build includes them.',
         ],
       },
       {
         heading: '3) Load order',
         body: [
-          'Start Warzone on Battle.net / supported launcher.',
-          'Run the Warzone Cheats loader as delivered.',
-          'Wait for a successful load, open the menu, enable ESP + radar, then Aimbot only if you want it.',
+          'Start Escape from Tarkov on the official Battlestate Games launcher.',
+          'Run the Tarkov Cheats loader as delivered.',
+          'Wait for a successful load, open the menu, enable ESP + loot filter + radar, then Aimbot only if you want it.',
         ],
       },
       {
         heading: '4) Save configs and re-check patches',
         body: [
-          'Save ranked and casual configs. After any Warzone or Ricochet update, check Undetected again before you load.',
+          'Save labs and casual raid configs. After any Escape from Tarkov or BattlEye update, check Undetected again before you load into a raid.',
         ],
       },
     ],
   },
   {
     slug: 'windows-setup',
-    title: 'Warzone Cheats Windows 10/11 Setup',
+    title: 'Tarkov Cheats Windows 10/11 Setup',
     excerpt:
-      'Windows 10 and 11 setup for Warzone cheats — overlays, exclusions, admin rights and clean first launch.',
-    metaTitle: 'Warzone Cheats Windows Setup | Win10 & Win11',
+      'Windows 10 and 11 setup for Escape from Tarkov cheats — overlays, exclusions, admin rights and clean first launch against BattlEye.',
+    metaTitle: 'Tarkov Cheats Windows Setup | EFT Win10 & Win11',
     metaDescription:
-      'Windows 10/11 setup for Warzone cheats UK: overlays to close, Defender exclusions, admin launch and first-load checklist.',
-    searchTerms: 'warzone cheats windows 11 setup defender overlay',
+      'Windows 10/11 setup for Escape from Tarkov cheats: overlays to close, Defender exclusions, admin launch and first-load checklist.',
+    searchTerms: 'tarkov cheats windows 11 setup eft defender overlay',
     date: '2026-09-15',
     readMinutes: 8,
     tag: 'Windows',
@@ -266,100 +274,101 @@ export const BLOGS: BlogPost[] = [
       {
         heading: 'Supported systems',
         body: [
-          'Warzone Cheats targets Windows 10 and Windows 11 on Intel and AMD CPUs. Keep Windows updated enough that the game launches cleanly, then freeze changes mid-session.',
+          'Tarkov Cheats targets Escape from Tarkov on Windows 10 and Windows 11 (Intel and AMD). Keep Windows stable enough that the BSG launcher starts cleanly, then freeze major changes mid-session.',
         ],
       },
       {
         heading: 'Overlays and background apps',
         body: [
-          'Disable Discord overlay, NVIDIA/AMD overlays and aggressive RGB suites before load. They are a common cause of “loader opened but menu never appeared”.',
+          'Disable Discord overlay, NVIDIA/AMD overlays and aggressive RGB suites before load. They are a common cause of "loader opened but menu never appeared" on EFT.',
         ],
       },
       {
-        heading: 'Permissions',
+        heading: 'Permissions and launcher',
         body: [
           'Run the delivered loader with the permissions described in your order email. Do not move files out of the excluded folder after setup.',
+          'Use the official Battlestate Games launcher only — unofficial clients are unsupported.',
         ],
       },
     ],
   },
   {
     slug: 'disable-antivirus',
-    title: 'Antivirus Exclusions for Warzone Cheats',
+    title: 'Antivirus Exclusions for Tarkov Cheats',
     excerpt:
-      'Allowlist Warzone Cheats in Windows Defender and common AV so the loader is not quarantined before first run.',
-    metaTitle: 'Warzone Cheats Antivirus Exclusions | Defender',
+      'Allowlist Escape from Tarkov cheats in Windows Defender and common AV so the loader is not quarantined before first run.',
+    metaTitle: 'Tarkov Cheats Antivirus Exclusions | EFT Defender Guide',
     metaDescription:
-      'How to allowlist Warzone cheats loaders in Windows Defender and third-party antivirus before you load on Undetected.',
-    searchTerms: 'warzone cheats antivirus defender exclusion',
+      'How to allowlist Escape from Tarkov cheats loaders in Windows Defender and third-party antivirus before you load on Undetected.',
+    searchTerms: 'tarkov cheats antivirus eft defender exclusion',
     date: '2026-09-15',
-    readMinutes: 6,
+    readMinutes: 8,
     tag: 'Antivirus',
     sections: [
       {
         heading: 'Why loaders get flagged',
         body: [
-          'Cheat loaders are often hit by generic heuristics even from a legitimate purchase. Exclusion comes before you spam launch.',
+          'Cheat loaders are often hit by generic heuristics even from a legitimate purchase on tarkovcheats.io. Exclusion comes before you spam launch into Escape from Tarkov.',
         ],
       },
       {
         heading: 'Windows Defender steps',
         body: [
-          'Windows Security → Virus & threat protection → Manage settings → exclusions for the delivery folder.',
+          'Windows Security â†’ Virus & threat protection â†’ Manage settings â†’ exclusions for the delivery folder.',
           'Restore from Protection history if the file was already quarantined, then exclude the folder permanently.',
         ],
       },
       {
         heading: 'Then continue setup',
         body: [
-          'Return to Complete Setup for load order. Open support with your order ID if an Undetected build still fails after exclusion.',
+          'Return to Complete Setup for load order. Open support with your order ID if an Undetected EFT build still fails after exclusion.',
         ],
       },
     ],
   },
   {
     slug: 'stream-proof-setup',
-    title: 'Warzone Stream-Proof Setup',
+    title: 'Tarkov Stream-Proof Setup',
     excerpt:
-      'Hide Warzone ESP and Aimbot overlays from OBS and capture tools with stream-proof mode.',
-    metaTitle: 'Warzone Stream-Proof Cheats Setup | OBS Safe',
+      'Hide Escape from Tarkov ESP, loot filter and Aimbot overlays from OBS and capture tools with stream-proof mode.',
+    metaTitle: 'Tarkov Stream-Proof Cheats Setup | EFT OBS Safe',
     metaDescription:
-      'Stream-proof Warzone cheats setup for OBS and clips so ESP/Aimbot overlays stay off recordings.',
-    searchTerms: 'warzone stream proof esp obs hide overlay',
+      'Stream-proof Escape from Tarkov cheats setup for OBS and clips so ESP, wallhack and Aimbot overlays stay off recordings.',
+    searchTerms: 'tarkov stream proof eft cheats esp obs hide overlay',
     date: '2026-09-15',
-    readMinutes: 7,
+    readMinutes: 8,
     tag: 'Stream',
     sections: [
       {
         heading: 'Why stream-proof exists',
         body: [
-          'ESP on stream is an instant report magnet. Stream-proof mode keeps supported overlays out of common capture paths while you still see them locally.',
+          'ESP and loot filter overlays on stream are an instant report magnet in Escape from Tarkov. Stream-proof mode keeps supported overlays out of common capture paths while you still see them locally.',
         ],
       },
       {
         heading: 'OBS checklist',
         body: [
-          'Enable stream-proof in the Warzone Cheats menu before starting OBS.',
-          'Prefer game capture over display capture when possible, then verify with a private test recording.',
+          'Enable stream-proof in the Tarkov Cheats menu before starting OBS.',
+          'Prefer game capture over display capture when possible, then verify with a private test recording before a live raid.',
         ],
       },
       {
-        heading: 'Clips and killcams',
+        heading: 'Clips and report risk',
         body: [
-          'Stream-proof does not hide blatant Aimbot behaviour on killcams. Conservative Aimbot settings still matter.',
+          'Stream-proof does not hide blatant Aimbot behavior on death cams or party clips. Conservative Aimbot settings still matter on Labs and Interchange.',
         ],
       },
     ],
   },
   {
-    slug: 'ricochet-status',
-    title: 'Warzone Ricochet Status Explained',
+    slug: 'battleye-status',
+    title: 'Tarkov BattlEye Status Explained',
     excerpt:
-      'Undetected vs Updating for Warzone cheats after Ricochet and game patches — when to buy and when to wait.',
-    metaTitle: 'Warzone Ricochet Status | Undetected or Updating',
+      'Undetected vs Updating for Escape from Tarkov cheats after BattlEye and game patches — when to buy and when to wait.',
+    metaTitle: 'Tarkov BattlEye Status | EFT Undetected or Updating',
     metaDescription:
-      'Understand Warzone Ricochet status for cheats: Undetected vs Updating, when to wait, and how UK players should check before load.',
-    searchTerms: 'warzone ricochet undetected updating status',
+      'Understand Escape from Tarkov BattlEye status for EFT cheats: Undetected vs Updating, when to wait, and how to check before load.',
+    searchTerms: 'tarkov battleye status eft cheats undetected updating',
     date: '2026-09-15',
     readMinutes: 8,
     tag: 'Status',
@@ -367,20 +376,21 @@ export const BLOGS: BlogPost[] = [
       {
         heading: 'Status is part of the purchase',
         body: [
-          'Ricochet updates can invalidate a build overnight. warzonecheats.uk shows Undetected or Updating so you are not buying a dead loader from a Discord screenshot.',
+          'BattlEye updates can invalidate a build overnight. tarkovcheats.io shows Undetected or Updating so you are not buying a dead loader from a Discord screenshot.',
+          'Licenses start from $11.90 — status honesty matters more than a fake "always undetected" claim against Battlestate Games anti-cheat.',
         ],
       },
       {
         heading: 'Undetected vs Updating',
         body: [
-          'Undetected — cleared for load on the current Warzone build.',
-          'Updating — wait. Do not force yesterday’s loader into today’s anti-cheat.',
+          'Undetected — cleared for load on the current Escape from Tarkov build.',
+          'Updating — wait. Do not force yesterdays loader into todays BattlEye.',
         ],
       },
       {
         heading: 'Habit that protects accounts',
         body: [
-          'Check status after every Warzone patch before you queue. That free habit beats any “lifetime undetected” marketing claim.',
+          'Check BattlEye status after every EFT patch before you queue a PMC or Scav raid. That free habit beats any "lifetime undetected" marketing claim.',
         ],
       },
     ],
@@ -389,72 +399,79 @@ export const BLOGS: BlogPost[] = [
     slug: 'undetected-status',
     title: 'Check Undetected Before You Buy or Load',
     excerpt:
-      'Quick Undetected checklist for Warzone Cheats before checkout and before every post-patch load.',
-    metaTitle: 'Warzone Cheats Undetected Status | Check Before Buy',
+      'Quick Undetected checklist for Escape from Tarkov cheats before checkout and before every post-BattlEye-patch load.',
+    metaTitle: 'Tarkov Cheats Undetected Status | Check Before Buy',
     metaDescription:
-      'Check Warzone cheats Undetected status before buying or loading after Ricochet updates on warzonecheats.uk.',
-    searchTerms: 'warzone cheats undetected checklist status',
+      'Check Escape from Tarkov cheats Undetected status before buying or loading after BattlEye updates on tarkovcheats.io.',
+    searchTerms: 'tarkov cheats undetected eft battleye checklist status',
     date: '2026-09-15',
-    readMinutes: 4,
+    readMinutes: 8,
     tag: 'Status',
     sections: [
       {
         heading: 'Before checkout',
         body: [
-          'Confirm Undetected on the homepage or product page. If Updating, wait or read Refunds for extended downtime windows.',
+          'Confirm Undetected on the homepage or product page. If Updating, wait or read Refunds for extended downtime windows. Prices start from $11.90 when Undetected is live.',
         ],
       },
       {
-        heading: 'Before every session',
+        heading: 'Before every raid session',
         body: [
-          'Re-check status after patches. Then load once cleanly — do not spam inject into a failed state.',
+          'Re-check BattlEye status after Escape from Tarkov patches. Then load once cleanly — do not spam inject into a failed state before Customs or Labs.',
+        ],
+      },
+      {
+        heading: 'HWID spoofer note',
+        body: [
+          'If your delivery includes an HWID spoofer, follow those steps only when status is Undetected. Spoofing does not replace waiting out an Updating window.',
         ],
       },
     ],
   },
   {
-    slug: 'ranked-play-guide',
-    title: 'Warzone Ranked Play Cheat Settings',
+    slug: 'raid-play-guide',
+    title: 'Tarkov Raid Play Cheat Settings',
     excerpt:
-      'Safer Warzone Ranked settings — tight Aimbot, ESP-first play, report awareness for UK competitive lobbies.',
-    metaTitle: 'Warzone Ranked Cheats Settings | Safer Defaults',
+      'Safer Escape from Tarkov raid settings — tight Aimbot, ESP-first play, loot filter and report awareness for PMC and Scav runs.',
+    metaTitle: 'Tarkov Raid Cheats Settings | Safer EFT Defaults',
     metaDescription:
-      'Warzone Ranked play cheat settings for UK PC: ESP-first, mild Aimbot, report risk and Ricochet status habits.',
-    searchTerms: 'warzone ranked cheats settings uk aimbot esp',
+      'Escape from Tarkov raid play cheat settings: ESP-first, mild Aimbot, loot filter, radar and BattlEye status habits.',
+    searchTerms: 'tarkov raid cheats settings eft aimbot esp loot filter',
     date: '2026-09-15',
     readMinutes: 9,
-    tag: 'Ranked',
+    tag: 'Raids',
     sections: [
       {
-        heading: 'Ranked is a report environment',
+        heading: 'Raids are a report environment',
         body: [
-          'Ricochet is not the only risk — player reports in Ranked trigger reviews. Conservative visuals beat loud Aimbot every time.',
+          'BattlEye is not the only risk — player reports in contested dorms, Interchange and Labs trigger reviews. Conservative visuals beat loud Aimbot every time.',
         ],
       },
       {
-        heading: 'Recommended Ranked stack',
+        heading: 'Recommended raid stack',
         body: [
-          'ESP + radar on, Aimbot off or very smoothed, short ESP range, stream-proof if you clip.',
-          'Save this as a dedicated ranked config.',
+          'ESP + loot filter + radar on, Aimbot off or very smoothed, short ESP range, stream-proof if you clip.',
+          'Save this as a dedicated raid config for PMC runs; scav runs can stay even quieter.',
         ],
       },
       {
-        heading: 'When to sit out',
+        heading: 'Map habits that pay',
         body: [
-          'If status flips to Updating mid-season patch, stop. Waiting is cheaper than forcing a rebuild window.',
+          'Customs and dorms: short-range ESP, extract awareness. Interchange: loot filter priority. Labs: radar + mild Aimbot only if you must.',
+          'If BattlEye status flips to Updating mid-wipe patch, stop. Waiting is cheaper than forcing a rebuild window.',
         ],
       },
     ],
   },
   {
     slug: 'loader-errors',
-    title: 'Warzone Cheats Loader Errors',
+    title: 'Tarkov Cheats Loader Errors',
     excerpt:
-      'Fix common Warzone cheats loader errors — menu not opening, instant close, AV quarantine and failed inject.',
-    metaTitle: 'Warzone Cheats Loader Errors | Fix Guide',
+      'Fix common Escape from Tarkov cheats loader errors — menu not opening, instant close, AV quarantine and failed inject.',
+    metaTitle: 'Tarkov Cheats Loader Errors | EFT Fix Guide',
     metaDescription:
-      'Troubleshoot Warzone cheats loader errors on Windows: antivirus quarantine, overlays, failed load and Undetected checks.',
-    searchTerms: 'warzone cheats loader error inject failed menu',
+      'Troubleshoot Escape from Tarkov cheats loader errors on Windows: antivirus quarantine, overlays, failed load and BattlEye Undetected checks.',
+    searchTerms: 'tarkov cheats loader error eft inject failed menu',
     date: '2026-09-15',
     readMinutes: 8,
     tag: 'Support',
@@ -462,20 +479,20 @@ export const BLOGS: BlogPost[] = [
       {
         heading: 'Stop and check status',
         body: [
-          'First question: is the product Undetected? Updating builds fail for reasons settings cannot fix.',
+          'First question: is the product Undetected against BattlEye? Updating builds fail for reasons settings cannot fix.',
         ],
       },
       {
         heading: 'Common fixes',
         body: [
-          'Restore quarantined files, confirm folder exclusion, close overlays, reboot once, try one clean load.',
-          'Do not run random “fix DLL” downloads from elsewhere — support only covers official delivery.',
+          'Restore quarantined files, confirm folder exclusion, close overlays, reboot once, try one clean load with the official Battlestate Games launcher running.',
+          'Do not run random "fix DLL" downloads from elsewhere — support only covers official delivery from tarkovcheats.io.',
         ],
       },
       {
         heading: 'Escalate with order ID',
         body: [
-          'Contact Support with order ID, Windows version, and a short description of the error. Screenshots of status and the loader window help.',
+          'Contact Support with order ID, Windows version, and a short description of the error. Screenshots of BattlEye status and the loader window help.',
         ],
       },
     ],

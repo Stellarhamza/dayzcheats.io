@@ -1,15 +1,20 @@
 import {
-  WARZONE_HERO,
-  WARZONE_SOLDIER,
-  WARZONE_COVER,
-  WARZONE_GAMEPLAY,
-  WARZONE_MENU,
-  WARZONE_ESP,
+  TARKOV_HERO,
+  TARKOV_SOLDIER,
+  TARKOV_COVER,
+  TARKOV_GAMEPLAY,
+  TARKOV_MENU,
+  TARKOV_ESP,
 } from './media'
 
-export const WARZONE_OG = '/og/warzone-cheats.jpg'
-export const WARZONE_PRODUCT_HERO = WARZONE_HERO
-export const WARZONE_PRODUCT_COVER = WARZONE_COVER
+export const TARKOV_OG = '/og/tarkov-cheats.jpg'
+export const TARKOV_PRODUCT_HERO = TARKOV_HERO
+export const TARKOV_PRODUCT_COVER = TARKOV_COVER
+
+/** @deprecated aliases */
+export const WARZONE_OG = TARKOV_OG
+export const WARZONE_PRODUCT_HERO = TARKOV_PRODUCT_HERO
+export const WARZONE_PRODUCT_COVER = TARKOV_PRODUCT_COVER
 
 export type ImageSeoFields = {
   alt: string
@@ -25,13 +30,13 @@ export const IMAGE_SEO: Record<
     heroCaption: string
   }
 > = {
-  warzone: {
-    alt: 'Warzone cheats product artwork for PC',
-    title: 'Warzone Cheats Product Details',
-    caption: 'Warzone Aimbot, ESP, wallhack, radar and Ricochet compatibility',
-    heroAlt: 'Warzone cheats Aimbot and ESP features',
-    heroTitle: 'Warzone Cheats Features',
-    heroCaption: 'Review Warzone Aimbot, ESP, radar and current status',
+  tarkov: {
+    alt: 'Tarkov cheats product artwork for Escape from Tarkov PC',
+    title: 'Tarkov Cheats Product Details',
+    caption: 'EFT Aimbot, ESP, wallhack, loot filter, radar and BattlEye compatibility',
+    heroAlt: 'Escape from Tarkov cheats Aimbot and ESP features',
+    heroTitle: 'Tarkov Cheats Features',
+    heroCaption: 'Review EFT Aimbot, ESP, loot filter and current BattlEye status',
   },
 }
 
@@ -42,59 +47,59 @@ export const PAGE_IMAGES: Record<
   PageImage
 > = {
   home: {
-    src: WARZONE_SOLDIER,
-    alt: 'Warzone cheats Aimbot and ESP artwork for PC',
-    title: 'Warzone Cheats',
-    caption: 'Warzone Aimbot, ESP, wallhack and radar overview.',
+    src: TARKOV_SOLDIER,
+    alt: 'Tarkov cheats Aimbot and ESP artwork for Escape from Tarkov PC',
+    title: 'Tarkov Cheats',
+    caption: 'Escape from Tarkov Aimbot, ESP, wallhack and loot radar overview.',
   },
   forums: {
-    src: WARZONE_HERO,
-    alt: 'Warzone Delta cheats product artwork',
-    title: 'Warzone Cheats Guides',
-    caption: 'Setup, Aimbot and ESP guides for Warzone.',
+    src: TARKOV_HERO,
+    alt: 'Escape from Tarkov cheats product artwork',
+    title: 'Tarkov Cheats Guides',
+    caption: 'Setup, Aimbot and ESP guides for EFT.',
   },
   reviews: {
-    src: WARZONE_ESP,
-    alt: 'Warzone cheats review artwork',
-    title: 'Warzone Cheats Reviews',
-    caption: 'Feature and compatibility feedback for Warzone.',
+    src: TARKOV_ESP,
+    alt: 'Tarkov cheats review artwork',
+    title: 'Tarkov Cheats Reviews',
+    caption: 'Feature and compatibility feedback for Escape from Tarkov.',
   },
   faq: {
-    src: WARZONE_GAMEPLAY,
-    alt: 'Warzone cheats FAQ artwork',
-    title: 'Warzone Cheats FAQ',
-    caption: 'Compatibility, feature and setup answers for Warzone.',
+    src: TARKOV_GAMEPLAY,
+    alt: 'Tarkov cheats FAQ artwork',
+    title: 'Tarkov Cheats FAQ',
+    caption: 'Compatibility, feature and setup answers for EFT.',
   },
   support: {
-    src: WARZONE_HERO,
-    alt: 'Warzone cheats support artwork',
-    title: 'Warzone Cheats Support',
-    caption: 'Delivery, loader and setup support for Warzone.',
+    src: TARKOV_HERO,
+    alt: 'Tarkov cheats support artwork',
+    title: 'Tarkov Cheats Support',
+    caption: 'Delivery, loader and setup support for Escape from Tarkov cheats.',
   },
   product: {
-    src: WARZONE_COVER,
-    alt: 'Warzone Aimbot ESP and radar product artwork',
-    title: 'Warzone Cheats Features',
-    caption: 'Product details for Warzone Aimbot, ESP and radar.',
+    src: TARKOV_COVER,
+    alt: 'EFT Aimbot ESP and loot filter product artwork',
+    title: 'Tarkov Cheats Features',
+    caption: 'Product details for Escape from Tarkov Aimbot, ESP and radar.',
   },
 }
 
 export function getGameImage(_slug: string): string {
-  return WARZONE_PRODUCT_COVER
+  return TARKOV_PRODUCT_COVER
 }
 
 export function getProductHeroImage(_slug: string): string {
-  return WARZONE_PRODUCT_COVER
+  return TARKOV_PRODUCT_COVER
 }
 
 export function getOgImage(path?: string): string {
   if (!path || path === '/') return PAGE_IMAGES.home.src
-  if (path === '/warzone-cheats') return PAGE_IMAGES.product.src
+  if (path === '/tarkov-cheats' || path === '/eft-cheats') return PAGE_IMAGES.product.src
   if (path === '/forums') return PAGE_IMAGES.forums.src
   if (path === '/reviews') return PAGE_IMAGES.reviews.src
   if (path === '/faq') return PAGE_IMAGES.faq.src
   if (path === '/support') return PAGE_IMAGES.support.src
-  return WARZONE_OG
+  return TARKOV_OG
 }
 
 export function getPageImage(key: keyof typeof PAGE_IMAGES) {

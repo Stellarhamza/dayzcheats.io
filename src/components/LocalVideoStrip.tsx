@@ -1,8 +1,8 @@
 /**
- * Legacy local video strip — unused after Warzone rebrand.
+ * Legacy local video strip — unused after Tarkov rebrand.
  * Kept as a no-op image strip so old imports do not crash builds.
  */
-import { WARZONE_ESP } from '../data/media'
+import { TARKOV_ESP } from '../data/media'
 
 type LocalVideoStripProps = {
   title?: string
@@ -14,8 +14,8 @@ type LocalVideoStripProps = {
 }
 
 export function LocalVideoStrip({
-  title = 'Warzone gameplay preview',
-  poster = WARZONE_ESP,
+  title = 'Escape from Tarkov gameplay preview',
+  poster = TARKOV_ESP,
   className = '',
 }: LocalVideoStripProps) {
   return (

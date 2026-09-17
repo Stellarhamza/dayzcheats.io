@@ -1,15 +1,15 @@
-import { WARZONE_HERO } from '../data/media'
+import { TARKOV_HERO } from '../data/media'
 
 type VideoBgProps = {
-  /** Full-bleed Warzone hero image (defaults to Delta artwork). */
+  /** Full-bleed Tarkov hero image (defaults to product artwork). */
   image?: string
   imageAlt?: string
 }
 
-/** Full-bleed static Warzone hero — no legacy Isle / black-angel video. */
+/** Full-bleed static Tarkov hero — no legacy Isle / black-angel video. */
 export function VideoBg({
-  image = WARZONE_HERO,
-  imageAlt = 'Warzone cheats Aimbot and ESP product artwork',
+  image = TARKOV_HERO,
+  imageAlt = 'Tarkov cheats Aimbot and ESP product artwork',
 }: VideoBgProps) {
   return (
     <div className="hero-video-wrap absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">

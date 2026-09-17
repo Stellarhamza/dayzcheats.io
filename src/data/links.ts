@@ -1,34 +1,36 @@
 import { blogPath } from './blog-paths'
 
-/** Official Warzone destinations for factual game context. */
-export const OFFICIAL_WARZONE_LINKS = [
+/** Official Escape from Tarkov destinations for factual game context. */
+export const OFFICIAL_TARKOV_LINKS = [
   {
-    label: 'Call of Duty: Warzone',
-    href: 'https://www.callofduty.com/warzone',
-    description: 'Official Warzone game page',
+    label: 'Escape from Tarkov',
+    href: 'https://www.escapefromtarkov.com/',
+    description: 'Official Escape from Tarkov game page',
   },
   {
-    label: 'Warzone on Battle.net',
-    href: 'https://battle.net/support/en/article/000364203',
-    description: 'Official PC download and support',
+    label: 'EFT Launcher & Download',
+    href: 'https://www.escapefromtarkov.com/',
+    description: 'Official PC client and account portal',
   },
   {
-    label: 'Activision Support',
-    href: 'https://support.activision.com/',
+    label: 'Battlestate Games Support',
+    href: 'https://www.battlestategames.com/',
     description: 'Publisher support and account help',
   },
 ] as const
 
 /** @deprecated alias */
-export const OFFICIAL_WARDOGS_LINKS = OFFICIAL_WARZONE_LINKS
+export const OFFICIAL_WARZONE_LINKS = OFFICIAL_TARKOV_LINKS
+/** @deprecated alias */
+export const OFFICIAL_WARDOGS_LINKS = OFFICIAL_TARKOV_LINKS
 
 /** Primary internal routes for crawl equity. */
 export const SITE_PAGE_LINKS = [
   { label: 'Home', to: '/', description: 'Live status, price and checkout' },
   {
     label: 'Product page',
-    to: '/warzone-cheats',
-    description: 'Aimbot, ESP, radar and compatibility details',
+    to: '/tarkov-cheats',
+    description: 'Aimbot, ESP, loot filter, radar and compatibility details',
   },
   {
     label: 'Forums index',
@@ -77,15 +79,15 @@ export const SITE_GUIDE_LINKS = [
   { label: 'Windows setup guide', to: blogPath('windows-setup') },
   { label: 'Antivirus exclusion guide', to: blogPath('disable-antivirus') },
   { label: 'Stream-proof setup', to: blogPath('stream-proof-setup') },
-  { label: 'Ricochet status guide', to: blogPath('ricochet-status') },
-  { label: 'Ranked play guide', to: blogPath('ranked-play-guide') },
+  { label: 'BattlEye status guide', to: blogPath('battleye-status') },
+  { label: 'Raid play guide', to: blogPath('raid-play-guide') },
   { label: 'Loader errors guide', to: blogPath('loader-errors') },
   { label: 'Undetected status guide', to: blogPath('undetected-status') },
 ] as const
 
 const CHECKOUT_HOST = ['za', 'deyo', '.com'].join('')
 const CHECKOUT_REF = ['Q', 'R', 'H'].join('')
-const CHECKOUT_PRODUCT = '/products/warzone-cheats'
+const CHECKOUT_PRODUCT = '/products/tarkov-cheats'
 
 export const CHECKOUT_URL = `https://${CHECKOUT_HOST}/go/${CHECKOUT_REF}?to=${encodeURIComponent(CHECKOUT_PRODUCT)}`
 

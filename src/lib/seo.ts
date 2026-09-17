@@ -1,4 +1,4 @@
-import type { FaqItem } from '../data/faqs'
+﻿import type { FaqItem } from '../data/faqs'
 import {
   OG_IMAGE,
   PRODUCT_PRICE_USD,
@@ -40,7 +40,12 @@ export function siteIdentityGraph() {
       '@type': 'Organization',
       '@id': `${SITE_URL}/#organization`,
       name: SITE_NAME,
-      alternateName: ['Warzone Cheats UK', 'warzonecheats.uk', 'Warzone Aimbot ESP'],
+      alternateName: [
+        'Escape from Tarkov Cheats',
+        'EFT Cheats',
+        'tarkovcheats.io',
+        'Tarkov Aimbot ESP',
+      ],
       url: SITE_URL,
       description: SITE_PURPOSE,
       knowsAbout: [...SITE_ABOUT],
@@ -52,7 +57,7 @@ export function siteIdentityGraph() {
         height: 46,
       },
       image: absoluteAsset(OG_IMAGE),
-      areaServed: ['GB', 'Worldwide'],
+      areaServed: 'Worldwide',
     },
     {
       '@type': 'WebSite',
@@ -60,12 +65,12 @@ export function siteIdentityGraph() {
       name: SITE_NAME,
       url: SITE_URL,
       description: SITE_PURPOSE,
-      inLanguage: 'en-GB',
+      inLanguage: 'en',
       about: {
         '@type': 'Thing',
-        name: 'Warzone cheats',
+        name: 'Tarkov cheats',
         description:
-          'Commercial Warzone cheats for PC — Aimbot, ESP, wallhack, radar and Ricochet status.',
+          'Commercial Escape from Tarkov cheats for PC — Aimbot, ESP, wallhack, loot filter, radar and BattlEye status.',
       },
       publisher: { '@id': `${SITE_URL}/#organization` },
     },
@@ -82,11 +87,12 @@ export function webPageNode(seo: PageSeo) {
     description: seo.description,
     isPartOf: { '@id': `${SITE_URL}/#website` },
     about: { '@id': `${SITE_URL}/#organization` },
-    inLanguage: 'en-GB',
+    inLanguage: 'en',
   } as Record<string, unknown>
   const hasVisibleImage =
-    ['/', '/warzone-cheats', '/forums', '/reviews', '/faq', '/support'].includes(seo.path) ||
-    seo.path.startsWith('/forums/')
+    ['/', '/tarkov-cheats', '/eft-cheats', '/forums', '/reviews', '/faq', '/support'].includes(
+      seo.path,
+    ) || seo.path.startsWith('/forums/')
   if (hasVisibleImage) {
     page.primaryImageOfPage = {
       '@type': 'ImageObject',
@@ -103,14 +109,18 @@ export function productCoreJsonLd() {
   return {
     '@type': 'Product',
     '@id': PRODUCT_ID,
-    name: 'Warzone Cheats',
-    alternateName: ['Warzone Aimbot', 'Warzone ESP', 'Warzone wallhack', 'Warzone radar hack'],
+    name: 'Tarkov Cheats',
+    alternateName: [
+      'Escape from Tarkov Cheats',
+      'EFT Cheats',
+      'Tarkov Aimbot',
+      'Tarkov ESP',
+      'EFT Aimbot',
+      'EFT ESP',
+    ],
     description: SITE_PURPOSE,
     url: `${SITE_URL}/`,
-    image: [
-      absoluteAsset(PAGE_MEDIA.home.image),
-      absoluteAsset(PAGE_MEDIA.product.image),
-    ],
+    image: [absoluteAsset(PAGE_MEDIA.home.image), absoluteAsset(PAGE_MEDIA.product.image)],
     brand: { '@type': 'Brand', name: SITE_NAME },
     manufacturer: { '@id': `${SITE_URL}/#organization` },
     category: 'PC game software',
@@ -123,20 +133,24 @@ export function productDetailJsonLd(status: GameStatus) {
     status === 'Undetected' ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock'
   return {
     ...productCoreJsonLd(),
-    url: `${SITE_URL}/warzone-cheats`,
+    url: `${SITE_URL}/tarkov-cheats`,
     image: absoluteAsset(PAGE_MEDIA.product.image),
     about: {
       '@type': 'VideoGame',
-      name: 'Call of Duty: Warzone',
-      alternateName: ['Warzone', 'COD Warzone'],
+      name: 'Escape from Tarkov',
+      alternateName: ['EFT', 'Tarkov', 'Escape From Tarkov'],
     },
     additionalProperty: [
       { '@type': 'PropertyValue', name: 'Platform', value: 'Windows PC' },
-      { '@type': 'PropertyValue', name: 'Features', value: 'Aimbot, ESP, wallhack, radar' },
-      { '@type': 'PropertyValue', name: 'Anti-cheat', value: 'Ricochet' },
+      {
+        '@type': 'PropertyValue',
+        name: 'Features',
+        value: 'Aimbot, ESP, wallhack, loot filter, radar, HWID spoofer',
+      },
+      { '@type': 'PropertyValue', name: 'Anti-cheat', value: 'BattlEye' },
       { '@type': 'PropertyValue', name: 'Status', value: status },
     ],
-    offers: baseOffer(`${SITE_URL}/warzone-cheats`, availability),
+    offers: baseOffer(`${SITE_URL}/tarkov-cheats`, availability),
   }
 }
 
@@ -156,7 +170,7 @@ export function productReviewsJsonLd() {
       author: { '@type': 'Person', name: review.author },
       datePublished: review.datePublished,
       reviewBody: review.body,
-      name: `${review.author} Warzone Cheats review`,
+      name: `${review.author} Tarkov Cheats review`,
       reviewRating: {
         '@type': 'Rating',
         ratingValue: String(review.rating),

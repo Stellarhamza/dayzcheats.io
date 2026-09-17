@@ -21,12 +21,12 @@ export function SupportPage() {
               {SITE_NAME} · Help · {SITE_HOST}
             </p>
             <h1 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-5xl">
-              Warzone Cheats Support
+              Tarkov Cheats Support
             </h1>
             <p className="mt-4 max-w-3xl text-base leading-relaxed text-white/55">
-              {SUPPORT_INTRO} Play Warzone from the{' '}
+              {SUPPORT_INTRO} Play Escape from Tarkov from the{' '}
               <a
-                href="https://www.callofduty.com/warzone"
+                href="https://www.escapefromtarkov.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white/80 underline-offset-2 hover:underline"
@@ -35,15 +35,15 @@ export function SupportPage() {
               </a>{' '}
               or{' '}
               <a
-                href="https://www.callofduty.com/warzone"
+                href="https://www.escapefromtarkov.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white/80 underline-offset-2 hover:underline"
               >
-                Steam
+                EFT launcher
               </a>
               . Product help stays on{' '}
-              <a href="/warzone-cheats" className="text-white/80 underline-offset-2 hover:underline">
+              <a href="/tarkov-cheats" className="text-white/80 underline-offset-2 hover:underline">
                 product details
               </a>
               ,{' '}
@@ -88,8 +88,8 @@ export function SupportPage() {
 
         <FaqSection
           id="faq"
-          heading="Warzone Cheats support FAQ"
-          intro="Load, delivery, menu, setup, config and Ricochet answers for Warzone buyers."
+          heading="Tarkov Cheats support FAQ"
+          intro="Load, delivery, menu, setup, config and BattlEye answers for Escape from Tarkov buyers."
           items={SUPPORT_FAQS}
         />
 
@@ -100,7 +100,7 @@ export function SupportPage() {
                 Need help now
               </p>
               <h2 className="mt-3 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-                Open Warzone Cheats or checkout support
+                Open Tarkov Cheats or checkout support
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-white/55">
                 Confirm Undetected status on the product page, then buy or reopen your order for
@@ -109,13 +109,13 @@ export function SupportPage() {
             </div>
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end">
               <a
-                href="/warzone-cheats"
+                href="/tarkov-cheats"
                 className="inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-white/5"
               >
                 Product details
               </a>
               <CheckoutLink className="cta-gradient inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium text-white">
-                Buy Warzone Cheats
+                Buy Tarkov Cheats
               </CheckoutLink>
             </div>
           </div>

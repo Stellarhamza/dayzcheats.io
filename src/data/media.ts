@@ -8,60 +8,78 @@ export type SeoMediaItem = {
   videoDescription?: string
 }
 
-export const WARZONE_HERO = '/media/warzone-delta-hero.webp'
-export const WARZONE_SOLDIER = '/media/warzone-soldier-hero.webp'
-export const WARZONE_GAMEPLAY = '/media/warzone-delta-gameplay.gif'
-export const WARZONE_MENU = '/media/warzone-menu.gif'
-export const WARZONE_ESP = '/media/warzone-esp-gameplay.gif'
-export const WARZONE_COVER = '/media/warzone-auron-box.webp'
-export const WARZONE_RANKED = '/media/warzone-ranked-cover.webp'
-export const WARZONE_CONTROL = '/media/warzone-control-art.jpg'
-export const WARZONE_HOME_ART = '/media/warzone-home-art.jpg'
-export const WARZONE_TACTICAL = '/media/warzone-tactical-art.jpg'
+export const TARKOV_HERO = '/media/tarkov-delta-hero.webp'
+export const TARKOV_SOLDIER = '/media/tarkov-soldier-hero.webp'
+export const TARKOV_GAMEPLAY = '/media/tarkov-delta-gameplay.gif'
+export const TARKOV_MENU = '/media/tarkov-menu.gif'
+export const TARKOV_ESP = '/media/tarkov-esp-gameplay.gif'
+export const TARKOV_COVER = '/media/tarkov-auron-box.webp'
+export const TARKOV_RAID = '/media/tarkov-ranked-cover.webp'
+export const TARKOV_CONTROL = '/media/tarkov-control-art.jpg'
+export const TARKOV_HOME_ART = '/media/tarkov-home-art.jpg'
+export const TARKOV_TACTICAL = '/media/tarkov-tactical-art.jpg'
 
-/** Preview copy — media is self-hosted GIFs (Bunny Stream embeds 403 off battlelog). */
-export const WARZONE_HOME_VIDEO = {
-  id: 'local-warzone-preview',
-  title: 'Warzone Cheats Aimbot and ESP preview',
-  caption: 'Preview of Warzone Aimbot, ESP menu and radar features on PC.',
+/** Self-hosted battlelog EFT Reaper preview (Bunny Stream GUID 8bd1c340-…). */
+export const TARKOV_HOME_VIDEO = {
+  id: '8bd1c340-5705-45d7-84c6-3a326a9747ce',
+  src: '/videos/tarkov-preview.mp4',
+  poster: '/media/tarkov-video-thumb.jpg',
+  title: 'Tarkov Cheats Aimbot and ESP preview',
+  caption: 'Preview of Escape from Tarkov Aimbot, ESP menu and loot radar features on PC.',
 } as const
+
+/** @deprecated aliases */
+export const WARZONE_HERO = TARKOV_HERO
+export const WARZONE_SOLDIER = TARKOV_SOLDIER
+export const WARZONE_GAMEPLAY = TARKOV_GAMEPLAY
+export const WARZONE_MENU = TARKOV_MENU
+export const WARZONE_ESP = TARKOV_ESP
+export const WARZONE_COVER = TARKOV_COVER
+export const WARZONE_RANKED = TARKOV_RAID
+export const WARZONE_CONTROL = TARKOV_CONTROL
+export const WARZONE_HOME_ART = TARKOV_HOME_ART
+export const WARZONE_TACTICAL = TARKOV_TACTICAL
+export const WARZONE_HOME_VIDEO = TARKOV_HOME_VIDEO
 
 export const PAGE_MEDIA = {
   home: {
-    image: WARZONE_SOLDIER,
-    alt: 'Warzone cheats Aimbot and ESP product artwork for PC',
-    title: 'Warzone Cheats for PC',
-    caption: 'Feature overview for Warzone Aimbot, ESP, wallhack and radar.',
+    image: TARKOV_SOLDIER,
+    video: TARKOV_HOME_VIDEO.src,
+    alt: 'Tarkov cheats Aimbot and ESP product artwork for Escape from Tarkov PC',
+    title: 'Tarkov Cheats for Escape from Tarkov',
+    caption: 'Feature overview for EFT Aimbot, ESP, wallhack, loot filter and radar.',
+    videoTitle: TARKOV_HOME_VIDEO.title,
+    videoDescription: TARKOV_HOME_VIDEO.caption,
   },
   product: {
-    image: WARZONE_COVER,
-    alt: 'Warzone ESP, Aimbot and radar feature artwork',
-    title: 'Warzone Aimbot, ESP and Radar Features',
-    caption: 'Product overview for Warzone on Windows PC.',
+    image: TARKOV_COVER,
+    alt: 'EFT ESP, Aimbot and loot filter feature artwork',
+    title: 'Escape from Tarkov Aimbot, ESP and Radar Features',
+    caption: 'Product overview for Escape from Tarkov on Windows PC.',
   },
   forums: {
-    image: WARZONE_HERO,
-    alt: 'Warzone Delta cheats product artwork',
-    title: 'Warzone Cheats Guides',
-    caption: 'Reference for setup, Aimbot, ESP, radar and status articles.',
+    image: TARKOV_HERO,
+    alt: 'Escape from Tarkov cheats product artwork',
+    title: 'Tarkov Cheats Guides',
+    caption: 'Reference for setup, Aimbot, ESP, loot filter and BattlEye status articles.',
   },
   reviews: {
-    image: WARZONE_ESP,
-    alt: 'Warzone cheats ESP gameplay review artwork',
-    title: 'Warzone Cheats Reviews',
-    caption: 'Feature and compatibility feedback for Warzone cheats.',
+    image: TARKOV_ESP,
+    alt: 'Tarkov cheats ESP gameplay review artwork',
+    title: 'Tarkov Cheats Reviews',
+    caption: 'Feature and compatibility feedback for Escape from Tarkov cheats.',
   },
   faq: {
-    image: WARZONE_GAMEPLAY,
-    alt: 'Warzone cheats FAQ artwork',
-    title: 'Warzone Cheats FAQ',
-    caption: 'Compatibility, status and setup answers for Warzone.',
+    image: TARKOV_GAMEPLAY,
+    alt: 'Tarkov cheats FAQ artwork for EFT',
+    title: 'Tarkov Cheats FAQ',
+    caption: 'Compatibility, status and setup answers for Escape from Tarkov.',
   },
   support: {
-    image: WARZONE_HERO,
-    alt: 'Warzone cheats support artwork',
-    title: 'Warzone Cheats Support',
-    caption: 'Delivery, loader and setup help for Warzone.',
+    image: TARKOV_HERO,
+    alt: 'Tarkov cheats support artwork',
+    title: 'Tarkov Cheats Support',
+    caption: 'Delivery, loader and setup help for EFT cheats.',
   },
 } as const satisfies Record<string, SeoMediaItem>
 
@@ -75,13 +93,13 @@ const FORUM_MEDIA: Record<string, SeoMediaItem> = {
   'esp-wallhack-guide': { ...PAGE_MEDIA.reviews },
   'radar-hack-guide': { ...PAGE_MEDIA.faq },
   'stream-proof-setup': { ...PAGE_MEDIA.forums },
-  'ricochet-status': { ...PAGE_MEDIA.product },
+  'battleye-status': { ...PAGE_MEDIA.product },
   'windows-setup': { ...PAGE_MEDIA.support },
-  'ranked-play-guide': {
-    image: WARZONE_RANKED,
-    alt: 'Warzone Ranked play cheats artwork',
-    title: 'Warzone Ranked Cheats Guide',
-    caption: 'Ranked lobby tips for Warzone Aimbot and ESP.',
+  'raid-play-guide': {
+    image: TARKOV_RAID,
+    alt: 'Escape from Tarkov raid cheats artwork',
+    title: 'EFT Raid Cheats Guide',
+    caption: 'Raid tips for Tarkov Aimbot, ESP and loot filter.',
   },
   'loader-errors': { ...PAGE_MEDIA.support },
 }

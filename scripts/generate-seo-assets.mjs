@@ -1,6 +1,6 @@
-/**
+﻿/**
  * Only fill missing auxiliary artwork. Never overwrite battlelog-sourced
- * Warzone hero/cover/OG/GIF assets under public/media and public/og.
+ * Tarkov hero/cover/OG/GIF assets under public/media and public/og.
  */
 import { access, mkdir } from 'node:fs/promises'
 import { join } from 'node:path'
@@ -20,7 +20,7 @@ function escapeXml(value) {
   return value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
 }
 
-function artwork(width, height, eyebrow, title, subtitle, footer = 'warzonecheats.uk') {
+function artwork(width, height, eyebrow, title, subtitle, footer = 'tarkovcheats.io') {
   const titleSize = Math.round(width * 0.066)
   const subtitleSize = Math.round(width * 0.026)
   return Buffer.from(`
@@ -62,81 +62,81 @@ async function writeIfMissing(path, factory) {
   return true
 }
 
-const requiredBattlelog = [
-  join(mediaDir, 'warzone-soldier-hero.webp'),
-  join(mediaDir, 'warzone-delta-hero.webp'),
-  join(mediaDir, 'warzone-auron-box.webp'),
-  join(mediaDir, 'warzone-delta-gameplay.gif'),
-  join(mediaDir, 'warzone-menu.gif'),
-  join(mediaDir, 'warzone-esp-gameplay.gif'),
-  join(mediaDir, 'warzone-ranked-cover.webp'),
-  join(ogDir, 'warzone-cheats.jpg'),
+const requiredAssets = [
+  join(mediaDir, 'tarkov-soldier-hero.webp'),
+  join(mediaDir, 'tarkov-delta-hero.webp'),
+  join(mediaDir, 'tarkov-auron-box.webp'),
+  join(mediaDir, 'tarkov-delta-gameplay.gif'),
+  join(mediaDir, 'tarkov-menu.gif'),
+  join(mediaDir, 'tarkov-esp-gameplay.gif'),
+  join(mediaDir, 'tarkov-ranked-cover.webp'),
+  join(ogDir, 'tarkov-cheats.jpg'),
 ]
 
-for (const path of requiredBattlelog) {
+for (const path of requiredAssets) {
   if (!(await exists(path))) {
-    throw new Error(`Missing battlelog Warzone asset (do not regenerate): ${path}`)
+    throw new Error(`Missing Tarkov media asset (do not regenerate): ${path}`)
   }
 }
 
 const created = []
 
 if (
-  await writeIfMissing(join(mediaDir, 'warzone-tactical-art.jpg'), (path) =>
+  await writeIfMissing(join(mediaDir, 'tarkov-tactical-art.jpg'), (path) =>
     sharp(
       artwork(
         1200,
         675,
-        'CALL OF DUTY WARZONE',
-        'Warzone Cheats',
-        'Aimbot · ESP · Radar · Ricochet status',
+        'ESCAPE FROM TARKOV',
+        'Tarkov Cheats',
+        'Aimbot Â· ESP Â· Loot filter Â· BattlEye status',
       ),
     )
       .jpeg({ quality: 90, chromaSubsampling: '4:4:4' })
       .toFile(path),
   )
 ) {
-  created.push('warzone-tactical-art.jpg')
+  created.push('tarkov-tactical-art.jpg')
 }
 
 if (
-  await writeIfMissing(join(mediaDir, 'warzone-control-art.jpg'), (path) =>
+  await writeIfMissing(join(mediaDir, 'tarkov-control-art.jpg'), (path) =>
     sharp(
       artwork(
         1200,
         675,
-        'WARZONE · WINDOWS PC',
-        'Warzone ESP & Radar',
-        'Built for UK and worldwide Warzone lobbies',
+        'EFT Â· WINDOWS PC',
+        'Tarkov ESP & Radar',
+        'Built for Escape from Tarkov raids worldwide',
       ),
     )
       .jpeg({ quality: 90, chromaSubsampling: '4:4:4' })
       .toFile(path),
   )
 ) {
-  created.push('warzone-control-art.jpg')
+  created.push('tarkov-control-art.jpg')
 }
 
 if (
-  await writeIfMissing(join(mediaDir, 'warzone-home-art.jpg'), (path) =>
+  await writeIfMissing(join(mediaDir, 'tarkov-home-art.jpg'), (path) =>
     sharp(
       artwork(
         1920,
         1080,
-        'WARZONECHEATS.UK',
-        'Warzone Cheats',
-        'Aimbot, ESP, wallhack and radar for PC',
+        'tarkovcheats.io',
+        'Tarkov Cheats',
+        'Aimbot, ESP, wallhack and loot filter for EFT PC',
       ),
     )
       .jpeg({ quality: 90, chromaSubsampling: '4:4:4' })
       .toFile(path),
   )
 ) {
-  created.push('warzone-home-art.jpg')
+  created.push('tarkov-home-art.jpg')
 }
 
 console.log(
   created.length
-    ? `SEO assets OK — preserved battlelog media; created missing: ${created.join(', ')}`
-    : 'SEO assets OK — preserved all battlelog Warzone media',
+    ? `SEO assets OK — preserved Tarkov media; created missing: ${created.join(', ')}`
+    : 'SEO assets OK — preserved all Tarkov media',
 )
