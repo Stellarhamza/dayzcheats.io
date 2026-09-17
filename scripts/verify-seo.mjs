@@ -3,7 +3,7 @@ import { join, relative } from 'node:path'
 
 const root = join(import.meta.dirname, '..')
 const dist = join(root, 'dist')
-const site = 'https://tarkovcheats.io'
+const site = 'https://dayzcheats.io'
 const failures = []
 
 function fail(message) {
@@ -67,7 +67,7 @@ for (const file of files) {
 }
 
 const home = readFileSync(join(dist, 'index.html'), 'utf8')
-const product = readFileSync(join(dist, 'tarkov-cheats', 'index.html'), 'utf8')
+const product = readFileSync(join(dist, 'dayz-cheats', 'index.html'), 'utf8')
 const reviews = readFileSync(join(dist, 'reviews', 'index.html'), 'utf8')
 const faq = readFileSync(join(dist, 'faq', 'index.html'), 'utf8')
 const support = readFileSync(join(dist, 'support', 'index.html'), 'utf8')
@@ -80,10 +80,12 @@ const importantPages = [
   readFileSync(join(dist, 'forums', 'index.html'), 'utf8'),
 ]
 
-if (!home.includes('<title>Tarkov Cheats | Escape from Tarkov &amp; EFT Aimbot, ESP</title>')) {
+if (
+  !home.includes('<title>DayZ Cheats | Undetected DayZ Cheat Aimbot, ESP &amp; Hacks</title>')
+) {
   fail('Homepage does not own the exact transactional title')
 }
-if (product.includes('<title>Buy Tarkov Cheats')) fail('Product details page competes with homepage')
+if (product.includes('<title>Buy DayZ Cheats')) fail('Product details page competes with homepage')
 if ((faq.match(/"@type":"FAQPage"/g) || []).length !== 1) fail('/faq must own one FAQPage')
 for (const [name, html] of [
   ['home', home],
@@ -98,7 +100,7 @@ for (const [name, html] of [
   ['product', product],
   ['reviews', reviews],
 ]) {
-  if (!html.includes('"@id":"https://tarkovcheats.io/#product"')) {
+  if (!html.includes('"@id":"https://dayzcheats.io/#product"')) {
     fail(`${name}: missing shared Product ID`)
   }
 }
@@ -133,8 +135,8 @@ for (const file of files) {
   const twImage = html.match(/<meta name="twitter:image" content="([^"]+)"/)?.[1]
   const robotsMeta = html.match(/<meta name="robots" content="([^"]+)"/)?.[1]
 
-  if (!ogImage?.startsWith('https://tarkovcheats.io/og/') || !ogImage.endsWith('.jpg')) {
-    fail(`${page}: og:image must be https://tarkovcheats.io/og/*.jpg for SERP thumbnails`)
+  if (!ogImage?.startsWith('https://dayzcheats.io/og/') || !ogImage.endsWith('.jpg')) {
+    fail(`${page}: og:image must be https://dayzcheats.io/og/*.jpg for SERP thumbnails`)
   }
   if (!twImage || twImage !== ogImage) {
     fail(`${page}: twitter:image must match og:image`)
@@ -155,34 +157,38 @@ for (const file of files) {
   }
 }
 for (const html of importantPages) {
-  if (!html.includes('/media/tarkov-')) {
-    fail('An important indexed page is missing visible Tarkov media')
+  if (!html.includes('/media/dayz-')) {
+    fail('An important indexed page is missing visible DayZ media')
   }
 }
-if (!home.includes('/videos/tarkov-preview.mp4') || !home.includes('/media/tarkov-video-thumb.jpg')) {
-  fail('Homepage is missing the self-hosted Tarkov preview video')
+if (!home.includes('/videos/dayz-preview.mp4') || !home.includes('/media/dayz-video-thumb.jpg')) {
+  fail('Homepage is missing the self-hosted DayZ preview video')
 }
 if (home.includes('iframe.mediadelivery.net') || product.includes('iframe.mediadelivery.net')) {
   fail('Pages still embed blocked mediadelivery video (403 off-domain)')
 }
-if (/warzonecheats|wardogshacks|theislecheats|\.uk\/|Delta Product|Auron Product/i.test(home + product)) {
-  fail('Built pages still contain legacy Warzone/UK branding')
+if (
+  /tarkovcheats|Escape from Tarkov|tarkov-reaper|warzonecheats|wardogshacks|theislecheats|\.uk\/|Delta Product|Auron Product/i.test(
+    home + product,
+  )
+) {
+  fail('Built pages still contain legacy Tarkov/Warzone branding')
 }
 
 const sitemap = readFileSync(join(dist, 'sitemap.xml'), 'utf8')
 if (sitemap.includes('<sitemapindex')) fail('sitemap.xml must be a single urlset, not an index')
 if (/forums\/(instructions|how-to-load)/.test(sitemap)) fail('Retired forum remains in sitemap.xml')
-if (!sitemap.includes('https://tarkovcheats.io/')) {
-  fail('sitemap.xml must use https://tarkovcheats.io URLs')
+if (!sitemap.includes('https://dayzcheats.io/')) {
+  fail('sitemap.xml must use https://dayzcheats.io URLs')
 }
-if (!sitemap.includes('/videos/tarkov-preview.mp4')) {
-  fail('sitemap.xml missing Tarkov preview video entry')
+if (!sitemap.includes('/videos/dayz-preview.mp4')) {
+  fail('sitemap.xml missing DayZ preview video entry')
 }
 if (!sitemap.includes('xmlns:video=')) {
   fail('sitemap.xml missing video namespace for Google video indexing')
 }
-if (/warzonecheats|wardogshacks|theislecheats|Delta Product|Auron Product|Ricochet/i.test(sitemap)) {
-  fail('sitemap.xml still contains legacy Warzone branding')
+if (/tarkovcheats|Tarkov|warzonecheats|Delta Product|Auron Product|Ricochet/i.test(sitemap)) {
+  fail('sitemap.xml still contains legacy Tarkov/Warzone branding')
 }
 const expectedUrls = new Set(
   files
@@ -195,14 +201,14 @@ const uniqueSitemapUrls = new Set(pageLocs)
 const imageLocs = [...sitemap.matchAll(/<image:loc>([^<]+)<\/image:loc>/g)].map((match) => match[1])
 const requiredImages = [
   '/og/home.jpg',
-  '/og/tarkov-cheats.jpg',
+  '/og/dayz-cheats.jpg',
   '/og/forums.jpg',
   '/og/reviews.jpg',
-  '/media/tarkov-reaper-full.webp',
-  '/media/tarkov-reaper-lite.webp',
-  '/media/tarkov-esp-gameplay.gif',
-  '/media/tarkov-menu.gif',
-  '/media/tarkov-video-thumb.jpg',
+  '/media/dayz-hero-full.webp',
+  '/media/dayz-cover.webp',
+  '/media/dayz-esp-gameplay.gif',
+  '/media/dayz-menu.gif',
+  '/media/dayz-video-thumb.jpg',
 ]
 
 for (const url of expectedUrls) {
@@ -253,7 +259,7 @@ if (!existsSync(join(dist, 'robots.txt'))) fail('dist/robots.txt is missing')
 if (!existsSync(join(dist, '_routes.json'))) fail('dist/_routes.json is missing')
 
 const robots = readFileSync(join(dist, 'robots.txt'), 'utf8')
-if (!robots.includes('Sitemap: https://tarkovcheats.io/sitemap.xml')) {
+if (!robots.includes('Sitemap: https://dayzcheats.io/sitemap.xml')) {
   fail('robots.txt must point at the canonical HTTPS sitemap')
 }
 if (!robots.includes('Allow: /sitemap.xml')) {
@@ -273,17 +279,18 @@ if (!routes.exclude?.includes('/sitemap.xml') || !routes.exclude?.includes('/rob
 
 for (const asset of [
   'public/og/home.jpg',
-  'public/og/tarkov-cheats.jpg',
+  'public/og/dayz-cheats.jpg',
   'public/og/forums.jpg',
   'public/og/reviews.jpg',
   'public/og/faq.jpg',
   'public/og/support.jpg',
-  'public/media/tarkov-reaper-full.webp',
-  'public/media/tarkov-reaper-lite.webp',
-  'public/media/tarkov-esp-gameplay.gif',
-  'public/media/tarkov-menu.gif',
-  'public/media/tarkov-video-thumb.jpg',
-  'public/videos/tarkov-preview.mp4',
+  'public/media/dayz-hero-full.webp',
+  'public/media/dayz-cover.webp',
+  'public/media/dayz-box.jpg',
+  'public/media/dayz-esp-gameplay.gif',
+  'public/media/dayz-menu.gif',
+  'public/media/dayz-video-thumb.jpg',
+  'public/videos/dayz-preview.mp4',
   'public/sitemap.css',
   'public/_routes.json',
   'functions/_middleware.js',
@@ -293,10 +300,44 @@ for (const asset of [
 
 const redirects = readFileSync(join(root, 'public', '_redirects'), 'utf8')
 if (!redirects.includes('/sitemap-pages.xml')) {
-  fail('_redirects missing legacy sitemap â†’ /sitemap.xml redirects')
+  fail('_redirects missing legacy sitemap -> /sitemap.xml redirects')
 }
 if (!redirects.includes('/sitemap-index.xml')) {
-  fail('_redirects missing sitemap-index.xml â†’ /sitemap.xml redirect')
+  fail('_redirects missing sitemap-index.xml -> /sitemap.xml redirect')
+}
+if (!redirects.includes('/tarkov-cheats')) {
+  fail('_redirects must map the legacy /tarkov-cheats route to /dayz-cheats')
+}
+if (!redirects.includes('/dayz-hacks')) {
+  fail('_redirects must map the /dayz-hacks keyword alias to /dayz-cheats')
+}
+
+const worker = readFileSync(join(root, 'workers', 'site.js'), 'utf8')
+if (!worker.includes("startsWith('www.')") && !worker.includes('startsWith("www.")')) {
+  fail('workers/site.js must detect www. hostnames for apex redirect')
+}
+if (!worker.includes('301')) {
+  fail('workers/site.js must 301 www → apex for a single canonical host')
+}
+
+const middleware = readFileSync(join(root, 'functions', '_middleware.js'), 'utf8')
+if (!middleware.includes("startsWith('www.')") && !middleware.includes('startsWith("www.")')) {
+  fail('functions/_middleware.js must 301 www → apex')
+}
+
+if (site.includes('://www.')) {
+  fail('Canonical SITE_URL must be apex (no www) — www redirects to apex')
+}
+
+for (const file of files) {
+  if (file.endsWith('404.html')) continue
+  const html = readFileSync(file, 'utf8')
+  if (/rel="canonical" href="https:\/\/www\./.test(html)) {
+    fail(`${relative(dist, file)}: canonical must not use www`)
+  }
+  if (/hreflang="en" href="https:\/\/www\./.test(html)) {
+    fail(`${relative(dist, file)}: hreflang must not use www`)
+  }
 }
 
 const headers = readFileSync(join(root, 'public', '_headers'), 'utf8')

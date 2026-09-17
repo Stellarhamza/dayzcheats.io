@@ -1,17 +1,11 @@
-import {
-  TARKOV_HERO,
-  TARKOV_SOLDIER,
-  TARKOV_COVER,
-  TARKOV_GAMEPLAY,
-  TARKOV_ESP,
-} from './media'
-import { TARKOV_OG, getOgImageForPath, PAGE_OG } from './og'
+import { DAYZ_HERO, DAYZ_SOLDIER, DAYZ_COVER, DAYZ_MENU, DAYZ_ESP } from './media'
+import { DAYZ_OG, getOgImageForPath, PAGE_OG } from './og'
 
-export { TARKOV_OG, getOgImageForPath, PAGE_OG }
+export { DAYZ_OG, getOgImageForPath, PAGE_OG }
 export { forumOgImage } from './og'
 
-export const TARKOV_PRODUCT_HERO = TARKOV_HERO
-export const TARKOV_PRODUCT_COVER = TARKOV_COVER
+export const DAYZ_PRODUCT_HERO = DAYZ_HERO
+export const DAYZ_PRODUCT_COVER = DAYZ_COVER
 
 export type ImageSeoFields = {
   alt: string
@@ -27,13 +21,13 @@ export const IMAGE_SEO: Record<
     heroCaption: string
   }
 > = {
-  tarkov: {
-    alt: 'Tarkov cheats product artwork for Escape from Tarkov PC',
-    title: 'Tarkov Cheats Product Details',
-    caption: 'EFT Aimbot, ESP, wallhack, loot filter, radar and BattlEye compatibility',
-    heroAlt: 'Escape from Tarkov cheats Aimbot and ESP features',
-    heroTitle: 'Tarkov Cheats Features',
-    heroCaption: 'Review EFT Aimbot, ESP, loot filter and current BattlEye status',
+  dayz: {
+    alt: 'DayZ cheats product artwork for DayZ Standalone on PC',
+    title: 'DayZ Cheats Product Details',
+    caption: 'DayZ Aimbot, ESP, wallhack, loot ESP, radar hack and BattlEye compatibility',
+    heroAlt: 'DayZ cheats silent aim Aimbot and ESP features',
+    heroTitle: 'DayZ Cheats Features',
+    heroCaption: 'Review DayZ Aimbot, ESP, radar hack and current BattlEye status',
   },
 }
 
@@ -45,55 +39,55 @@ export const PAGE_IMAGES: Record<
   PageImage
 > = {
   home: {
-    src: TARKOV_SOLDIER,
+    src: DAYZ_SOLDIER,
     og: PAGE_OG.home,
-    alt: 'Tarkov cheats Aimbot and ESP artwork for Escape from Tarkov PC',
-    title: 'Tarkov Cheats',
-    caption: 'Escape from Tarkov Aimbot, ESP, wallhack and loot radar overview.',
+    alt: 'DayZ cheats Aimbot and ESP artwork for DayZ Standalone on PC',
+    title: 'DayZ Cheats',
+    caption: 'DayZ Aimbot, ESP, wallhack and radar hack overview.',
   },
   forums: {
-    src: TARKOV_HERO,
+    src: DAYZ_HERO,
     og: PAGE_OG.forums,
-    alt: 'Escape from Tarkov cheats product artwork',
-    title: 'Tarkov Cheats Guides',
-    caption: 'Setup, Aimbot and ESP guides for EFT.',
+    alt: 'DayZ cheats product artwork',
+    title: 'DayZ Cheats Guides',
+    caption: 'Setup, Aimbot and ESP guides for DayZ.',
   },
   reviews: {
-    src: TARKOV_ESP,
+    src: DAYZ_ESP,
     og: PAGE_OG.reviews,
-    alt: 'Tarkov cheats review artwork',
-    title: 'Tarkov Cheats Reviews',
-    caption: 'Feature and compatibility feedback for Escape from Tarkov.',
+    alt: 'DayZ cheats review artwork',
+    title: 'DayZ Cheats Reviews',
+    caption: 'Feature and compatibility feedback for DayZ Standalone.',
   },
   faq: {
-    src: TARKOV_GAMEPLAY,
+    src: DAYZ_MENU,
     og: PAGE_OG.faq,
-    alt: 'Tarkov cheats FAQ artwork',
-    title: 'Tarkov Cheats FAQ',
-    caption: 'Compatibility, feature and setup answers for EFT.',
+    alt: 'DayZ cheats FAQ artwork',
+    title: 'DayZ Cheats FAQ',
+    caption: 'Compatibility, feature and setup answers for DayZ.',
   },
   support: {
-    src: TARKOV_HERO,
+    src: DAYZ_HERO,
     og: PAGE_OG.support,
-    alt: 'Tarkov cheats support artwork',
-    title: 'Tarkov Cheats Support',
-    caption: 'Delivery, loader and setup support for Escape from Tarkov cheats.',
+    alt: 'DayZ cheats support artwork',
+    title: 'DayZ Cheats Support',
+    caption: 'Delivery, loader and setup support for DayZ cheats.',
   },
   product: {
-    src: TARKOV_COVER,
+    src: DAYZ_COVER,
     og: PAGE_OG.product,
-    alt: 'EFT Aimbot ESP and loot filter product artwork',
-    title: 'Tarkov Cheats Features',
-    caption: 'Product details for Escape from Tarkov Aimbot and ESP.',
+    alt: 'DayZ Aimbot ESP and radar hack product artwork',
+    title: 'DayZ Cheats Features',
+    caption: 'Product details for DayZ Aimbot and ESP.',
   },
 }
 
 export function getGameImage(_slug: string): string {
-  return TARKOV_PRODUCT_COVER
+  return DAYZ_PRODUCT_COVER
 }
 
 export function getProductHeroImage(_slug: string): string {
-  return TARKOV_PRODUCT_COVER
+  return DAYZ_PRODUCT_COVER
 }
 
 export function getOgImage(path?: string): string {

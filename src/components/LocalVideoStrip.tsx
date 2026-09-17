@@ -1,8 +1,8 @@
 /**
- * Legacy local video strip — unused after Tarkov rebrand.
+ * Legacy local video strip — unused after the DayZ rebrand.
  * Kept as a no-op image strip so old imports do not crash builds.
  */
-import { TARKOV_ESP } from '../data/media'
+import { DAYZ_ESP } from '../data/media'
 
 type LocalVideoStripProps = {
   title?: string
@@ -14,8 +14,8 @@ type LocalVideoStripProps = {
 }
 
 export function LocalVideoStrip({
-  title = 'Escape from Tarkov gameplay preview',
-  poster = TARKOV_ESP,
+  title = 'DayZ gameplay preview',
+  poster = DAYZ_ESP,
   className = '',
 }: LocalVideoStripProps) {
   return (

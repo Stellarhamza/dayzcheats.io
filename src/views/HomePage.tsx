@@ -9,29 +9,29 @@ import { CheckoutLink } from '../components/CheckoutLink'
 import { HOME_FAQS } from '../data/faqs'
 import { HOME_HEADINGS, SITE_HOST, SITE_NAME, SITE_PURPOSE } from '../data/site'
 import { BLOGS, blogPath } from '../data/blogs'
-import { TARKOV_HOME_VIDEO } from '../data/media'
-import { TarkovPreview } from '../components/TarkovPreview'
+import { DAYZ_HOME_VIDEO } from '../data/media'
+import { DayZPreview } from '../components/DayZPreview'
 
 const FEATURES = [
   {
     icon: Crosshair,
-    label: 'EFT Aimbot',
-    desc: 'Humanized Aimbot with FOV, smoothing and bone selection for Escape from Tarkov PC raids.',
+    label: 'DayZ Aimbot',
+    desc: 'Silent aim with FOV, smoothing and bone selection — shots land near a survivor and still look legit.',
   },
   {
     icon: Eye,
     label: 'ESP / Wallhack',
-    desc: 'PMC, Scav and boss boxes, distance and health through walls — plus loot ESP when supported.',
+    desc: 'Survivor and infected boxes, distance and health through walls — plus loot and item ESP when supported.',
   },
   {
     icon: Radar,
     label: 'Radar hack',
-    desc: '2D radar for off-screen threats so flanks stop surprising your squad mid-raid.',
+    desc: '2D radar for off-screen survivors so third parties stop ending your loot runs.',
   },
   {
     icon: Sparkles,
     label: 'BattlEye status',
-    desc: 'We mark Undetected or Updating after Tarkov and BattlEye patches.',
+    desc: 'We mark Undetected or Updating after DayZ and BattlEye patches.',
   },
 ] as const
 
@@ -40,8 +40,8 @@ export function HomePage() {
     <div className="min-h-screen overflow-x-hidden text-white">
       <section id="home" className="relative flex min-h-screen flex-col overflow-x-clip">
         <VideoBg
-          image="/media/tarkov-reaper-full.webp"
-          imageAlt="Tarkov cheats Aimbot and ESP product artwork"
+          image="/media/dayz-hero-full.webp"
+          imageAlt="DayZ cheats Aimbot and ESP product artwork"
         />
 
         <div className="relative z-20 flex min-h-screen flex-col">
@@ -51,18 +51,29 @@ export function HomePage() {
             <div className="flex flex-col gap-6 sm:gap-8 lg:flex-row lg:items-end lg:justify-between">
               <div className="relative z-30 max-w-xl">
                 <p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-z-soft/80">
-                  Tarkov · Worldwide · {SITE_HOST}
+                  DayZ · Worldwide · {SITE_HOST}
                 </p>
                 <h1 className="text-3xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[3.5rem]">
                   {HOME_HEADINGS.h1}
                 </h1>
                 <p className="mt-5 max-w-lg text-base leading-relaxed text-white/70 sm:text-lg">
-                  Undetected Escape from Tarkov cheats (EFT cheats) for Windows PC — Aimbot, Tarkov ESP,
-                  EFT ESP, wallhack, loot filter, radar and live BattlEye status for worldwide raids.
+                  Undetected DayZ cheats and DayZ hacks for Windows PC — silent aim Aimbot, DayZ ESP,
+                  wallhack, loot ESP, radar hack and live BattlEye status on official and private servers.
                 </p>
 
-                <div className="relative z-50 mt-7">
-                  <HeroSearch placeholder="Search Tarkov cheats…" />
+                <div className="relative z-50 mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
+                  <CheckoutLink className="cta-gradient inline-flex items-center justify-center rounded-full px-7 py-3.5 text-sm font-semibold text-white transition-opacity hover:opacity-90">
+                    Buy DayZ Cheats
+                  </CheckoutLink>
+                  <a
+                    href={guidePath('dayz')}
+                    className="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3.5 text-sm font-semibold text-white/90 transition-colors hover:border-white/40 hover:bg-white/5"
+                  >
+                    Product details
+                  </a>
+                </div>
+                <div className="relative z-50 mt-4">
+                  <HeroSearch placeholder="Search DayZ cheats…" />
                 </div>
               </div>
 
@@ -75,7 +86,7 @@ export function HomePage() {
                     UD
                   </p>
                   <p className="mt-3 text-sm leading-relaxed text-white/70 sm:mt-4">
-                    Live undetected status for Escape from Tarkov. Updated after BattlEye patches —
+                    Live undetected status for DayZ Standalone. Updated after BattlEye patches —
                     not random Discord screenshots.
                   </p>
                 </div>
@@ -83,13 +94,13 @@ export function HomePage() {
                 <div className="glass flex h-full min-h-[168px] flex-col rounded-2xl p-5 sm:min-h-[200px] sm:p-6">
                   <div className="mb-3 flex items-center gap-2 sm:mb-4">
                     <div className="flex h-6 w-6 items-center justify-center rounded bg-z-accent/30 text-xs font-bold text-z-soft">
-                      EFT
+                      DZ
                     </div>
-                    <span className="text-sm font-semibold text-white">Escape from Tarkov</span>
+                    <span className="text-sm font-semibold text-white">DayZ Standalone</span>
                   </div>
                   <p className="flex-1 text-sm leading-relaxed text-white/80">
-                    “Bought for ESP and mild Aimbot. Status stayed honest after the last BattlEye
-                    rebuild — finally an honest status shop.”
+                    “Bought it for ESP and mild silent aim. Status stayed honest after the last
+                    BattlEye rebuild — finally an honest status shop.”
                   </p>
                   <div className="mt-4 flex items-center gap-3 sm:mt-5">
                     <div className="flex h-9 w-9 items-center justify-center rounded-full bg-z-accent/25 text-sm font-semibold text-z-ink">
@@ -97,7 +108,7 @@ export function HomePage() {
                     </div>
                     <div>
                       <p className="text-sm font-semibold text-white">jayk</p>
-                      <p className="text-xs text-white/60">Tarkov player</p>
+                      <p className="text-xs text-white/60">DayZ player</p>
                     </div>
                   </div>
                 </div>
@@ -113,10 +124,10 @@ export function HomePage() {
         <section className="page-x py-12">
           <div className="mx-auto max-w-6xl">
             <h2 className="mb-5 text-xl font-semibold tracking-tight text-white sm:text-2xl">
-              Tarkov Cheats preview
+              DayZ Cheats preview
             </h2>
-            <TarkovPreview className="shadow-glow" />
-            <p className="mt-3 text-sm text-white/45">{TARKOV_HOME_VIDEO.caption}</p>
+            <DayZPreview className="shadow-glow" />
+            <p className="mt-3 text-sm text-white/45">{DAYZ_HOME_VIDEO.caption}</p>
           </div>
         </section>
 
@@ -150,11 +161,11 @@ export function HomePage() {
                   Forums
                 </p>
                 <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                  Tarkov Cheats forums
+                  DayZ Cheats forums
                 </h2>
                 <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/55 sm:text-base">
-                  Bigger setup library — Aimbot, ESP, radar, raid tips, BattlEye status and loader
-                  fixes before you buy.
+                  Bigger setup library — Aimbot, ESP, radar hack, loot run tips, BattlEye status and
+                  loader fixes before you buy.
                 </p>
               </div>
               <a
@@ -193,13 +204,13 @@ export function HomePage() {
 
             <div className="page-card mt-8 flex flex-col gap-4 rounded-2xl p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
               <div>
-                <h3 className="text-lg font-semibold text-white">Tarkov Cheats product</h3>
+                <h3 className="text-lg font-semibold text-white">DayZ Cheats product</h3>
                 <p className="mt-1 text-sm text-white/55">
                   Detailed features · BattlEye status · price · checkout
                 </p>
               </div>
               <a
-                href={guidePath('tarkov')}
+                href={guidePath('dayz')}
                 className="cta-gradient inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium text-white"
               >
                 View product details
@@ -222,10 +233,10 @@ export function HomePage() {
                   {SITE_PURPOSE} Clear features, honest Undetected status, and deep forums for
                   setup. Then check{' '}
                   <a
-                    href="/tarkov-cheats"
+                    href="/dayz-cheats"
                     className="text-white/80 underline-offset-2 hover:underline"
                   >
-                    Tarkov feature list
+                    the DayZ feature list
                   </a>
                   ,{' '}
                   <a href="/reviews" className="text-white/80 underline-offset-2 hover:underline">
@@ -239,10 +250,10 @@ export function HomePage() {
                 </p>
               </div>
               <a
-                href={guidePath('tarkov')}
+                href={guidePath('dayz')}
                 className="mt-8 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-white hover:text-white/80"
               >
-                Open product page
+                See DayZ product details
                 <ArrowRight className="h-4 w-4" strokeWidth={1.75} />
               </a>
             </div>
@@ -259,12 +270,12 @@ export function HomePage() {
                   {HOME_HEADINGS.h2Access}
                 </h2>
                 <p className="mt-4 text-sm leading-relaxed text-white/55 sm:text-base">
-                  Confirm Tarkov Cheats status is Undetected, then checkout for digital delivery
+                  Confirm DayZ Cheats status is Undetected, then checkout for digital delivery
                   on supported Windows builds — worldwide.
                 </p>
               </div>
               <CheckoutLink className="cta-gradient mt-8 inline-flex w-full items-center justify-center rounded-full px-6 py-3.5 text-sm font-medium text-white transition-opacity hover:opacity-90 sm:w-fit">
-                Buy Tarkov Cheats
+                Buy DayZ Cheats
               </CheckoutLink>
             </div>
           </div>
@@ -273,7 +284,7 @@ export function HomePage() {
         <FaqSection
           id="faq"
           heading={HOME_HEADINGS.h2Faq}
-          intro="Pre-purchase answers about BattlEye status, Aimbot/ESP, delivery and checkout."
+          intro="Pre-purchase answers about BattlEye status, Aimbot and ESP, server support, delivery and checkout."
           items={HOME_FAQS}
         />
 

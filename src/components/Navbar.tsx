@@ -7,7 +7,7 @@ import { SITE_NAME } from '../data/site'
 /** Lean nav — Reviews stay in footer. */
 const NAV_LINKS = [
   { label: 'Forums', to: '/forums' },
-  { label: 'Product', to: '/tarkov-cheats' },
+  { label: 'Product', to: '/dayz-cheats' },
   { label: 'Reviews', to: '/reviews' },
   { label: 'FAQ', to: '/faq' },
   { label: 'Support', to: '/support' },

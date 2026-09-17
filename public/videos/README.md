@@ -1,6 +1,7 @@
 ﻿# Videos
 
-Self-hosted Escape from Tarkov / Tarkov Cheats media:
-- `/videos/tarkov-preview.mp4` — battlelog EFT Reaper preview (no third-party embeds)
-- `/media/tarkov-reaper-*.webp|jpg` — product art
-- `/media/tarkov-menu.gif`, `tarkov-esp-gameplay.gif`, `tarkov-exfil-esp.gif` — menu/ESP stills
+Self-hosted DayZ / DayZ Cheats media:
+- `/videos/dayz-preview.mp4` — battlelog DayZ Reaper preview (no third-party embeds)
+- `/media/dayz-hero-full.webp`, `dayz-cover.webp`, `dayz-box.jpg` — product art
+- `/media/dayz-menu.gif`, `dayz-esp-gameplay.gif` — menu/ESP stills
+- `/media/dayz-video-thumb.jpg` — preview poster frame

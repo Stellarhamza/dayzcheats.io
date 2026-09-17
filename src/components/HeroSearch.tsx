@@ -18,7 +18,7 @@ export function HeroSearch({
   value,
   onChange,
   submitTo = 'forums',
-  placeholder = 'Search Tarkov Cheats…',
+  placeholder = 'Search DayZ Cheats…',
   autoFocus = false,
   className = '',
 }: HeroSearchProps) {
@@ -42,10 +42,12 @@ export function HeroSearch({
     const term = q.trim().toLowerCase()
     if (!term) return []
     const cheatAliases = [
-      'tarkov cheats',
-      'eft cheats',
-      'escape from tarkov cheats',
-      'tarkovhacks',
+      'dayz cheats',
+      'dayz cheat',
+      'dayz hacks',
+      'dayz hack',
+      'dayz standalone cheats',
+      'dayzhacks',
       'cheats',
     ]
     if (cheatAliases.some((a) => a.includes(term) || term.includes(a))) {

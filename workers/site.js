@@ -3,8 +3,8 @@
  * IMPORTANT: Always fetch assets via https://assets.local — never the request
  * hostname — or Cloudflare returns HTTP 522 on custom domains.
  *
- * Serve both apex and www. Do not bounce between them — some resolvers still
- * hold negative NXDOMAIN caches for one hostname while the other works.
+ * Canonical host is apex (no www). Always 301 www → apex so crawlers never
+ * see duplicate content or mismatched canonical/hreflang on www.
  */
 function assetsFetch(env, request, pathname) {
   return env.ASSETS.fetch(new Request(new URL(pathname, 'https://assets.local'), request))
@@ -35,16 +35,43 @@ function withHtmlCharset(response) {
   })
 }
 
+/** Prefer apex: https://www.example.com/path → https://example.com/path */
+function toApexUrl(url) {
+  const host = url.hostname.toLowerCase()
+  if (!host.startsWith('www.')) return null
+  const next = new URL(url.toString())
+  next.hostname = host.slice(4)
+  next.protocol = 'https:'
+  return next
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url)
 
     if (url.protocol === 'http:') {
       url.protocol = 'https:'
-      return Response.redirect(url.toString(), 301)
+      const apex = toApexUrl(url)
+      return Response.redirect((apex || url).toString(), 301)
+    }
+
+    const apex = toApexUrl(url)
+    if (apex) {
+      return Response.redirect(apex.toString(), 301)
     }
 
     const assetResponse = await assetsFetch(env, request, url.pathname + url.search)
-    return withHtmlCharset(assetResponse)
+    const response = withHtmlCharset(assetResponse)
+
+    // Help crawlers + Seobility: advertise preferred host
+    const headers = new Headers(response.headers)
+    if (!headers.has('Strict-Transport-Security')) {
+      headers.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload')
+    }
+    return new Response(response.body, {
+      status: response.status,
+      statusText: response.statusText,
+      headers,
+    })
   },
 }

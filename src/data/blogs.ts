@@ -14,485 +14,518 @@ export type BlogPost = {
   readMinutes: number
   tag: string
   sections: BlogSection[]
+  /** Emit HowTo JSON-LD when true (setup / how-to guides). */
+  howTo?: boolean
 }
 
 /**
- * Commercial / transactional buyer guides — expanded for Tarkov SEO.
+ * Commercial DayZ cheat guides — unique intents, keyword-targeted meta.
+ * Primary SERP targets: dayz cheats, dayz cheat, dayz hacks, aimbot, esp, wallhack, radar.
  */
 export const BLOGS: BlogPost[] = [
   {
     slug: 'features-list',
-    title: 'Tarkov Cheats Features List',
+    title: 'DayZ Cheat Features Checklist',
     excerpt:
-      'Full Escape from Tarkov cheats features before you buy — Aimbot, ESP, wallhack, loot filter, radar, HWID spoofer and BattlEye status from $11.90.',
-    metaTitle: 'Tarkov Cheats Features | EFT Aimbot, ESP & Radar List',
+      'Checklist of every DayZ cheat module on dayzcheats.io — silent aim, player ESP, loot ESP, wallhack, radar hack and spoofer — before you open checkout from $4.90.',
+    metaTitle: 'DayZ Cheat Features Checklist | Aimbot ESP Radar',
     metaDescription:
-      'Compare Escape from Tarkov Aimbot, ESP, wallhack, loot filter, radar and HWID spoofer on tarkovcheats.io from $11.90.',
-    searchTerms: 'tarkov cheats features eft aimbot esp wallhack loot filter radar',
-    date: '2026-09-15',
+      'DayZ cheat features checklist: silent aim Aimbot, player ESP, loot ESP, wallhack, radar hack and spoofer on dayzcheats.io from $4.90. Compare modules before you buy.',
+    searchTerms: 'dayz cheat features checklist dayz cheats aimbot esp wallhack radar hack',
+    date: '2026-09-17',
     readMinutes: 8,
     tag: 'Features',
     sections: [
       {
-        heading: 'What you get when you buy',
+        heading: 'Use this checklist before checkout',
         body: [
-          'Tarkov Cheats on tarkovcheats.io is one Escape from Tarkov (EFT) product for Windows PC. You are buying a loader + license with live Undetected / Updating status against BattlEye — not a random multi-game pack.',
-          'Licenses start from $11.90. worldwide buyers get the same digital delivery after checkout. Open the product page, confirm BattlEye status, then buy when Undetected.',
+          'Searching “dayz cheats” or “dayz cheat” usually means one question: what is actually included? This guide is the module checklist — not the price page. Open Product details for live BattlEye status and checkout from $4.90.',
+          'DayZ Cheats on dayzcheats.io is a single DayZ Standalone product for Windows PC: one loader, one license, Undetected or Updating against BattlEye. Official and many modded private servers are supported when the build allows it.',
         ],
       },
       {
-        heading: 'Core features list',
+        heading: 'Aimbot and silent aim',
         body: [
-          'EFT Aimbot — FOV, smoothing, hitbox and visible-check options for humanized tracking on PMCs and Scavs.',
-          'Player ESP / wallhack — boxes, skeletons, distance and health through walls on Customs, Interchange, Labs and every other map.',
-          'Loot filter / loot ESP — highlight high-value items by price so you extract with worth, not clutter.',
-          'Radar hack — 2D radar for off-screen PMCs, Scavs and boss packs across the raid.',
-          'HWID spoofer — optional hardware ID spoof support when the current build includes it.',
+          'DayZ Aimbot / silent aim — FOV, smoothing, hitbox and visible-check options so shots near a survivor still connect without a robotic snap that private-server admins notice on spectate.',
+        ],
+      },
+      {
+        heading: 'ESP, wallhack and loot highlighting',
+        body: [
+          'Player ESP / wallhack — boxes, skeletons, distance and health through walls and treelines on Chernarus and Livonia.',
+          'Infected ESP — spot zombies before they aggro so a quiet loot run stays quiet.',
+          'Loot ESP — highlight guns, ammo, medical supplies and rare gear so empty houses stop wasting your time.',
+        ],
+      },
+      {
+        heading: 'Radar, bases and extras',
+        body: [
+          'Radar hack — 2D radar for off-screen survivors and third parties around towns and military loot.',
+          'Base and stash intel — tents, barrels and buried stashes on private servers before you commit a raid.',
+          'Spoofer — hardware identifier protection when the current build includes it.',
           'Stream-proof — keep supported overlays out of OBS and common capture tools.',
         ],
       },
       {
-        heading: 'Why players search these terms',
+        heading: 'Next reads',
         body: [
-          'Searches like "tarkov cheats", "escape from tarkov cheats" and "eft cheats" map to the same toolkit. BattlEye status and setup quality matter as much as the feature names on the sales page.',
-          'Read the Aimbot settings, ESP wallhack and BattlEye status guides next, then checkout only when Undetected is live on tarkovcheats.io.',
+          'Tune Aimbot in the Aimbot settings guide, dial ESP in the ESP & wallhack guide, then confirm Undetected on the BattlEye status guide before you buy DayZ cheats.',
         ],
       },
     ],
   },
   {
     slug: 'aimbot-settings',
-    title: 'EFT Aimbot Settings Guide',
+    title: 'DayZ Aimbot Settings for Silent Aim',
     excerpt:
-      'Tune Escape from Tarkov Aimbot FOV, smoothing, hitbox and visible-check so PMC and Scav tracking stays effective without looking robotic.',
-    metaTitle: 'Tarkov Aimbot Settings | EFT FOV, Smoothing & Hitbox',
+      'Tune DayZ Aimbot FOV, smoothing, hitbox and silent aim so survivor tracking stays effective without looking robotic to spectating admins.',
+    metaTitle: 'DayZ Aimbot Settings | Silent Aim FOV & Smoothing',
     metaDescription:
-      'Escape from Tarkov Aimbot setup for PC: FOV, smoothing, humanized tracking and visible-check for raid-safe EFT cheats.',
-    searchTerms: 'tarkov aimbot settings eft cheats fov smoothing humanized',
-    date: '2026-09-15',
+      'DayZ Aimbot settings for PC: silent aim, FOV, smoothing and visible-check so your DayZ cheat looks legit on official and private servers. Start conservative, then save configs.',
+    searchTerms: 'dayz aimbot settings silent aim fov smoothing dayz cheat dayz cheats',
+    date: '2026-09-17',
     readMinutes: 10,
     tag: 'Aimbot',
+    howTo: true,
     sections: [
       {
         heading: 'Start conservative',
         body: [
-          'Blatant Aimbot is the fastest way to get reported in Escape from Tarkov raids. Start with a tight FOV, heavy smoothing and chest or nearest-bone targeting before you ever touch head-only snap settings.',
-          'Confirm Undetected status against BattlEye first. Aimbot settings cannot save a detected build after a Battlestate Games / BattlEye update.',
+          'Blatant Aimbot is the fastest report on a DayZ server — private admins spectate more often than BattlEye alone catches. Start with a tight FOV, heavy smoothing and chest or nearest-bone targeting before head-only snap.',
+          'Confirm Undetected against BattlEye first. Aimbot settings cannot save a detected build after a Bohemia or BattlEye update.',
         ],
       },
       {
-        heading: 'FOV, smoothing and distance',
+        heading: 'Silent aim, FOV and distance',
         body: [
-          'FOV controls how large the assist cone is. Smaller FOV looks more like good tracking; huge FOV looks like a magnet in close dorms or Interchange aisles.',
-          'Smoothing is your primary stealth lever. Higher smoothing = slower, more human corrections. Lower smoothing = snappier and riskier.',
-          'Cap aim distance so mid/long peeks on Customs or Woods do not look impossible from impossible angles.',
+          'Silent aim is the DayZ cheat players search for: fire near a survivor and the round still lands while your crosshair never snaps.',
+          'FOV is the assist cone. Small FOV reads as tracking; huge FOV reads as a magnet in Elektro apartments.',
+          'Smoothing is stealth. Higher = slower human corrections. Lower = snappier and riskier.',
+          'Cap aim distance so airfield long shots do not look impossible.',
         ],
       },
       {
         heading: 'Visible-check and hitbox',
         body: [
-          'Enable visibility checks when available so Aimbot does not lock through solid cover — that behavior is easy for teammates and spectators to notice.',
-          'Chest or body hitboxes are safer than permanent head lock for public PMC raids and scav runs.',
+          'Enable visibility checks so Aimbot does not lock through solid cover — easy for admins and squad mates to spot.',
+          'Chest or body hitboxes are safer than permanent head lock. Body shots are usually enough in DayZ.',
         ],
       },
       {
-        heading: 'Raid defaults for PMC and Scav',
+        heading: 'Save loot-run and PvP configs',
         body: [
-          'For high-risk Labs or contested extracts, keep Aimbot mild or off and lean on ESP, loot filter and radar. Casual scav runs can run slightly more assist if you still avoid snap behavior.',
-          'Save a "labs" and a "casual raid" config so you are not retuning mid-session. Licenses start from $11.90 on tarkovcheats.io.',
+          'For quiet gearing, keep Aimbot mild or off and lean on player ESP, loot ESP and radar. For contested military loot, add slight assist without snap behaviour.',
+          'Save a “loot run” and a “PvP” config. Licenses for DayZ cheats start from $4.90 on dayzcheats.io.',
         ],
       },
     ],
   },
   {
     slug: 'esp-wallhack-guide',
-    title: 'Tarkov ESP & Wallhack Guide',
+    title: 'DayZ ESP and Wallhack Setup',
     excerpt:
-      'Use Escape from Tarkov ESP and wallhack for PMC/Scav boxes, distance, health and loot filter awareness without overloading your HUD.',
-    metaTitle: 'Tarkov ESP & Wallhack Guide | EFT Player & Loot ESP',
+      'Configure DayZ ESP and wallhack for survivor boxes, infected tracking and loot highlighting without flooding your HUD.',
+    metaTitle: 'DayZ ESP Wallhack Setup | Player Loot & Infected',
     metaDescription:
-      'Escape from Tarkov ESP and wallhack setup: PMC boxes, skeletons, distance, health and loot price filter for EFT cheats.',
-    searchTerms: 'tarkov esp wallhack eft cheats loot filter player boxes',
-    date: '2026-09-15',
+      'DayZ ESP and wallhack setup: survivor boxes, skeletons, distance, health, infected ESP and loot highlighting. Clean HUD defaults for DayZ cheats on PC.',
+    searchTerms: 'dayz esp wallhack dayz cheats loot esp player boxes infected dayz cheat',
+    date: '2026-09-17',
     readMinutes: 9,
     tag: 'ESP',
+    howTo: true,
     sections: [
       {
-        heading: 'What ESP actually does',
+        heading: 'What DayZ ESP actually does',
         body: [
-          'Escape from Tarkov ESP (and wallhack visuals) draw information through walls so you know where PMCs, Scavs, bosses and high-value loot are before you peek. It does not pull the trigger for you.',
-          'Most buyers who search "tarkov wallhack" or "eft cheats esp" want this awareness layer — not a loud Aimbot.',
+          'DayZ ESP draws survivors, infected and high-value loot through walls, fences and treelines before you expose yourself. It does not pull the trigger.',
+          'Most searches for “dayz wallhack” or “dayz esp” want this awareness layer — in a game where a kit takes hours to build, information beats loud Aimbot.',
         ],
       },
       {
-        heading: 'Player ESP essentials',
+        heading: 'Player and infected ESP',
         body: [
-          'Enable boxes or skeletons, distance and health when supported. Colour-code hostile PMCs clearly and keep teammate or scav ESP distinct or filtered.',
-          'Limit max distance so your HUD is not flooded with 300m ghosts you cannot fight yet on Customs or Shoreline.',
+          'Enable boxes or skeletons, distance and health. Colour-code hostiles clearly and keep friendlies distinct.',
+          'Infected ESP is underrated — see the zombie behind the barn before it ruins a quiet house clear.',
+          'Limit max distance so the HUD is not flooded with 500m contacts you cannot fight yet.',
         ],
       },
       {
-        heading: 'Loot filter and world ESP',
+        heading: 'Loot ESP filters',
         body: [
-          'Loot filter / loot ESP is the money feature in Tarkov. Filter by price so Interchange tech, Labs keycards and high-value meds stand out — showing everything creates clutter and tunnel vision.',
-          'Pair loot ESP with extract awareness so you leave with value instead of dying overweight at the extract.',
+          'Filter by category: weapons, ammo, medical and rare gear. Showing every rag and can creates tunnel vision.',
+          'On private servers, pair loot ESP with base and stash markers so raids hit full storage.',
         ],
       },
       {
         heading: 'Stream and report risk',
         body: [
-          'Pair ESP with stream-proof mode if you clip or go live. Short ranges and clean colors look less suspicious than neon skeletons across the entire map.',
+          'Use stream-proof if you clip or go live. Short ranges and clean colours look far less suspicious than neon skeletons across the whole map.',
         ],
       },
     ],
   },
   {
     slug: 'radar-hack-guide',
-    title: 'Tarkov Radar Hack Guide',
+    title: 'DayZ Radar Hack Overlay Guide',
     excerpt:
-      'Use the Escape from Tarkov radar hack / 2D radar overlay to track off-screen PMCs, Scavs and plan safer extracts.',
-    metaTitle: 'Tarkov Radar Hack Guide | EFT 2D Radar Overlay',
+      'Use the DayZ radar hack 2D overlay to track off-screen survivors, avoid third parties and approach military loot safer.',
+    metaTitle: 'DayZ Radar Hack Guide | 2D Overlay for Survivors',
     metaDescription:
-      'Escape from Tarkov radar hack setup for PC: 2D radar, off-screen threats and extract awareness for EFT cheats.',
-    searchTerms: 'tarkov radar hack eft cheats 2d radar overlay',
-    date: '2026-09-15',
+      'DayZ radar hack guide for PC: 2D radar overlay, off-screen survivor tracking and safer military loot approaches. Pair with ESP for DayZ cheats that stay readable.',
+    searchTerms: 'dayz radar hack dayz cheats 2d radar overlay off screen dayz cheat',
+    date: '2026-09-17',
     readMinutes: 8,
     tag: 'Radar',
+    howTo: true,
     sections: [
       {
-        heading: 'Why radar matters in Tarkov',
+        heading: 'Why radar matters in DayZ',
         body: [
-          'Most raid deaths come from information gaps — third parties at dorms, scav waves, boss packs and extracts you never heard. A radar hack closes that gap without forcing Aimbot.',
-          'Buyers searching "tarkov cheats radar" or "eft cheats radar" usually want macro awareness for Customs, Interchange and Labs rotations.',
+          'Most DayZ deaths are information gaps — the sniper above Elektro, the duo already in the airfield, the third party that heard your gunfight. A radar hack closes that gap without forcing Aimbot.',
+          'Buyers searching “dayz radar hack” want macro awareness for rotations between towns, military zones and base.',
         ],
       },
       {
         heading: 'Recommended radar setup',
         body: [
-          'Keep radar readable and small enough that it does not cover your reticle. Show hostile PMCs clearly; filter or dim scavs if the overlay gets noisy.',
-          'Use radar with ESP distance readouts so you know whether a ping is a fight you can take before you commit to an extract.',
+          'Keep radar small and readable so it does not cover your crosshair. Show hostile survivors clearly; dim infected if the overlay gets noisy.',
+          'Combine radar with ESP distance so you know whether a contact is a fight worth taking before you cross open ground.',
         ],
       },
       {
-        heading: 'Combining radar with ESP and loot filter',
+        heading: 'Radar + ESP + loot ESP',
         body: [
-          'Radar for macro movement, ESP for the room you are about to clear, loot filter for what is worth the risk. That split is how strong Escape from Tarkov cheats setups feel "smart" instead of chaotic.',
+          'Radar for macro movement, ESP for the building you are about to clear, loot ESP for whether the risk is worth it. That split is how DayZ cheats setups feel smart instead of chaotic.',
         ],
       },
     ],
   },
   {
     slug: 'hotkeys',
-    title: 'Tarkov Cheats Hotkeys',
+    title: 'DayZ Cheats Hotkeys After Load',
     excerpt:
-      'Hotkeys and menu keys for Escape from Tarkov cheats after load — menu, Aimbot, ESP, loot filter, radar and panic toggles.',
-    metaTitle: 'Tarkov Cheats Hotkeys | EFT Menu, ESP & Aimbot Toggles',
+      'Menu and toggle hotkeys for DayZ cheats after a clean load — Aimbot, ESP, loot ESP, radar and panic binds.',
+    metaTitle: 'DayZ Cheats Hotkeys | Menu ESP Aimbot Toggles',
     metaDescription:
-      'Escape from Tarkov cheats hotkeys after checkout: open menu, Aimbot, ESP, loot filter, radar and stream-proof toggles.',
-    searchTerms: 'tarkov cheats hotkeys eft menu esp aimbot radar',
-    date: '2026-09-15',
+      'DayZ cheats hotkeys after checkout: open menu, Aimbot toggle, player ESP, loot ESP, radar hack and stream-proof binds. Keep panic keys minimal for field use.',
+    searchTerms: 'dayz cheats hotkeys menu esp aimbot radar toggles dayz cheat',
+    date: '2026-09-17',
     readMinutes: 8,
     tag: 'Hotkeys',
+    howTo: true,
     sections: [
       {
         heading: 'After a clean load',
         body: [
-          'Buy Tarkov Cheats on tarkovcheats.io (from $11.90), confirm Undetected against BattlEye, launch Escape from Tarkov, run the loader, then open the menu with the key in your delivery notes.',
+          'Buy DayZ Cheats on dayzcheats.io (from $4.90), confirm Undetected against BattlEye, launch DayZ, run the loader, then open the menu with the key in your delivery notes.',
           'If the menu does not open, do not spam keys — contact support with your order ID.',
         ],
       },
       {
         heading: 'Typical binds',
         body: [
-          'Menu open/close, ESP master toggle, Aimbot toggle, loot filter toggle, radar toggle, stream-proof toggle.',
-          'Bind only what you use mid-raid. Extra panic binds get pressed in dorms fights and look obvious.',
+          'Menu open/close, player ESP master toggle, Aimbot toggle, loot ESP toggle, radar toggle, stream-proof toggle.',
+          'Bind only what you use. Extra panic binds get pressed mid-fight and look obvious.',
         ],
       },
       {
-        heading: 'Raid habits',
+        heading: 'Session habits',
         body: [
-          'Keep a quick ESP-off bind for screenshots or party clips. Re-check hotkeys after every build update listed on the product page.',
+          'Keep a quick ESP-off bind for screenshots or squad clips. Re-check hotkeys after every build update on the product page.',
         ],
       },
     ],
   },
   {
     slug: 'complete-setup',
-    title: 'Complete Tarkov Cheats Setup',
+    title: 'Complete DayZ Cheats Setup',
     excerpt:
-      'Complete Escape from Tarkov cheats setup: buy from $11.90, exclusions, load order, enable ESP/Aimbot/loot filter, save config, re-check BattlEye status.',
-    metaTitle: 'Buy Tarkov Cheats Setup Guide | Complete EFT Loader Steps',
+      'Step-by-step DayZ cheats setup: buy from $4.90, antivirus exclusions, load order, enable ESP and Aimbot, save configs, re-check BattlEye.',
+    metaTitle: 'DayZ Cheats Setup Guide | Complete Loader Steps',
     metaDescription:
-      'Complete Escape from Tarkov cheats setup for Windows PC: delivery checklist, antivirus exclusions, load order and first-run Aimbot/ESP config.',
-    searchTerms: 'tarkov cheats setup eft load order windows complete',
-    date: '2026-09-15',
+      'Complete DayZ cheats setup for Windows PC: buy when Undetected, antivirus exclusions, load order, first-run ESP and Aimbot config, then re-check BattlEye after every patch.',
+    searchTerms: 'dayz cheats setup load order windows complete guide dayz cheat',
+    date: '2026-09-17',
     readMinutes: 11,
     tag: 'Setup',
+    howTo: true,
     sections: [
       {
         heading: '1) Buy and confirm status',
         body: [
-          'Open tarkovcheats.io. If status is Updating after a BattlEye patch, wait. If Undetected, checkout from $11.90 and use only the official delivery link.',
+          'Open dayzcheats.io. If status is Updating after a BattlEye patch, wait. If Undetected, checkout from $4.90 and use only the official delivery link.',
         ],
       },
       {
         heading: '2) Prep Windows',
         body: [
           'Close Discord overlay, GeForce overlay and RGB hooks that fight loaders.',
-          'Follow the antivirus exclusion guide for the delivery folder before first launch. Optional HWID spoofer steps belong in your delivery notes when the build includes them.',
+          'Follow the antivirus exclusion guide for the delivery folder before first launch. Spoofer steps belong in delivery notes when the build includes them.',
         ],
       },
       {
         heading: '3) Load order',
         body: [
-          'Start Escape from Tarkov on the official Battlestate Games launcher.',
-          'Run the Tarkov Cheats loader as delivered.',
-          'Wait for a successful load, open the menu, enable ESP + loot filter + radar, then Aimbot only if you want it.',
+          'Start DayZ from Steam or the DayZ launcher and reach the server browser.',
+          'Run the DayZ Cheats loader as delivered.',
+          'Wait for a successful load, open the menu, enable player ESP, loot ESP and radar, then Aimbot only if you want it.',
         ],
       },
       {
         heading: '4) Save configs and re-check patches',
         body: [
-          'Save labs and casual raid configs. After any Escape from Tarkov or BattlEye update, check Undetected again before you load into a raid.',
+          'Save a loot-run config and a PvP config. After any DayZ or BattlEye update, check Undetected again before you join a server.',
+          'On a modded private server, do one short test session before a long night.',
         ],
       },
     ],
   },
   {
     slug: 'windows-setup',
-    title: 'Tarkov Cheats Windows 10/11 Setup',
+    title: 'DayZ Cheats on Windows 10 and 11',
     excerpt:
-      'Windows 10 and 11 setup for Escape from Tarkov cheats — overlays, exclusions, admin rights and clean first launch against BattlEye.',
-    metaTitle: 'Tarkov Cheats Windows Setup | EFT Win10 & Win11',
+      'Windows 10/11 prep for DayZ cheats — overlays, Defender exclusions, admin rights and a clean first launch against BattlEye.',
+    metaTitle: 'DayZ Cheats Windows 10/11 Setup | PC Guide',
     metaDescription:
-      'Windows 10/11 setup for Escape from Tarkov cheats: overlays to close, Defender exclusions, admin launch and first-load checklist.',
-    searchTerms: 'tarkov cheats windows 11 setup eft defender overlay',
-    date: '2026-09-15',
+      'Windows 10 and 11 setup for DayZ cheats: close overlays, add Defender exclusions, launch with correct permissions and run a clean first load against BattlEye.',
+    searchTerms: 'dayz cheats windows 11 setup defender overlay admin dayz cheat',
+    date: '2026-09-17',
     readMinutes: 8,
     tag: 'Windows',
+    howTo: true,
     sections: [
       {
         heading: 'Supported systems',
         body: [
-          'Tarkov Cheats targets Escape from Tarkov on Windows 10 and Windows 11 (Intel and AMD). Keep Windows stable enough that the BSG launcher starts cleanly, then freeze major changes mid-session.',
+          'DayZ Cheats targets DayZ Standalone on Windows 10 and Windows 11 (Intel and AMD). Keep Windows stable enough that the DayZ launcher starts cleanly, then freeze major changes mid-session.',
         ],
       },
       {
         heading: 'Overlays and background apps',
         body: [
-          'Disable Discord overlay, NVIDIA/AMD overlays and aggressive RGB suites before load. They are a common cause of "loader opened but menu never appeared" on EFT.',
+          'Disable Discord overlay, NVIDIA/AMD overlays and aggressive RGB suites before load. They commonly cause “loader opened but menu never appeared”.',
         ],
       },
       {
         heading: 'Permissions and launcher',
         body: [
-          'Run the delivered loader with the permissions described in your order email. Do not move files out of the excluded folder after setup.',
-          'Use the official Battlestate Games launcher only — unofficial clients are unsupported.',
+          'Run the delivered loader with the permissions in your order email. Do not move files out of the excluded folder after setup.',
+          'Use the official Steam or DayZ launcher only — unofficial clients are unsupported.',
         ],
       },
     ],
   },
   {
     slug: 'disable-antivirus',
-    title: 'Antivirus Exclusions for Tarkov Cheats',
+    title: 'Antivirus Exclusions for DayZ Cheats',
     excerpt:
-      'Allowlist Escape from Tarkov cheats in Windows Defender and common AV so the loader is not quarantined before first run.',
-    metaTitle: 'Tarkov Cheats Antivirus Exclusions | EFT Defender Guide',
+      'Allowlist DayZ cheats in Windows Defender and common antivirus so the loader is not quarantined before first run.',
+    metaTitle: 'DayZ Cheats Antivirus Exclusions | Defender',
     metaDescription:
-      'How to allowlist Escape from Tarkov cheats loaders in Windows Defender and third-party antivirus before you load on Undetected.',
-    searchTerms: 'tarkov cheats antivirus eft defender exclusion',
-    date: '2026-09-15',
+      'Allowlist DayZ cheats loaders in Windows Defender and third-party antivirus before you load. Restore quarantines, exclude the delivery folder, then continue setup on Undetected.',
+    searchTerms: 'dayz cheats antivirus defender exclusion quarantine loader dayz cheat',
+    date: '2026-09-17',
     readMinutes: 8,
     tag: 'Antivirus',
+    howTo: true,
     sections: [
       {
         heading: 'Why loaders get flagged',
         body: [
-          'Cheat loaders are often hit by generic heuristics even from a legitimate purchase on tarkovcheats.io. Exclusion comes before you spam launch into Escape from Tarkov.',
+          'Cheat loaders often trip generic heuristics even from a legitimate dayzcheats.io purchase. Exclusion comes before you spam launch into DayZ.',
         ],
       },
       {
         heading: 'Windows Defender steps',
         body: [
-          'Windows Security â†’ Virus & threat protection â†’ Manage settings â†’ exclusions for the delivery folder.',
-          'Restore from Protection history if the file was already quarantined, then exclude the folder permanently.',
+          'Windows Security → Virus and threat protection → Manage settings → add an exclusion for the delivery folder.',
+          'Restore from Protection history if the file was quarantined, then exclude the folder permanently.',
         ],
       },
       {
         heading: 'Then continue setup',
         body: [
-          'Return to Complete Setup for load order. Open support with your order ID if an Undetected EFT build still fails after exclusion.',
+          'Return to Complete Setup for load order. Open support with your order ID if an Undetected DayZ build still fails after exclusion.',
         ],
       },
     ],
   },
   {
     slug: 'stream-proof-setup',
-    title: 'Tarkov Stream-Proof Setup',
+    title: 'Stream-Proof DayZ Cheats for OBS',
     excerpt:
-      'Hide Escape from Tarkov ESP, loot filter and Aimbot overlays from OBS and capture tools with stream-proof mode.',
-    metaTitle: 'Tarkov Stream-Proof Cheats Setup | EFT OBS Safe',
+      'Hide DayZ ESP, loot highlighting and Aimbot overlays from OBS and capture tools with stream-proof mode.',
+    metaTitle: 'Stream-Proof DayZ Cheats | OBS Safe Overlay',
     metaDescription:
-      'Stream-proof Escape from Tarkov cheats setup for OBS and clips so ESP, wallhack and Aimbot overlays stay off recordings.',
-    searchTerms: 'tarkov stream proof eft cheats esp obs hide overlay',
-    date: '2026-09-15',
+      'Stream-proof DayZ cheats for OBS and clips: keep ESP, wallhack and Aimbot overlays off recordings while you still see them locally. Test with a private capture first.',
+    searchTerms: 'dayz stream proof cheats esp obs hide overlay clips dayz cheat',
+    date: '2026-09-17',
     readMinutes: 8,
     tag: 'Stream',
+    howTo: true,
     sections: [
       {
         heading: 'Why stream-proof exists',
         body: [
-          'ESP and loot filter overlays on stream are an instant report magnet in Escape from Tarkov. Stream-proof mode keeps supported overlays out of common capture paths while you still see them locally.',
+          'ESP and loot overlays on stream are an instant report magnet. Private DayZ admins watch clips closely. Stream-proof keeps supported overlays out of common capture paths while you still see them locally.',
         ],
       },
       {
         heading: 'OBS checklist',
         body: [
-          'Enable stream-proof in the Tarkov Cheats menu before starting OBS.',
-          'Prefer game capture over display capture when possible, then verify with a private test recording before a live raid.',
+          'Enable stream-proof in the DayZ Cheats menu before starting OBS.',
+          'Prefer game capture over display capture when possible, then verify with a private test recording before you go live.',
         ],
       },
       {
         heading: 'Clips and report risk',
         body: [
-          'Stream-proof does not hide blatant Aimbot behavior on death cams or party clips. Conservative Aimbot settings still matter on Labs and Interchange.',
+          'Stream-proof does not hide blatant Aimbot on a squad clip or admin spectator feed. Conservative silent aim still matters.',
         ],
       },
     ],
   },
   {
     slug: 'battleye-status',
-    title: 'Tarkov BattlEye Status Explained',
+    title: 'DayZ BattlEye Undetected vs Updating',
     excerpt:
-      'Undetected vs Updating for Escape from Tarkov cheats after BattlEye and game patches — when to buy and when to wait.',
-    metaTitle: 'Tarkov BattlEye Status | EFT Undetected or Updating',
+      'What Undetected and Updating mean for DayZ cheats after BattlEye and game patches — and why admin bans are a separate risk.',
+    metaTitle: 'DayZ BattlEye Explained | Undetected vs Updating',
     metaDescription:
-      'Understand Escape from Tarkov BattlEye status for EFT cheats: Undetected vs Updating, when to wait, and how to check before load.',
-    searchTerms: 'tarkov battleye status eft cheats undetected updating',
-    date: '2026-09-15',
+      'DayZ BattlEye explained for DayZ cheats: what Undetected vs Updating means after patches, why you wait, and how admin bans differ from anti-cheat detections.',
+    searchTerms: 'dayz battleye status undetected updating dayz cheats explained',
+    date: '2026-09-17',
     readMinutes: 8,
     tag: 'Status',
     sections: [
       {
-        heading: 'Status is part of the purchase',
+        heading: 'Status is part of the product',
         body: [
-          'BattlEye updates can invalidate a build overnight. tarkovcheats.io shows Undetected or Updating so you are not buying a dead loader from a Discord screenshot.',
-          'Licenses start from $11.90 — status honesty matters more than a fake "always undetected" claim against Battlestate Games anti-cheat.',
+          'BattlEye updates can invalidate a build overnight. dayzcheats.io shows Undetected or Updating so you are not buying a dead loader from a Discord screenshot.',
+          'Licenses start from $4.90 — honest status beats fake “always undetected” marketing against BattlEye.',
         ],
       },
       {
         heading: 'Undetected vs Updating',
         body: [
-          'Undetected — cleared for load on the current Escape from Tarkov build.',
-          'Updating — wait. Do not force yesterdays loader into todays BattlEye.',
+          'Undetected — cleared for load on the current DayZ build.',
+          'Updating — wait. Do not force yesterday’s loader into today’s BattlEye.',
         ],
       },
       {
-        heading: 'Habit that protects accounts',
+        heading: 'Admin bans are separate',
         body: [
-          'Check BattlEye status after every EFT patch before you queue a PMC or Scav raid. That free habit beats any "lifetime undetected" marketing claim.',
+          'On private DayZ servers most bans come from admins reviewing reports, not from BattlEye alone. Play conservatively even while status is green.',
+        ],
+      },
+      {
+        heading: 'After every patch',
+        body: [
+          'Re-read status after every DayZ or BattlEye patch before you join a server. Use the Undetected checklist guide for the pre-buy / pre-load habit.',
         ],
       },
     ],
   },
   {
     slug: 'undetected-status',
-    title: 'Check Undetected Before You Buy or Load',
+    title: 'Undetected Checklist Before You Buy or Load',
     excerpt:
-      'Quick Undetected checklist for Escape from Tarkov cheats before checkout and before every post-BattlEye-patch load.',
-    metaTitle: 'Tarkov Cheats Undetected Status | Check Before Buy',
+      'Short Undetected checklist for DayZ cheats — confirm status before checkout and before every post-patch session.',
+    metaTitle: 'Undetected Checklist | Before You Buy DayZ Cheats',
     metaDescription:
-      'Check Escape from Tarkov cheats Undetected status before buying or loading after BattlEye updates on tarkovcheats.io.',
-    searchTerms: 'tarkov cheats undetected eft battleye checklist status',
-    date: '2026-09-15',
+      'Undetected checklist for DayZ cheats: confirm BattlEye status before checkout and before every post-patch load. Wait when Updating; buy from $4.90 when Undetected is live.',
+    searchTerms: 'undetected dayz cheats checklist before buy load battleye',
+    date: '2026-09-17',
     readMinutes: 8,
     tag: 'Status',
     sections: [
       {
         heading: 'Before checkout',
         body: [
-          'Confirm Undetected on the homepage or product page. If Updating, wait or read Refunds for extended downtime windows. Prices start from $11.90 when Undetected is live.',
+          'Confirm Undetected on the homepage or product page. If Updating, wait or read Refunds for extended downtime. Prices start from $4.90 when Undetected is live.',
         ],
       },
       {
-        heading: 'Before every raid session',
+        heading: 'Before every session',
         body: [
-          'Re-check BattlEye status after Escape from Tarkov patches. Then load once cleanly — do not spam inject into a failed state before Customs or Labs.',
+          'Re-check BattlEye status after DayZ patches. Load once cleanly — do not spam inject into a failed state before you join a server.',
         ],
       },
       {
-        heading: 'HWID spoofer note',
+        heading: 'Spoofer note',
         body: [
-          'If your delivery includes an HWID spoofer, follow those steps only when status is Undetected. Spoofing does not replace waiting out an Updating window.',
+          'If delivery includes a spoofer, follow those steps only when status is Undetected. Spoofing does not replace waiting out an Updating window.',
         ],
       },
     ],
   },
   {
     slug: 'raid-play-guide',
-    title: 'Tarkov Raid Play Cheat Settings',
+    title: 'Safer DayZ Cheat Settings for Loot Runs',
     excerpt:
-      'Safer Escape from Tarkov raid settings — tight Aimbot, ESP-first play, loot filter and report awareness for PMC and Scav runs.',
-    metaTitle: 'Tarkov Raid Cheats Settings | Safer EFT Defaults',
+      'Safer DayZ cheat defaults for survival and loot runs — ESP-first play, mild silent aim, radar awareness and report-conscious habits.',
+    metaTitle: 'Safer DayZ Cheat Settings | Loot Run Defaults',
     metaDescription:
-      'Escape from Tarkov raid play cheat settings: ESP-first, mild Aimbot, loot filter, radar and BattlEye status habits.',
-    searchTerms: 'tarkov raid cheats settings eft aimbot esp loot filter',
-    date: '2026-09-15',
+      'Safer DayZ cheat settings for loot runs and survival: ESP-first play, mild silent aim, loot highlighting, radar hack and BattlEye habits that reduce report risk on private servers.',
+    searchTerms: 'dayz cheat settings loot run survival safer defaults esp aimbot dayz cheats',
+    date: '2026-09-17',
     readMinutes: 9,
-    tag: 'Raids',
+    tag: 'Survival',
     sections: [
       {
-        heading: 'Raids are a report environment',
+        heading: 'DayZ is a report environment',
         body: [
-          'BattlEye is not the only risk — player reports in contested dorms, Interchange and Labs trigger reviews. Conservative visuals beat loud Aimbot every time.',
+          'BattlEye is not the only risk. Private admins spectate reports, and a survivor who lost a two-week kit will write that report. Conservative visuals beat loud Aimbot.',
         ],
       },
       {
-        heading: 'Recommended raid stack',
+        heading: 'Recommended survival stack',
         body: [
-          'ESP + loot filter + radar on, Aimbot off or very smoothed, short ESP range, stream-proof if you clip.',
-          'Save this as a dedicated raid config for PMC runs; scav runs can stay even quieter.',
+          'Player ESP, infected ESP, loot ESP and radar on; Aimbot off or heavily smoothed; short ESP range; stream-proof on if you clip.',
+          'Save this as a loot-run config. A geared PvP config can be slightly more aggressive, but silent aim should still look natural.',
         ],
       },
       {
         heading: 'Map habits that pay',
         body: [
-          'Customs and dorms: short-range ESP, extract awareness. Interchange: loot filter priority. Labs: radar + mild Aimbot only if you must.',
-          'If BattlEye status flips to Updating mid-wipe patch, stop. Waiting is cheaper than forcing a rebuild window.',
+          'Coast towns (Elektro, Cherno): short-range ESP and infected tracking while you gear. Military zones and NW airfield: radar first, loot ESP second, mild silent aim only if you must fight.',
+          'Base raids on private servers: confirm stash and tent markers before you open a wall.',
+          'If BattlEye flips to Updating mid-session, stop. Waiting is cheaper than forcing a rebuild window.',
         ],
       },
     ],
   },
   {
     slug: 'loader-errors',
-    title: 'Tarkov Cheats Loader Errors',
+    title: 'Fix DayZ Cheats Loader Errors',
     excerpt:
-      'Fix common Escape from Tarkov cheats loader errors — menu not opening, instant close, AV quarantine and failed inject.',
-    metaTitle: 'Tarkov Cheats Loader Errors | EFT Fix Guide',
+      'Troubleshoot DayZ cheats loader errors — menu not opening, instant close, antivirus quarantine and failed inject.',
+    metaTitle: 'Fix DayZ Cheats Loader Errors | Inject & Menu',
     metaDescription:
-      'Troubleshoot Escape from Tarkov cheats loader errors on Windows: antivirus quarantine, overlays, failed load and BattlEye Undetected checks.',
-    searchTerms: 'tarkov cheats loader error eft inject failed menu',
-    date: '2026-09-15',
+      'Fix DayZ cheats loader errors on Windows: antivirus quarantine, overlays, failed inject and menu not opening. Confirm BattlEye Undetected first, then escalate with your order ID.',
+    searchTerms: 'dayz cheats loader error inject failed menu not opening fix',
+    date: '2026-09-17',
     readMinutes: 8,
     tag: 'Support',
+    howTo: true,
     sections: [
       {
         heading: 'Stop and check status',
         body: [
-          'First question: is the product Undetected against BattlEye? Updating builds fail for reasons settings cannot fix.',
+          'First question: is the product Undetected against BattlEye? Updating builds fail for reasons no setting can fix.',
         ],
       },
       {
         heading: 'Common fixes',
         body: [
-          'Restore quarantined files, confirm folder exclusion, close overlays, reboot once, try one clean load with the official Battlestate Games launcher running.',
-          'Do not run random "fix DLL" downloads from elsewhere — support only covers official delivery from tarkovcheats.io.',
+          'Restore quarantined files, confirm folder exclusion, close overlays, reboot once, then try one clean load with DayZ running from the official launcher.',
+          'Do not run random “fix DLL” downloads elsewhere — support only covers official delivery from dayzcheats.io.',
         ],
       },
       {
         heading: 'Escalate with order ID',
         body: [
-          'Contact Support with order ID, Windows version, and a short description of the error. Screenshots of BattlEye status and the loader window help.',
+          'Contact Support with your order ID, Windows version, server type, and a short error description. Screenshots of BattlEye status and the loader window help.',
         ],
       },
     ],

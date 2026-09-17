@@ -28,8 +28,8 @@ const imageType = isOgJpeg
     : image.endsWith('.gif')
       ? 'image/gif'
       : 'image/jpeg'
-const imageWidth = isOgJpeg ? 1200 : image.includes('/media/tarkov-') ? 800 : 1200
-const imageHeight = isOgJpeg ? 630 : image.includes('/media/tarkov-') ? 450 : 630
+const imageWidth = isOgJpeg ? 1200 : image.includes('/media/dayz-') ? 800 : 1200
+const imageHeight = isOgJpeg ? 630 : image.includes('/media/dayz-') ? 450 : 630
 const robots =
   seo.robots ||
   'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
@@ -53,7 +53,7 @@ const isHome = seo.path === '/' || seo.path === ''
       <link
         rel="preload"
         as="image"
-        href="/media/tarkov-reaper-full.webp"
+        href="/media/dayz-hero-full.webp"
         type="image/webp"
         fetchpriority="high"
       />

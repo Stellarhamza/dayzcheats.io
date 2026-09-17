@@ -10,36 +10,34 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const publicDir = join(root, 'public')
 const dataDir = join(root, 'src', 'data')
 const pagesDir = join(root, 'src', 'pages')
-const SITE = (process.env.SITE_URL || 'https://tarkovcheats.io').replace(/\/$/, '')
+const SITE = (process.env.SITE_URL || 'https://dayzcheats.io').replace(/\/$/, '')
 const TODAY = new Date().toLocaleDateString('en-CA')
 const HREFLANG = ['en', 'x-default']
 
-const REAPER_FULL = '/media/tarkov-reaper-full.webp'
-const REAPER_LITE = '/media/tarkov-reaper-lite.webp'
-const REAPER_BOX = '/media/tarkov-reaper-box.jpg'
-const ESP = '/media/tarkov-esp-gameplay.gif'
-const MENU = '/media/tarkov-menu.gif'
-const EXFIL = '/media/tarkov-exfil-esp.gif'
-const CONTROL = '/media/tarkov-control-art.jpg'
-const HOME_ART = '/media/tarkov-home-art.jpg'
-const TACTICAL_ART = '/media/tarkov-tactical-art.jpg'
-const VIDEO_THUMB = '/media/tarkov-video-thumb.jpg'
-const PREVIEW_VIDEO = '/videos/tarkov-preview.mp4'
-const OG_DEFAULT = '/og/tarkov-cheats.jpg'
+const HERO_FULL = '/media/dayz-hero-full.webp'
+const COVER = '/media/dayz-cover.webp'
+const BOX = '/media/dayz-box.jpg'
+const ESP = '/media/dayz-esp-gameplay.gif'
+const MENU = '/media/dayz-menu.gif'
+const CONTROL = '/media/dayz-control-art.jpg'
+const HOME_ART = '/media/dayz-home-art.jpg'
+const TACTICAL_ART = '/media/dayz-tactical-art.jpg'
+const VIDEO_THUMB = '/media/dayz-video-thumb.jpg'
+const PREVIEW_VIDEO = '/videos/dayz-preview.mp4'
+const OG_DEFAULT = '/og/dayz-cheats.jpg'
 
 const ALL_SITE_IMAGES = [
-  REAPER_FULL,
-  REAPER_LITE,
-  REAPER_BOX,
+  HERO_FULL,
+  COVER,
+  BOX,
   ESP,
   MENU,
-  EXFIL,
   CONTROL,
   HOME_ART,
   TACTICAL_ART,
   VIDEO_THUMB,
   '/og/home.jpg',
-  '/og/tarkov-cheats.jpg',
+  '/og/dayz-cheats.jpg',
   '/og/forums.jpg',
   '/og/reviews.jpg',
   '/og/faq.jpg',
@@ -50,24 +48,24 @@ const ALL_SITE_IMAGES = [
 ]
 
 const FORUM_IMAGES = {
-  'features-list': REAPER_LITE,
+  'features-list': COVER,
   hotkeys: MENU,
-  'complete-setup': REAPER_FULL,
+  'complete-setup': HERO_FULL,
   'disable-antivirus': CONTROL,
-  'undetected-status': REAPER_LITE,
-  'aimbot-settings': EXFIL,
+  'undetected-status': COVER,
+  'aimbot-settings': MENU,
   'esp-wallhack-guide': ESP,
   'radar-hack-guide': MENU,
   'stream-proof-setup': HOME_ART,
-  'battleye-status': REAPER_LITE,
-  'windows-setup': REAPER_FULL,
-  'raid-play-guide': REAPER_BOX,
+  'battleye-status': COVER,
+  'windows-setup': HERO_FULL,
+  'raid-play-guide': BOX,
   'loader-errors': TACTICAL_ART,
 }
 
 const PAGE_META = {
   '/': { priority: '1.0', changefreq: 'daily' },
-  '/tarkov-cheats': { priority: '0.9', changefreq: 'weekly' },
+  '/dayz-cheats': { priority: '0.9', changefreq: 'weekly' },
   '/forums': { priority: '0.85', changefreq: 'weekly' },
   '/reviews': { priority: '0.8', changefreq: 'weekly' },
   '/faq': { priority: '0.75', changefreq: 'monthly' },
@@ -110,11 +108,14 @@ function loadGames() {
 function loadForums() {
   const src = readFileSync(join(dataDir, 'blogs.ts'), 'utf8')
   const pattern =
-    /slug:\s*['"]([^'"]+)['"],\s*title:\s*['"]([^'"]+)['"],[\s\S]*?date:\s*['"](\d{4}-\d{2}-\d{2})['"]/g
+    /slug:\s*['"]([^'"]+)['"],\s*title:\s*['"]([^'"]+)['"],\s*excerpt:\s*['"]([^'"]+)['"],\s*metaTitle:\s*['"]([^'"]+)['"],\s*metaDescription:\s*['"]([^'"]+)['"],[\s\S]*?date:\s*['"](\d{4}-\d{2}-\d{2})['"]/g
   return [...src.matchAll(pattern)].map((match) => ({
     slug: match[1],
     title: match[2],
-    date: match[3],
+    excerpt: match[3],
+    metaTitle: match[4],
+    metaDescription: match[5],
+    date: match[6],
   }))
 }
 
@@ -172,28 +173,28 @@ function imagesForPath(path, games, forums) {
     return [
       {
         src: '/og/home.jpg',
-        title: 'Tarkov Cheats Open Graph',
-        caption: 'Google and social preview image for tarkovcheats.io homepage.',
+        title: 'DayZ Cheats Open Graph',
+        caption: 'Google and social preview image for dayzcheats.io homepage.',
       },
       {
-        src: REAPER_FULL,
-        title: 'Tarkov Cheats Hero',
-        caption: 'Buy Tarkov cheats - Escape from Tarkov Aimbot and ESP hero artwork for PC.',
+        src: HERO_FULL,
+        title: 'DayZ Cheats Hero',
+        caption: 'Buy DayZ cheats - DayZ Aimbot, ESP and radar hack hero artwork for PC.',
       },
       {
-        src: REAPER_LITE,
-        title: 'EFT Reaper Product Cover',
-        caption: 'Escape from Tarkov cheats product cover for checkout and social previews.',
+        src: COVER,
+        title: 'DayZ Cheats Product Cover',
+        caption: 'DayZ cheats product cover for checkout and social previews.',
       },
       {
         src: VIDEO_THUMB,
-        title: 'Tarkov Cheats Preview Thumbnail',
-        caption: 'Thumbnail for the Tarkov Aimbot and ESP preview video.',
+        title: 'DayZ Cheats Preview Thumbnail',
+        caption: 'Thumbnail for the DayZ Aimbot and ESP preview video.',
       },
       {
         src: OG_DEFAULT,
-        title: 'Tarkov Cheats Product Social Preview',
-        caption: 'Default Open Graph image for tarkovcheats.io product pages.',
+        title: 'DayZ Cheats Product Social Preview',
+        caption: 'Default Open Graph image for dayzcheats.io product pages.',
       },
     ]
   }
@@ -202,19 +203,19 @@ function imagesForPath(path, games, forums) {
   if (game) {
     return [
       {
-        src: '/og/tarkov-cheats.jpg',
-        title: 'EFT Cheats Open Graph',
-        caption: 'Google and social preview for Escape from Tarkov cheats product page.',
+        src: '/og/dayz-cheats.jpg',
+        title: 'DayZ Cheats Open Graph',
+        caption: 'Google and social preview for the DayZ cheats product page.',
       },
       {
-        src: REAPER_LITE,
-        title: 'EFT Aimbot ESP Product Artwork',
+        src: COVER,
+        title: 'DayZ Aimbot ESP Product Artwork',
         caption: 'Product features, compatibility, status and price before checkout.',
       },
       {
-        src: REAPER_FULL,
+        src: HERO_FULL,
         title: `${game.name} Cheats Product Hero`,
-        caption: `Hero artwork for ${game.name} Aimbot, ESP and radar product details.`,
+        caption: `Hero artwork for ${game.name} Aimbot, ESP and radar hack product details.`,
       },
       {
         src: MENU,
@@ -228,8 +229,8 @@ function imagesForPath(path, games, forums) {
       },
       {
         src: VIDEO_THUMB,
-        title: 'Tarkov Cheats Preview Thumbnail',
-        caption: 'Thumbnail for the Escape from Tarkov cheats preview video.',
+        title: 'DayZ Cheats Preview Thumbnail',
+        caption: 'Thumbnail for the DayZ cheats preview video.',
       },
     ]
   }
@@ -238,13 +239,13 @@ function imagesForPath(path, games, forums) {
     return [
       {
         src: '/og/forums.jpg',
-        title: 'Tarkov Cheats Forums Open Graph',
-        caption: 'Google preview image for Tarkov Cheats guides index.',
+        title: 'DayZ Cheats Forums Open Graph',
+        caption: 'Google preview image for the DayZ Cheats guides index.',
       },
       {
         src: MENU,
-        title: 'Tarkov Cheats Forum Artwork',
-        caption: 'Artwork reference for Escape from Tarkov setup and feature guides.',
+        title: 'DayZ Cheats Forum Artwork',
+        caption: 'Artwork reference for DayZ setup and feature guides.',
       },
     ]
   }
@@ -256,12 +257,16 @@ function imagesForPath(path, games, forums) {
       {
         src: `/og/forums-${slug}.jpg`,
         title: `${forum?.title || slug} Open Graph`,
-        caption: `Google preview image for ${forum?.title || slug} on tarkovcheats.io.`,
+        caption:
+          forum?.metaDescription ||
+          `Google preview image for ${forum?.title || slug} on dayzcheats.io.`,
       },
       {
         src: FORUM_IMAGES[slug] || MENU,
         title: `${forum?.title || slug} Artwork`,
-        caption: `Visible Tarkov Cheats reference for ${forum?.title || slug}.`,
+        caption:
+          forum?.excerpt ||
+          `Visible DayZ Cheats guide artwork for ${forum?.title || slug}.`,
       },
     ]
   }
@@ -270,13 +275,13 @@ function imagesForPath(path, games, forums) {
     return [
       {
         src: '/og/reviews.jpg',
-        title: 'Tarkov Cheats Reviews Open Graph',
-        caption: 'Google preview image for Escape from Tarkov cheats reviews.',
+        title: 'DayZ Cheats Reviews Open Graph',
+        caption: 'Google preview image for DayZ cheats reviews.',
       },
       {
         src: ESP,
-        title: 'Tarkov Cheats Review Artwork',
-        caption: 'Artwork accompanying verified Escape from Tarkov cheats buyer reviews.',
+        title: 'DayZ Cheats Review Artwork',
+        caption: 'Artwork accompanying verified DayZ cheats buyer reviews.',
       },
     ]
   }
@@ -284,13 +289,13 @@ function imagesForPath(path, games, forums) {
     return [
       {
         src: '/og/faq.jpg',
-        title: 'Tarkov Cheats FAQ Open Graph',
-        caption: 'Google preview image for Tarkov Cheats FAQ.',
+        title: 'DayZ Cheats FAQ Open Graph',
+        caption: 'Google preview image for the DayZ Cheats FAQ.',
       },
       {
         src: MENU,
-        title: 'Tarkov Cheats FAQ Artwork',
-        caption: 'Product artwork accompanying pre-purchase EFT cheats answers.',
+        title: 'DayZ Cheats FAQ Artwork',
+        caption: 'Product artwork accompanying pre-purchase DayZ cheats answers.',
       },
     ]
   }
@@ -298,13 +303,13 @@ function imagesForPath(path, games, forums) {
     return [
       {
         src: '/og/support.jpg',
-        title: 'Tarkov Cheats Support Open Graph',
-        caption: 'Google preview image for Tarkov Cheats support.',
+        title: 'DayZ Cheats Support Open Graph',
+        caption: 'Google preview image for DayZ Cheats support.',
       },
       {
         src: ESP,
-        title: 'Tarkov Cheats Support Artwork',
-        caption: 'Artwork accompanying Escape from Tarkov loader and delivery support.',
+        title: 'DayZ Cheats Support Artwork',
+        caption: 'Artwork accompanying DayZ loader and delivery support.',
       },
     ]
   }
@@ -312,8 +317,8 @@ function imagesForPath(path, games, forums) {
     return [
       {
         src: '/og/privacy.jpg',
-        title: 'Tarkov Cheats Privacy Policy',
-        caption: 'Privacy policy preview for tarkovcheats.io orders and support.',
+        title: 'DayZ Cheats Privacy Policy',
+        caption: 'Privacy policy preview for dayzcheats.io orders and support.',
       },
     ]
   }
@@ -321,8 +326,8 @@ function imagesForPath(path, games, forums) {
     return [
       {
         src: '/og/terms.jpg',
-        title: 'Tarkov Cheats Terms of Use',
-        caption: 'License terms preview for Tarkov Cheats.',
+        title: 'DayZ Cheats Terms of Use',
+        caption: 'License terms preview for DayZ Cheats.',
       },
     ]
   }
@@ -330,23 +335,23 @@ function imagesForPath(path, games, forums) {
     return [
       {
         src: '/og/refunds.jpg',
-        title: 'Tarkov Cheats Refund Policy',
-        caption: 'Refund rules preview for digital Tarkov Cheats licenses.',
+        title: 'DayZ Cheats Refund Policy',
+        caption: 'Refund rules preview for digital DayZ Cheats licenses.',
       },
     ]
   }
 
-  return [{ src: OG_DEFAULT, title: 'Tarkov Cheats', caption: 'Tarkov Cheats page artwork.' }]
+  return [{ src: OG_DEFAULT, title: 'DayZ Cheats', caption: 'DayZ Cheats page artwork.' }]
 }
 
 function videosForPath(path) {
-  if (path === '/' || path === '/tarkov-cheats') {
+  if (path === '/' || path === '/dayz-cheats') {
     return [
       {
         thumb: VIDEO_THUMB,
-        title: 'Tarkov Cheats Aimbot and ESP Preview',
+        title: 'DayZ Cheats Aimbot and ESP Preview',
         description:
-          'Self-hosted Escape from Tarkov cheats preview showing Aimbot, ESP menu and raid visuals on PC.',
+          'Self-hosted DayZ cheats preview showing Aimbot, ESP menu and survival gameplay visuals on PC.',
         content: PREVIEW_VIDEO,
       },
     ]
@@ -455,16 +460,16 @@ function validate(games, forums, allPaths, sitemap) {
     if (!imageLocs.includes(siteUrl(image))) errors.push(`Sitemap missing required image: ${image}`)
   }
   if (!sitemap.includes(siteUrl(PREVIEW_VIDEO))) {
-    errors.push('Sitemap missing Tarkov preview video content_loc')
+    errors.push('Sitemap missing DayZ preview video content_loc')
   }
-  if (/Delta|Auron|Warzone|warzonecheats|Ricochet/i.test(sitemap)) {
-    errors.push('Sitemap still contains legacy Warzone/Delta/Auron labels')
+  if (/Tarkov|tarkovcheats|EFT Reaper|Warzone|warzonecheats|Ricochet/i.test(sitemap)) {
+    errors.push('Sitemap still contains legacy Tarkov/Warzone labels')
   }
-  if (!sitemap.includes('tarkovcheats.io')) {
-    errors.push('Sitemap must target tarkovcheats.io')
+  if (!sitemap.includes('dayzcheats.io')) {
+    errors.push('Sitemap must target dayzcheats.io')
   }
-  if (/warzonecheats|wardogshacks|theisle/i.test(sitemap)) {
-    errors.push('Sitemap contains a non-Tarkov domain')
+  if (/tarkovcheats|warzonecheats|wardogshacks|theisle/i.test(sitemap)) {
+    errors.push('Sitemap contains a non-DayZ domain')
   }
   if (imageLocs.length < expectedUrls.size) {
     errors.push('Image count is lower than page count - every URL needs an image')

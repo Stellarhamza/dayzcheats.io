@@ -1,15 +1,15 @@
-import { TARKOV_HERO } from '../data/media'
+import { DAYZ_HERO } from '../data/media'
 
 type VideoBgProps = {
-  /** Full-bleed Tarkov hero image (defaults to product artwork). */
+  /** Full-bleed DayZ hero image (defaults to product artwork). */
   image?: string
   imageAlt?: string
 }
 
-/** Full-bleed static Tarkov hero — no legacy Isle / black-angel video. */
+/** Full-bleed static DayZ hero — no legacy video background. */
 export function VideoBg({
-  image = TARKOV_HERO,
-  imageAlt = 'Tarkov cheats Aimbot and ESP product artwork',
+  image = DAYZ_HERO,
+  imageAlt = 'DayZ cheats Aimbot and ESP product artwork',
 }: VideoBgProps) {
   return (
     <div className="hero-video-wrap absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">

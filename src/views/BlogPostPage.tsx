@@ -81,13 +81,13 @@ export function BlogPostPage({ slug }: BlogPostPageProps) {
 
             <div className="page-card mt-12 rounded-2xl p-6 sm:p-8">
               <h2 className="text-lg font-semibold text-white">
-                Ready for Tarkov Cheats?
+                Ready for DayZ Cheats?
               </h2>
               <p className="mt-2 text-sm leading-relaxed text-white/55">
-                Check live Undetected status, then buy ESP, wallhack, and Aimbot for
-                Escape from Tarkov on {SITE_HOST}. Need help? Read{' '}
+                Check live Undetected status, then buy ESP, wallhack, radar hack and silent aim for
+                DayZ on {SITE_HOST}. Need help? Read{' '}
                 <a href="/support" className="text-white/80 underline-offset-2 hover:underline">
-                  Tarkov Cheats support
+                  DayZ Cheats support
                 </a>
                 {' '}or{' '}
                 <a href="/reviews" className="text-white/80 underline-offset-2 hover:underline">
@@ -95,21 +95,21 @@ export function BlogPostPage({ slug }: BlogPostPageProps) {
                 </a>
                 . Own the game via{' '}
                 <a
-                  href="https://www.escapefromtarkov.com/"
+                  href="https://dayz.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white/80 underline-offset-2 hover:underline"
                 >
-                  escapefromtarkov.com
+                  dayz.com
                 </a>
                 .
               </p>
               <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <a
-                  href={guidePath('tarkov')}
+                  href={guidePath('dayz')}
                   className="inline-flex items-center justify-center rounded-full border border-white/15 px-5 py-2.5 text-sm font-medium text-white hover:bg-white/5"
                 >
-                  Open product
+                  Buy DayZ Cheats
                 </a>
                 <a
                   href="/support"
@@ -118,7 +118,7 @@ export function BlogPostPage({ slug }: BlogPostPageProps) {
                   Support
                 </a>
                 <CheckoutLink className="cta-gradient inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium text-white">
-                  Buy Tarkov Cheats
+                  Buy DayZ Cheats
                 </CheckoutLink>
               </div>
             </div>

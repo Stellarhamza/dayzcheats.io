@@ -25,8 +25,8 @@ export function SiteFooter({ currentPath }: SiteFooterProps) {
               <span className="font-semibold text-z-ink">{SITE_NAME}</span>
             </div>
             <p className="mt-3 text-sm leading-relaxed text-white/55">
-              Tarkov Cheats for PC — Aimbot, ESP, wallhack, radar and live BattlEye status for
-              Escape from Tarkov players worldwide.
+              DayZ Cheats for PC — silent aim Aimbot, ESP, wallhack, radar hack and live BattlEye
+              status for DayZ Standalone survivors worldwide.
             </p>
           </div>
 
@@ -49,8 +49,8 @@ export function SiteFooter({ currentPath }: SiteFooterProps) {
           </ul>
         </div>
         <p className="mx-auto mt-10 max-w-6xl text-xs text-white/35">
-          © {new Date().getFullYear()} {SITE_NAME}. Not affiliated with Battlestate Games or
-          the official Escape from Tarkov game.
+          © {new Date().getFullYear()} {SITE_NAME}. Not affiliated with Bohemia Interactive or
+          the official DayZ game.
         </p>
       </footer>
     </>

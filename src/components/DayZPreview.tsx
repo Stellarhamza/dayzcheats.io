@@ -1,13 +1,13 @@
-import { TARKOV_HOME_VIDEO } from '../data/media'
+import { DAYZ_HOME_VIDEO } from '../data/media'
 
-type TarkovPreviewProps = {
+type DayZPreviewProps = {
   className?: string
   /** Wider crop on product page */
   wide?: boolean
 }
 
-/** Self-hosted Tarkov preview scraped from battlelog (mediadelivery embeds 403 off-domain). */
-export function TarkovPreview({ className = '', wide = false }: TarkovPreviewProps) {
+/** Self-hosted DayZ preview scraped from battlelog (mediadelivery embeds 403 off-domain). */
+export function DayZPreview({ className = '', wide = false }: DayZPreviewProps) {
   return (
     <div className={`video-brand-mask border border-z-soft/20 ${className}`.trim()}>
       <div
@@ -20,15 +20,15 @@ export function TarkovPreview({ className = '', wide = false }: TarkovPreviewPro
           loop
           playsInline
           preload="metadata"
-          poster={TARKOV_HOME_VIDEO.poster}
-          aria-label={TARKOV_HOME_VIDEO.title}
+          poster={DAYZ_HOME_VIDEO.poster}
+          aria-label={DAYZ_HOME_VIDEO.title}
         >
-          <source src={TARKOV_HOME_VIDEO.src} type="video/mp4" />
+          <source src={DAYZ_HOME_VIDEO.src} type="video/mp4" />
         </video>
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-z-bg/50 via-transparent to-z-bg/20" />
         <div className="video-brand-blur" aria-hidden />
       </div>
-      <p className="sr-only">{TARKOV_HOME_VIDEO.title}</p>
+      <p className="sr-only">{DAYZ_HOME_VIDEO.title}</p>
     </div>
   )
 }

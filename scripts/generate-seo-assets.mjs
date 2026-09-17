@@ -34,18 +34,17 @@ async function exists(path) {
 }
 
 const requiredBattlelog = [
-  join(mediaDir, 'tarkov-reaper-full.webp'),
-  join(mediaDir, 'tarkov-reaper-lite.webp'),
-  join(mediaDir, 'tarkov-reaper-box.jpg'),
-  join(mediaDir, 'tarkov-exfil-esp.gif'),
-  join(mediaDir, 'tarkov-menu.gif'),
-  join(mediaDir, 'tarkov-esp-gameplay.gif'),
-  join(mediaDir, 'tarkov-video-thumb.jpg'),
+  join(mediaDir, 'dayz-hero-full.webp'),
+  join(mediaDir, 'dayz-cover.webp'),
+  join(mediaDir, 'dayz-box.jpg'),
+  join(mediaDir, 'dayz-menu.gif'),
+  join(mediaDir, 'dayz-esp-gameplay.gif'),
+  join(mediaDir, 'dayz-video-thumb.jpg'),
 ]
 
 for (const path of requiredBattlelog) {
   if (!(await exists(path))) {
-    throw new Error(`Missing Tarkov media asset (do not regenerate): ${path}`)
+    throw new Error(`Missing DayZ media asset (do not regenerate): ${path}`)
   }
 }
 
@@ -73,7 +72,7 @@ function overlaySvg(width, height, eyebrow, title, subtitle) {
         )
         .join('\n')}
       <text x="64" y="480" fill="#c9bdd2" font-size="26" font-family="Arial, sans-serif">${escapeXml(subtitle)}</text>
-      <text x="64" y="560" fill="#9299a3" font-size="20" font-family="Arial, sans-serif">tarkovcheats.io</text>
+      <text x="64" y="560" fill="#9299a3" font-size="20" font-family="Arial, sans-serif">dayzcheats.io</text>
     </svg>
   `)
 }
@@ -106,72 +105,72 @@ function loadForumMeta(src) {
   }))
 }
 
-const reaperFull = join(mediaDir, 'tarkov-reaper-full.webp')
-const reaperLite = join(mediaDir, 'tarkov-reaper-lite.webp')
-const espGif = join(mediaDir, 'tarkov-esp-gameplay.gif')
-const menuGif = join(mediaDir, 'tarkov-menu.gif')
-const videoThumb = join(mediaDir, 'tarkov-video-thumb.jpg')
+const heroFull = join(mediaDir, 'dayz-hero-full.webp')
+const coverArt = join(mediaDir, 'dayz-cover.webp')
+const espGif = join(mediaDir, 'dayz-esp-gameplay.gif')
+const menuGif = join(mediaDir, 'dayz-menu.gif')
+const videoThumb = join(mediaDir, 'dayz-video-thumb.jpg')
 
 const staticOg = [
   {
     file: 'home.jpg',
-    source: reaperFull,
-    eyebrow: 'TARKOV CHEATS',
-    title: 'Escape from Tarkov Aimbot & ESP',
-    subtitle: 'Undetected EFT cheats from $11.90',
+    source: heroFull,
+    eyebrow: 'DAYZ CHEATS',
+    title: 'DayZ Aimbot, ESP & Radar Hack',
+    subtitle: 'Undetected DayZ cheats from $4.90',
   },
   {
-    file: 'tarkov-cheats.jpg',
-    source: reaperLite,
+    file: 'dayz-cheats.jpg',
+    source: coverArt,
     eyebrow: 'PRODUCT DETAILS',
-    title: 'EFT Aimbot, ESP & Radar',
+    title: 'DayZ Aimbot, ESP & Radar',
     subtitle: 'Features, BattlEye status and price',
   },
   {
     file: 'forums.jpg',
     source: menuGif,
     eyebrow: 'GUIDES',
-    title: 'Tarkov Cheats Setup Forums',
+    title: 'DayZ Cheats Setup Forums',
     subtitle: 'Aimbot, ESP, loader and BattlEye guides',
   },
   {
     file: 'reviews.jpg',
     source: espGif,
     eyebrow: 'REVIEWS',
-    title: 'Tarkov Cheats Buyer Reviews',
-    subtitle: 'Real EFT Aimbot and ESP feedback',
+    title: 'DayZ Cheats Buyer Reviews',
+    subtitle: 'Real DayZ Aimbot and ESP feedback',
   },
   {
     file: 'faq.jpg',
     source: menuGif,
     eyebrow: 'FAQ',
-    title: 'Tarkov Cheats FAQ',
+    title: 'DayZ Cheats FAQ',
     subtitle: 'Price, BattlEye status and setup answers',
   },
   {
     file: 'support.jpg',
     source: videoThumb,
     eyebrow: 'SUPPORT',
-    title: 'Tarkov Cheats Support',
+    title: 'DayZ Cheats Support',
     subtitle: 'Loader, delivery and Windows help',
   },
   {
     file: 'privacy.jpg',
-    source: reaperFull,
+    source: heroFull,
     eyebrow: 'POLICY',
     title: 'Privacy Policy',
-    subtitle: 'How tarkovcheats.io handles order data',
+    subtitle: 'How dayzcheats.io handles order data',
   },
   {
     file: 'terms.jpg',
-    source: reaperFull,
+    source: heroFull,
     eyebrow: 'POLICY',
     title: 'Terms of Use',
-    subtitle: 'License rules for Tarkov Cheats',
+    subtitle: 'License rules for DayZ Cheats',
   },
   {
     file: 'refunds.jpg',
-    source: reaperLite,
+    source: coverArt,
     eyebrow: 'POLICY',
     title: 'Refund Policy',
     subtitle: 'Digital license refund rules',
@@ -193,8 +192,8 @@ if (!forums.length) {
   for (const slug of loadForumSlugs(blogsSrc)) {
     forums.push({
       slug,
-      title: `Tarkov Cheats ${slug}`,
-      description: 'Escape from Tarkov cheats guide on tarkovcheats.io',
+      title: `DayZ Cheats ${slug}`,
+      description: 'DayZ cheats guide on dayzcheats.io',
     })
   }
 }
@@ -207,13 +206,13 @@ for (const forum of forums) {
       ? espGif
       : /aimbot|features|hotkeys|setup|windows|antivirus|loader|stream/i.test(forum.slug)
         ? menuGif
-        : reaperLite
+        : coverArt
   await writeOgJpeg(
     out,
     source,
-    'TARKOV GUIDE',
+    'DAYZ GUIDE',
     forum.title.replace(/\s*\|\s*.*$/, '').slice(0, 48),
-    'Escape from Tarkov cheats · tarkovcheats.io',
+    'DayZ cheats · dayzcheats.io',
   )
   created.push(file)
 }
@@ -237,9 +236,9 @@ function fillerSvg(width, height, eyebrow, title, subtitle) {
 }
 
 for (const [name, eyebrow, title, subtitle] of [
-  ['tarkov-tactical-art.jpg', 'ESCAPE FROM TARKOV', 'Tarkov Cheats', 'Aimbot · ESP · Loot filter · BattlEye'],
-  ['tarkov-control-art.jpg', 'EFT · WINDOWS PC', 'Tarkov ESP & Radar', 'Built for Escape from Tarkov raids'],
-  ['tarkov-home-art.jpg', 'tarkovcheats.io', 'Tarkov Cheats', 'Aimbot, ESP, wallhack and loot filter'],
+  ['dayz-tactical-art.jpg', 'DAYZ STANDALONE', 'DayZ Cheats', 'Aimbot · ESP · Loot ESP · BattlEye'],
+  ['dayz-control-art.jpg', 'DAYZ · WINDOWS PC', 'DayZ ESP & Radar', 'Built for DayZ survival runs'],
+  ['dayz-home-art.jpg', 'dayzcheats.io', 'DayZ Cheats', 'Aimbot, ESP, wallhack and radar hack'],
 ]) {
   const path = join(mediaDir, name)
   if (

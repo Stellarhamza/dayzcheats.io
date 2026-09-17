@@ -2,7 +2,7 @@
 # Host www/HTTP → HTTPS apex is handled by workers/site.js (not_found_handling serves 404.html).
 
 # Trailing-slash canonicalization
-/tarkov-cheats/   /tarkov-cheats   301
+/dayz-cheats/   /dayz-cheats   301
 /forums/        /forums        301
 /reviews/       /reviews       301
 /faq/           /faq           301
@@ -21,53 +21,121 @@
 /terms-of-service/ /terms      301
 
 # Primary SEO keyword variants → product or home
-/eft-cheats      /tarkov-cheats   301
-/eft-cheats/     /tarkov-cheats   301
-/escape-from-tarkov-cheats   /tarkov-cheats   301
-/escape-from-tarkov-cheats/  /tarkov-cheats   301
-/tarkov-hacks   /tarkov-cheats   301
-/tarkov-hacks/  /tarkov-cheats   301
-/eft-hacks      /tarkov-cheats   301
-/eft-hacks/     /tarkov-cheats   301
+/dayz-hacks     /dayz-cheats   301
+/dayz-hacks/    /dayz-cheats   301
+/dayz-hack      /dayz-cheats   301
+/dayz-hack/     /dayz-cheats   301
+/dayz-cheat     /dayz-cheats   301
+/dayz-cheat/    /dayz-cheats   301
+/dayz-standalone-cheats  /dayz-cheats   301
+/dayz-standalone-cheats/ /dayz-cheats   301
+/dayz-standalone-cheat   /dayz-cheats   301
+/dayz-standalone-cheat/  /dayz-cheats   301
+/dayz-standalone-hacks   /dayz-cheats   301
+/dayz-standalone-hacks/  /dayz-cheats   301
+/dayz-standalone-hack    /dayz-cheats   301
+/dayz-standalone-hack/   /dayz-cheats   301
+/cheats-dayz    /dayz-cheats   301
+/cheats-dayz/   /dayz-cheats   301
+/hacks-dayz     /dayz-cheats   301
+/hacks-dayz/    /dayz-cheats   301
+/dayz-aimbot    /dayz-cheats   301
+/dayz-aimbot/   /dayz-cheats   301
+/dayz-esp       /dayz-cheats   301
+/dayz-esp/      /dayz-cheats   301
+/dayz-loot-esp  /dayz-cheats   301
+/dayz-loot-esp/ /dayz-cheats   301
+/dayz-wallhack  /dayz-cheats   301
+/dayz-wallhack/ /dayz-cheats   301
+/dayz-radar     /dayz-cheats   301
+/dayz-radar/    /dayz-cheats   301
+/dayz-radar-hack  /dayz-cheats 301
+/dayz-radar-hack/ /dayz-cheats 301
+/dayz-spoofer   /dayz-cheats   301
+/dayz-spoofer/  /dayz-cheats   301
+/undetected-dayz-cheats  /dayz-cheats   301
+/undetected-dayz-cheats/ /dayz-cheats   301
+/undetected-dayz-hacks   /dayz-cheats   301
+/undetected-dayz-hacks/  /dayz-cheats   301
+/battleye-dayz-cheats    /dayz-cheats   301
+/battleye-dayz-cheats/   /dayz-cheats   301
+/buy-dayz-cheats   /   301
+/buy-dayz-cheats/  /   301
+/buy-dayz-hacks    /   301
+/buy-dayz-hacks/   /   301
+/guides         /forums        301
+/guides/        /forums        301
+/features-list  /forums/features-list  301
+/setup          /forums/complete-setup 301
+/dayz-setup     /forums/complete-setup 301
+/dayz-cheats-setup /forums/complete-setup 301
+
+# Forum short-slug aliases
+/forums/setup         /forums/complete-setup     301
+/forums/features      /forums/features-list      301
+/forums/aimbot        /forums/aimbot-settings    301
+/forums/esp           /forums/esp-wallhack-guide 301
+/forums/wallhack      /forums/esp-wallhack-guide 301
+/forums/radar         /forums/radar-hack-guide   301
+/forums/antivirus     /forums/disable-antivirus  301
+/forums/defender      /forums/disable-antivirus  301
+/forums/windows       /forums/windows-setup      301
+/forums/stream-proof  /forums/stream-proof-setup 301
+/forums/battleye      /forums/battleye-status    301
+/forums/undetected    /forums/undetected-status  301
+/forums/loader        /forums/loader-errors      301
+/forums/survival      /forums/raid-play-guide    301
+/forums/loot-run      /forums/raid-play-guide    301
+
+# Legacy Tarkov slugs → DayZ product (rebrand)
+/tarkov-cheats   /dayz-cheats   301
+/tarkov-cheats/  /dayz-cheats   301
+/eft-cheats      /dayz-cheats   301
+/eft-cheats/     /dayz-cheats   301
+/escape-from-tarkov-cheats   /dayz-cheats   301
+/escape-from-tarkov-cheats/  /dayz-cheats   301
+/tarkov-hacks   /dayz-cheats   301
+/tarkov-hacks/  /dayz-cheats   301
+/eft-hacks      /dayz-cheats   301
+/eft-hacks/     /dayz-cheats   301
+/escape-from-tarkov-hacks  /dayz-cheats   301
+/escape-from-tarkov-hacks/ /dayz-cheats   301
+/tarkov-aimbot  /dayz-cheats   301
+/tarkov-esp     /dayz-cheats   301
+/tarkov-wallhack /dayz-cheats  301
+/tarkov-radar   /dayz-cheats   301
+/eft-aimbot     /dayz-cheats   301
+/eft-esp        /dayz-cheats   301
+/eft-wallhack   /dayz-cheats   301
 /buy-tarkov-cheats  /   301
 /buy-tarkov-cheats/ /   301
 /buy-eft-cheats     /   301
 /buy-eft-cheats/    /   301
-/tarkov-aimbot  /tarkov-cheats   301
-/tarkov-esp     /tarkov-cheats   301
-/tarkov-wallhack /tarkov-cheats  301
-/eft-aimbot     /tarkov-cheats   301
-/eft-esp        /tarkov-cheats   301
 
-/escape-from-tarkov-hacks  /tarkov-cheats   301
-/escape-from-tarkov-hacks/ /tarkov-cheats   301
-/eft-wallhack   /tarkov-cheats   301
-/eft-wallhack/  /tarkov-cheats   301
-/tarkov-radar   /tarkov-cheats   301
-/tarkov-radar/  /tarkov-cheats   301
-/buy-escape-from-tarkov-cheats  /   301
-/buy-escape-from-tarkov-cheats/ /   301
-
-# Legacy Warzone slugs → Tarkov product (rebrand)
-/warzone-cheats  /tarkov-cheats   301
-/warzone-cheats/ /tarkov-cheats   301
-/warzone-hacks   /tarkov-cheats   301
-/warzone-hacks/  /tarkov-cheats   301
+# Legacy Warzone slugs → DayZ product (older rebrand)
+/warzone-cheats  /dayz-cheats   301
+/warzone-cheats/ /dayz-cheats   301
+/warzone-hacks   /dayz-cheats   301
+/warzone-hacks/  /dayz-cheats   301
+/warzone-aimbot  /dayz-cheats   301
+/warzone-esp     /dayz-cheats   301
+/warzone-wallhack /dayz-cheats  301
+/isle-cheats     /dayz-cheats   301
+/isle-cheats/    /dayz-cheats   301
+/wardogs-hacks   /dayz-cheats   301
+/wardogs-hacks/  /dayz-cheats   301
 /buy-warzone-cheats  /   301
 /buy-warzone-cheats/ /   301
-/warzone-aimbot  /tarkov-cheats   301
-/warzone-esp     /tarkov-cheats   301
-/warzone-wallhack /tarkov-cheats  301
-/isle-cheats     /tarkov-cheats   301
-/isle-cheats/    /tarkov-cheats   301
-/wardogs-hacks   /tarkov-cheats   301
-/wardogs-hacks/  /tarkov-cheats   301
 
 # Legacy forum slugs
 /forums/ricochet-status   /forums/battleye-status   301
 /forums/ricochet-status/  /forums/battleye-status   301
 /forums/ranked-play-guide /forums/raid-play-guide   301
 /forums/ranked-play-guide/ /forums/raid-play-guide  301
+/forums/loot-run-guide    /forums/raid-play-guide   301
+/forums/loot-run-guide/   /forums/raid-play-guide   301
+/forums/survival-guide    /forums/raid-play-guide   301
+/forums/survival-guide/   /forums/raid-play-guide   301
 
 # Legacy slugs → forums
 /articles       /forums        301

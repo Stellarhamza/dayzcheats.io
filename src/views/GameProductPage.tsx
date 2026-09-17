@@ -15,13 +15,13 @@ import { FaqSection } from '../components/FaqSection'
 import { CheckoutLink } from '../components/CheckoutLink'
 import { NotFoundPage } from './NotFoundPage'
 import { blogPath } from '../data/blogs'
-import { TARKOV_HOME_VIDEO } from '../data/media'
-import { TarkovPreview } from '../components/TarkovPreview'
+import { DAYZ_HOME_VIDEO } from '../data/media'
+import { DayZPreview } from '../components/DayZPreview'
 
 function ProductPurchaseCard({ game }: { game: Game }) {
   return (
     <div className="page-card overflow-hidden rounded-2xl sm:rounded-3xl">
-      <CheckoutLink className="block" aria-label="Buy Tarkov Cheats">
+      <CheckoutLink className="block" aria-label="Buy DayZ Cheats">
         <GameCover
           slug={game.slug}
           name={game.name}
@@ -32,17 +32,17 @@ function ProductPurchaseCard({ game }: { game: Game }) {
       </CheckoutLink>
       <div className="p-5 sm:p-8">
         <div className="flex items-center gap-3">
-          <div className="icon-well shrink-0 text-sm font-bold">EFT</div>
+          <div className="icon-well shrink-0 text-sm font-bold">DZ</div>
           <div className="min-w-0">
-            <p className="truncate text-sm font-semibold text-white">Tarkov Cheats</p>
+            <p className="truncate text-sm font-semibold text-white">DayZ Cheats</p>
             <p className="text-xs text-white/45">
-              Status: {game.status} · Escape from Tarkov · From ${PRODUCT_PRICE_USD}
+              Status: {game.status} · DayZ Standalone · From ${PRODUCT_PRICE_USD}
             </p>
           </div>
         </div>
 
         <CheckoutLink className="cta-gradient mt-5 block w-full rounded-full py-3.5 text-center text-sm font-semibold text-white transition-opacity hover:opacity-90 sm:mt-6">
-          Buy Tarkov Cheats
+          Buy DayZ Cheats
         </CheckoutLink>
         <p className="mt-3 text-center text-[11px] text-white/40">
           Instant delivery · Check Undetected first
@@ -93,25 +93,25 @@ export function GameProductPage({ guideSlug }: GameProductPageProps) {
               <span className="min-w-0 text-white/70">Product details</span>
             </nav>
 
-            <TarkovPreview wide className="mt-5 sm:mt-8" />
-            <p className="mt-3 text-sm text-white/45">{TARKOV_HOME_VIDEO.caption}</p>
+            <DayZPreview wide className="mt-5 sm:mt-8" />
+            <p className="mt-3 text-sm text-white/45">{DAYZ_HOME_VIDEO.caption}</p>
 
             <div className="mt-5 sm:mt-6">
               <span className="inline-flex items-center gap-1.5 text-xs text-z-soft">
                 <Shield className="h-3.5 w-3.5 shrink-0 text-z-soft" strokeWidth={1.75} />
-                {game.status} · Escape from Tarkov · BattlEye · {SITE_HOST}
+                {game.status} · DayZ Standalone · BattlEye · {SITE_HOST}
               </span>
 
               <h1 className="mt-3 text-2xl font-semibold leading-tight tracking-tight text-white sm:mt-4 sm:text-4xl lg:text-5xl">
-                Tarkov Cheats Features, Price & Checkout
+                DayZ Cheats Price & Checkout
               </h1>
               <p className="mt-3 max-w-2xl text-sm leading-relaxed text-white/55 sm:mt-4 sm:text-base">
-                Compare EFT Aimbot, Tarkov ESP, EFT ESP, wallhack, loot filter, radar hack and
-                stream-proof options for Escape from Tarkov cheats on PC. Confirm BattlEye status,
+                Compare DayZ Aimbot with silent aim, DayZ ESP, wallhack, loot and item ESP, radar
+                hack and stream-proof options for DayZ cheats on PC. Confirm BattlEye status,
                 then checkout — worldwide delivery.
               </p>
               <CheckoutLink className="cta-gradient mt-5 inline-flex items-center justify-center rounded-full px-7 py-3.5 text-sm font-semibold text-white transition-opacity hover:opacity-90">
-                Buy Tarkov Cheats
+                Buy DayZ Cheats
               </CheckoutLink>
             </div>
 
@@ -123,7 +123,7 @@ export function GameProductPage({ guideSlug }: GameProductPageProps) {
               <div className="space-y-10 lg:col-span-7">
                 <div>
                   <h2 className="text-lg font-semibold tracking-tight text-white sm:text-xl">
-                    Included Tarkov features
+                    Included DayZ features
                   </h2>
                   <div className="mt-4 grid gap-3 sm:grid-cols-2">
                     {GUIDE_FEATURES.map((f) => (
@@ -144,15 +144,29 @@ export function GameProductPage({ guideSlug }: GameProductPageProps) {
 
                 <div className="space-y-3 text-sm leading-relaxed text-white/55">
                   <h2 className="text-lg font-semibold tracking-tight text-white sm:text-xl">
-                    Aimbot, ESP, wallhack & radar
+                    Aimbot, ESP, wallhack & radar hack
                   </h2>
                   <p>
-                    Tarkov Cheats lead with humanized Aimbot, player ESP through walls, loot
-                    awareness and a 2D radar so flanks stop ending your raids early.
+                    DayZ Cheats lead with silent aim, survivor and infected ESP through walls, loot
+                    highlighting and a 2D radar so third parties stop ending your runs.
                   </p>
                   <p>
-                    Soft Aimbot stays optional. For high-stakes raids, run ESP + radar first and
-                    keep Aimbot conservative.
+                    Silent aim stays optional. For long gearing sessions, run ESP and radar first
+                    and keep the Aimbot conservative — admins spectate more than BattlEye scans.
+                  </p>
+                </div>
+
+                <div className="space-y-3 text-sm leading-relaxed text-white/55">
+                  <h2 className="text-lg font-semibold tracking-tight text-white sm:text-xl">
+                    Official and private server support
+                  </h2>
+                  <p>
+                    The build runs on official DayZ servers and on private servers using most common
+                    mod setups — useful when you want to find bases, tents and buried stashes.
+                  </p>
+                  <p>
+                    Heavily scripted community servers can behave differently. Ask support with the
+                    server name before you buy if you only play one community.
                   </p>
                 </div>
 
@@ -161,9 +175,9 @@ export function GameProductPage({ guideSlug }: GameProductPageProps) {
                     BattlEye Undetected status
                   </h2>
                   <p>
-                    Escape from Tarkov uses BattlEye. After a client or anti-cheat patch, builds can
-                    flip to Updating until tested. {SITE_NAME} shows live Undetected status so you
-                    are not buying a dead loader.
+                    DayZ uses BattlEye. After a client or anti-cheat patch, builds can flip to
+                    Updating until tested. {SITE_NAME} shows live Undetected status so you are not
+                    buying a dead loader.
                   </p>
                   <p>Rule: status first, load second.</p>
                 </div>
@@ -175,7 +189,7 @@ export function GameProductPage({ guideSlug }: GameProductPageProps) {
                   <ol className="list-decimal space-y-2 pl-5">
                     <li>Confirm current status on {SITE_HOST}.</li>
                     <li>Confirm Undetected (or accept Updating risk).</li>
-                    <li>Scan Aimbot / ESP / radar features on this page.</li>
+                    <li>Scan the Aimbot, ESP and radar features on this page.</li>
                     <li>Checkout for digital license delivery worldwide.</li>
                     <li>
                       Follow the{' '}
@@ -201,12 +215,12 @@ export function GameProductPage({ guideSlug }: GameProductPageProps) {
         </section>
 
         <FaqSection
-          heading="Tarkov Cheats product FAQ"
-          intro="Status, features, delivery and load questions before checkout."
+          heading="DayZ Cheats product FAQ"
+          intro="Status, features, server support, delivery and load questions before checkout."
           items={PRODUCT_PAGE_FAQS}
         />
 
-        <SiteFooter currentPath="/tarkov-cheats" />
+        <SiteFooter currentPath="/dayz-cheats" />
       </main>
     </div>
   )

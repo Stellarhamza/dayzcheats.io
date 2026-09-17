@@ -1,40 +1,41 @@
-﻿import { TARKOV_OG } from './images'
+﻿import { DAYZ_OG } from './images'
 import { PAGE_OG } from './og'
 
-export const SITE_URL = 'https://tarkovcheats.io'
-export const SITE_NAME = 'Tarkov Cheats'
-export const SITE_HOST = 'tarkovcheats.io'
+export const SITE_URL = 'https://dayzcheats.io'
+export const SITE_NAME = 'DayZ Cheats'
+export const SITE_HOST = 'dayzcheats.io'
 
 /**
  * Sole purpose — used in schema + about copy.
- * Single-product site: Escape from Tarkov / EFT cheats for PC (worldwide).
+ * Single-product site: DayZ / DayZ Standalone cheats for PC (worldwide).
+ * Canonical host is apex https://dayzcheats.io (www 301s to apex in the Worker).
  */
 export const SITE_PURPOSE =
-  'Buy undetected Escape from Tarkov cheats for EFT on Windows PC — Aimbot, ESP, wallhack, loot filter, radar and live BattlEye status with instant digital delivery.'
+  'Buy undetected DayZ cheats for DayZ Standalone on Windows PC — silent-aim Aimbot, player and loot ESP, wallhack, radar hack and live BattlEye status with instant digital delivery.'
 
 export const SITE_ABOUT = [
-  'tarkov cheats',
-  'escape from tarkov cheats',
-  'eft cheats',
-  'tarkov aimbot',
-  'tarkov ESP',
-  'tarkov wallhack',
-  'eft aimbot',
-  'eft ESP',
-  'undetected tarkov cheats',
-  'BattlEye tarkov cheats',
-  'escape from tarkov hacks',
+  'dayz cheats',
+  'dayz cheat',
+  'dayz hacks',
+  'dayz hack',
+  'dayz standalone cheats',
+  'dayz aimbot',
+  'dayz esp',
+  'dayz wallhack',
+  'dayz radar hack',
+  'undetected dayz cheats',
+  'battleye dayz cheats',
 ] as const
 
 /** Offer price shown on product schema + purchase UI. */
-export const PRODUCT_PRICE_USD = '11.90'
+export const PRODUCT_PRICE_USD = '4.90'
 
 export const SEO_REGIONS = [
   { hreflang: 'en', label: 'English' },
   { hreflang: 'x-default', label: 'Default' },
 ] as const
 
-export const OG_IMAGE = TARKOV_OG
+export const OG_IMAGE = DAYZ_OG
 
 export type PageSeo = {
   title: string
@@ -52,74 +53,74 @@ const INDEX_ROBOTS =
 
 export const SEO = {
   home: {
-    title: 'Tarkov Cheats | Escape from Tarkov & EFT Aimbot, ESP',
+    title: 'DayZ Cheats | Undetected DayZ Cheat Aimbot, ESP & Hacks',
     description:
-      'Buy Tarkov cheats for Escape from Tarkov (EFT) — undetected Aimbot, ESP, wallhack, loot filter and radar from $11.90. Check BattlEye status, then checkout.',
+      'Buy undetected DayZ cheats for DayZ Standalone — silent aim Aimbot, player and loot ESP, wallhack and radar hack from $4.90. Check BattlEye status, then checkout.',
     path: '/',
     ogType: 'website',
     image: PAGE_OG.home,
-    imageAlt: 'Tarkov Cheats — Escape from Tarkov Aimbot and ESP for PC',
+    imageAlt: 'DayZ Cheats — DayZ Aimbot, ESP and radar hack for PC',
     robots: INDEX_ROBOTS,
   },
   forums: {
-    title: 'Tarkov Cheats Guides | EFT Aimbot, ESP Setup & Status',
+    title: 'DayZ Cheats Guides | Aimbot, ESP, Radar & Status',
     description:
-      'Escape from Tarkov cheats guides — Aimbot, ESP, loot filter, radar, antivirus exclusions, loader setup and BattlEye Undetected checks before you buy.',
+      'DayZ cheats guides hub — silent aim, player and loot ESP, radar hack, antivirus exclusions, loader setup and BattlEye status articles before you buy.',
     path: '/forums',
     ogType: 'website',
     image: PAGE_OG.forums,
-    imageAlt: 'Tarkov Cheats setup guides for Aimbot, ESP and BattlEye',
+    imageAlt: 'DayZ Cheats setup guides for Aimbot, ESP and BattlEye',
     robots: INDEX_ROBOTS,
   },
   reviews: {
-    title: 'Tarkov Cheats Reviews | EFT Buyer Feedback',
+    title: 'DayZ Cheats Reviews | Buyer Feedback on DayZ Hacks',
     description:
-      'Read Escape from Tarkov cheats reviews on Aimbot, ESP, loot ESP and BattlEye rebuilds before you buy an EFT license for PC.',
+      'Read DayZ cheats reviews covering silent aim, player ESP, loot ESP and BattlEye rebuilds before you buy a DayZ Standalone license for PC.',
     path: '/reviews',
     ogType: 'website',
     image: PAGE_OG.reviews,
-    imageAlt: 'Tarkov Cheats buyer reviews for Escape from Tarkov',
+    imageAlt: 'DayZ Cheats buyer reviews for DayZ Standalone',
     robots: INDEX_ROBOTS,
   },
   faq: {
-    title: 'Tarkov Cheats FAQ | EFT Price, BattlEye & Setup',
+    title: 'DayZ Cheats FAQ | Price, BattlEye Status & Setup',
     description:
-      'FAQ for buying Escape from Tarkov cheats (EFT) on Windows PC — price, Aimbot/ESP features, BattlEye status, loader setup and delivery.',
+      'FAQ for buying DayZ cheats on Windows PC — price, Aimbot and ESP features, BattlEye status, private server support, loader setup and delivery.',
     path: '/faq',
     ogType: 'website',
     image: PAGE_OG.faq,
-    imageAlt: 'Tarkov Cheats FAQ — price, BattlEye and setup',
+    imageAlt: 'DayZ Cheats FAQ — price, BattlEye and setup',
     robots: INDEX_ROBOTS,
   },
   support: {
-    title: 'Tarkov Cheats Support | EFT Loader, Delivery & Setup',
+    title: 'DayZ Cheats Support | Loader, Delivery & Setup Help',
     description:
-      'Get help buying and loading Escape from Tarkov cheats — delivery email, Windows setup, antivirus exclusions, loader errors and BattlEye updates.',
+      'Get help buying and loading DayZ cheats — delivery email, Windows setup, antivirus exclusions, loader errors and BattlEye status updates.',
     path: '/support',
     ogType: 'website',
     image: PAGE_OG.support,
-    imageAlt: 'Tarkov Cheats support for loader and delivery help',
+    imageAlt: 'DayZ Cheats support for loader and delivery help',
     robots: INDEX_ROBOTS,
   },
   product: {
-    title: 'EFT Cheats Features & Price | Tarkov Aimbot, ESP, Radar',
+    title: 'DayZ Cheats Price & Checkout | Aimbot, ESP, Radar',
     description:
-      'Compare Escape from Tarkov cheats features and price — Aimbot, ESP, wallhack, loot filter, radar, HWID spoofer and BattlEye status before checkout.',
-    path: '/tarkov-cheats',
+      'DayZ cheats price and checkout — silent aim Aimbot, player ESP, loot ESP, wallhack, radar hack, spoofer and live BattlEye status from $4.90.',
+    path: '/dayz-cheats',
     ogType: 'product',
     image: PAGE_OG.product,
-    imageAlt: 'Escape from Tarkov Aimbot, ESP and radar product details',
+    imageAlt: 'DayZ Aimbot, ESP and radar hack product details',
     robots: INDEX_ROBOTS,
   },
 } as const satisfies Record<string, PageSeo>
 
 export const HOME_HEADINGS = {
-  h1: 'Tarkov Cheats for Escape from Tarkov',
-  h2Features: 'EFT Aimbot, ESP, loot filter & radar',
-  h2Featured: 'Escape from Tarkov ESP and Aimbot',
-  h2About: 'Built for EFT players who want clear BattlEye status before checkout',
-  h2Access: 'Buy Tarkov Cheats',
-  h2Faq: 'Tarkov Cheats FAQ',
+  h1: 'Undetected DayZ Cheats & DayZ Cheat Aimbot, ESP & Hacks',
+  h2Features: 'DayZ Aimbot, ESP, loot ESP & radar hack',
+  h2Featured: 'DayZ ESP and silent aim Aimbot',
+  h2About: 'Clear BattlEye status before you buy DayZ cheats',
+  h2Access: 'Buy DayZ Cheats',
+  h2Faq: 'DayZ Cheats FAQ',
 } as const
 
 export function absoluteUrl(path: string) {

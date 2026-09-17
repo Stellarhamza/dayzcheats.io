@@ -41,10 +41,10 @@ export function siteIdentityGraph() {
       '@id': `${SITE_URL}/#organization`,
       name: SITE_NAME,
       alternateName: [
-        'Escape from Tarkov Cheats',
-        'EFT Cheats',
-        'tarkovcheats.io',
-        'Tarkov Aimbot ESP',
+        'DayZ Hacks',
+        'DayZ Standalone Cheats',
+        'dayzcheats.io',
+        'DayZ Aimbot ESP',
       ],
       url: SITE_URL,
       description: SITE_PURPOSE,
@@ -68,9 +68,9 @@ export function siteIdentityGraph() {
       inLanguage: 'en',
       about: {
         '@type': 'Thing',
-        name: 'Tarkov cheats',
+        name: 'DayZ cheats',
         description:
-          'Commercial Escape from Tarkov cheats for PC — Aimbot, ESP, wallhack, loot filter, radar and BattlEye status.',
+          'Commercial DayZ cheats for PC — silent aim Aimbot, player ESP, loot ESP, wallhack, radar hack and BattlEye status.',
       },
       publisher: { '@id': `${SITE_URL}/#organization` },
     },
@@ -90,9 +90,8 @@ export function webPageNode(seo: PageSeo) {
     inLanguage: 'en',
   } as Record<string, unknown>
   const hasVisibleImage =
-    ['/', '/tarkov-cheats', '/eft-cheats', '/forums', '/reviews', '/faq', '/support'].includes(
-      seo.path,
-    ) || seo.path.startsWith('/forums/')
+    ['/', '/dayz-cheats', '/forums', '/reviews', '/faq', '/support'].includes(seo.path) ||
+    seo.path.startsWith('/forums/')
   if (hasVisibleImage) {
     page.primaryImageOfPage = {
       '@type': 'ImageObject',
@@ -110,20 +109,20 @@ export function productCoreJsonLd() {
   return {
     '@type': 'Product',
     '@id': PRODUCT_ID,
-    name: 'Tarkov Cheats',
+    name: 'DayZ Cheats',
     alternateName: [
-      'Escape from Tarkov Cheats',
-      'EFT Cheats',
-      'Tarkov Aimbot',
-      'Tarkov ESP',
-      'EFT Aimbot',
-      'EFT ESP',
+      'DayZ Hacks',
+      'DayZ Standalone Cheats',
+      'DayZ Aimbot',
+      'DayZ ESP',
+      'DayZ Wallhack',
+      'DayZ Radar Hack',
     ],
     description: SITE_PURPOSE,
     url: `${SITE_URL}/`,
     image: [
       absoluteAsset('/og/home.jpg'),
-      absoluteAsset('/og/tarkov-cheats.jpg'),
+      absoluteAsset('/og/dayz-cheats.jpg'),
       absoluteAsset(PAGE_MEDIA.home.image),
       absoluteAsset(PAGE_MEDIA.product.image),
     ],
@@ -133,11 +132,11 @@ export function productCoreJsonLd() {
     offers: baseOffer(`${SITE_URL}/`, 'https://schema.org/InStock'),
     subjectOf: {
       '@type': 'VideoObject',
-      name: 'Tarkov Cheats Aimbot and ESP preview',
+      name: 'DayZ Cheats Aimbot and ESP preview',
       description:
-        'Preview of Escape from Tarkov Aimbot, ESP menu and loot radar features on PC.',
-      thumbnailUrl: absoluteAsset('/media/tarkov-video-thumb.jpg'),
-      contentUrl: absoluteAsset('/videos/tarkov-preview.mp4'),
+        'Preview of DayZ Aimbot, ESP menu, loot highlighting and radar hack features on PC.',
+      thumbnailUrl: absoluteAsset('/media/dayz-video-thumb.jpg'),
+      contentUrl: absoluteAsset('/videos/dayz-preview.mp4'),
       uploadDate: '2026-09-16',
       inLanguage: 'en',
     },
@@ -149,24 +148,31 @@ export function productDetailJsonLd(status: GameStatus) {
     status === 'Undetected' ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock'
   return {
     ...productCoreJsonLd(),
-    url: `${SITE_URL}/tarkov-cheats`,
+    url: `${SITE_URL}/dayz-cheats`,
     image: absoluteAsset(PAGE_MEDIA.product.image),
     about: {
       '@type': 'VideoGame',
-      name: 'Escape from Tarkov',
-      alternateName: ['EFT', 'Tarkov', 'Escape From Tarkov'],
+      name: 'DayZ',
+      alternateName: ['DayZ Standalone', 'DayZ SA'],
+      publisher: { '@type': 'Organization', name: 'Bohemia Interactive' },
+      gamePlatform: 'PC',
     },
     additionalProperty: [
       { '@type': 'PropertyValue', name: 'Platform', value: 'Windows PC' },
       {
         '@type': 'PropertyValue',
         name: 'Features',
-        value: 'Aimbot, ESP, wallhack, loot filter, radar, HWID spoofer',
+        value: 'Silent aim Aimbot, player ESP, infected ESP, loot ESP, wallhack, radar hack, spoofer',
       },
       { '@type': 'PropertyValue', name: 'Anti-cheat', value: 'BattlEye' },
+      {
+        '@type': 'PropertyValue',
+        name: 'Servers',
+        value: 'Official DayZ servers and private servers with common mods',
+      },
       { '@type': 'PropertyValue', name: 'Status', value: status },
     ],
-    offers: baseOffer(`${SITE_URL}/tarkov-cheats`, availability),
+    offers: baseOffer(`${SITE_URL}/dayz-cheats`, availability),
   }
 }
 
@@ -186,7 +192,7 @@ export function productReviewsJsonLd() {
       author: { '@type': 'Person', name: review.author },
       datePublished: review.datePublished,
       reviewBody: review.body,
-      name: `${review.author} Tarkov Cheats review`,
+      name: `${review.author} DayZ Cheats review`,
       reviewRating: {
         '@type': 'Rating',
         ratingValue: String(review.rating),

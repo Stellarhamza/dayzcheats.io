@@ -1,8 +1,8 @@
-# Tarkov Cheats (tarkovcheats.io)
+# DayZ Cheats (dayzcheats.io)
 
-Static Astro site for Escape from Tarkov (EFT) cheats — Aimbot, ESP, wallhack, loot filter, radar — Cloudflare Workers ready.
+Static Astro site for DayZ Standalone cheats — silent aim Aimbot, ESP, wallhack, loot ESP, radar hack — Cloudflare Workers ready.
 
-Worldwide English SEO targeting **tarkov cheats**, **escape from tarkov cheats**, and **eft cheats**.
+Worldwide English SEO targeting **dayz cheats**, **dayz hacks**, and **undetected dayz cheats**.
 
 ```bash
 npm install
