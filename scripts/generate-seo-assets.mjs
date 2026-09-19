@@ -117,7 +117,7 @@ const staticOg = [
     source: heroFull,
     eyebrow: 'DAYZ CHEATS',
     title: 'DayZ Aimbot, ESP & Radar Hack',
-    subtitle: 'Undetected DayZ cheats from $4.90',
+    subtitle: 'DayZ cheats from $4.90 · live BattlEye status',
   },
   {
     file: 'dayz-cheats.jpg',

@@ -130,6 +130,14 @@ body {
   background: #000;
 }
 
+/* Crop battlelog header bar out of the top of the frame */
+.video-brand-crop {
+  top: -6% !important;
+  height: 112% !important;
+  width: 100%;
+  object-position: center 42%;
+}
+
 .video-brand-blur {
   position: absolute;
   left: 0;
@@ -148,9 +156,31 @@ body {
   );
 }
 
+/* Cover any leftover Battlelog / watermark strip at the top */
+.video-brand-blur--top {
+  top: 0;
+  bottom: auto;
+  height: 4.25rem;
+  background: linear-gradient(
+    0deg,
+    rgba(8, 6, 15, 0) 0%,
+    rgba(8, 6, 15, 0.72) 45%,
+    rgba(8, 6, 15, 0.98) 100%
+  );
+}
+
 @media (min-width: 640px) {
   .video-brand-blur {
     height: 5rem;
+  }
+
+  .video-brand-blur--top {
+    height: 5rem;
+  }
+
+  .video-brand-crop {
+    top: -7% !important;
+    height: 114% !important;
   }
 }
 
@@ -201,6 +231,29 @@ body {
 .page-body {
   background: transparent;
   color: var(--ink);
+}
+
+/* Light help-desk surface for /support — not the dark page-card look */
+.support-surface {
+  background:
+    radial-gradient(ellipse 80% 50% at 10% 0%, rgba(176, 64, 251, 0.08), transparent 55%),
+    linear-gradient(180deg, #f3f0fa 0%, #ebe6f5 48%, #e4dff0 100%);
+  color: #1c1728;
+}
+
+.support-surface .support-link {
+  color: #5b21b6;
+  font-weight: 500;
+  text-underline-offset: 2px;
+}
+
+.support-surface .support-link:hover {
+  color: #4c1d95;
+  text-decoration: underline;
+}
+
+.support-divider {
+  border-color: rgba(76, 29, 149, 0.12);
 }
 
 .page-band {

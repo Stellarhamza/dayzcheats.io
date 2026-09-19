@@ -345,7 +345,7 @@ function imagesForPath(path, games, forums) {
 }
 
 function videosForPath(path) {
-  if (path === '/' || path === '/dayz-cheats') {
+  if (path === '/dayz-cheats') {
     return [
       {
         thumb: VIDEO_THUMB,

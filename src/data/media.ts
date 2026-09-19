@@ -33,18 +33,18 @@ export const DAYZ_HOME_VIDEO = {
 export const PAGE_MEDIA = {
   home: {
     image: DAYZ_SOLDIER,
-    video: DAYZ_HOME_VIDEO.src,
     alt: 'DayZ cheats Aimbot and ESP product artwork for DayZ Standalone on PC',
     title: 'DayZ Cheats for DayZ Standalone',
     caption: 'Feature overview for DayZ Aimbot, ESP, wallhack, loot ESP and radar hack.',
-    videoTitle: DAYZ_HOME_VIDEO.title,
-    videoDescription: DAYZ_HOME_VIDEO.caption,
   },
   product: {
     image: DAYZ_COVER,
+    video: DAYZ_HOME_VIDEO.src,
     alt: 'DayZ ESP, silent aim Aimbot and loot highlight feature artwork',
     title: 'DayZ Aimbot, ESP and Radar Hack Features',
     caption: 'Product overview for DayZ Standalone on Windows PC.',
+    videoTitle: DAYZ_HOME_VIDEO.title,
+    videoDescription: DAYZ_HOME_VIDEO.caption,
   },
   forums: {
     image: DAYZ_HERO,

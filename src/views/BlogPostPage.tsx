@@ -84,7 +84,7 @@ export function BlogPostPage({ slug }: BlogPostPageProps) {
                 Ready for DayZ Cheats?
               </h2>
               <p className="mt-2 text-sm leading-relaxed text-white/55">
-                Check live Undetected status, then buy ESP, wallhack, radar hack and silent aim for
+                Check live BattlEye status, then buy ESP, wallhack, radar hack and silent aim for
                 DayZ on {SITE_HOST}. Need help? Read{' '}
                 <a href="/support" className="text-white/80 underline-offset-2 hover:underline">
                   DayZ Cheats support

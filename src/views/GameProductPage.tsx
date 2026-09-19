@@ -30,22 +30,22 @@ function ProductPurchaseCard({ game }: { game: Game }) {
           className="rounded-none"
         />
       </CheckoutLink>
-      <div className="p-5 sm:p-8">
+      <div className="p-5 sm:p-6">
         <div className="flex items-center gap-3">
           <div className="icon-well shrink-0 text-sm font-bold">DZ</div>
           <div className="min-w-0">
             <p className="truncate text-sm font-semibold text-white">DayZ Cheats</p>
             <p className="text-xs text-white/45">
-              Status: {game.status} · DayZ Standalone · From ${PRODUCT_PRICE_USD}
+              {game.status} · From ${PRODUCT_PRICE_USD}
             </p>
           </div>
         </div>
 
-        <CheckoutLink className="cta-gradient mt-5 block w-full rounded-full py-3.5 text-center text-sm font-semibold text-white transition-opacity hover:opacity-90 sm:mt-6">
+        <CheckoutLink className="cta-gradient mt-5 block w-full rounded-full py-3.5 text-center text-sm font-semibold text-white transition-opacity hover:opacity-90">
           Buy DayZ Cheats
         </CheckoutLink>
         <p className="mt-3 text-center text-[11px] text-white/40">
-          Instant delivery · Check Undetected first
+          Instant delivery · Check BattlEye status first
         </p>
       </div>
     </div>
@@ -80,7 +80,7 @@ export function GameProductPage({ guideSlug }: GameProductPageProps) {
       </div>
 
       <main className="page-body">
-        <section className="page-x py-8 sm:py-14">
+        <section className="page-x py-8 sm:py-12">
           <div className="mx-auto max-w-6xl">
             <nav
               className="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-xs text-white/40"
@@ -93,115 +93,85 @@ export function GameProductPage({ guideSlug }: GameProductPageProps) {
               <span className="min-w-0 text-white/70">Product details</span>
             </nav>
 
-            <DayZPreview wide className="mt-5 sm:mt-8" />
-            <p className="mt-3 text-sm text-white/45">{DAYZ_HOME_VIDEO.caption}</p>
+            <div className="mt-6 grid gap-8 lg:mt-8 lg:grid-cols-12 lg:items-start lg:gap-10">
+              <div className="lg:col-span-7">
+                <span className="inline-flex items-center gap-1.5 text-xs text-z-soft">
+                  <Shield className="h-3.5 w-3.5 shrink-0" strokeWidth={1.75} />
+                  {game.status} · DayZ Standalone · BattlEye · {SITE_HOST}
+                </span>
 
-            <div className="mt-5 sm:mt-6">
-              <span className="inline-flex items-center gap-1.5 text-xs text-z-soft">
-                <Shield className="h-3.5 w-3.5 shrink-0 text-z-soft" strokeWidth={1.75} />
-                {game.status} · DayZ Standalone · BattlEye · {SITE_HOST}
-              </span>
+                <h1 className="mt-3 text-2xl font-semibold leading-tight tracking-tight text-white sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
+                  DayZ Cheats Price & Checkout
+                </h1>
+                <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/55 sm:mt-4 sm:text-base">
+                  Silent aim Aimbot, ESP, wallhack, loot ESP and radar hack for DayZ Standalone on
+                  PC. Confirm BattlEye status, then checkout — worldwide delivery.
+                </p>
 
-              <h1 className="mt-3 text-2xl font-semibold leading-tight tracking-tight text-white sm:mt-4 sm:text-4xl lg:text-5xl">
-                DayZ Cheats Price & Checkout
-              </h1>
-              <p className="mt-3 max-w-2xl text-sm leading-relaxed text-white/55 sm:mt-4 sm:text-base">
-                Compare DayZ Aimbot with silent aim, DayZ ESP, wallhack, loot and item ESP, radar
-                hack and stream-proof options for DayZ cheats on PC. Confirm BattlEye status,
-                then checkout — worldwide delivery.
-              </p>
-              <CheckoutLink className="cta-gradient mt-5 inline-flex items-center justify-center rounded-full px-7 py-3.5 text-sm font-semibold text-white transition-opacity hover:opacity-90">
-                Buy DayZ Cheats
-              </CheckoutLink>
-            </div>
+                <div className="mt-6 lg:hidden">
+                  <ProductPurchaseCard game={game} />
+                </div>
 
-            <div className="mt-6 lg:hidden">
-              <ProductPurchaseCard game={game} />
-            </div>
-
-            <div className="mt-8 grid gap-8 lg:grid-cols-12 lg:items-start lg:gap-10">
-              <div className="space-y-10 lg:col-span-7">
-                <div>
+                <div className="mt-10">
                   <h2 className="text-lg font-semibold tracking-tight text-white sm:text-xl">
-                    Included DayZ features
+                    Included features
                   </h2>
-                  <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                  <ul className="mt-4 space-y-3">
                     {GUIDE_FEATURES.map((f) => (
-                      <div key={f.name} className="page-card rounded-2xl p-4">
-                        <div className="flex items-start gap-3">
-                          <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-z-accent/20">
-                            <Check className="h-3 w-3 text-z-soft" strokeWidth={2.5} />
-                          </span>
-                          <div className="min-w-0">
-                            <h3 className="text-sm font-semibold text-white">{f.name}</h3>
-                            <p className="mt-1 text-xs leading-relaxed text-white/50">{f.text}</p>
-                          </div>
+                      <li key={f.name} className="flex items-start gap-3">
+                        <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-z-accent/20">
+                          <Check className="h-3 w-3 text-z-soft" strokeWidth={2.5} />
+                        </span>
+                        <div className="min-w-0">
+                          <p className="text-sm font-semibold text-white">{f.name}</p>
+                          <p className="mt-0.5 text-sm leading-relaxed text-white/50">{f.text}</p>
                         </div>
-                      </div>
+                      </li>
                     ))}
+                  </ul>
+                </div>
+
+                <div className="mt-12 space-y-8 text-sm leading-relaxed text-white/55">
+                  <div>
+                    <h2 className="text-lg font-semibold tracking-tight text-white sm:text-xl">
+                      Servers & BattlEye
+                    </h2>
+                    <p className="mt-3">
+                      Runs on official DayZ servers and most common private mod setups. After a
+                      client or BattlEye patch, status may show Updating until tested —{' '}
+                      {SITE_NAME} publishes live status so you are not buying a dead loader. Status
+                      first, load second.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h2 className="text-lg font-semibold tracking-tight text-white sm:text-xl">
+                      Checkout and delivery
+                    </h2>
+                    <ol className="mt-3 list-decimal space-y-2 pl-5">
+                      <li>Confirm current status on {SITE_HOST}.</li>
+                      <li>Only load when status is clear (or accept Updating risk).</li>
+                      <li>Checkout for digital license delivery worldwide.</li>
+                      <li>
+                        Follow the{' '}
+                        <a
+                          href={blogPath('complete-setup')}
+                          className="text-white/80 underline-offset-2 hover:underline"
+                        >
+                          complete setup guide
+                        </a>{' '}
+                        after delivery.
+                      </li>
+                    </ol>
                   </div>
                 </div>
 
-                <div className="space-y-3 text-sm leading-relaxed text-white/55">
+                <div className="mt-12">
                   <h2 className="text-lg font-semibold tracking-tight text-white sm:text-xl">
-                    Aimbot, ESP, wallhack & radar hack
+                    Feature preview
                   </h2>
-                  <p>
-                    DayZ Cheats lead with silent aim, survivor and infected ESP through walls, loot
-                    highlighting and a 2D radar so third parties stop ending your runs.
-                  </p>
-                  <p>
-                    Silent aim stays optional. For long gearing sessions, run ESP and radar first
-                    and keep the Aimbot conservative — admins spectate more than BattlEye scans.
-                  </p>
-                </div>
-
-                <div className="space-y-3 text-sm leading-relaxed text-white/55">
-                  <h2 className="text-lg font-semibold tracking-tight text-white sm:text-xl">
-                    Official and private server support
-                  </h2>
-                  <p>
-                    The build runs on official DayZ servers and on private servers using most common
-                    mod setups — useful when you want to find bases, tents and buried stashes.
-                  </p>
-                  <p>
-                    Heavily scripted community servers can behave differently. Ask support with the
-                    server name before you buy if you only play one community.
-                  </p>
-                </div>
-
-                <div className="space-y-3 text-sm leading-relaxed text-white/55">
-                  <h2 className="text-lg font-semibold tracking-tight text-white sm:text-xl">
-                    BattlEye Undetected status
-                  </h2>
-                  <p>
-                    DayZ uses BattlEye. After a client or anti-cheat patch, builds can flip to
-                    Updating until tested. {SITE_NAME} shows live Undetected status so you are not
-                    buying a dead loader.
-                  </p>
-                  <p>Rule: status first, load second.</p>
-                </div>
-
-                <div className="space-y-3 text-sm leading-relaxed text-white/55">
-                  <h2 className="text-lg font-semibold tracking-tight text-white sm:text-xl">
-                    Checkout and delivery
-                  </h2>
-                  <ol className="list-decimal space-y-2 pl-5">
-                    <li>Confirm current status on {SITE_HOST}.</li>
-                    <li>Confirm Undetected (or accept Updating risk).</li>
-                    <li>Scan the Aimbot, ESP and radar features on this page.</li>
-                    <li>Checkout for digital license delivery worldwide.</li>
-                    <li>
-                      Follow the{' '}
-                      <a
-                        href={blogPath('complete-setup')}
-                        className="text-white/80 underline-offset-2 hover:underline"
-                      >
-                        complete setup guide
-                      </a>{' '}
-                      after delivery.
-                    </li>
-                  </ol>
+                  <p className="mt-2 text-sm text-white/45">{DAYZ_HOME_VIDEO.caption}</p>
+                  <DayZPreview className="mt-4" />
                 </div>
               </div>
 

@@ -40,7 +40,7 @@ export const BLOGS: BlogPost[] = [
         heading: 'Use this checklist before checkout',
         body: [
           'Searching “dayz cheats” or “dayz cheat” usually means one question: what is actually included? This guide is the module checklist — not the price page. Open Product details for live BattlEye status and checkout from $4.90.',
-          'DayZ Cheats on dayzcheats.io is a single DayZ Standalone product for Windows PC: one loader, one license, Undetected or Updating against BattlEye. Official and many modded private servers are supported when the build allows it.',
+          'DayZ Cheats on dayzcheats.io is a single DayZ Standalone product for Windows PC: one loader, one license, clear-to-load or Updating against BattlEye. Official and many modded private servers are supported when the build allows it.',
         ],
       },
       {
@@ -69,7 +69,7 @@ export const BLOGS: BlogPost[] = [
       {
         heading: 'Next reads',
         body: [
-          'Tune Aimbot in the Aimbot settings guide, dial ESP in the ESP & wallhack guide, then confirm Undetected on the BattlEye status guide before you buy DayZ cheats.',
+          'Tune Aimbot in the Aimbot settings guide, dial ESP in the ESP & wallhack guide, then confirm live BattlEye status in the status guides before you buy DayZ cheats.',
         ],
       },
     ],
@@ -92,7 +92,7 @@ export const BLOGS: BlogPost[] = [
         heading: 'Start conservative',
         body: [
           'Blatant Aimbot is the fastest report on a DayZ server — private admins spectate more often than BattlEye alone catches. Start with a tight FOV, heavy smoothing and chest or nearest-bone targeting before head-only snap.',
-          'Confirm Undetected against BattlEye first. Aimbot settings cannot save a detected build after a Bohemia or BattlEye update.',
+          'Confirm live BattlEye status first. Aimbot settings cannot save a detected build after a Bohemia or BattlEye update.',
         ],
       },
       {
@@ -217,7 +217,7 @@ export const BLOGS: BlogPost[] = [
       {
         heading: 'After a clean load',
         body: [
-          'Buy DayZ Cheats on dayzcheats.io (from $4.90), confirm Undetected against BattlEye, launch DayZ, run the loader, then open the menu with the key in your delivery notes.',
+          'Buy DayZ Cheats on dayzcheats.io (from $4.90), confirm live BattlEye status, launch DayZ, run the loader, then open the menu with the key in your delivery notes.',
           'If the menu does not open, do not spam keys — contact support with your order ID.',
         ],
       },
@@ -243,7 +243,7 @@ export const BLOGS: BlogPost[] = [
       'Step-by-step DayZ cheats setup: buy from $4.90, antivirus exclusions, load order, enable ESP and Aimbot, save configs, re-check BattlEye.',
     metaTitle: 'DayZ Cheats Setup Guide | Complete Loader Steps',
     metaDescription:
-      'Complete DayZ cheats setup for Windows PC: buy when Undetected, antivirus exclusions, load order, first-run ESP and Aimbot config, then re-check BattlEye after every patch.',
+      'Complete DayZ cheats setup for Windows PC: buy when status is clear, antivirus exclusions, load order, first-run ESP and Aimbot config, then re-check BattlEye after every patch.',
     searchTerms: 'dayz cheats setup load order windows complete guide dayz cheat',
     date: '2026-09-17',
     readMinutes: 11,
@@ -253,7 +253,7 @@ export const BLOGS: BlogPost[] = [
       {
         heading: '1) Buy and confirm status',
         body: [
-          'Open dayzcheats.io. If status is Updating after a BattlEye patch, wait. If Undetected, checkout from $4.90 and use only the official delivery link.',
+          'Open dayzcheats.io. If status is Updating after a BattlEye patch, wait. If status is clear, checkout from $4.90 and use only the official delivery link.',
         ],
       },
       {
@@ -274,7 +274,7 @@ export const BLOGS: BlogPost[] = [
       {
         heading: '4) Save configs and re-check patches',
         body: [
-          'Save a loot-run config and a PvP config. After any DayZ or BattlEye update, check Undetected again before you join a server.',
+          'Save a loot-run config and a PvP config. After any DayZ or BattlEye update, check status again before you join a server.',
           'On a modded private server, do one short test session before a long night.',
         ],
       },
@@ -322,7 +322,7 @@ export const BLOGS: BlogPost[] = [
       'Allowlist DayZ cheats in Windows Defender and common antivirus so the loader is not quarantined before first run.',
     metaTitle: 'DayZ Cheats Antivirus Exclusions | Defender',
     metaDescription:
-      'Allowlist DayZ cheats loaders in Windows Defender and third-party antivirus before you load. Restore quarantines, exclude the delivery folder, then continue setup on Undetected.',
+      'Allowlist DayZ cheats loaders in Windows Defender and third-party antivirus before you load. Restore quarantines, exclude the delivery folder, then continue setup when status is clear.',
     searchTerms: 'dayz cheats antivirus defender exclusion quarantine loader dayz cheat',
     date: '2026-09-17',
     readMinutes: 8,
@@ -345,7 +345,7 @@ export const BLOGS: BlogPost[] = [
       {
         heading: 'Then continue setup',
         body: [
-          'Return to Complete Setup for load order. Open support with your order ID if an Undetected DayZ build still fails after exclusion.',
+          'Return to Complete Setup for load order. Open support with your order ID if a clear-to-load DayZ build still fails after exclusion.',
         ],
       },
     ],
@@ -385,15 +385,15 @@ export const BLOGS: BlogPost[] = [
       },
     ],
   },
-  {
+    {
     slug: 'battleye-status',
-    title: 'DayZ BattlEye Undetected vs Updating',
+    title: 'DayZ BattlEye Status: Clear to Load vs Updating',
     excerpt:
-      'What Undetected and Updating mean for DayZ cheats after BattlEye and game patches — and why admin bans are a separate risk.',
-    metaTitle: 'DayZ BattlEye Explained | Undetected vs Updating',
+      'What clear-to-load and Updating mean for DayZ cheats after BattlEye and game patches — and why admin bans are a separate risk.',
+    metaTitle: 'DayZ BattlEye Status | Clear to Load vs Updating',
     metaDescription:
-      'DayZ BattlEye explained for DayZ cheats: what Undetected vs Updating means after patches, why you wait, and how admin bans differ from anti-cheat detections.',
-    searchTerms: 'dayz battleye status undetected updating dayz cheats explained',
+      'DayZ BattlEye status explained for DayZ cheats: clear-to-load vs Updating after patches, why you wait, and how admin bans differ from anti-cheat detections.',
+    searchTerms: 'dayz battleye status clear to load updating dayz cheats explained',
     date: '2026-09-17',
     readMinutes: 8,
     tag: 'Status',
@@ -401,14 +401,14 @@ export const BLOGS: BlogPost[] = [
       {
         heading: 'Status is part of the product',
         body: [
-          'BattlEye updates can invalidate a build overnight. dayzcheats.io shows Undetected or Updating so you are not buying a dead loader from a Discord screenshot.',
-          'Licenses start from $4.90 — honest status beats fake “always undetected” marketing against BattlEye.',
+          'BattlEye updates can invalidate a build overnight. dayzcheats.io shows clear-to-load or Updating so you are not buying a dead loader from a Discord screenshot.',
+          'Licenses start from $4.90 — honest status beats fake always-safe marketing against BattlEye.',
         ],
       },
       {
-        heading: 'Undetected vs Updating',
+        heading: 'Clear to load vs Updating',
         body: [
-          'Undetected — cleared for load on the current DayZ build.',
+          'Clear to load (product label: Undetected) — ready for the current DayZ build.',
           'Updating — wait. Do not force yesterday’s loader into today’s BattlEye.',
         ],
       },
@@ -421,20 +421,20 @@ export const BLOGS: BlogPost[] = [
       {
         heading: 'After every patch',
         body: [
-          'Re-read status after every DayZ or BattlEye patch before you join a server. Use the Undetected checklist guide for the pre-buy / pre-load habit.',
+          'Re-read status after every DayZ or BattlEye patch before you join a server. Use the status checklist guide for the pre-buy / pre-load habit.',
         ],
       },
     ],
   },
   {
     slug: 'undetected-status',
-    title: 'Undetected Checklist Before You Buy or Load',
+    title: 'BattlEye Status Checklist Before You Buy or Load',
     excerpt:
-      'Short Undetected checklist for DayZ cheats — confirm status before checkout and before every post-patch session.',
-    metaTitle: 'Undetected Checklist | Before You Buy DayZ Cheats',
+      'Short BattlEye status checklist for DayZ cheats — confirm clear-to-load before checkout and before every post-patch session.',
+    metaTitle: 'BattlEye Status Checklist | Before You Buy DayZ Cheats',
     metaDescription:
-      'Undetected checklist for DayZ cheats: confirm BattlEye status before checkout and before every post-patch load. Wait when Updating; buy from $4.90 when Undetected is live.',
-    searchTerms: 'undetected dayz cheats checklist before buy load battleye',
+      'BattlEye status checklist for DayZ cheats: confirm clear-to-load before checkout and before every post-patch session. Wait when Updating; buy from $4.90 when status is live.',
+    searchTerms: 'dayz cheats status checklist before buy load battleye undetected dayz cheats',
     date: '2026-09-17',
     readMinutes: 8,
     tag: 'Status',
@@ -442,7 +442,7 @@ export const BLOGS: BlogPost[] = [
       {
         heading: 'Before checkout',
         body: [
-          'Confirm Undetected on the homepage or product page. If Updating, wait or read Refunds for extended downtime. Prices start from $4.90 when Undetected is live.',
+          'Confirm clear-to-load status on the homepage or product page. If Updating, wait or read Refunds for extended downtime. Prices start from $4.90 when status is live.',
         ],
       },
       {
@@ -454,12 +454,12 @@ export const BLOGS: BlogPost[] = [
       {
         heading: 'Spoofer note',
         body: [
-          'If delivery includes a spoofer, follow those steps only when status is Undetected. Spoofing does not replace waiting out an Updating window.',
+          'If delivery includes a spoofer, follow those steps only when status is clear to load. Spoofing does not replace waiting out an Updating window.',
         ],
       },
     ],
   },
-  {
+{
     slug: 'raid-play-guide',
     title: 'Safer DayZ Cheat Settings for Loot Runs',
     excerpt:
@@ -502,7 +502,7 @@ export const BLOGS: BlogPost[] = [
       'Troubleshoot DayZ cheats loader errors — menu not opening, instant close, antivirus quarantine and failed inject.',
     metaTitle: 'Fix DayZ Cheats Loader Errors | Inject & Menu',
     metaDescription:
-      'Fix DayZ cheats loader errors on Windows: antivirus quarantine, overlays, failed inject and menu not opening. Confirm BattlEye Undetected first, then escalate with your order ID.',
+      'Fix DayZ cheats loader errors on Windows: antivirus quarantine, overlays, failed inject and menu not opening. Confirm BattlEye status is clear first, then escalate with your order ID.',
     searchTerms: 'dayz cheats loader error inject failed menu not opening fix',
     date: '2026-09-17',
     readMinutes: 8,
@@ -512,7 +512,7 @@ export const BLOGS: BlogPost[] = [
       {
         heading: 'Stop and check status',
         body: [
-          'First question: is the product Undetected against BattlEye? Updating builds fail for reasons no setting can fix.',
+          'First question: is the product clear to load against BattlEye? Updating builds fail for reasons no setting can fix.',
         ],
       },
       {

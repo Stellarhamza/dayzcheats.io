@@ -5,7 +5,7 @@
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://dayzcheats.io/</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dayzcheats.io/" />
@@ -35,18 +35,10 @@
       <image:title>DayZ Cheats Product Social Preview</image:title>
       <image:caption>Default Open Graph image for dayzcheats.io product pages.</image:caption>
     </image:image>
-    <video:video>
-      <video:thumbnail_loc>https://dayzcheats.io/media/dayz-video-thumb.jpg</video:thumbnail_loc>
-      <video:title>DayZ Cheats Aimbot and ESP Preview</video:title>
-      <video:description>Self-hosted DayZ cheats preview showing Aimbot, ESP menu and survival gameplay visuals on PC.</video:description>
-      <video:content_loc>https://dayzcheats.io/videos/dayz-preview.mp4</video:content_loc>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:live>no</video:live>
-    </video:video>
   </url>
   <url>
     <loc>https://dayzcheats.io/dayz-cheats</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dayzcheats.io/dayz-cheats" />
@@ -92,7 +84,7 @@
   </url>
   <url>
     <loc>https://dayzcheats.io/forums</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dayzcheats.io/forums" />
@@ -135,13 +127,13 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://dayzcheats.io/forums/battleye-status" />
     <image:image>
       <image:loc>https://dayzcheats.io/og/forums-battleye-status.jpg</image:loc>
-      <image:title>DayZ BattlEye Undetected vs Updating Open Graph</image:title>
-      <image:caption>DayZ BattlEye explained for DayZ cheats: what Undetected vs Updating means after patches, why you wait, and how admin bans differ from anti-cheat detections.</image:caption>
+      <image:title>DayZ BattlEye Status: Clear to Load vs Updating Open Graph</image:title>
+      <image:caption>DayZ BattlEye status explained for DayZ cheats: clear-to-load vs Updating after patches, why you wait, and how admin bans differ from anti-cheat detections.</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://dayzcheats.io/media/dayz-cover.webp</image:loc>
-      <image:title>DayZ BattlEye Undetected vs Updating Artwork</image:title>
-      <image:caption>What Undetected and Updating mean for DayZ cheats after BattlEye and game patches - and why admin bans are a separate risk.</image:caption>
+      <image:title>DayZ BattlEye Status: Clear to Load vs Updating Artwork</image:title>
+      <image:caption>What clear-to-load and Updating mean for DayZ cheats after BattlEye and game patches - and why admin bans are a separate risk.</image:caption>
     </image:image>
   </url>
   <url>
@@ -154,7 +146,7 @@
     <image:image>
       <image:loc>https://dayzcheats.io/og/forums-complete-setup.jpg</image:loc>
       <image:title>Complete DayZ Cheats Setup Open Graph</image:title>
-      <image:caption>Complete DayZ cheats setup for Windows PC: buy when Undetected, antivirus exclusions, load order, first-run ESP and Aimbot config, then re-check BattlEye after every patch.</image:caption>
+      <image:caption>Complete DayZ cheats setup for Windows PC: buy when status is clear, antivirus exclusions, load order, first-run ESP and Aimbot config, then re-check BattlEye after every patch.</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://dayzcheats.io/media/dayz-hero-full.webp</image:loc>
@@ -172,7 +164,7 @@
     <image:image>
       <image:loc>https://dayzcheats.io/og/forums-disable-antivirus.jpg</image:loc>
       <image:title>Antivirus Exclusions for DayZ Cheats Open Graph</image:title>
-      <image:caption>Allowlist DayZ cheats loaders in Windows Defender and third-party antivirus before you load. Restore quarantines, exclude the delivery folder, then continue setup on Undetected.</image:caption>
+      <image:caption>Allowlist DayZ cheats loaders in Windows Defender and third-party antivirus before you load. Restore quarantines, exclude the delivery folder, then continue setup when status is clear.</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://dayzcheats.io/media/dayz-control-art.jpg</image:loc>
@@ -244,7 +236,7 @@
     <image:image>
       <image:loc>https://dayzcheats.io/og/forums-loader-errors.jpg</image:loc>
       <image:title>Fix DayZ Cheats Loader Errors Open Graph</image:title>
-      <image:caption>Fix DayZ cheats loader errors on Windows: antivirus quarantine, overlays, failed inject and menu not opening. Confirm BattlEye Undetected first, then escalate with your order ID.</image:caption>
+      <image:caption>Fix DayZ cheats loader errors on Windows: antivirus quarantine, overlays, failed inject and menu not opening. Confirm BattlEye status is clear first, then escalate with your order ID.</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://dayzcheats.io/media/dayz-tactical-art.jpg</image:loc>
@@ -315,13 +307,13 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://dayzcheats.io/forums/undetected-status" />
     <image:image>
       <image:loc>https://dayzcheats.io/og/forums-undetected-status.jpg</image:loc>
-      <image:title>Undetected Checklist Before You Buy or Load Open Graph</image:title>
-      <image:caption>Undetected checklist for DayZ cheats: confirm BattlEye status before checkout and before every post-patch load. Wait when Updating; buy from $4.90 when Undetected is live.</image:caption>
+      <image:title>BattlEye Status Checklist Before You Buy or Load Open Graph</image:title>
+      <image:caption>BattlEye status checklist for DayZ cheats: confirm clear-to-load before checkout and before every post-patch session. Wait when Updating; buy from $4.90 when status is live.</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://dayzcheats.io/media/dayz-cover.webp</image:loc>
-      <image:title>Undetected Checklist Before You Buy or Load Artwork</image:title>
-      <image:caption>Short Undetected checklist for DayZ cheats - confirm status before checkout and before every post-patch session.</image:caption>
+      <image:title>BattlEye Status Checklist Before You Buy or Load Artwork</image:title>
+      <image:caption>Short BattlEye status checklist for DayZ cheats - confirm clear-to-load before checkout and before every post-patch session.</image:caption>
     </image:image>
   </url>
   <url>
@@ -344,7 +336,7 @@
   </url>
   <url>
     <loc>https://dayzcheats.io/reviews</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dayzcheats.io/reviews" />
@@ -362,7 +354,7 @@
   </url>
   <url>
     <loc>https://dayzcheats.io/faq</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dayzcheats.io/faq" />
@@ -380,7 +372,7 @@
   </url>
   <url>
     <loc>https://dayzcheats.io/support</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dayzcheats.io/support" />
@@ -398,7 +390,7 @@
   </url>
   <url>
     <loc>https://dayzcheats.io/privacy</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dayzcheats.io/privacy" />
@@ -411,7 +403,7 @@
   </url>
   <url>
     <loc>https://dayzcheats.io/refunds</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.45</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dayzcheats.io/refunds" />
@@ -424,7 +416,7 @@
   </url>
   <url>
     <loc>https://dayzcheats.io/terms</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://dayzcheats.io/terms" />

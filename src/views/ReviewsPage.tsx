@@ -3,9 +3,7 @@ import { Navbar } from '../components/Navbar'
 import { SiteFooter } from '../components/SiteFooter'
 import { getReviewsAggregate, REVIEWS } from '../data/reviews'
 import { CheckoutLink } from '../components/CheckoutLink'
-import { SeoMedia } from '../components/SeoMedia'
 import { SITE_NAME } from '../data/site'
-import { PAGE_MEDIA, DAYZ_ESP, DAYZ_GAMEPLAY, DAYZ_MENU } from '../data/media'
 
 function Stars({ rating }: { rating: number }) {
   return (
@@ -31,149 +29,66 @@ export function ReviewsPage() {
       </div>
 
       <main className="page-body">
-        <section className="page-x pt-12 sm:pt-20">
-          <div className="mx-auto max-w-6xl">
+        <section className="page-x pt-12 sm:pt-16">
+          <div className="mx-auto max-w-3xl">
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-white/45">
-              {SITE_NAME} · Community reviews
+              {SITE_NAME}
             </p>
             <h1 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-5xl">
               DayZ Cheats Reviews
             </h1>
-            <p className="mt-4 max-w-3xl text-base leading-relaxed text-white/55">
-              Reviews from DayZ players who bought DayZ Cheats — ESP accuracy, Undetected honesty,
-              and whether the build held after the last patch. Read the{' '}
-              <a href="/dayz-cheats" className="text-white/80 underline-offset-2 hover:underline">
-                product page
-              </a>
-              ,{' '}
-              <a href="/support" className="text-white/80 underline-offset-2 hover:underline">
-                support
-              </a>
-              , or{' '}
-              <a href="/forums" className="text-white/80 underline-offset-2 hover:underline">
-                forums
-              </a>
-              .
+            <p className="mt-4 text-base leading-relaxed text-white/55">
+              Feedback from players who bought DayZ Cheats — ESP accuracy, status honesty, and
+              whether the build held after the last BattlEye patch.
             </p>
-            <p className="mt-3 text-sm text-white/45" aria-label="Aggregate rating">
-              Average {aggregate.ratingValue} / 5 from {aggregate.reviewCount} DayZ Cheats
-              reviews
+            <p className="mt-4 text-sm text-white/45" aria-label="Aggregate rating">
+              Average {aggregate.ratingValue} / 5 · {aggregate.reviewCount} reviews
             </p>
           </div>
         </section>
 
-        <section className="page-x pt-10 sm:pt-12">
-          <div className="mx-auto max-w-6xl">
-            <SeoMedia media={PAGE_MEDIA.reviews} />
-          </div>
-        </section>
-
-        <section
-          aria-label="DayZ gameplay previews"
-          className="relative mt-10 border-y border-z-soft/20 bg-z-band sm:mt-12"
-        >
-          <div className="video-strip video-strip--reviews relative w-full overflow-hidden">
-            <div className="grid h-full grid-cols-3">
-              <img
-                src={DAYZ_GAMEPLAY}
-                alt="DayZ Aimbot gameplay preview"
-                className="h-full w-full object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-              <img
-                src={DAYZ_MENU}
-                alt="DayZ cheats menu preview"
-                className="h-full w-full object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-              <img
-                src={DAYZ_ESP}
-                alt="DayZ ESP wallhack gameplay preview"
-                className="h-full w-full object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div className="video-strip-tint pointer-events-none absolute inset-0 z-[2]" aria-hidden />
-            <div
-              className="video-strip-tint-glow pointer-events-none absolute inset-0 z-[2]"
-              aria-hidden
-            />
-          </div>
-        </section>
-
-        <section className="page-x py-14 sm:py-16">
-          <div className="mx-auto max-w-6xl">
-            <h2 className="mb-6 text-xl font-semibold tracking-tight text-white">
-              Latest DayZ Cheats feedback
-            </h2>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <section className="page-x py-12 sm:py-14">
+          <div className="mx-auto max-w-3xl">
+            <ul className="divide-y divide-white/10 border-y border-white/10">
               {REVIEWS.map((review) => (
-                <article
-                  key={review.id}
-                  className="page-card flex h-full min-h-[220px] flex-col rounded-2xl p-6"
-                >
-                  <div className="flex items-start justify-between gap-3">
-                    <span className="text-xs font-medium uppercase tracking-wider text-white/45">
-                      {review.game}
-                    </span>
-                    <Stars rating={review.rating} />
-                  </div>
-                  <p className="mt-4 flex-1 text-sm leading-relaxed text-white/70">
-                    “{review.body}”
-                  </p>
-                  <div className="mt-6 flex items-center gap-3 border-t border-white/10 pt-4">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-full bg-z-accent/25 text-xs font-semibold text-z-ink">
-                      {review.author
-                        .split(' ')
-                        .map((n) => n[0])
-                        .join('')
-                        .slice(0, 2)}
-                    </div>
+                <li key={review.id} className="py-7 sm:py-8">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
                     <div>
                       <p className="text-sm font-semibold text-white">{review.author}</p>
                       <p className="text-xs text-white/45">{review.role}</p>
-                      <time
-                        className="mt-0.5 block text-[11px] text-white/35"
-                        dateTime={review.datePublished}
-                      >
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Stars rating={review.rating} />
+                      <time className="text-[11px] text-white/35" dateTime={review.datePublished}>
                         {review.datePublished}
                       </time>
                     </div>
                   </div>
-                </article>
+                  <p className="mt-4 text-sm leading-relaxed text-white/65">“{review.body}”</p>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </section>
 
-        <section className="page-band page-x border-t border-white/10 py-16">
-          <div className="page-card mx-auto grid max-w-6xl gap-6 overflow-hidden rounded-2xl p-6 sm:gap-8 sm:rounded-3xl sm:p-10 lg:grid-cols-2 lg:items-center lg:gap-12 lg:p-12">
+        <section className="page-x border-t border-white/10 py-14 sm:py-16">
+          <div className="mx-auto flex max-w-3xl flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <p className="text-xs font-medium uppercase tracking-[0.2em] text-white/45">
-                Next step
-              </p>
-              <h2 className="mt-3 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+              <h2 className="text-xl font-semibold tracking-tight text-white sm:text-2xl">
                 Ready to buy DayZ Cheats?
               </h2>
-              <p className="mt-3 text-sm leading-relaxed text-white/55">
-                Open the guide, confirm Undetected status, then checkout — or visit{' '}
-                <a href="/support" className="text-white underline-offset-2 hover:underline">
-                  DayZ Cheats support
-                </a>{' '}
-                for load and inject help.
+              <p className="mt-2 text-sm text-white/50">
+                Confirm live BattlEye status on the product page, then checkout.
               </p>
             </div>
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end">
+            <div className="flex flex-wrap gap-3">
               <a
                 href="/dayz-cheats"
-                className="inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-white/5"
+                className="inline-flex items-center justify-center rounded-full border border-z-soft/35 bg-[rgba(28,22,48,0.88)] px-5 py-2.5 text-sm font-semibold text-white backdrop-blur-xl transition-colors hover:border-z-soft/50"
               >
                 Product details
               </a>
-              <CheckoutLink className="cta-gradient inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium text-white">
+              <CheckoutLink className="cta-gradient inline-flex items-center justify-center rounded-full px-6 py-2.5 text-sm font-semibold text-white">
                 Buy now
               </CheckoutLink>
             </div>

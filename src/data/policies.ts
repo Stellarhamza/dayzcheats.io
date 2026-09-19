@@ -84,7 +84,7 @@ export const POLICY_PAGES: PolicyPageContent[] = [
         heading: 'Risk and anti-cheat disclaimer',
         body: [
           'DayZ uses BattlEye, and private servers add their own admin moderation. Using third-party software can violate the game’s terms and lead to account or server penalties.',
-          'We push rebuilds after BattlEye and game updates when needed, but nothing here guarantees a build stays undetected forever or that an account stays safe.',
+          'We push rebuilds after BattlEye and game updates when needed, but nothing here guarantees a build stays clear forever or that an account stays safe.',
           'All risk sits with you. We accept no liability for bans, lost characters, or other damage tied to using the product. Check live status before you load.',
         ],
       },
@@ -124,7 +124,7 @@ export const POLICY_PAGES: PolicyPageContent[] = [
         heading: 'When refunds are available',
         body: [
           'If payment cleared but no license or delivery email arrived within a reasonable window, contact Support with the order ID and we will replace the key or refund.',
-          'If the product shows Updating for an extended period after purchase and never returns to Undetected during your license window, you may request a refund or equivalent time credit.',
+          'If the product shows Updating for an extended period after purchase and never returns to a clear-to-load status during your license window, you may request a refund or equivalent time credit.',
           'Duplicate charges or clear processor errors are refunded once verified.',
         ],
       },

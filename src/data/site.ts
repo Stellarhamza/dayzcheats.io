@@ -11,7 +11,7 @@ export const SITE_HOST = 'dayzcheats.io'
  * Canonical host is apex https://dayzcheats.io (www 301s to apex in the Worker).
  */
 export const SITE_PURPOSE =
-  'Buy undetected DayZ cheats for DayZ Standalone on Windows PC — silent-aim Aimbot, player and loot ESP, wallhack, radar hack and live BattlEye status with instant digital delivery.'
+  'Buy DayZ cheats for DayZ Standalone on Windows PC — silent-aim Aimbot, player and loot ESP, wallhack, radar hack and live BattlEye status with instant digital delivery.'
 
 export const SITE_ABOUT = [
   'dayz cheats',
@@ -23,8 +23,8 @@ export const SITE_ABOUT = [
   'dayz esp',
   'dayz wallhack',
   'dayz radar hack',
-  'undetected dayz cheats',
   'battleye dayz cheats',
+  'dayz cheat aimbot',
 ] as const
 
 /** Offer price shown on product schema + purchase UI. */
@@ -53,9 +53,9 @@ const INDEX_ROBOTS =
 
 export const SEO = {
   home: {
-    title: 'DayZ Cheats | Undetected DayZ Cheat Aimbot, ESP & Hacks',
+    title: 'DayZ Cheats | DayZ Cheat Aimbot, ESP & Hacks',
     description:
-      'Buy undetected DayZ cheats for DayZ Standalone — silent aim Aimbot, player and loot ESP, wallhack and radar hack from $4.90. Check BattlEye status, then checkout.',
+      'Buy DayZ cheats for DayZ Standalone — silent aim Aimbot, player and loot ESP, wallhack and radar hack from $4.90. Check live BattlEye status, then checkout.',
     path: '/',
     ogType: 'website',
     image: PAGE_OG.home,
@@ -115,7 +115,7 @@ export const SEO = {
 } as const satisfies Record<string, PageSeo>
 
 export const HOME_HEADINGS = {
-  h1: 'Undetected DayZ Cheats & DayZ Cheat Aimbot, ESP & Hacks',
+  h1: 'DayZ Cheats — Aimbot, ESP & Hacks',
   h2Features: 'DayZ Aimbot, ESP, loot ESP & radar hack',
   h2Featured: 'DayZ ESP and silent aim Aimbot',
   h2About: 'Clear BattlEye status before you buy DayZ cheats',

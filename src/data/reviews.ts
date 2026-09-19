@@ -21,7 +21,7 @@ export const REVIEWS: Review[] = [
     game: 'DayZ',
     rating: 5,
     datePublished: '2026-09-14',
-    body: 'Status on the product page matched what I got in game. Player ESP held after the first BattlEye rebuild — glad I waited for Undetected before loading.',
+    body: 'Status on the product page matched what I got in game. Player ESP held after the first BattlEye rebuild — glad I waited for a clear status before loading.',
   },
   {
     id: '2',
@@ -39,7 +39,7 @@ export const REVIEWS: Review[] = [
     game: 'DayZ',
     rating: 4,
     datePublished: '2026-09-13',
-    body: 'No fake multi-game catalog. Base and stash markers plus honest Updating vs Undetected flips are what I wanted before buying DayZ cheats.',
+    body: 'No fake multi-game catalog. Base and stash markers plus honest Updating vs clear-to-load flips are what I wanted before buying DayZ cheats.',
   },
   {
     id: '4',

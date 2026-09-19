@@ -116,13 +116,13 @@ export function HeroSearch({
   const showList = open && matches.length > 0
 
   return (
-    <div ref={rootRef} className={`relative z-50 w-full max-w-xl ${className}`}>
+    <div ref={rootRef} className={`relative z-50 w-full ${className || 'max-w-xl'}`.trim()}>
       <form
         onSubmit={submit}
-        className="relative z-50 flex w-full max-w-full flex-col gap-2.5 sm:flex-row sm:items-center sm:gap-0 sm:rounded-full sm:bg-white sm:p-1.5 sm:shadow-[0_8px_32px_rgba(176,64,251,0.28)]"
+        className="relative z-50 flex w-full max-w-full flex-col gap-2.5 sm:flex-row sm:items-center sm:gap-0 sm:rounded-full sm:bg-white sm:p-1 sm:shadow-[0_8px_32px_rgba(176,64,251,0.28)]"
         role="search"
       >
-        <div className="flex w-full min-w-0 items-center gap-2 rounded-full bg-white px-4 py-3 sm:flex-1 sm:rounded-none sm:bg-transparent sm:px-4 sm:py-2">
+        <div className="flex w-full min-w-0 items-center gap-2 rounded-full bg-white px-3.5 py-2.5 sm:flex-1 sm:rounded-none sm:bg-transparent sm:px-3.5 sm:py-1.5">
           <Search className="h-4 w-4 shrink-0 text-gray-400" strokeWidth={1.75} aria-hidden />
           <input
             type="search"
@@ -142,7 +142,7 @@ export function HeroSearch({
         </div>
         <button
           type="submit"
-          className="cta-gradient inline-flex w-full items-center justify-center gap-1.5 rounded-full px-6 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90 sm:w-auto sm:shrink-0 sm:py-2.5"
+          className="cta-gradient inline-flex w-full items-center justify-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90 sm:w-auto sm:shrink-0 sm:py-2"
         >
           Go
           <ArrowRight className="h-4 w-4" strokeWidth={2} />

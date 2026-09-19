@@ -60,7 +60,7 @@ export const GUIDE_FEATURES = [
   },
   {
     name: 'BattlEye status + support',
-    text: 'Undetected or Updating status is reviewed after BattlEye and DayZ patches before you load.',
+    text: 'Live clear-to-load or Updating status is reviewed after BattlEye and DayZ patches before you load.',
   },
 ] as const
 

@@ -81,7 +81,7 @@ const importantPages = [
 ]
 
 if (
-  !home.includes('<title>DayZ Cheats | Undetected DayZ Cheat Aimbot, ESP &amp; Hacks</title>')
+  !home.includes('<title>DayZ Cheats | DayZ Cheat Aimbot, ESP &amp; Hacks</title>')
 ) {
   fail('Homepage does not own the exact transactional title')
 }
@@ -161,8 +161,8 @@ for (const html of importantPages) {
     fail('An important indexed page is missing visible DayZ media')
   }
 }
-if (!home.includes('/videos/dayz-preview.mp4') || !home.includes('/media/dayz-video-thumb.jpg')) {
-  fail('Homepage is missing the self-hosted DayZ preview video')
+if (!product.includes('/videos/dayz-preview.mp4') || !product.includes('/media/dayz-video-thumb.jpg')) {
+  fail('Product page is missing the self-hosted DayZ preview video')
 }
 if (home.includes('iframe.mediadelivery.net') || product.includes('iframe.mediadelivery.net')) {
   fail('Pages still embed blocked mediadelivery video (403 off-domain)')

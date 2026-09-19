@@ -77,7 +77,7 @@ export const SITE_GUIDE_LINKS = [
   { label: 'BattlEye status guide', to: blogPath('battleye-status') },
   { label: 'Survival & loot run guide', to: blogPath('raid-play-guide') },
   { label: 'Loader errors guide', to: blogPath('loader-errors') },
-  { label: 'Undetected status guide', to: blogPath('undetected-status') },
+  { label: 'Status checklist guide', to: blogPath('undetected-status') },
 ] as const
 
 const CHECKOUT_HOST = ['za', 'deyo', '.com'].join('')

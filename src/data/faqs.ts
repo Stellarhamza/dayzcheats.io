@@ -7,11 +7,11 @@
 export const SITE_FAQS: FaqItem[] = [
   {
     q: 'What are DayZ Cheats?',
-    a: 'DayZ Cheats are DayZ Standalone tools on dayzcheats.io — silent-aim Aimbot, player ESP, wallhack, infected and loot ESP, and a 2D radar hack — with live Undetected or Updating status after BattlEye patches.',
+    a: 'DayZ Cheats are DayZ Standalone tools on dayzcheats.io — silent-aim Aimbot, player ESP, wallhack, infected and loot ESP, and a 2D radar hack — with live BattlEye status after game patches.',
   },
   {
     q: 'How much do DayZ cheats cost?',
-    a: `DayZ cheats start from $4.90 for short access. Longer licenses cost more. Always confirm Undetected status and the live price on dayzcheats.io before checkout.`,
+    a: `DayZ cheats start from $4.90 for short access. Longer licenses cost more. Always confirm live BattlEye status and the price on dayzcheats.io before checkout.`,
   },
   {
     q: 'Do you sell DayZ hacks for other games?',
@@ -22,8 +22,8 @@ export const SITE_FAQS: FaqItem[] = [
     a: 'Aimbot is optional. Most buyers lead with DayZ ESP, loot highlighting and radar awareness, then enable silent aim only if they want it.',
   },
   {
-    q: 'Are DayZ Cheats undetected against BattlEye?',
-    a: 'We mark live Undetected or Updating status after DayZ and BattlEye updates. Always check status on dayzcheats.io before you load.',
+    q: 'How do you handle BattlEye updates?',
+    a: 'We publish live clear-to-load or Updating labels after DayZ and BattlEye patches. Always check status on dayzcheats.io before you load.',
   },
   {
     q: 'What is DayZ ESP / wallhack?',
@@ -43,7 +43,7 @@ export const SITE_FAQS: FaqItem[] = [
   },
   {
     q: 'How do I buy DayZ cheats?',
-    a: 'Start on the homepage, confirm Undetected status and review the price from $4.90. Open Product details for compatibility and features, then continue to checkout for digital delivery.',
+    a: 'Start on the homepage, confirm live BattlEye status and review the price from $4.90. Open Product details for compatibility and features, then continue to checkout for digital delivery.',
   },
   {
     q: 'How do I load DayZ Cheats?',
@@ -51,11 +51,11 @@ export const SITE_FAQS: FaqItem[] = [
   },
   {
     q: 'Where do I get DayZ Cheats support?',
-    a: 'Use the Support page and your checkout order channel. Include Undetected/Updating status and whether you need load, menu or delivery help.',
+    a: 'Use the Support page and your checkout order channel. Include current BattlEye status and whether you need load, menu or delivery help.',
   },
   {
     q: 'Where can I read DayZ Cheats reviews?',
-    a: 'Player reviews with ratings are on the Reviews page. They cover ESP usefulness, Undetected honesty and patch survival before you buy.',
+    a: 'Player reviews with ratings are on the Reviews page. They cover ESP usefulness, status honesty and patch survival before you buy.',
   },
   {
     q: 'What is your refund policy?',

@@ -4,11 +4,9 @@ import { Navbar } from '../components/Navbar'
 import { SiteFooter } from '../components/SiteFooter'
 import { VideoBg } from '../components/VideoBg'
 import { HeroSearch } from '../components/HeroSearch'
-import { SeoMedia } from '../components/SeoMedia'
 import { BLOGS, blogPath } from '../data/blogs'
 import { guidePath } from '../data/games'
 import { SITE_HOST } from '../data/site'
-import { PAGE_MEDIA } from '../data/media'
 
 type ForumsPageProps = {
   initialQuery?: string
@@ -49,7 +47,7 @@ export function ForumsPage({ initialQuery = '' }: ForumsPageProps) {
               </h1>
               <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/70">
                 Setup threads for DayZ Cheats — features, hotkeys, complete setup,
-                disable antivirus, how to load, and Undetected status before you checkout.
+                disable antivirus, how to load, and live BattlEye status before you checkout.
               </p>
               <div className="relative z-50 mt-7">
                 <HeroSearch
@@ -74,7 +72,7 @@ export function ForumsPage({ initialQuery = '' }: ForumsPageProps) {
                 <p className="text-xs uppercase tracking-wider text-white/45">Product</p>
                 <h2 className="mt-1 text-xl font-semibold text-white">DayZ Cheats</h2>
                 <p className="mt-2 max-w-xl text-sm text-white/55">
-                  Buy undetected ESP, wallhack & silent aim Aimbot for DayZ Standalone — live status
+                  Buy ESP, wallhack & silent aim Aimbot for DayZ Standalone — live BattlEye status
                   before checkout.
                 </p>
               </div>
@@ -85,8 +83,6 @@ export function ForumsPage({ initialQuery = '' }: ForumsPageProps) {
                 Buy DayZ Cheats
               </a>
             </div>
-
-            <SeoMedia media={PAGE_MEDIA.forums} className="mb-10" />
 
             <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
               <h2 className="text-xl font-semibold tracking-tight text-white">
