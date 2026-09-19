@@ -130,7 +130,7 @@ export function HomePage() {
                   <div className="icon-well mb-4">
                     <Icon className="h-[18px] w-[18px]" strokeWidth={1.75} />
                   </div>
-                  <h3 className="text-sm font-semibold text-white">{label}</h3>
+                  <p className="text-sm font-semibold text-white">{label}</p>
                   <p className="mt-2 flex-1 text-sm leading-relaxed text-white/55">{desc}</p>
                 </div>
               ))}
@@ -174,9 +174,9 @@ export function HomePage() {
                   className="page-card group flex h-full flex-col rounded-2xl p-5 sm:p-6"
                 >
                   <p className="text-xs uppercase tracking-wider text-white/45">{post.tag}</p>
-                  <h3 className="mt-2 text-lg font-semibold tracking-tight text-white">
+                  <p className="mt-2 text-lg font-semibold tracking-tight text-white">
                     {post.title}
-                  </h3>
+                  </p>
                   <p className="mt-2 flex-1 text-sm leading-relaxed text-white/55">
                     {post.excerpt}
                   </p>
@@ -193,7 +193,7 @@ export function HomePage() {
 
             <div className="page-card mt-8 flex flex-col gap-4 rounded-2xl p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
               <div>
-                <h3 className="text-lg font-semibold text-white">DayZ Cheats product</h3>
+                <p className="text-lg font-semibold text-white">DayZ Cheats product</p>
                 <p className="mt-1 text-sm text-white/55">
                   Detailed features · BattlEye status · price · checkout
                 </p>
@@ -264,7 +264,7 @@ export function HomePage() {
                 </p>
               </div>
               <CheckoutLink className="cta-gradient mt-8 inline-flex w-full items-center justify-center rounded-full px-6 py-3.5 text-sm font-medium text-white transition-opacity hover:opacity-90 sm:w-fit">
-                Buy DayZ Cheats
+                Get DayZ Cheats license
               </CheckoutLink>
             </div>
           </div>
@@ -273,21 +273,11 @@ export function HomePage() {
         <FaqSection
           id="faq"
           heading={HOME_HEADINGS.h2Faq}
-          intro="Pre-purchase answers about BattlEye status, Aimbot and ESP, server support, delivery and checkout."
+          intro="BattlEye status, Aimbot and ESP, servers, delivery and checkout — before you buy."
           items={HOME_FAQS}
+          moreHref="/faq"
+          moreLabel="Full FAQ →"
         />
-
-        <div className="page-x pb-10">
-          <div className="mx-auto max-w-6xl">
-            <a
-              href="/faq"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-white hover:text-white/80"
-            >
-              Full FAQ page
-              <ArrowRight className="h-4 w-4" strokeWidth={1.75} />
-            </a>
-          </div>
-        </div>
 
         <SiteFooter currentPath="/" />
       </div>

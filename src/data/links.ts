@@ -65,19 +65,19 @@ export const SITE_PAGE_LINKS = [
 ] as const
 
 export const SITE_GUIDE_LINKS = [
-  { label: 'Features list guide', to: blogPath('features-list') },
-  { label: 'Aimbot settings guide', to: blogPath('aimbot-settings') },
-  { label: 'ESP & wallhack guide', to: blogPath('esp-wallhack-guide') },
-  { label: 'Radar hack guide', to: blogPath('radar-hack-guide') },
-  { label: 'Hotkeys guide', to: blogPath('hotkeys') },
-  { label: 'Complete setup guide', to: blogPath('complete-setup') },
-  { label: 'Windows setup guide', to: blogPath('windows-setup') },
-  { label: 'Antivirus exclusion guide', to: blogPath('disable-antivirus') },
+  { label: 'Features checklist', to: blogPath('features-list') },
+  { label: 'Aimbot settings', to: blogPath('aimbot-settings') },
+  { label: 'ESP & wallhack', to: blogPath('esp-wallhack-guide') },
+  { label: 'Radar hack', to: blogPath('radar-hack-guide') },
+  { label: 'Hotkeys', to: blogPath('hotkeys') },
+  { label: 'Complete setup', to: blogPath('complete-setup') },
+  { label: 'Windows setup', to: blogPath('windows-setup') },
+  { label: 'Antivirus exclusions', to: blogPath('disable-antivirus') },
   { label: 'Stream-proof setup', to: blogPath('stream-proof-setup') },
-  { label: 'BattlEye status guide', to: blogPath('battleye-status') },
-  { label: 'Survival & loot run guide', to: blogPath('raid-play-guide') },
-  { label: 'Loader errors guide', to: blogPath('loader-errors') },
-  { label: 'Status checklist guide', to: blogPath('undetected-status') },
+  { label: 'BattlEye status', to: blogPath('battleye-status') },
+  { label: 'Survival & loot', to: blogPath('raid-play-guide') },
+  { label: 'Loader errors', to: blogPath('loader-errors') },
+  { label: 'Status checklist', to: blogPath('undetected-status') },
 ] as const
 
 const CHECKOUT_HOST = ['za', 'deyo', '.com'].join('')

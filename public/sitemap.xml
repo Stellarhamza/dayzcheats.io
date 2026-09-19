@@ -346,11 +346,6 @@
       <image:title>DayZ Cheats Reviews Open Graph</image:title>
       <image:caption>Google preview image for DayZ cheats reviews.</image:caption>
     </image:image>
-    <image:image>
-      <image:loc>https://dayzcheats.io/media/dayz-esp-gameplay.gif</image:loc>
-      <image:title>DayZ Cheats Review Artwork</image:title>
-      <image:caption>Artwork accompanying verified DayZ cheats buyer reviews.</image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://dayzcheats.io/faq</loc>
@@ -364,11 +359,6 @@
       <image:title>DayZ Cheats FAQ Open Graph</image:title>
       <image:caption>Google preview image for the DayZ Cheats FAQ.</image:caption>
     </image:image>
-    <image:image>
-      <image:loc>https://dayzcheats.io/media/dayz-menu.gif</image:loc>
-      <image:title>DayZ Cheats FAQ Artwork</image:title>
-      <image:caption>Product artwork accompanying pre-purchase DayZ cheats answers.</image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://dayzcheats.io/support</loc>
@@ -381,11 +371,6 @@
       <image:loc>https://dayzcheats.io/og/support.jpg</image:loc>
       <image:title>DayZ Cheats Support Open Graph</image:title>
       <image:caption>Google preview image for DayZ Cheats support.</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://dayzcheats.io/media/dayz-esp-gameplay.gif</image:loc>
-      <image:title>DayZ Cheats Support Artwork</image:title>
-      <image:caption>Artwork accompanying DayZ loader and delivery support.</image:caption>
     </image:image>
   </url>
   <url>

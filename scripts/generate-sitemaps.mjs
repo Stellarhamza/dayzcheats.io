@@ -278,11 +278,6 @@ function imagesForPath(path, games, forums) {
         title: 'DayZ Cheats Reviews Open Graph',
         caption: 'Google preview image for DayZ cheats reviews.',
       },
-      {
-        src: ESP,
-        title: 'DayZ Cheats Review Artwork',
-        caption: 'Artwork accompanying verified DayZ cheats buyer reviews.',
-      },
     ]
   }
   if (path === '/faq') {
@@ -292,11 +287,6 @@ function imagesForPath(path, games, forums) {
         title: 'DayZ Cheats FAQ Open Graph',
         caption: 'Google preview image for the DayZ Cheats FAQ.',
       },
-      {
-        src: MENU,
-        title: 'DayZ Cheats FAQ Artwork',
-        caption: 'Product artwork accompanying pre-purchase DayZ cheats answers.',
-      },
     ]
   }
   if (path === '/support') {
@@ -305,11 +295,6 @@ function imagesForPath(path, games, forums) {
         src: '/og/support.jpg',
         title: 'DayZ Cheats Support Open Graph',
         caption: 'Google preview image for DayZ Cheats support.',
-      },
-      {
-        src: ESP,
-        title: 'DayZ Cheats Support Artwork',
-        caption: 'Artwork accompanying DayZ loader and delivery support.',
       },
     ]
   }

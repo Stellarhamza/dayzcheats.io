@@ -115,7 +115,7 @@ export const SEO = {
 } as const satisfies Record<string, PageSeo>
 
 export const HOME_HEADINGS = {
-  h1: 'DayZ Cheats — Aimbot, ESP & Hacks',
+  h1: 'DayZ Cheats — DayZ Cheat Aimbot, ESP & Hacks',
   h2Features: 'DayZ Aimbot, ESP, loot ESP & radar hack',
   h2Featured: 'DayZ ESP and silent aim Aimbot',
   h2About: 'Clear BattlEye status before you buy DayZ cheats',

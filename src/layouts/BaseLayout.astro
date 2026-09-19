@@ -35,6 +35,12 @@ const robots =
   'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
 const jsonLd = buildPageJsonLd(seo, jsonLdExtra)
 const isHome = seo.path === '/' || seo.path === ''
+/** Preload OG only when it supports LCP (hero/product/forums) — not text pages */
+const preloadOg =
+  isHome ||
+  seo.path === '/dayz-cheats' ||
+  seo.path === '/forums' ||
+  seo.path.startsWith('/forums/')
 ---
 
 <!doctype html>
@@ -48,7 +54,9 @@ const isHome = seo.path === '/' || seo.path === ''
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/favicon.svg" />
 
-    <link rel="preload" as="image" href={imageUrl} type={imageType} fetchpriority="high" />
+    {preloadOg ? (
+      <link rel="preload" as="image" href={imageUrl} type={imageType} fetchpriority="high" />
+    ) : null}
     {isHome ? (
       <link
         rel="preload"
@@ -67,8 +75,9 @@ const isHome = seo.path === '/' || seo.path === ''
     <meta name="author" content={SITE_NAME} />
     <link rel="canonical" href={url} />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-    <link rel="alternate" hreflang="en" href={url} />
-    <link rel="alternate" hreflang="x-default" href={url} />
+    {/* Self-referential hreflang (en + x-default) — required by Seobility / Google */}
+    <link rel="alternate" href={url} hreflang="en" />
+    <link rel="alternate" href={url} hreflang="x-default" />
     {/* Legacy crawlers still read image_src for result thumbnails */}
     <link rel="image_src" href={imageUrl} />
 

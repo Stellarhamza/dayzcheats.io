@@ -90,9 +90,10 @@ export function webPageNode(seo: PageSeo) {
     inLanguage: 'en',
   } as Record<string, unknown>
   const hasVisibleImage =
-    ['/', '/dayz-cheats', '/forums', '/reviews', '/faq', '/support'].includes(seo.path) ||
-    seo.path.startsWith('/forums/')
-  if (hasVisibleImage) {
+    ['/', '/dayz-cheats', '/forums'].includes(seo.path) || seo.path.startsWith('/forums/')
+  // Text pages (faq/support/reviews) still expose OG as WebPage.image for social crawlers
+  const hasOgImage = Boolean(seo.image)
+  if (hasVisibleImage || hasOgImage) {
     page.primaryImageOfPage = {
       '@type': 'ImageObject',
       url: absoluteAsset(img),
@@ -119,17 +120,17 @@ export function productCoreJsonLd() {
       'DayZ Radar Hack',
     ],
     description: SITE_PURPOSE,
-    url: `${SITE_URL}/`,
+    url: `${SITE_URL}/dayz-cheats`,
     image: [
-      absoluteAsset('/og/home.jpg'),
       absoluteAsset('/og/dayz-cheats.jpg'),
-      absoluteAsset(PAGE_MEDIA.home.image),
+      absoluteAsset('/og/home.jpg'),
       absoluteAsset(PAGE_MEDIA.product.image),
+      absoluteAsset(PAGE_MEDIA.home.image),
     ],
     brand: { '@type': 'Brand', name: SITE_NAME },
     manufacturer: { '@id': `${SITE_URL}/#organization` },
     category: 'PC game software',
-    offers: baseOffer(`${SITE_URL}/`, 'https://schema.org/InStock'),
+    offers: baseOffer(`${SITE_URL}/dayz-cheats`, 'https://schema.org/InStock'),
     subjectOf: {
       '@type': 'VideoObject',
       name: 'DayZ Cheats Aimbot and ESP preview',
@@ -180,6 +181,7 @@ export function productReviewsJsonLd() {
   const aggregate = getReviewsAggregate()
   return {
     ...productCoreJsonLd(),
+    url: `${SITE_URL}/dayz-cheats`,
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: aggregate.ratingValue,

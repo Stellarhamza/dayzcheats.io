@@ -8,28 +8,34 @@ import { blogPath } from '../data/blogs'
 
 export function SupportPage() {
   return (
-    <div className="min-h-screen overflow-x-hidden bg-z-bg text-white">
-      <div className="border-b border-z-soft/15 bg-z-bg/90 backdrop-blur-xl">
+    <div className="content-surface min-h-screen overflow-x-hidden text-white">
+      <div className="content-surface-nav">
         <Navbar />
       </div>
 
-      <main className="support-surface">
+      <main>
         <section className="page-x pt-12 sm:pt-16">
           <div className="mx-auto max-w-3xl">
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#5b21b6]/70">
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-z-soft/80">
               {SITE_NAME} · Help
             </p>
-            <h1 className="mt-3 text-3xl font-semibold tracking-tight text-[#1c1728] sm:text-5xl">
+            <h1 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-5xl">
               DayZ Cheats Support
             </h1>
-            <p className="mt-4 text-base leading-relaxed text-[#3d3554]/85">{SUPPORT_INTRO}</p>
-            <p className="mt-3 text-sm text-[#3d3554]/70">
+            <p className="mt-4 text-base leading-relaxed text-white/60">{SUPPORT_INTRO}</p>
+            <p className="mt-3 text-sm text-white/45">
               Setup guides live in the{' '}
-              <a href="/forums" className="support-link">
+              <a
+                href="/forums"
+                className="text-z-soft underline-offset-2 hover:text-white hover:underline"
+              >
                 forums
               </a>
               . Start with{' '}
-              <a href={blogPath('complete-setup')} className="support-link">
+              <a
+                href={blogPath('complete-setup')}
+                className="text-z-soft underline-offset-2 hover:text-white hover:underline"
+              >
                 complete setup
               </a>{' '}
               before opening a ticket.
@@ -39,21 +45,21 @@ export function SupportPage() {
 
         <section className="page-x py-10 sm:py-12">
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-lg font-semibold tracking-tight text-[#1c1728] sm:text-xl">
+            <h2 className="text-lg font-semibold tracking-tight text-white sm:text-xl">
               How we help
             </h2>
             <ol className="mt-6 space-y-6">
               {SUPPORT_TOPICS.map((topic, i) => (
                 <li key={topic.heading} className="flex gap-4 sm:gap-5">
                   <span
-                    className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#b040fb]/15 text-sm font-semibold text-[#5b21b6]"
+                    className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-z-soft/25 bg-z-accent/15 text-sm font-semibold text-z-soft"
                     aria-hidden
                   >
                     {i + 1}
                   </span>
                   <div className="min-w-0 pt-0.5">
-                    <h3 className="text-base font-semibold text-[#1c1728]">{topic.heading}</h3>
-                    <ul className="mt-2 space-y-2 text-sm leading-relaxed text-[#3d3554]/85">
+                    <h3 className="text-base font-semibold text-white">{topic.heading}</h3>
+                    <ul className="mt-2 space-y-2 text-sm leading-relaxed text-white/55">
                       {topic.body.map((line) => (
                         <li key={line.slice(0, 48)}>{line}</li>
                       ))}
@@ -69,49 +75,49 @@ export function SupportPage() {
           <div className="mx-auto max-w-3xl">
             <h2
               id="support-faq-heading"
-              className="mb-6 text-lg font-semibold tracking-tight text-[#1c1728] sm:text-xl"
+              className="mb-6 text-lg font-semibold tracking-tight text-white sm:text-xl"
             >
               Support FAQ
             </h2>
-            <div className="support-divider divide-y border-y">
+            <div className="divide-y divide-white/10 border-y border-white/10">
               {SUPPORT_FAQS.map((item) => (
                 <details key={item.q} className="group py-1">
                   <summary className="flex cursor-pointer list-none items-start justify-between gap-4 py-5 text-left outline-none marker:content-none [&::-webkit-details-marker]:hidden">
-                    <h3 className="text-sm font-semibold leading-snug text-[#1c1728] sm:text-base">
+                    <span className="text-sm font-semibold leading-snug text-white sm:text-base">
                       {item.q}
-                    </h3>
+                    </span>
                     <ChevronDown
-                      className="mt-0.5 h-4 w-4 shrink-0 text-[#5b21b6]/50 transition-transform duration-200 group-open:rotate-180"
+                      className="mt-0.5 h-4 w-4 shrink-0 text-white/40 transition-transform duration-200 group-open:rotate-180"
                       strokeWidth={1.75}
                       aria-hidden
                     />
                   </summary>
-                  <p className="pb-5 pr-8 text-sm leading-relaxed text-[#3d3554]/85">{item.a}</p>
+                  <p className="pb-5 pr-8 text-sm leading-relaxed text-white/55">{item.a}</p>
                 </details>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="page-x border-t border-[#4c1d95]/12 py-14 sm:py-16">
-          <div className="mx-auto flex max-w-3xl flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <h2 className="text-xl font-semibold tracking-tight text-[#1c1728] sm:text-2xl">
+        <section className="page-x border-t border-white/10 py-14 sm:py-16">
+          <div className="mx-auto flex max-w-3xl flex-col gap-5 sm:flex-row sm:items-end sm:justify-between sm:gap-8">
+            <div className="min-w-0 flex-1">
+              <h2 className="text-xl font-semibold tracking-tight text-white sm:text-2xl">
                 Need help now?
               </h2>
-              <p className="mt-2 text-sm text-[#3d3554]/75">
+              <p className="mt-2 max-w-md text-sm text-white/50">
                 Confirm BattlEye status on the product page, then buy or reopen your order for
                 delivery support.
               </p>
             </div>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex shrink-0 flex-wrap items-center gap-3">
               <a
                 href="/dayz-cheats"
-                className="inline-flex items-center justify-center rounded-full border border-[#5b21b6]/25 bg-white/70 px-5 py-2.5 text-sm font-semibold text-[#1c1728] shadow-sm backdrop-blur-sm transition-colors hover:bg-white"
+                className="inline-flex h-11 items-center justify-center rounded-full border border-z-soft/35 bg-white/[0.06] px-5 text-sm font-semibold text-white backdrop-blur-xl transition-colors hover:border-z-soft/50 hover:bg-white/[0.1]"
               >
                 Product details
               </a>
-              <CheckoutLink className="cta-gradient inline-flex items-center justify-center rounded-full px-6 py-2.5 text-sm font-semibold text-white">
+              <CheckoutLink className="cta-gradient inline-flex h-11 items-center justify-center rounded-full px-6 text-sm font-semibold text-white">
                 Buy DayZ Cheats
               </CheckoutLink>
             </div>

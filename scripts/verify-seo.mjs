@@ -49,10 +49,16 @@ for (const file of files) {
     if (!html.includes(`rel="canonical" href="${canonicalUrl}"`)) {
       fail(`${page}: missing self-referencing canonical ${canonicalUrl}`)
     }
-    if (!html.includes(`hreflang="en" href="${canonicalUrl}"`)) {
+    const hasHreflangEn =
+      html.includes(`hreflang="en" href="${canonicalUrl}"`) ||
+      html.includes(`href="${canonicalUrl}" hreflang="en"`)
+    const hasHreflangDefault =
+      html.includes(`hreflang="x-default" href="${canonicalUrl}"`) ||
+      html.includes(`href="${canonicalUrl}" hreflang="x-default"`)
+    if (!hasHreflangEn) {
       fail(`${page}: missing self-referencing hreflang=en`)
     }
-    if (!html.includes(`hreflang="x-default" href="${canonicalUrl}"`)) {
+    if (!hasHreflangDefault) {
       fail(`${page}: missing self-referencing hreflang=x-default`)
     }
   }
@@ -71,14 +77,7 @@ const product = readFileSync(join(dist, 'dayz-cheats', 'index.html'), 'utf8')
 const reviews = readFileSync(join(dist, 'reviews', 'index.html'), 'utf8')
 const faq = readFileSync(join(dist, 'faq', 'index.html'), 'utf8')
 const support = readFileSync(join(dist, 'support', 'index.html'), 'utf8')
-const importantPages = [
-  home,
-  product,
-  reviews,
-  faq,
-  support,
-  readFileSync(join(dist, 'forums', 'index.html'), 'utf8'),
-]
+const forums = readFileSync(join(dist, 'forums', 'index.html'), 'utf8')
 
 if (
   !home.includes('<title>DayZ Cheats | DayZ Cheat Aimbot, ESP &amp; Hacks</title>')
@@ -111,6 +110,9 @@ if (!reviews.includes('"reviewCount":12') || !reviews.includes('"ratingValue":"4
   fail('Reviews AggregateRating must report 12 reviews averaging 4.6')
 }
 if (support.includes('noindex')) fail('Support page must be indexable')
+if (!forums.includes('"@type":"BreadcrumbList"')) {
+  fail('/forums must expose BreadcrumbList schema')
+}
 function decodeEntities(value = '') {
   return value
     .replaceAll('&amp;', '&')
@@ -156,9 +158,22 @@ for (const file of files) {
     fail(`${page}: missing link rel=image_src for thumbnail crawlers`)
   }
 }
-for (const html of importantPages) {
+for (const [name, html] of [
+  ['home', home],
+  ['product', product],
+  ['forums', forums],
+]) {
   if (!html.includes('/media/dayz-')) {
-    fail('An important indexed page is missing visible DayZ media')
+    fail(`${name}: missing visible DayZ media in page body`)
+  }
+}
+for (const [name, html, og] of [
+  ['reviews', reviews, '/og/reviews.jpg'],
+  ['faq', faq, '/og/faq.jpg'],
+  ['support', support, '/og/support.jpg'],
+]) {
+  if (!html.includes(og)) {
+    fail(`${name}: missing Open Graph image ${og}`)
   }
 }
 if (!product.includes('/videos/dayz-preview.mp4') || !product.includes('/media/dayz-video-thumb.jpg')) {
@@ -204,6 +219,8 @@ const requiredImages = [
   '/og/dayz-cheats.jpg',
   '/og/forums.jpg',
   '/og/reviews.jpg',
+  '/og/faq.jpg',
+  '/og/support.jpg',
   '/media/dayz-hero-full.webp',
   '/media/dayz-cover.webp',
   '/media/dayz-esp-gameplay.gif',

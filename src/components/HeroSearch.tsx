@@ -119,7 +119,7 @@ export function HeroSearch({
     <div ref={rootRef} className={`relative z-50 w-full ${className || 'max-w-xl'}`.trim()}>
       <form
         onSubmit={submit}
-        className="relative z-50 flex w-full max-w-full flex-col gap-2.5 sm:flex-row sm:items-center sm:gap-0 sm:rounded-full sm:bg-white sm:p-1 sm:shadow-[0_8px_32px_rgba(176,64,251,0.28)]"
+        className="relative z-50 flex w-full max-w-full flex-col gap-2.5 sm:flex-row sm:items-center sm:gap-0 sm:rounded-full sm:bg-white sm:p-1"
         role="search"
       >
         <div className="flex w-full min-w-0 items-center gap-2 rounded-full bg-white px-3.5 py-2.5 sm:flex-1 sm:rounded-none sm:bg-transparent sm:px-3.5 sm:py-1.5">
@@ -153,7 +153,7 @@ export function HeroSearch({
         <ul
           id={listId}
           role="listbox"
-          className="search-results absolute left-0 right-0 top-full z-[60] mt-2 max-h-72 overflow-y-auto rounded-2xl border border-z-soft/20 bg-z-card py-2 shadow-glow"
+          className="search-results absolute left-0 right-0 top-full z-[60] mt-2 max-h-72 overflow-y-auto rounded-2xl border border-z-soft/20 bg-z-card py-2"
         >
           {matches.map((game, i) => (
             <li key={game.slug} role="option" aria-selected={i === active}>

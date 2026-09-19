@@ -21,9 +21,6 @@ export default {
         geist: ['Geist', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
         silkscreen: ['Silkscreen', 'cursive'],
       },
-      boxShadow: {
-        glow: '0 0 40px rgba(176, 64, 251, 0.25)',
-      },
     },
   },
   plugins: [],

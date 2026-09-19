@@ -7,21 +7,21 @@ import { SITE_NAME } from '../data/site'
 
 export function FaqPage() {
   return (
-    <div className="min-h-screen overflow-x-hidden bg-z-bg text-white">
-      <div className="border-b border-z-soft/15 bg-z-bg/90 backdrop-blur-xl">
+    <div className="content-surface min-h-screen overflow-x-hidden text-white">
+      <div className="content-surface-nav">
         <Navbar />
       </div>
 
-      <main className="page-body">
+      <main>
         <section className="page-x pt-12 sm:pt-16">
           <div className="mx-auto max-w-3xl">
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-white/45">
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-z-soft/80">
               {SITE_NAME}
             </p>
             <h1 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-5xl">
               DayZ Cheats FAQ
             </h1>
-            <p className="mt-4 text-base leading-relaxed text-white/55">
+            <p className="mt-4 text-base leading-relaxed text-white/60">
               BattlEye status, ESP, Aimbot, radar hack, servers, buying, loading, support and
               refunds — straight answers before you checkout.
             </p>
@@ -41,9 +41,9 @@ export function FaqPage() {
               {SITE_FAQS.map((item) => (
                 <details key={item.q} className="group faq-item py-1">
                   <summary className="flex cursor-pointer list-none items-start justify-between gap-4 py-5 text-left outline-none marker:content-none [&::-webkit-details-marker]:hidden">
-                    <h3 className="text-sm font-semibold leading-snug text-white sm:text-base">
+                    <span className="text-sm font-semibold leading-snug text-white sm:text-base">
                       {item.q}
-                    </h3>
+                    </span>
                     <ChevronDown
                       className="mt-0.5 h-4 w-4 shrink-0 text-white/40 transition-transform duration-200 group-open:rotate-180"
                       strokeWidth={1.75}
@@ -58,31 +58,31 @@ export function FaqPage() {
         </section>
 
         <section className="page-x border-t border-white/10 py-14 sm:py-16">
-          <div className="mx-auto flex max-w-3xl flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-            <div>
+          <div className="mx-auto flex max-w-3xl flex-col gap-5 sm:flex-row sm:items-end sm:justify-between sm:gap-8">
+            <div className="min-w-0 flex-1">
               <h2 className="text-xl font-semibold tracking-tight text-white sm:text-2xl">
                 Still need help?
               </h2>
-              <p className="mt-2 text-sm text-white/50">
+              <p className="mt-2 max-w-md text-sm text-white/50">
                 Open support for load help, or buy when BattlEye status is clear.
               </p>
             </div>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex shrink-0 flex-wrap items-center gap-3">
               <a
                 href="/support"
-                className="inline-flex items-center justify-center rounded-full border border-z-soft/35 bg-[rgba(28,22,48,0.88)] px-5 py-2.5 text-sm font-semibold text-white backdrop-blur-xl transition-colors hover:border-z-soft/50"
+                className="inline-flex h-11 items-center justify-center rounded-full border border-z-soft/35 bg-white/[0.06] px-5 text-sm font-semibold text-white backdrop-blur-xl transition-colors hover:border-z-soft/50 hover:bg-white/[0.1]"
               >
                 Support
               </a>
-              <CheckoutLink className="cta-gradient inline-flex items-center justify-center rounded-full px-6 py-2.5 text-sm font-semibold text-white">
+              <CheckoutLink className="cta-gradient inline-flex h-11 items-center justify-center rounded-full px-6 text-sm font-semibold text-white">
                 Buy DayZ Cheats
               </CheckoutLink>
             </div>
           </div>
         </section>
-
-        <SiteFooter currentPath="/faq" />
       </main>
+
+      <SiteFooter currentPath="/faq" />
     </div>
   )
 }

@@ -20,7 +20,7 @@ import { DayZPreview } from '../components/DayZPreview'
 
 function ProductPurchaseCard({ game }: { game: Game }) {
   return (
-    <div className="page-card overflow-hidden rounded-2xl sm:rounded-3xl">
+    <div className="overflow-hidden rounded-2xl border border-z-soft/15 bg-[rgba(20,16,31,0.95)] sm:rounded-3xl">
       <CheckoutLink className="block" aria-label="Buy DayZ Cheats">
         <GameCover
           slug={game.slug}
@@ -74,12 +74,12 @@ export function GameProductPage({ guideSlug }: GameProductPageProps) {
   if (!game) return <NotFoundPage />
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-z-bg text-white">
-      <div className="border-b border-z-soft/15 bg-z-bg/90 backdrop-blur-xl">
+    <div className="content-surface min-h-screen overflow-x-hidden text-white">
+      <div className="content-surface-nav">
         <Navbar />
       </div>
 
-      <main className="page-body">
+      <main>
         <section className="page-x py-8 sm:py-12">
           <div className="mx-auto max-w-6xl">
             <nav
@@ -189,9 +189,9 @@ export function GameProductPage({ guideSlug }: GameProductPageProps) {
           intro="Status, features, server support, delivery and load questions before checkout."
           items={PRODUCT_PAGE_FAQS}
         />
-
-        <SiteFooter currentPath="/dayz-cheats" />
       </main>
+
+      <SiteFooter currentPath="/dayz-cheats" />
     </div>
   )
 }

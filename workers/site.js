@@ -63,10 +63,17 @@ export default {
     const assetResponse = await assetsFetch(env, request, url.pathname + url.search)
     const response = withHtmlCharset(assetResponse)
 
-    // Help crawlers + Seobility: advertise preferred host
+    // Help crawlers + Seobility: advertise preferred host + self-canonical
     const headers = new Headers(response.headers)
     if (!headers.has('Strict-Transport-Security')) {
       headers.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload')
+    }
+    const contentType = headers.get('content-type') || ''
+    if (contentType.includes('text/html')) {
+      const canonical = `https://${url.hostname}${url.pathname === '/' ? '/' : url.pathname.replace(/\/$/, '') || '/'}`
+      const existing = headers.get('Link')
+      const linkCanonical = `<${canonical}>; rel="canonical"`
+      headers.set('Link', existing ? `${existing}, ${linkCanonical}` : linkCanonical)
     }
     return new Response(response.body, {
       status: response.status,
