@@ -27,10 +27,10 @@ export const BLOGS: BlogPost[] = [
     slug: 'features-list',
     title: 'DayZ Cheat Features Checklist',
     excerpt:
-      'Checklist of every DayZ cheat module on dayzcheats.io — silent aim, player ESP, loot ESP, wallhack, radar hack and spoofer — before you open checkout from $4.90.',
+      'Checklist of every DayZ cheat module on dayzcheats.io — silent aim, player ESP, loot ESP, wallhack, radar hack and spoofer — before you open checkout from $35.',
     metaTitle: 'DayZ Cheat Features Checklist | Aimbot ESP Radar',
     metaDescription:
-      'DayZ cheat features checklist: silent aim Aimbot, player ESP, loot ESP, wallhack, radar hack and spoofer on dayzcheats.io from $4.90. Compare modules before you buy.',
+      'DayZ cheat features checklist: silent aim Aimbot, player ESP, loot ESP, wallhack, radar hack and spoofer on dayzcheats.io from $35. Compare modules before you buy.',
     searchTerms: 'dayz cheat features checklist dayz cheats aimbot esp wallhack radar hack',
     date: '2026-09-17',
     readMinutes: 8,
@@ -39,7 +39,7 @@ export const BLOGS: BlogPost[] = [
       {
         heading: 'Use this checklist before checkout',
         body: [
-          'Searching “dayz cheats” or “dayz cheat” usually means one question: what is actually included? This guide is the module checklist — not the price page. Open Product details for live BattlEye status and checkout from $4.90.',
+          'Searching “dayz cheats” or “dayz cheat” usually means one question: what is actually included? This guide is the module checklist — not the price page. Open Product details for live BattlEye status and checkout from $35.',
           'DayZ Cheats on dayzcheats.io is a single DayZ Standalone product for Windows PC: one loader, one license, clear-to-load or Updating against BattlEye. Official and many modded private servers are supported when the build allows it.',
         ],
       },
@@ -115,7 +115,7 @@ export const BLOGS: BlogPost[] = [
         heading: 'Save loot-run and PvP configs',
         body: [
           'For quiet gearing, keep Aimbot mild or off and lean on player ESP, loot ESP and radar. For contested military loot, add slight assist without snap behaviour.',
-          'Save a “loot run” and a “PvP” config. Licenses for DayZ cheats start from $4.90 on dayzcheats.io.',
+          'Save a “loot run” and a “PvP” config. Licenses for DayZ cheats start from $35 on dayzcheats.io.',
         ],
       },
     ],
@@ -217,7 +217,7 @@ export const BLOGS: BlogPost[] = [
       {
         heading: 'After a clean load',
         body: [
-          'Buy DayZ Cheats on dayzcheats.io (from $4.90), confirm live BattlEye status, launch DayZ, run the loader, then open the menu with the key in your delivery notes.',
+          'Buy DayZ Cheats on dayzcheats.io (from $35), confirm live BattlEye status, launch DayZ, run the loader, then open the menu with the key in your delivery notes.',
           'If the menu does not open, do not spam keys — contact support with your order ID.',
         ],
       },
@@ -240,7 +240,7 @@ export const BLOGS: BlogPost[] = [
     slug: 'complete-setup',
     title: 'Complete DayZ Cheats Setup',
     excerpt:
-      'Step-by-step DayZ cheats setup: buy from $4.90, antivirus exclusions, load order, enable ESP and Aimbot, save configs, re-check BattlEye.',
+      'Step-by-step DayZ cheats setup: buy from $35, antivirus exclusions, load order, enable ESP and Aimbot, save configs, re-check BattlEye.',
     metaTitle: 'DayZ Cheats Setup Guide | Complete Loader Steps',
     metaDescription:
       'Complete DayZ cheats setup for Windows PC: buy when status is clear, antivirus exclusions, load order, first-run ESP and Aimbot config, then re-check BattlEye after every patch.',
@@ -253,7 +253,7 @@ export const BLOGS: BlogPost[] = [
       {
         heading: '1) Buy and confirm status',
         body: [
-          'Open dayzcheats.io. If status is Updating after a BattlEye patch, wait. If status is clear, checkout from $4.90 and use only the official delivery link.',
+          'Open dayzcheats.io. If status is Updating after a BattlEye patch, wait. If status is clear, checkout from $35 and use only the official delivery link.',
         ],
       },
       {
@@ -402,7 +402,7 @@ export const BLOGS: BlogPost[] = [
         heading: 'Status is part of the product',
         body: [
           'BattlEye updates can invalidate a build overnight. dayzcheats.io shows clear-to-load or Updating so you are not buying a dead loader from a Discord screenshot.',
-          'Licenses start from $4.90 — honest status beats fake always-safe marketing against BattlEye.',
+          'Licenses start from $35 — honest status beats fake always-safe marketing against BattlEye.',
         ],
       },
       {
@@ -433,7 +433,7 @@ export const BLOGS: BlogPost[] = [
       'Short BattlEye status checklist for DayZ cheats — confirm clear-to-load before checkout and before every post-patch session.',
     metaTitle: 'BattlEye Status Checklist | Before You Buy DayZ Cheats',
     metaDescription:
-      'BattlEye status checklist for DayZ cheats: confirm clear-to-load before checkout and before every post-patch session. Wait when Updating; buy from $4.90 when status is live.',
+      'BattlEye status checklist for DayZ cheats: confirm clear-to-load before checkout and before every post-patch session. Wait when Updating; buy from $35 when status is live.',
     searchTerms: 'dayz cheats status checklist before buy load battleye undetected dayz cheats',
     date: '2026-09-17',
     readMinutes: 8,
@@ -442,7 +442,7 @@ export const BLOGS: BlogPost[] = [
       {
         heading: 'Before checkout',
         body: [
-          'Confirm clear-to-load status on the homepage or product page. If Updating, wait or read Refunds for extended downtime. Prices start from $4.90 when status is live.',
+          'Confirm clear-to-load status on the homepage or product page. If Updating, wait or read Refunds for extended downtime. Prices start from $35 when status is live.',
         ],
       },
       {

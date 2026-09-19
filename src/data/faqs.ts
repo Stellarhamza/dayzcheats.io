@@ -11,7 +11,7 @@ export const SITE_FAQS: FaqItem[] = [
   },
   {
     q: 'How much do DayZ cheats cost?',
-    a: `DayZ cheats start from $4.90 for short access. Longer licenses cost more. Always confirm live BattlEye status and the price on dayzcheats.io before checkout.`,
+    a: `DayZ cheats start from $35 for short access. Longer licenses cost more. Always confirm live BattlEye status and the price on dayzcheats.io before checkout.`,
   },
   {
     q: 'Do you sell DayZ hacks for other games?',
@@ -43,7 +43,7 @@ export const SITE_FAQS: FaqItem[] = [
   },
   {
     q: 'How do I buy DayZ cheats?',
-    a: 'Start on the homepage, confirm live BattlEye status and review the price from $4.90. Open Product details for compatibility and features, then continue to checkout for digital delivery.',
+    a: 'Start on the homepage, confirm live BattlEye status and review the price from $35. Open Product details for compatibility and features, then continue to checkout for digital delivery.',
   },
   {
     q: 'How do I load DayZ Cheats?',

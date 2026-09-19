@@ -28,7 +28,7 @@ export const SITE_ABOUT = [
 ] as const
 
 /** Offer price shown on product schema + purchase UI. */
-export const PRODUCT_PRICE_USD = '4.90'
+export const PRODUCT_PRICE_USD = '35'
 
 export const SEO_REGIONS = [
   { hreflang: 'en', label: 'English' },
@@ -55,7 +55,7 @@ export const SEO = {
   home: {
     title: 'DayZ Cheats | DayZ Cheat Aimbot, ESP & Hacks',
     description:
-      'Buy DayZ cheats for DayZ Standalone — silent aim Aimbot, player and loot ESP, wallhack and radar hack from $4.90. Check live BattlEye status, then checkout.',
+      'Buy DayZ cheats for DayZ Standalone — silent aim Aimbot, player and loot ESP, wallhack and radar hack from $35. Check live BattlEye status, then checkout.',
     path: '/',
     ogType: 'website',
     image: PAGE_OG.home,
@@ -105,7 +105,7 @@ export const SEO = {
   product: {
     title: 'DayZ Cheats Price & Checkout | Aimbot, ESP, Radar',
     description:
-      'DayZ cheats price and checkout — silent aim Aimbot, player ESP, loot ESP, wallhack, radar hack, spoofer and live BattlEye status from $4.90.',
+      'DayZ cheats price and checkout — silent aim Aimbot, player ESP, loot ESP, wallhack, radar hack, spoofer and live BattlEye status from $35.',
     path: '/dayz-cheats',
     ogType: 'product',
     image: PAGE_OG.product,
